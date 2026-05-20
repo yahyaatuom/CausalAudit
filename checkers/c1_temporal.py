@@ -1,4 +1,3 @@
-# checkers/c1_temporal.py
 import re
 from datetime import datetime
 
