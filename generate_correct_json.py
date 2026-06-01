@@ -2,9 +2,10 @@
 import pandas as pd
 import json
 import os
+from pathlib import Path
 
-# Use the full path to your Excel file
-excel_path = r"C:\Users\Dell\Desktop\paper 2 of 3\scenarios_perturbed.xlsx"
+# Dynamic path to your Excel file (assuming it's in the same folder)
+excel_path = Path(__file__).parent / "scenarios_perturbed.xlsx"
 df = pd.read_excel(excel_path, sheet_name=0)
 
 scenarios = []
