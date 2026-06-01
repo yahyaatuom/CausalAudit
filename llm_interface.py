@@ -1,15 +1,14 @@
+# llm_interface.py
 import os
 import time
+from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
 
-# Optional: uncomment if you want retry logic
-# from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-
-# Force load from the correct path
-env_path = r"C:\Users\Dell\Desktop\Causal-Guard\.env"
+# Dynamic path detection — works on ANY computer
+# Looks for .env in the same directory as this file
+env_path = Path(__file__).parent / ".env"
 load_dotenv(env_path)
-
 
 class GroqLLM:
     def __init__(self, model="deepseek-ai/deepseek-r1-distill-qwen-7b"):
@@ -17,10 +16,11 @@ class GroqLLM:
         self.base_url = "https://integrate.api.nvidia.com/v1"
         self.model = model
         self.temperature = 0
-        self.max_retries = 2  # Add retry count
+        self.max_retries = 2
         
         print(f"DEBUG: API Key loaded: {'Yes' if self.api_key else 'No'}")
         print(f"DEBUG: Using model: {self.model}")
+        print(f"DEBUG: Looking for .env at: {env_path}")
         
         if not self.api_key:
             print("⚠️ Error: NVIDIA_API_KEY not found. Check your .env file.")
