@@ -250,11 +250,12 @@ async def validate(request: ValidateRequest, background_tasks: BackgroundTasks):
     latency_ms = int((time.time() - start_time) * 1000)
 
     # Step 6: Save to database (background)
-    #background_tasks.add_task(
-        #save_to_db, request_id, request.incident, explanation,
-        #model_used, results, admissible, latency_ms
-    #)
-    pass  # DB logging disabled for now
+    serializable_results = {k: v.dict() for k, v in results.items()}
+
+    background_tasks.add_task(
+        save_to_db, request_id, request.incident, explanation,
+        model_used, serializable_results, admissible, latency_ms
+)
 
     # Step 7: Return response
     return ValidateResponse(
