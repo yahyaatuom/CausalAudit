@@ -79,7 +79,7 @@ async def lifespan(app: FastAPI):
     app.state.checkers = {
         'C1': C1TemporalChecker(),
         'C2': C2SpatialChecker(),
-        # 'C3': C3MechanismChecker(),
+        'C3': C3MechanismChecker(),
         'C4': C4SpuriousChecker(),
         'C5': C5CompletenessChecker()
     }
