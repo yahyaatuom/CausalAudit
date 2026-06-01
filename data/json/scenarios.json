@@ -1,0 +1,2152 @@
+{
+  "metadata": {
+    "scenario_count": 195
+  },
+  "scenarios": [
+    {
+      "id": "WD-01",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 6:42 PM on Thursday, a five-vehicle chain-reaction collision occurred on the Sheikh Zayed Road southbound near Al Khail interchange during rush hour. Heavy rain reduced visibility to 150 m and caused standing water on the right lane. A delivery van hydroplaned, striking the central barrier and triggering rear-end impacts involving two SUVs, a sedan, and a taxi. Three minor injuries reported. Right two lanes closed for 2 hours 10 minutes for debris removal and barrier repair. Congestion extended 4.8 km northbound. No nearby events; normal Thursday evening traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Hydroplaning due to standing water",
+        "mechanism": "Heavy rain â†’ standing water â†’ tire loses contact â†’ directional control loss â†’ initial impact â†’ chain reaction"
+      }
+    },
+    {
+      "id": "WD-01a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 11:15 AM light traffic on Thursday, a five-vehicle chain-reaction collision occurred on the Sheikh Zayed Road southbound near Al Khail interchange during rush hour. Heavy rain reduced visibility to 150 m and caused standing water on the right lane. A delivery van hydroplaned, striking the central barrier and triggering rear-end impacts involving two SUVs, a sedan, and a taxi. Three minor injuries reported. Right two lanes closed for 2 hours 10 minutes for debris removal and barrier repair. Congestion extended 4.8 km northbound. No nearby events; normal Thursday evening traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Hydroplaning due to standing water",
+        "mechanism": "Heavy rain â†’ standing water â†’ tire loses contact â†’ directional control loss â†’ initial impact â†’ chain reaction"
+      }
+    },
+    {
+      "id": "WD-01b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 6:42 PM on Thursday, a five-vehicle chain-reaction collision occurred on the Sheikh Zayed Road southbound near Al Khail interchange during rush hour. Heavy rain reduced visibility to 150 m and caused standing water on the right lane. A luxury SUVs involved hydroplaned, striking the central barrier and triggering rear-end impacts involving two SUVs, a sedan, and a taxi. Three minor injuries reported. Right two lanes closed for 2 hours 10 minutes for debris removal and barrier repair. Congestion extended 4.8 km northbound. No nearby events; normal Thursday evening traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Hydroplaning due to standing water",
+        "mechanism": "Heavy rain â†’ standing water â†’ tire loses contact â†’ directional control loss â†’ initial impact â†’ chain reaction"
+      }
+    },
+    {
+      "id": "WD-03",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 3:18 PM on Friday, a high-sided empty flatbed truck overturned on Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit due to gusts exceeding 65 km/h. Strong westerly crosswind combined with dry but dusty conditions. Truck struck guardrail, spilled steel coils across three lanes. No injuries; driver self-extricated. Highway reduced to one lane until 7:05 PM for recovery and cleanup. Delays exceeded 90 minutes in both directions. Weekend shopping traffic noted nearby.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Aerodynamic instability in crosswind",
+        "mechanism": "Crosswind gusts â†’ lateral force on vehicle side â†’ torque exceeds stability â†’ rollover â†’ guardrail impact"
+      }
+    },
+    {
+      "id": "WD-03a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 3:18 PM on Friday, a high-sided empty flatbed truck overturned on Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit due to gusts exceeding 65 km/h. Strong westerly crosswind combined with dry but dusty conditions. Truck struck guardrail, spilled steel coils across three lanes. No injuries; driver self-extricated. Highway reduced to one lane until 7:05 PM for recovery and cleanup. Delays exceeded 90 minutes in both directions. Weekend shopping traffic noted nearby. [Load: carrying aluminum panels]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Aerodynamic instability in crosswind",
+        "mechanism": "Crosswind gusts â†’ lateral force on vehicle side â†’ torque exceeds stability â†’ rollover â†’ guardrail impact"
+      }
+    },
+    {
+      "id": "WD-03b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 3:18 PM on Friday, a high-sided empty flatbed truck overturned on Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit due to gusts exceeding 65 km/h. Strong westerly crosswind combined with dry but dusty conditions. Truck struck guardrail, spilled steel coils across three lanes. No injuries; driver self-extricated. Highway reduced to one lane until 7:05 PM for recovery and cleanup. Delays exceeded 90 minutes in both directions. Weekend shopping traffic noted nearby. [Wind: easterly direction]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Aerodynamic instability in crosswind",
+        "mechanism": "Crosswind gusts â†’ lateral force on vehicle side â†’ torque exceeds stability â†’ rollover â†’ guardrail impact"
+      }
+    },
+    {
+      "id": "WD-05",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 6:12 AM on Saturday, a multi-vehicle skid occurred on Al Ain Road (E95) near Al Qu'a exit after overnight temperatures dropped to 2Â°C, forming black ice patches. Moderate weekend traffic. A pickup truck lost traction on a slight curve, spun, and was struck by two following sedans. Minor injuries to one driver. Right lane blocked until 8:40 AM for salting and wreckage removal. Queue extended 3.1 km. No events scheduled.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Traction loss on invisible ice",
+        "mechanism": "Sub-freezing temp â†’ moisture freeze â†’ transparent ice â†’ drastically reduced friction â†’ traction loss"
+      }
+    },
+    {
+      "id": "WD-05a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 6:12 AM on Sunday, a multi-vehicle skid occurred on Al Ain Road (E95) near Al Qu'a exit after overnight temperatures dropped to 2Â°C, forming black ice patches. Moderate weekend traffic. A pickup truck lost traction on a slight curve, spun, and was struck by two following sedans. Minor injuries to one driver. Right lane blocked until 8:40 AM for salting and wreckage removal. Queue extended 3.1 km. No events scheduled.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Traction loss on invisible ice",
+        "mechanism": "Sub-freezing temp â†’ moisture freeze â†’ transparent ice â†’ drastically reduced friction â†’ traction loss"
+      }
+    },
+    {
+      "id": "WD-05b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 6:12 AM on Saturday, a multi-vehicle skid occurred on Al Ain Road (E95) near Al Qu'a exit after overnight temperatures dropped to 2Â°C, forming black ice patches. Moderate weekend traffic. A pickup truck lost traction on a slight curve, spun, and was struck by two following sedans. Minor injuries to one driver. Right lane blocked until 8:40 AM for salting and wreckage removal. Queue extended 3.1 km. No events scheduled. [Vehicles: sedan + compact car]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Traction loss on invisible ice",
+        "mechanism": "Sub-freezing temp â†’ moisture freeze â†’ transparent ice â†’ drastically reduced friction â†’ traction loss"
+      }
+    },
+    {
+      "id": "WD-06",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:03 AM on Monday, dense fog (visibility 60â€“90 m) contributed to a four-vehicle rear-end series on Khalifa Street approaching Al Wahda Mall. Wet roads from morning mist. Lead minibus braked for barely visible pedestrian crossing; tailgating taxi, SUV, and sedan collided. Two moderate injuries. Lanes reduced to one until 9:15 AM. Significant morning commute delays (>40 min). Retail opening not a factor.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Insufficient stopping distance in reduced visibility",
+        "mechanism": "Dense fog â†’ reduced sight distance â†’ delayed perception of braking â†’ insufficient time/distance to stop given wet road friction"
+      }
+    },
+    {
+      "id": "WD-06a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:03 AM on Monday, dense fog (visibility 60â€“90 m) contributed to a four-vehicle rear-end series on Khalifa Street approaching Al Wahda Mall. Wet roads from morning mist. Lead minibus school bus braked for barely visible pedestrian crossing; tailgating taxi, SUV, and sedan collided. Two moderate injuries. Lanes reduced to one until 9:15 AM. Significant morning commute delays (>40 min). Retail opening not a factor.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Insufficient stopping distance in reduced visibility",
+        "mechanism": "Dense fog â†’ reduced sight distance â†’ delayed perception of braking â†’ insufficient time/distance to stop given wet road friction"
+      }
+    },
+    {
+      "id": "WD-06b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:03 AM on Monday, dense fog (visibility 60â€“90 m) contributed to a four-vehicle rear-end series on Corniche intersection approaching Al Wahda Mall. Wet roads from morning mist. Lead minibus braked for barely visible pedestrian crossing; tailgating taxi, SUV, and sedan collided. Two moderate injuries. Lanes reduced to one until 9:15 AM. Significant morning commute delays (>40 min). Retail opening not a factor.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Insufficient stopping distance in reduced visibility",
+        "mechanism": "Dense fog â†’ reduced sight distance â†’ delayed perception of braking â†’ insufficient time/distance to stop given wet road friction"
+      }
+    },
+    {
+      "id": "WD-07",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 11:50 AM on Sunday, strong winds (55â€“75 km/h) blew a large advertising banner onto Al Falah Street near the mosque, causing a sudden swerve by a school bus. Bus sideswiped a motorcycle; rider sustained fractured wrist. No other vehicles involved. Road partially closed 70 minutes for debris clearance and structural check. Light Sunday traffic; nearby family brunch event irrelevant.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Wind-blown debris creating roadway obstruction",
+        "mechanism": "Strong winds â†’ detached banner â†’ airborne debris â†’ roadway obstruction â†’ evasive maneuver â†’ loss of control/collision"
+      }
+    },
+    {
+      "id": "WD-07a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 11:50 AM on Sunday, strong winds (55â€“75 km/h) blew a large advertising banner onto Al Falah Street near the mosque, causing a sudden swerve by a school bus. Bus sideswiped a motorcycle; rider sustained fractured wrist. No other vehicles involved. Road partially closed 70 minutes for debris clearance and structural check. Light Sunday traffic; nearby family brunch event irrelevant. [Debris: construction tarp]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Wind-blown debris creating roadway obstruction",
+        "mechanism": "Strong winds â†’ detached banner â†’ airborne debris â†’ roadway obstruction â†’ evasive maneuver â†’ loss of control/collision"
+      }
+    },
+    {
+      "id": "WD-07b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 11:50 AM on Monday, strong winds (55â€“75 km/h) blew a large advertising banner onto Al Falah Street near the mosque, causing a sudden swerve by a school bus. Bus sideswiped a motorcycle; rider sustained fractured wrist. No other vehicles involved. Road partially closed 70 minutes for debris clearance and structural check. Light Sunday traffic; nearby family brunch event irrelevant.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Wind-blown debris creating roadway obstruction",
+        "mechanism": "Strong winds â†’ detached banner â†’ airborne debris â†’ roadway obstruction â†’ evasive maneuver â†’ loss of control/collision"
+      }
+    },
+    {
+      "id": "WD-08",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 4:25 AM on Wednesday (unusual weather event), light snow accumulation (1â€“2 cm) on higher sections of Jebel Hafeet access road caused a tourism coach to slide sideways into rockface. No rollover; 18 passengers (mostly tourists) treated for minor bruises after evacuation. Road closed both directions until 10:30 AM for gritting and assessment. Queue reached Al Ain city limits (~9 km).",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Loss of traction on snow-covered mountain road",
+        "mechanism": "Snow accumulation â†’ reduced friction on incline â†’ lateral slide during curve negotiation â†’ collision with roadside feature"
+      }
+    },
+    {
+      "id": "WD-08a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 4:25 AM on Wednesday (unusual weather event), light snow accumulation (1â€“2 cm) on higher sections of Jebel Hafeet access road caused a tourism coach to slide sideways into rockface. No rollover; 18 passengers (mostly tourists) treated for minor bruises after evacuation. Road closed both directions until 10:30 AM for gritting and assessment. Queue reached Al Ain city limits (~9 km).",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Loss of traction on snow-covered mountain road",
+        "mechanism": "Snow accumulation â†’ reduced friction on incline â†’ lateral slide during curve negotiation â†’ collision with roadside feature"
+      }
+    },
+    {
+      "id": "WD-08b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 4:25 AM on Wednesday (unusual weather event), light snow accumulation (1â€“2 cm) on higher sections of Jebel Hafeet access road caused a tourism coach to slide sideways into rockface. No rollover; 18 passengers (mostly tourists) treated for minor bruises after evacuation. Road closed both directions until 10:30 AM for gritting and assessment. Queue reached Al Ain city limits (~9 km). [Snow depth: 2â€“3 cm]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Loss of traction on snow-covered mountain road",
+        "mechanism": "Snow accumulation â†’ reduced friction on incline â†’ lateral slide during curve negotiation â†’ collision with roadside feature"
+      }
+    },
+    {
+      "id": "WD-10",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 2:55 PM on Thursday, a sudden shamal dust storm reduced visibility to near zero on Al Ain â€“ Abu Dhabi highway (E95) near Al Muwaiji. Two tractor-trailers collided head-on at low speed; minor injuries. Multiple secondary low-speed rear-ends involving four passenger cars. All lanes closed 3 hours 40 minutes for dust settling and wreckage removal. Congestion extended >12 km.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Near-zero visibility preventing hazard perception and avoidance",
+        "mechanism": "Dust storm â†’ visibility reduction to <10 m â†’ inability to see other vehicles â†’ collision despite low speeds"
+      }
+    },
+    {
+      "id": "WD-10a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 2:55 PM on Thursday, a sudden shamal dust storm reduced visibility to near zero on Al Ain â€“ Abu Dhabi highway (E95) near Al Muwaiji. Two tractor-trailers collided head-on at low speed; minor injuries. Multiple secondary low-speed rear-ends involving four passenger cars. All lanes closed 3 hours 40 minutes for dust settling and wreckage removal. Congestion extended >12 km.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Near-zero visibility preventing hazard perception and avoidance",
+        "mechanism": "Dust storm â†’ visibility reduction to <10 m â†’ inability to see other vehicles â†’ collision despite low speeds"
+      }
+    },
+    {
+      "id": "WD-10b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 3:20 PM on Thursday, a sudden shamal dust storm reduced visibility to near zero on Al Ain â€“ Abu Dhabi highway (E95) near Al Muwaiji. Two tractor-trailers collided head-on at low speed; minor injuries. Multiple secondary low-speed rear-ends involving four passenger cars. All lanes closed 3 hours 40 minutes for dust settling and wreckage removal. Congestion extended >12 km.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Near-zero visibility preventing hazard perception and avoidance",
+        "mechanism": "Dust storm â†’ visibility reduction to <10 m â†’ inability to see other vehicles â†’ collision despite low speeds"
+      }
+    },
+    {
+      "id": "WD-14",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:05 AM on Wednesday, morning radiation fog combined with residual dampness from prior drizzle caused a motorcycle to skid on slight curve of Al Maryah Island approach road. Fog obscured road markings and reduced depth perception; rider over-braked on slick surface â†’ loss of traction â†’ fall. Moderate leg fracture. Chain: fog â†’ poor hazard detection â†’ panic braking on wet asphalt â†’ skid. Lane partially closed 55 min. Commuter traffic to business district.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
+        "mechanism": "Reduced visibility â†’ delayed curve perception â†’ panic braking â†’ tire traction exceeded on wet surface â†’ lateral slide â†’ fall"
+      }
+    },
+    {
+      "id": "WD-14a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:05 AM on Wednesday, morning radiation fog combined with residual dampness from prior drizzle caused a scooter to skid on slight curve of Al Maryah Island approach road. Fog obscured road markings and reduced depth perception; rider over-braked on slick surface â†’ loss of traction â†’ fall. Moderate leg fracture. Chain: fog â†’ poor hazard detection â†’ panic braking on wet asphalt â†’ skid. Lane partially closed 55 min. Commuter traffic to business district.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
+        "mechanism": "Reduced visibility â†’ delayed curve perception â†’ panic braking â†’ tire traction exceeded on wet surface â†’ lateral slide â†’ fall"
+      }
+    },
+    {
+      "id": "WD-14b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:05 AM on Thursday, morning radiation fog combined with residual dampness from prior drizzle caused a motorcycle to skid on slight curve of Al Maryah Island approach road. Fog obscured road markings and reduced depth perception; rider over-braked on slick surface â†’ loss of traction â†’ fall. Moderate leg fracture. Chain: fog â†’ poor hazard detection â†’ panic braking on wet asphalt â†’ skid. Lane partially closed 55 min. Commuter traffic to business district.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
+        "mechanism": "Reduced visibility â†’ delayed curve perception â†’ panic braking â†’ tire traction exceeded on wet surface â†’ lateral slide â†’ fall"
+      }
+    },
+    {
+      "id": "WD-14",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:05 AM on Wednesday, morning radiation fog combined with residual dampness from prior drizzle caused a motorcycle to skid on slight curve of Al Maryah Island approach road. Fog obscured road markings and reduced depth perception; rider over-braked on slick surface â†’ loss of traction â†’ fall. Moderate leg fracture. Chain: fog â†’ poor hazard detection â†’ panic braking on wet asphalt â†’ skid. Lane partially closed 55 min. Commuter traffic to business district.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
+        "mechanism": "Reduced visibility â†’ delayed curve perception â†’ panic braking â†’ tire traction exceeded on wet surface â†’ lateral slide â†’ fall"
+      }
+    },
+    {
+      "id": "WD-14a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:05 AM on Wednesday, morning radiation fog combined with residual dampness from prior drizzle caused a scooter to skid on slight curve of Al Maryah Island approach road. Fog obscured road markings and reduced depth perception; rider over-braked on slick surface â†’ loss of traction â†’ fall. Moderate leg fracture. Chain: fog â†’ poor hazard detection â†’ panic braking on wet asphalt â†’ skid. Lane partially closed 55 min. Commuter traffic to business district.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
+        "mechanism": "Reduced visibility â†’ delayed curve perception â†’ panic braking â†’ tire traction exceeded on wet surface â†’ lateral slide â†’ fall"
+      }
+    },
+    {
+      "id": "WD-14b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 7:05 AM on Thursday, morning radiation fog combined with residual dampness from prior drizzle caused a motorcycle to skid on slight curve of Al Maryah Island approach road. Fog obscured road markings and reduced depth perception; rider over-braked on slick surface â†’ loss of traction â†’ fall. Moderate leg fracture. Chain: fog â†’ poor hazard detection â†’ panic braking on wet asphalt â†’ skid. Lane partially closed 55 min. Commuter traffic to business district.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
+        "mechanism": "Reduced visibility â†’ delayed curve perception â†’ panic braking â†’ tire traction exceeded on wet surface â†’ lateral slide â†’ fall"
+      }
+    },
+    {
+      "id": "WD-16",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 5:55 PM on Sunday, short but torrential rain overwhelmed drainage at Al Quoz underpass, flooding to 20 cm. Multiple vehicles stalled in water; following pickup failed to stop â†’ rear-ended sedan, pushing it into barrier. One moderate injury. Rain â†’ rapid ponding in depression â†’ engine hydro-lock/stalled vehicles â†’ chain rear-end. Closure 2 h 15 min; tailback >5 km. Nearby mall closing sale not causative.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Vehicle stalling due to engine ingestion of water in flooded underpass",
+        "mechanism": "Rapid water accumulation â†’ vehicle attempts passage â†’ water enters air intake â†’ engine hydro-lock â†’ sudden stall â†’ following vehicle collision"
+      }
+    },
+    {
+      "id": "WD-16a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 5:55 PM on Sunday, short but torrential rain overwhelmed drainage at Al Quoz underpass, flooding to 20 cm. Multiple vehicles stalled in water; following pickup failed to stop â†’ rear-ended sedan, pushing it into barrier. One moderate injury. Rain â†’ rapid ponding in depression â†’ engine hydro-lock/stalled vehicles â†’ chain rear-end. Closure 2 h 15 min; tailback >5 km. Nearby mall closing sale not causative. [Flood depth: 25â€“30 cm]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Vehicle stalling due to engine ingestion of water in flooded underpass",
+        "mechanism": "Rapid water accumulation â†’ vehicle attempts passage â†’ water enters air intake â†’ engine hydro-lock â†’ sudden stall â†’ following vehicle collision"
+      }
+    },
+    {
+      "id": "WD-16b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 5:55 PM on Sunday, short but torrential rain overwhelmed drainage at Al Quoz underpass, flooding to 20 cm. Multiple vehicles stalled in water; following pickup failed to stop â†’ rear-ended sedan SUV + sedan, pushing it into barrier. One moderate injury. Rain â†’ rapid ponding in depression â†’ engine hydro-lock/stalled vehicles â†’ chain rear-end. Closure 2 h 15 min; tailback >5 km. Nearby mall closing sale not causative.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Vehicle stalling due to engine ingestion of water in flooded underpass",
+        "mechanism": "Rapid water accumulation â†’ vehicle attempts passage â†’ water enters air intake â†’ engine hydro-lock â†’ sudden stall â†’ following vehicle collision"
+      }
+    },
+    {
+      "id": "WD-20",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 8:35 PM on Monday, sudden heavy rain caused aquaplaning on Sheikh Rashid Bin Saeed Street curve. SUV tires lost grip on water film â†’ spun across lanes â†’ struck guardrail. Driver uninjured; vehicle towed. Rain â†’ water layer buildup â†’ tire lift-off â†’ loss of directional control. Partial closure 75 min. Evening resident traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Dynamic hydroplaning on curved section during heavy rain",
+        "mechanism": "Speed + water depth â†’ hydrodynamic lift exceeds tire load â†’ complete loss of road contact â†’ spin during curve negotiation â†’ collision"
+      }
+    },
+    {
+      "id": "WD-20a",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 8:35 PM on Monday, sudden heavy rain caused aquaplaning on Sheikh Rashid Bin Saeed Street curve. SUV crossover SUV tires lost grip on water film â†’ spun across lanes â†’ struck guardrail. Driver uninjured; vehicle towed. Rain â†’ water layer buildup â†’ tire lift-off â†’ loss of directional control. Partial closure 75 min. Evening resident traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Dynamic hydroplaning on curved section during heavy rain",
+        "mechanism": "Speed + water depth â†’ hydrodynamic lift exceeds tire load â†’ complete loss of road contact â†’ spin during curve negotiation â†’ collision"
+      }
+    },
+    {
+      "id": "WD-20b",
+      "category": "Weather",
+      "complexity_level": 2,
+      "description": "At 9:10 PM on Monday, sudden heavy rain caused aquaplaning on Sheikh Rashid Bin Saeed Street curve. SUV tires lost grip on water film â†’ spun across lanes â†’ struck guardrail. Driver uninjured; vehicle towed. Rain â†’ water layer buildup â†’ tire lift-off â†’ loss of directional control. Partial closure 75 min. Evening resident traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Dynamic hydroplaning on curved section during heavy rain",
+        "mechanism": "Speed + water depth â†’ hydrodynamic lift exceeds tire load â†’ complete loss of road contact â†’ spin during curve negotiation â†’ collision"
+      }
+    },
+    {
+      "id": "TA-01",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 7:38 AM on Tuesday, a three-vehicle collision occurred on Sheikh Zayed Road southbound near Al Khail interchange. A white sedan abruptly changed lanes without signaling into the path of a black SUV, which braked hard and was rear-ended by a following delivery van. Two minor injuries reported. Right lane closed until 9:20 AM for debris removal and vehicle recovery. Morning rush-hour traffic density moderate to heavy.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Unsafe lane change without signal",
+        "mechanism": "Sedan changed lanes without checking blind spot/adjacent lane â†’ SUV forced to emergency brake â†’ following van insufficient stopping distance â†’ rear-end chain reaction"
+      }
+    },
+    {
+      "id": "TA-01a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 7:38 AM on Tuesday, a three-vehicle collision occurred on Sheikh Zayed Road southbound near Al Khail interchange. A white sedan white taxi abruptly changed lanes without signaling into the path of a black SUV, which braked hard and was rear-ended by a following delivery van. Two minor injuries reported. Right lane closed until 9:20 AM for debris removal and vehicle recovery. Morning rush-hour traffic density moderate to heavy.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Unsafe lane change without signal",
+        "mechanism": "Sedan changed lanes without checking blind spot/adjacent lane â†’ SUV forced to emergency brake â†’ following van insufficient stopping distance â†’ rear-end chain reaction"
+      }
+    },
+    {
+      "id": "TA-01b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 7:38 AM on Thursday, a three-vehicle collision occurred on Sheikh Zayed Road southbound near Al Khail interchange. A white sedan abruptly changed lanes without signaling into the path of a black SUV, which braked hard and was rear-ended by a following delivery van. Two minor injuries reported. Right lane closed until 9:20 AM for debris removal and vehicle recovery. Morning rush-hour traffic density moderate to heavy.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Unsafe lane change without signal",
+        "mechanism": "Sedan changed lanes without checking blind spot/adjacent lane â†’ SUV forced to emergency brake â†’ following van insufficient stopping distance â†’ rear-end chain reaction"
+      }
+    },
+    {
+      "id": "TA-02",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 2:15 PM on Wednesday, a two-vehicle T-bone collision occurred at the signalized intersection of Al Maryah Street and Corniche Road. A grey SUV ran a red light and struck the driverâ€™s side of a blue sedan proceeding on green. Driver of sedan transported with moderate chest injuries. Intersection fully blocked until 4:05 PM for investigation and clearance. Traffic signal timing normal; visibility clear.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Red-light violation",
+        "mechanism": "Driver failed to stop at red signal â†’ entered intersection at speed â†’ perpendicular impact with crossing vehicle"
+      }
+    },
+    {
+      "id": "TA-02a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 2:15 PM on Wednesday, a two-vehicle T-bone collision occurred at the signalized intersection of Al Maryah Street and Corniche Road. A grey SUV grey pickup truck ran a red light and struck the driverâ€™s side of a blue sedan proceeding on green. Driver of sedan transported with moderate chest injuries. Intersection fully blocked until 4:05 PM for investigation and clearance. Traffic signal timing normal; visibility clear.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Red-light violation",
+        "mechanism": "Driver failed to stop at red signal â†’ entered intersection at speed â†’ perpendicular impact with crossing vehicle"
+      }
+    },
+    {
+      "id": "TA-02b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 3:15 PM on Wednesday, a two-vehicle T-bone collision occurred at the signalized intersection of Al Maryah Street and Corniche Road. A grey SUV ran a red light and struck the driverâ€™s side of a blue sedan proceeding on green. Driver of sedan transported with moderate chest injuries. Intersection fully blocked until 4:05 PM for investigation and clearance. Traffic signal timing normal; visibility clear.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Red-light violation",
+        "mechanism": "Driver failed to stop at red signal â†’ entered intersection at speed â†’ perpendicular impact with crossing vehicle"
+      }
+    },
+    {
+      "id": "TA-04",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 1:45 AM on Saturday, a head-on collision occurred on Al Ain Road (E95) near Al Qu'a after a long-haul truck driver fell asleep at the wheel and crossed the center line, striking an oncoming passenger car. Both drivers transported (truck driver serious, car driver moderate). Full closure until 6:30 AM for wreckage removal and investigation. Roadway straight, dry, well-lit.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Driver fatigue causing lane departure",
+        "mechanism": "Micro-sleep/loss of vigilance â†’ unintentional steering drift â†’ center line crossing â†’ opposite lane entry â†’ head-on collision"
+      }
+    },
+    {
+      "id": "TA-04a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 1:45 AM on Saturday, a head-on collision occurred on Al Ain Road (E95) near Al Qu'a after a long-haul truck driver fell asleep at the wheel and crossed the center line, striking an oncoming passenger car. Both drivers transported (truck driver serious, car driver moderate). Full closure until 6:30 AM for wreckage removal and investigation. Roadway straight, dry, well-lit.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Driver fatigue causing lane departure",
+        "mechanism": "Micro-sleep/loss of vigilance â†’ unintentional steering drift â†’ center line crossing â†’ opposite lane entry â†’ head-on collision"
+      }
+    },
+    {
+      "id": "TA-04b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 2:30 AM on Saturday, a head-on collision occurred on Al Ain Road (E95) near Al Qu'a after a long-haul truck driver fell asleep at the wheel and crossed the center line, striking an oncoming passenger car. Both drivers transported (truck driver serious, car driver moderate). Full closure until 6:30 AM for wreckage removal and investigation. Roadway straight, dry, well-lit.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Driver fatigue causing lane departure",
+        "mechanism": "Micro-sleep/loss of vigilance â†’ unintentional steering drift â†’ center line crossing â†’ opposite lane entry â†’ head-on collision"
+      }
+    },
+    {
+      "id": "TA-06",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 11:10 PM on Friday, a single-vehicle rollover occurred on the curved exit ramp of Sheikh Mohammed bin Zayed Road (E311) near Al Reem Island. A red sports car entered the ramp at excessive speed, lost control, and rolled onto its side. Driver transported with minor injuries. Ramp closed until 2:15 AM for recovery and barrier repair.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Excessive speed on curve",
+        "mechanism": "Speed exceeded critical velocity for curve radius â†’ centrifugal force exceeded tire-road friction â†’ loss of steering control â†’ rollover"
+      }
+    },
+    {
+      "id": "TA-06a",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 11:10 PM on Friday, a single-vehicle rollover occurred on the curved exit ramp of Sheikh Mohammed bin Zayed Road (E311) near Al Reem Island. A red sports car entered the ramp at excessive speed, lost control, and rolled onto its side. Driver transported with minor injuries. Ramp closed until 2:15 AM for recovery and barrier repair.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Excessive speed on curve",
+        "mechanism": "Speed exceeded critical velocity for curve radius â†’ centrifugal force exceeded tire-road friction â†’ loss of steering control â†’ rollover"
+      }
+    },
+    {
+      "id": "TA-06b",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 10:40 PM on Friday, a single-vehicle rollover occurred on the curved exit ramp of Sheikh Mohammed bin Zayed Road (E311) near Al Reem Island. A red sports car entered the ramp at excessive speed, lost control, and rolled onto its side. Driver transported with minor injuries. Ramp closed until 2:15 AM for recovery and barrier repair.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Excessive speed on curve",
+        "mechanism": "Speed exceeded critical velocity for curve radius â†’ centrifugal force exceeded tire-road friction â†’ loss of steering control â†’ rollover"
+      }
+    },
+    {
+      "id": "TA-08",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 6:45 AM on Tuesday, a three-vehicle chain collision occurred on Al Khaleej Al Arabi Street after the lead vehicle braked suddenly for a stray camel crossing the road. Following vehicles could not stop in time. Minor injuries to two drivers. Lanes blocked 80 minutes. Dawn lighting, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden braking for animal hazard",
+        "mechanism": "Lead driver emergency braking in response to unexpected animal crossing â†’ following drivers had insufficient gap/detection time â†’ rear-end collisions"
+      }
+    },
+    {
+      "id": "TA-08a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 6:45 AM on Tuesday, a three-vehicle chain collision occurred on Al Khaleej Al Arabi Street after the lead vehicle braked suddenly for a stray goat crossing the road. Following vehicles could not stop in time. Minor injuries to two drivers. Lanes blocked 80 minutes. Dawn lighting, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden braking for animal hazard",
+        "mechanism": "Lead driver emergency braking in response to unexpected animal crossing â†’ following drivers had insufficient gap/detection time â†’ rear-end collisions"
+      }
+    },
+    {
+      "id": "TA-08b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 6:45 AM on Wednesday, a three-vehicle chain collision occurred on Al Khaleej Al Arabi Street after the lead vehicle braked suddenly for a stray camel crossing the road. Following vehicles could not stop in time. Minor injuries to two drivers. Lanes blocked 80 minutes. Dawn lighting, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden braking for animal hazard",
+        "mechanism": "Lead driver emergency braking in response to unexpected animal crossing â†’ following drivers had insufficient gap/detection time â†’ rear-end collisions"
+      }
+    },
+    {
+      "id": "TA-09",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 4:40 PM on Thursday, a heavy goods truck lost braking ability on the descending section of Jebel Hafeet access road and rear-ended a stationary tourist bus at a viewpoint pullout. Three minor injuries. Road closed 3 hours for recovery. Gradient steep, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Brake system failure (overheating) on descent",
+        "mechanism": "Prolonged brake application on downgrade â†’ brake fade from overheating â†’ reduced stopping ability â†’ failure to slow for stationary vehicle"
+      }
+    },
+    {
+      "id": "TA-09a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 4:40 PM on Thursday, a heavy goods truck lost braking ability on the descending section of Jebel Hafeet access road and rear-ended a stationary tourist bus cement mixer truck at a viewpoint pullout. Three minor injuries. Road closed 3 hours for recovery. Gradient steep, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Brake system failure (overheating) on descent",
+        "mechanism": "Prolonged brake application on downgrade â†’ brake fade from overheating â†’ reduced stopping ability â†’ failure to slow for stationary vehicle"
+      }
+    },
+    {
+      "id": "TA-09b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 5:15 PM on Thursday, a heavy goods truck lost braking ability on the descending section of Jebel Hafeet access road and rear-ended a stationary tourist bus at a viewpoint pullout. Three minor injuries. Road closed 3 hours for recovery. Gradient steep, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Brake system failure (overheating) on descent",
+        "mechanism": "Prolonged brake application on downgrade â†’ brake fade from overheating â†’ reduced stopping ability â†’ failure to slow for stationary vehicle"
+      }
+    },
+    {
+      "id": "TA-10",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 7:12 PM on Wednesday, a sedan struck a pedestrian crossing at a marked zebra crossing on Al Bateen Street. Driver was looking at phone. Pedestrian transported with serious leg injuries. Road partially closed 45 minutes. Evening lighting, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Visual distraction (mobile phone)",
+        "mechanism": "Driver attention diverted to phone â†’ failure to scan roadway ahead â†’ delayed detection of pedestrian in crossing â†’ collision at speed"
+      }
+    },
+    {
+      "id": "TA-10a",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 7:12 PM on Wednesday, a sedan struck a pedestrian crossing at a marked zebra crossing on Al Bateen Street. Driver was looking at phone. Pedestrian transported with serious leg injuries. Road partially closed 45 minutes. Evening lighting, dry road. [Distraction: adjusting GPS]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Visual distraction (mobile phone)",
+        "mechanism": "Driver attention diverted to phone â†’ failure to scan roadway ahead â†’ delayed detection of pedestrian in crossing â†’ collision at speed"
+      }
+    },
+    {
+      "id": "TA-10b",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 7:12 PM on Thursday, a sedan struck a pedestrian crossing at a marked zebra crossing on Al Bateen Street. Driver was looking at phone. Pedestrian transported with serious leg injuries. Road partially closed 45 minutes. Evening lighting, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Visual distraction (mobile phone)",
+        "mechanism": "Driver attention diverted to phone â†’ failure to scan roadway ahead â†’ delayed detection of pedestrian in crossing â†’ collision at speed"
+      }
+    },
+    {
+      "id": "TA-14",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 6:30 PM on Wednesday, after light rain, a pickup truck following too closely rear-ended a slowing sedan on Airport Road. Minor injuries. Right lane blocked 45 minutes. Wet road surface, evening commute.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Following too closely on wet road",
+        "mechanism": "Driver maintained dry-road following distance on wet surface â†’ inadequate stopping distance when lead vehicle slowed â†’ rear-end collision"
+      }
+    },
+    {
+      "id": "TA-14a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 6:30 PM on Wednesday, after light rain, a delivery van following too closely rear-ended a slowing sedan on Airport Road. Minor injuries. Right lane blocked 45 minutes. Wet road surface, evening commute.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Following too closely on wet road",
+        "mechanism": "Driver maintained dry-road following distance on wet surface â†’ inadequate stopping distance when lead vehicle slowed â†’ rear-end collision"
+      }
+    },
+    {
+      "id": "TA-14b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 6:30 PM on Thursday, after light rain, a pickup truck following too closely rear-ended a slowing sedan on Airport Road. Minor injuries. Right lane blocked 45 minutes. Wet road surface, evening commute.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Following too closely on wet road",
+        "mechanism": "Driver maintained dry-road following distance on wet surface â†’ inadequate stopping distance when lead vehicle slowed â†’ rear-end collision"
+      }
+    },
+    {
+      "id": "TA-17",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 7:55 AM on Monday, a parked car door was opened into the path of a cyclist on Corniche Road. Cyclist struck door, fell, sustained minor abrasions. Road partially closed 30 minutes. Dedicated cycling lane marked.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Dooring â€“ opening door into traffic path",
+        "mechanism": "Vehicle occupant opened door without checking for approaching cyclist â†’ door occupied cyclist's path â†’ cyclist unable to avoid â†’ collision with door followed by fall"
+      }
+    },
+    {
+      "id": "TA-17a",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 7:55 AM on Monday, a parked car door was opened into the path of a cyclist on Corniche Road. Cyclist struck door, fell, sustained minor abrasions. Road partially closed 30 minutes. Dedicated cycling lane marked.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Dooring â€“ opening door into traffic path",
+        "mechanism": "Vehicle occupant opened door without checking for approaching cyclist â†’ door occupied cyclist's path â†’ cyclist unable to avoid â†’ collision with door followed by fall"
+      }
+    },
+    {
+      "id": "TA-17b",
+      "category": "Traffic Accident",
+      "complexity_level": 1,
+      "description": "At 7:55 AM on Tuesday, a parked car door was opened into the path of a cyclist on Corniche Road. Cyclist struck door, fell, sustained minor abrasions. Road partially closed 30 minutes. Dedicated cycling lane marked.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Dooring â€“ opening door into traffic path",
+        "mechanism": "Vehicle occupant opened door without checking for approaching cyclist â†’ door occupied cyclist's path â†’ cyclist unable to avoid â†’ collision with door followed by fall"
+      }
+    },
+    {
+      "id": "TA-19",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 5:20 PM on Sunday, a front tire blowout on a sedan caused loss of control and collision with center median on Sheikh Zayed Road. Driver minor injuries. Right two lanes blocked until 7:00 PM. Moderate traffic, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden tire failure (blowout)",
+        "mechanism": "Rapid deflation of front tire â†’ asymmetric rolling resistance and steering force â†’ sudden vehicle pull toward failed tire side â†’ driver overcorrection â†’ median impact"
+      }
+    },
+    {
+      "id": "TA-19a",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 5:20 PM on Sunday, a front tire blowout on a hatchback caused loss of control and collision with center median on Sheikh Zayed Road. Driver minor injuries. Right two lanes blocked until 7:00 PM. Moderate traffic, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden tire failure (blowout)",
+        "mechanism": "Rapid deflation of front tire â†’ asymmetric rolling resistance and steering force â†’ sudden vehicle pull toward failed tire side â†’ driver overcorrection â†’ median impact"
+      }
+    },
+    {
+      "id": "TA-19b",
+      "category": "Traffic Accident",
+      "complexity_level": 2,
+      "description": "At 5:20 PM on Monday, a front tire blowout on a sedan caused loss of control and collision with center median on Sheikh Zayed Road. Driver minor injuries. Right two lanes blocked until 7:00 PM. Moderate traffic, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden tire failure (blowout)",
+        "mechanism": "Rapid deflation of front tire â†’ asymmetric rolling resistance and steering force â†’ sudden vehicle pull toward failed tire side â†’ driver overcorrection â†’ median impact"
+      }
+    },
+    {
+      "id": "RM-01",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 6:55 AM on Monday, a four-vehicle rear-end collision occurred on Sheikh Zayed Road southbound near the Al Khail interchange because road maintenance crews had closed the right lane without advance warning signs. Overnight resurfacing work was still active; the lane drop occurred suddenly at a taper zone with no signage, cones, or arrow boards. Lead driver braked hard upon seeing the closure; three following vehicles (tailgating in morning rush) had insufficient stopping distance. Two minor injuries. Right lane remained closed until 10:40 AM; congestion extended 5.2 km. Normal Monday commuter traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden unmarked lane closure",
+        "mechanism": "Maintenance crews closed lane without required advance warning â†’ lead driver encountered unexpected blockage â†’ emergency braking â†’ following vehicles unable to stop â†’ chain rear-end collision"
+      }
+    },
+    {
+      "id": "RM-01a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 6:55 AM on Monday, a four-vehicle rear-end collision occurred on Sheikh Zayed Road southbound near the Al Khail interchange because road maintenance crews had closed the right lane without advance warning signs. Overnight resurfacing work was still active; the lane drop occurred suddenly at a taper zone with no signage, cones, or arrow boards. Lead driver braked hard upon seeing the closure; three following vehicles (tailgating in morning rush) had insufficient stopping distance. Two minor injuries. Right lane remained closed until 10:40 AM; congestion extended 5.2 km. Normal Monday commuter traffic. [Signage: cones placed but no electronic signs]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden unmarked lane closure",
+        "mechanism": "Maintenance crews closed lane without required advance warning â†’ lead driver encountered unexpected blockage â†’ emergency braking â†’ following vehicles unable to stop â†’ chain rear-end collision"
+      }
+    },
+    {
+      "id": "RM-01b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 6:55 AM on Wednesday, a four-vehicle rear-end collision occurred on Sheikh Zayed Road southbound near the Al Khail interchange because road maintenance crews had closed the right lane without advance warning signs. Overnight resurfacing work was still active; the lane drop occurred suddenly at a taper zone with no signage, cones, or arrow boards. Lead driver braked hard upon seeing the closure; three following vehicles (tailgating in morning rush) had insufficient stopping distance. Two minor injuries. Right lane remained closed until 10:40 AM; congestion extended 5.2 km. Normal Monday commuter traffic.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Sudden unmarked lane closure",
+        "mechanism": "Maintenance crews closed lane without required advance warning â†’ lead driver encountered unexpected blockage â†’ emergency braking â†’ following vehicles unable to stop â†’ chain rear-end collision"
+      }
+    },
+    {
+      "id": "RM-02",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 9:20 PM on Tuesday, a single-vehicle crash occurred on Al Maryah Island approach road when a sedan struck an unmarked 12 cm deep pothole left after emergency patching works earlier that day. Fresh asphalt patch failed under traffic; pothole re-opened and was not re-barricaded. Driver lost control at 70 km/h; vehicle spun 180 degrees and struck guardrail. Driver sustained moderate whiplash. Road partially closed 75 minutes for debris clearance and temporary patching. Evening resident traffic, dry conditions, street lighting present.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Unmarked pavement failure after maintenance",
+        "mechanism": "Emergency patching completed but failed under load â†’ pothole re-formed â†’ not re-marked or re-closed â†’ vehicle struck at speed â†’ loss of control â†’ collision"
+      }
+    },
+    {
+      "id": "RM-02a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 9:20 PM on Tuesday, a single-vehicle crash occurred on Al Maryah Island approach road when a sedan struck an unmarked 12 cm deep pothole left after emergency patching works earlier that day. Fresh asphalt patch failed under traffic; pothole re-opened and was not re-barricaded. Driver lost control at 70 km/h; vehicle spun 180 degrees and struck guardrail. Driver sustained moderate whiplash. Road partially closed 75 minutes for debris clearance and temporary patching. Evening resident traffic, dry conditions, street lighting present. [Depth: 20 cm pothole from overnight milling]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Unmarked pavement failure after maintenance",
+        "mechanism": "Emergency patching completed but failed under load â†’ pothole re-formed â†’ not re-marked or re-closed â†’ vehicle struck at speed â†’ loss of control â†’ collision"
+      }
+    },
+    {
+      "id": "RM-02b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 9:20 PM on Thursday, a single-vehicle crash occurred on Al Maryah Island approach road when a sedan struck an unmarked 12 cm deep pothole left after emergency patching works earlier that day. Fresh asphalt patch failed under traffic; pothole re-opened and was not re-barricaded. Driver lost control at 70 km/h; vehicle spun 180 degrees and struck guardrail. Driver sustained moderate whiplash. Road partially closed 75 minutes for debris clearance and temporary patching. Evening resident traffic, dry conditions, street lighting present.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Unmarked pavement failure after maintenance",
+        "mechanism": "Emergency patching completed but failed under load â†’ pothole re-formed â†’ not re-marked or re-closed â†’ vehicle struck at speed â†’ loss of control â†’ collision"
+      }
+    },
+    {
+      "id": "RM-03",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 2:40 PM on Wednesday, a sideswipe collision occurred at the E311 Sheikh Mohammed bin Zayed Road near Al Shahama exit when a temporary concrete barrier was placed 30 cm too far into the travel lane during median repair. Encroachment reduced lane width below safe standard; driver swerved to avoid barrier and struck adjacent vehicle. No serious injuries. Two lanes closed until 6:15 PM for barrier repositioning. Mid-week commercial traffic, clear visibility, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Improper temporary barrier placement",
+        "mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane â†’ lane width insufficient for vehicle envelope â†’ driver encroached into adjacent lane â†’ sideswipe collision"
+      }
+    },
+    {
+      "id": "RM-03a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 2:40 PM on Wednesday, a sideswipe collision occurred at the E311 Sheikh Mohammed bin Zayed Road near Al Shahama exit when a temporary concrete barrier was placed 30 cm too far into the travel lane during median repair. Encroachment reduced lane width below safe standard; driver swerved to avoid barrier and struck adjacent vehicle. No serious injuries. Two lanes closed until 6:15 PM for barrier repositioning. Mid-week commercial traffic, clear visibility, dry road. [Barrier: plastic water-filled barriers]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Improper temporary barrier placement",
+        "mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane â†’ lane width insufficient for vehicle envelope â†’ driver encroached into adjacent lane â†’ sideswipe collision"
+      }
+    },
+    {
+      "id": "RM-03b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 2:40 PM on Friday, a sideswipe collision occurred at the E311 Sheikh Mohammed bin Zayed Road near Al Shahama exit when a temporary concrete barrier was placed 30 cm too far into the travel lane during median repair. Encroachment reduced lane width below safe standard; driver swerved to avoid barrier and struck adjacent vehicle. No serious injuries. Two lanes closed until 6:15 PM for barrier repositioning. Mid-week commercial traffic, clear visibility, dry road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Improper temporary barrier placement",
+        "mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane â†’ lane width insufficient for vehicle envelope â†’ driver encroached into adjacent lane â†’ sideswipe collision"
+      }
+    },
+    {
+      "id": "RM-06",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 1:15 AM on Saturday, a two-vehicle rear-end crash occurred on E95 near Al Qu'a because roadworks lighting had failed, leaving a 200 m unlit taper zone. Temporary lighting system malfunctioned; taper zone and lane closure were not visible at night. Lead driver braked late upon seeing cones; following truck (night freight) had insufficient stopping distance. One moderate injury. Full closure until 5:50 AM for lighting repair. Night freight traffic, dark conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Failed temporary lighting at roadworks",
+        "mechanism": "Maintenance lighting system failure â†’ taper zone invisible at night â†’ driver detection distance severely reduced â†’ emergency braking â†’ rear-end by following vehicle"
+      }
+    },
+    {
+      "id": "RM-06a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 1:15 AM on Saturday, a two-vehicle rear-end crash occurred on E95 near Al Qu'a because roadworks lighting had failed, leaving a 200 m unlit taper zone. Temporary lighting system malfunctioned; taper zone and lane closure were not visible at night. Lead driver braked late upon seeing cones; following truck (night freight) had insufficient stopping distance. One moderate injury. Full closure until 5:50 AM for lighting repair. Night freight traffic, dark conditions. [Failure: only 1/3 arrow boards operational]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Failed temporary lighting at roadworks",
+        "mechanism": "Maintenance lighting system failure â†’ taper zone invisible at night â†’ driver detection distance severely reduced â†’ emergency braking â†’ rear-end by following vehicle"
+      }
+    },
+    {
+      "id": "RM-06b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 1:15 AM on Monday, a two-vehicle rear-end crash occurred on E95 near Al Qu'a because roadworks lighting had failed, leaving a 200 m unlit taper zone. Temporary lighting system malfunctioned; taper zone and lane closure were not visible at night. Lead driver braked late upon seeing cones; following truck (night freight) had insufficient stopping distance. One moderate injury. Full closure until 5:50 AM for lighting repair. Night freight traffic, dark conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Failed temporary lighting at roadworks",
+        "mechanism": "Maintenance lighting system failure â†’ taper zone invisible at night â†’ driver detection distance severely reduced â†’ emergency braking â†’ rear-end by following vehicle"
+      }
+    },
+    {
+      "id": "RM-07",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 4:55 PM on Monday, a pickup truck's front wheel dropped into a collapsed temporary drainage trench on Al Falah Street after heavy rain weakened the backfill. Trench had been excavated for utility works and backfilled with insufficiently compacted material; rain saturated soil, causing collapse under vehicle load. Sudden loss of control; vehicle flipped onto side. Driver minor injuries. Lane closed 2 hours 10 minutes for emergency re-excavation and backfill. Evening commuter traffic, wet road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Collapsed drainage trench from inadequate backfill",
+        "mechanism": "Improperly compacted trench backfill â†’ saturated by rain â†’ structural failure under wheel load â†’ sudden vertical drop â†’ loss of steering control â†’ rollover"
+      }
+    },
+    {
+      "id": "RM-07a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 4:55 PM on Monday, a pickup truck's front wheel dropped into a collapsed temporary drainage trench on Al Falah Street after heavy rain weakened the backfill. Trench had been excavated for utility works and backfilled with insufficiently compacted material; rain saturated soil, causing collapse under vehicle load. Sudden loss of control; vehicle flipped onto side. Driver minor injuries. Lane closed 2 hours 10 minutes for emergency re-excavation and backfill. Evening commuter traffic, wet road. [Hazard: open trench without barricades]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Collapsed drainage trench from inadequate backfill",
+        "mechanism": "Improperly compacted trench backfill â†’ saturated by rain â†’ structural failure under wheel load â†’ sudden vertical drop â†’ loss of steering control â†’ rollover"
+      }
+    },
+    {
+      "id": "RM-07b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 4:55 PM on Wednesday, a pickup truck's front wheel dropped into a collapsed temporary drainage trench on Al Falah Street after heavy rain weakened the backfill. Trench had been excavated for utility works and backfilled with insufficiently compacted material; rain saturated soil, causing collapse under vehicle load. Sudden loss of control; vehicle flipped onto side. Driver minor injuries. Lane closed 2 hours 10 minutes for emergency re-excavation and backfill. Evening commuter traffic, wet road.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Collapsed drainage trench from inadequate backfill",
+        "mechanism": "Improperly compacted trench backfill â†’ saturated by rain â†’ structural failure under wheel load â†’ sudden vertical drop â†’ loss of steering control â†’ rollover"
+      }
+    },
+    {
+      "id": "RM-10",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 10:40 AM on Thursday, a high-sided truck struck overhanging scaffolding on Al Bateen Street during bridge inspection works, causing debris to fall and trigger a three-car chain collision. Scaffolding was positioned below minimum clearance height; impact dislodged planks and poles; following drivers braked hard to avoid debris; rear-end chain ensued. One moderate injury. Road closed 85 minutes for debris clearance and scaffold adjustment. Commercial traffic, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inadequate vertical clearance for work zone",
+        "mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles â†’ high-sided truck impact â†’ debris fall â†’ hazard avoidance â†’ secondary collisions"
+      }
+    },
+    {
+      "id": "RM-10a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 10:40 AM on Thursday, a high-sided truck struck overhanging scaffolding on Al Bateen Street during bridge inspection works, causing debris to fall and trigger a three-car chain collision. Scaffolding was positioned below minimum clearance height; impact dislodged planks and poles; following drivers braked hard to avoid debris; rear-end chain ensued. One moderate injury. Road closed 85 minutes for debris clearance and scaffold adjustment. Commercial traffic, dry conditions. [Hazard: temporary overhead sign gantry]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inadequate vertical clearance for work zone",
+        "mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles â†’ high-sided truck impact â†’ debris fall â†’ hazard avoidance â†’ secondary collisions"
+      }
+    },
+    {
+      "id": "RM-10b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 10:40 AM on Saturday, a high-sided truck struck overhanging scaffolding on Al Bateen Street during bridge inspection works, causing debris to fall and trigger a three-car chain collision. Scaffolding was positioned below minimum clearance height; impact dislodged planks and poles; following drivers braked hard to avoid debris; rear-end chain ensued. One moderate injury. Road closed 85 minutes for debris clearance and scaffold adjustment. Commercial traffic, dry conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Inadequate vertical clearance for work zone",
+        "mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles â†’ high-sided truck impact â†’ debris fall â†’ hazard avoidance â†’ secondary collisions"
+      }
+    },
+    {
+      "id": "RM-11",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 7:25 AM on Friday, a sedan skidded on freshly painted road markings that had not dried, causing a single-vehicle rollover on the curve of Saadiyat Island link road. Night marking works used thermoplastic paint; markings were still wet when road reopened. Vehicle encountered wet paint on curve; front tires lost lateral grip; vehicle understeered off road and rolled into soft sand. Driver minor injuries. Lane closed 55 minutes for remarking and drying. Morning traffic, dry otherwise.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Wet pavement markings opened to traffic prematurely",
+        "mechanism": "Thermoplastic markings applied overnight â†’ insufficient drying/cooling time â†’ road reopened while paint still wet â†’ vehicle on curve exceeded friction available from wet paint â†’ loss of control â†’ off-road rollover"
+      }
+    },
+    {
+      "id": "RM-11a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 7:25 AM on Friday, a sedan skidded on freshly painted road markings that had not dried, causing a single-vehicle rollover on the curve of Saadiyat Island link road. Night marking works used thermoplastic paint; markings were still wet when road reopened. Vehicle encountered wet paint on curve; front tires lost lateral grip; vehicle understeered off road and rolled into soft sand. Driver minor injuries. Lane closed 55 minutes for remarking and drying. Morning traffic, dry otherwise. [Paint: wet epoxy lane lines]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Wet pavement markings opened to traffic prematurely",
+        "mechanism": "Thermoplastic markings applied overnight â†’ insufficient drying/cooling time â†’ road reopened while paint still wet â†’ vehicle on curve exceeded friction available from wet paint â†’ loss of control â†’ off-road rollover"
+      }
+    },
+    {
+      "id": "RM-11b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 7:25 AM on Monday, a sedan skidded on freshly painted road markings that had not dried, causing a single-vehicle rollover on the curve of Saadiyat Island link road. Night marking works used thermoplastic paint; markings were still wet when road reopened. Vehicle encountered wet paint on curve; front tires lost lateral grip; vehicle understeered off road and rolled into soft sand. Driver minor injuries. Lane closed 55 minutes for remarking and drying. Morning traffic, dry otherwise.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Wet pavement markings opened to traffic prematurely",
+        "mechanism": "Thermoplastic markings applied overnight â†’ insufficient drying/cooling time â†’ road reopened while paint still wet â†’ vehicle on curve exceeded friction available from wet paint â†’ loss of control â†’ off-road rollover"
+      }
+    },
+    {
+      "id": "RM-14",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 2:20 PM on Tuesday, a delivery motorcycle's front wheel fell into an uncovered manhole left open during sewer connection works on Al Khaleej Al Arabi Street. Manhole cover removed for access; no barricades, cones, or warning devices placed; opening not attended. Wheel dropped fully; rider ejected over handlebars; fractured wrist. Road closed 45 minutes for cover replacement and investigation. Afternoon local traffic, clear visibility.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Uncovered manhole without warning",
+        "mechanism": "Utility access cover removed and not replaced â†’ opening unprotected â†’ two-wheeled vehicle encountered hazard â†’ wheel entrapment â†’ rider ejection"
+      }
+    },
+    {
+      "id": "RM-14a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 2:20 PM on Tuesday, a delivery motorcycle's front wheel fell into an uncovered manhole left open during sewer connection works on Al Khaleej Al Arabi Street. Manhole cover removed for access; no barricades, cones, or warning devices placed; opening not attended. Wheel dropped fully; rider ejected over handlebars; fractured wrist. Road closed 45 minutes for cover replacement and investigation. Afternoon local traffic, clear visibility. [Hazard: missing utility vault cover]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Uncovered manhole without warning",
+        "mechanism": "Utility access cover removed and not replaced â†’ opening unprotected â†’ two-wheeled vehicle encountered hazard â†’ wheel entrapment â†’ rider ejection"
+      }
+    },
+    {
+      "id": "RM-14b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 2:20 PM on Wednesday, a delivery motorcycle's front wheel fell into an uncovered manhole left open during sewer connection works on Al Khaleej Al Arabi Street. Manhole cover removed for access; no barricades, cones, or warning devices placed; opening not attended. Wheel dropped fully; rider ejected over handlebars; fractured wrist. Road closed 45 minutes for cover replacement and investigation. Afternoon local traffic, clear visibility.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Uncovered manhole without warning",
+        "mechanism": "Utility access cover removed and not replaced â†’ opening unprotected â†’ two-wheeled vehicle encountered hazard â†’ wheel entrapment â†’ rider ejection"
+      }
+    },
+    {
+      "id": "RM-16",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 4:10 PM on Thursday, hot bitumen spilled from a maintenance tanker on E10 near Saadiyat, creating a 40 m slick patch that caused four vehicles to skid and collide. Valve failure during transfer operation; liquid bitumen discharged onto pavement; extremely low friction coefficient; multiple drivers lost traction while braking or steering. One moderate injury. Road closed until 8:00 PM for cleanup and surface treatment. Afternoon traffic, dry otherwise.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Spilled bitumen from maintenance vehicle",
+        "mechanism": "Equipment failure during hot bitumen transfer â†’ material deposited on travel lane â†’ extreme reduction in pavement friction â†’ vehicles unable to brake/steer effectively â†’ multi-vehicle skid collision"
+      }
+    },
+    {
+      "id": "RM-16a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 4:10 PM on Thursday, hot bitumen spilled from a maintenance tanker on E10 near Saadiyat, creating a 40 m slick patch that caused four vehicles to skid and collide. Valve failure during transfer operation; liquid bitumen discharged onto pavement; extremely low friction coefficient; multiple drivers lost traction while braking or steering. One moderate injury. Road closed until 8:00 PM for cleanup and surface treatment. Afternoon traffic, dry otherwise. [Spill: emulsion from asphalt distributor]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Spilled bitumen from maintenance vehicle",
+        "mechanism": "Equipment failure during hot bitumen transfer â†’ material deposited on travel lane â†’ extreme reduction in pavement friction â†’ vehicles unable to brake/steer effectively â†’ multi-vehicle skid collision"
+      }
+    },
+    {
+      "id": "RM-16b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 4:10 PM on Friday, hot bitumen spilled from a maintenance tanker on E10 near Saadiyat, creating a 40 m slick patch that caused four vehicles to skid and collide. Valve failure during transfer operation; liquid bitumen discharged onto pavement; extremely low friction coefficient; multiple drivers lost traction while braking or steering. One moderate injury. Road closed until 8:00 PM for cleanup and surface treatment. Afternoon traffic, dry otherwise.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Spilled bitumen from maintenance vehicle",
+        "mechanism": "Equipment failure during hot bitumen transfer â†’ material deposited on travel lane â†’ extreme reduction in pavement friction â†’ vehicles unable to brake/steer effectively â†’ multi-vehicle skid collision"
+      }
+    },
+    {
+      "id": "RM-20",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 3:45 AM on Tuesday, dense steam from nighttime asphalt paving reduced visibility to 30 m on Sheikh Zayed Road, causing a three-vehicle low-speed pile-up. Hot asphalt mix contacted cooler pavement and ambient moisture; steam cloud formed over travel lanes; drivers unable to see brake lights or lane markings; rear-end chain reaction. One minor injury. Two lanes closed until 7:20 AM for ventilation and operation adjustment. Night freight traffic, dark conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Steam obscuration from asphalt paving",
+        "mechanism": "Temperature differential between fresh asphalt and environment â†’ water vapor condensation â†’ dense steam cloud over roadway â†’ severe visibility reduction â†’ drivers unable to detect stopped/slowing vehicles â†’ rear-end chain"
+      }
+    },
+    {
+      "id": "RM-20a",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 3:45 AM on Tuesday, dense steam from nighttime asphalt paving reduced visibility to 30 m on Sheikh Zayed Road, causing a three-vehicle low-speed pile-up. Hot asphalt mix contacted cooler pavement and ambient moisture; steam cloud formed over travel lanes; drivers unable to see brake lights or lane markings; rear-end chain reaction. One minor injury. Two lanes closed until 7:20 AM for ventilation and operation adjustment. Night freight traffic, dark conditions. [Fog: water used to cool paver]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Steam obscuration from asphalt paving",
+        "mechanism": "Temperature differential between fresh asphalt and environment â†’ water vapor condensation â†’ dense steam cloud over roadway â†’ severe visibility reduction â†’ drivers unable to detect stopped/slowing vehicles â†’ rear-end chain"
+      }
+    },
+    {
+      "id": "RM-20b",
+      "category": "Road Maintenance",
+      "complexity_level": 2,
+      "description": "At 3:45 AM on Wednesday, dense steam from nighttime asphalt paving reduced visibility to 30 m on Sheikh Zayed Road, causing a three-vehicle low-speed pile-up. Hot asphalt mix contacted cooler pavement and ambient moisture; steam cloud formed over travel lanes; drivers unable to see brake lights or lane markings; rear-end chain reaction. One minor injury. Two lanes closed until 7:20 AM for ventilation and operation adjustment. Night freight traffic, dark conditions.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Steam obscuration from asphalt paving",
+        "mechanism": "Temperature differential between fresh asphalt and environment â†’ water vapor condensation â†’ dense steam cloud over roadway â†’ severe visibility reduction â†’ drivers unable to detect stopped/slowing vehicles â†’ rear-end chain"
+      }
+    },
+    {
+      "id": "PE-01",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 10:30 PM on Wednesday, severe congestion developed along Corniche Road both directions approaching Al Khalidiyah due to full road closure for New Year's Eve 2026 fireworks viewing zone setup. Designated fireworks safety perimeter required complete closure of Corniche from Al Khalidiyah to Al Bateen. All traffic diverted to parallel internal streets. Rapid saturation of alternative routes occurred within 30 minutes. Gridlock extended 4â€“6 km. No injuries reported. Corniche remained closed until 2:15 AM next day; tailbacks reached Sheikh Zayed Road feeders. Normal weekday but holiday anticipation traffic present.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Road closure for event setup",
+        "mechanism": "Full road closure for fireworks safety zone â†’ all traffic forced onto inadequate diversion routes â†’ demand exceeded capacity of parallel streets â†’ gridlock propagation"
+      }
+    },
+    {
+      "id": "PE-01a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 9:45 PM on Wednesday, severe congestion developed along Corniche Road both directions approaching Al Khalidiyah due to full road closure for New Year's Eve 2026 fireworks viewing zone setup. Designated fireworks safety perimeter required complete closure of Corniche from Al Khalidiyah to Al Bateen. All traffic diverted to parallel internal streets. Rapid saturation of alternative routes occurred within 30 minutes. Gridlock extended 4â€“6 km. No injuries reported. Corniche remained closed until 2:15 AM next day; tailbacks reached Sheikh Zayed Road feeders. Normal weekday but holiday anticipation traffic present.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Road closure for event setup",
+        "mechanism": "Full road closure for fireworks safety zone â†’ all traffic forced onto inadequate diversion routes â†’ demand exceeded capacity of parallel streets â†’ gridlock propagation"
+      }
+    },
+    {
+      "id": "PE-01b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 10:30 PM on Wednesday, severe congestion Al Maryah Island approach closure for New Year's Eve 2026 fireworks viewing zone setup. Designated fireworks safety perimeter required complete closure of Corniche from Al Khalidiyah to Al Bateen. All traffic diverted to parallel internal streets. Rapid saturation of alternative routes occurred within 30 minutes. Gridlock extended 4â€“6 km. No injuries reported. Corniche remained closed until 2:15 AM next day; tailbacks reached Sheikh Zayed Road feeders. Normal weekday but holiday anticipation traffic present.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Road closure for event setup",
+        "mechanism": "Full road closure for fireworks safety zone â†’ all traffic forced onto inadequate diversion routes â†’ demand exceeded capacity of parallel streets â†’ gridlock propagation"
+      }
+    },
+    {
+      "id": "PE-03",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 6:40 PM on Saturday, exit congestion backed up 5.7 km on Yas Island exit ramp of Sheikh Zayed bin Sultan Street after Formula 1 Grand Prix race finish. Approximately 120,000+ spectators departed simultaneously. Limited exit capacity (three lanes) created slow discharge rate. Queue extended onto main highway, causing partial blockage of E10. Minor fender-bender collision (no injuries). Ramp flow remained restricted until 10:20 PM. Weekend leisure traffic to Yas Mall concurrent but not primary cause.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Simultaneous mass departure exceeding exit capacity",
+        "mechanism": "Event conclusion â†’ concentrated departure demand â†’ exit lane capacity saturated â†’ discharge rate < arrival rate at exit â†’ queue formation and upstream propagation"
+      }
+    },
+    {
+      "id": "PE-03a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 7:10 PM on Saturday, exit congestion backed up 5.7 km on Yas Island exit ramp of Sheikh Zayed bin Sultan Street after Formula 1 Grand Prix race finish. Approximately 120,000+ spectators departed simultaneously. Limited exit capacity (three lanes) created slow discharge rate. Queue extended onto main highway, causing partial blockage of E10. Minor fender-bender collision (no injuries). Ramp flow remained restricted until 10:20 PM. Weekend leisure traffic to Yas Mall concurrent but not primary cause.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Simultaneous mass departure exceeding exit capacity",
+        "mechanism": "Event conclusion â†’ concentrated departure demand â†’ exit lane capacity saturated â†’ discharge rate < arrival rate at exit â†’ queue formation and upstream propagation"
+      }
+    },
+    {
+      "id": "PE-03b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 6:40 PM on Saturday, exit congestion backed up 5.7 km on Yas Island exit ramp of Sheikh Zayed bin Sultan Street after Formula 1 Grand Prix race finish. Approximately 120,000+ spectators departed simultaneously. Limited exit capacity (three lanes) created slow discharge rate. Queue extended onto main highway, causing partial blockage of E10. Minor fender-bender collision (no injuries). Ramp flow remained restricted until 10:20 PM. Weekend leisure traffic to Yas Mall concurrent but not primary cause. [Queue length: 7.1 km]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Simultaneous mass departure exceeding exit capacity",
+        "mechanism": "Event conclusion â†’ concentrated departure demand â†’ exit lane capacity saturated â†’ discharge rate < arrival rate at exit â†’ queue formation and upstream propagation"
+      }
+    },
+    {
+      "id": "PE-04",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 8:50 PM on Friday, gridlock developed on Al Ain Road (E95) approaching Al Wathba due to Sheikh Zayed Festival National Day celebrations and fireworks. Free public event attracted family crowds arriving by private vehicle. Inadequate parking overflow capacity led to extensive double-parking on shoulders. Effective lanes reduced from three to one in sections. Tailback extended 4.2 km northbound. No injuries. Shoulder parking prohibited but enforcement delayed; delays exceeded 90 minutes. Normal Friday evening traffic present but secondary.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Parking demand exceeding supply with spillover into travel lanes",
+        "mechanism": "High-attendance free event â†’ parking capacity saturated â†’ vehicles circulating/queuing for spaces â†’ double-parking on shoulders/shoulder encroachment â†’ active lane reduction â†’ capacity drop â†’ queue formation"
+      }
+    },
+    {
+      "id": "PE-04a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 8:50 PM on Thursday, gridlock developed on Al Ain Road (E95) approaching Al Wathba due to Sheikh Zayed Festival National Day celebrations and fireworks. Free public event attracted family crowds arriving by private vehicle. Inadequate parking overflow capacity led to extensive double-parking on shoulders. Effective lanes reduced from three to one in sections. Tailback extended 4.2 km northbound. No injuries. Shoulder parking prohibited but enforcement delayed; delays exceeded 90 minutes. Normal Friday evening traffic present but secondary.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Parking demand exceeding supply with spillover into travel lanes",
+        "mechanism": "High-attendance free event â†’ parking capacity saturated â†’ vehicles circulating/queuing for spaces â†’ double-parking on shoulders/shoulder encroachment â†’ active lane reduction â†’ capacity drop â†’ queue formation"
+      }
+    },
+    {
+      "id": "PE-04b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 8:50 PM on Friday, gridlock developed on E11 approaching Al Wathba (E95) approaching Al Wathba due to Sheikh Zayed Festival National Day celebrations and fireworks. Free public event attracted family crowds arriving by private vehicle. Inadequate parking overflow capacity led to extensive double-parking on shoulders. Effective lanes reduced from three to one in sections. Tailback extended 4.2 km northbound. No injuries. Shoulder parking prohibited but enforcement delayed; delays exceeded 90 minutes. Normal Friday evening traffic present but secondary.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Parking demand exceeding supply with spillover into travel lanes",
+        "mechanism": "High-attendance free event â†’ parking capacity saturated â†’ vehicles circulating/queuing for spaces â†’ double-parking on shoulders/shoulder encroachment â†’ active lane reduction â†’ capacity drop â†’ queue formation"
+      }
+    },
+    {
+      "id": "PE-06",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 5:55 PM on Thursday, ingress queue formed on Yas Leisure Drive approaching du Arena for major international concert. Approximately 25,000 ticketed attendees arrived in a concentrated 2-hour window. Single main access point with security screening created bottleneck. Vehicles queued 2.9 km back to E10. No injuries. Queue cleared by 8:30 PM. Weekday after-work traffic overlapped partially.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Concentrated arrival surge through security bottleneck",
+        "mechanism": "Event start time fixed â†’ attendees arrive in narrow window â†’ access point with security screening has fixed processing rate â†’ arrival rate exceeds processing rate â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-06a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 5:55 PM on Friday, ingress queue formed on Yas Leisure Drive approaching du Arena for major international concert. Approximately 25,000 ticketed attendees arrived in a concentrated 2-hour window. Single main access point with security screening created bottleneck. Vehicles queued 2.9 km back to E10. No injuries. Queue cleared by 8:30 PM. Weekday after-work traffic overlapped partially.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Concentrated arrival surge through security bottleneck",
+        "mechanism": "Event start time fixed â†’ attendees arrive in narrow window â†’ access point with security screening has fixed processing rate â†’ arrival rate exceeds processing rate â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-06b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 5:55 PM on Thursday, ingress queue formed on Yas Leisure Drive approaching du Arena for major international concert. Approximately 25,000 ticketed attendees arrived in a concentrated 2-hour window. Single main access point with security screening created bottleneck. Vehicles queued 2.9 km back to E10. No injuries. Queue cleared by 8:30 PM. Weekday after-work traffic overlapped partially. [Queue length: 3.4 km]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Concentrated arrival surge through security bottleneck",
+        "mechanism": "Event start time fixed â†’ attendees arrive in narrow window â†’ access point with security screening has fixed processing rate â†’ arrival rate exceeds processing rate â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-07",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 6:10 AM on Sunday, congestion built around Sheikh Zayed Grand Mosque access roads due to large Eid Al Adha congregational prayer attendance. Thousands of worshippers arrived by private vehicle simultaneously. Limited permanent parking and temporary drop-off zones were quickly saturated. Vehicles circled continuously or queued at entry, blocking access lanes. Spillover occurred onto Al Khaleej Al Arabi Street. Tailback extended 2.6 km. No injuries. Flow improved by 9:00 AM after prayer conclusion. Weekend prayer traffic patterns.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Simultaneous high-volume arrival with inadequate parking/drop-off capacity",
+        "mechanism": "Religious holiday congregation â†’ fixed prayer time â†’ concentrated arrival â†’ parking supply exceeded â†’ circulating vehicles block access â†’ queue spills to arterial"
+      }
+    },
+    {
+      "id": "PE-07a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 6:10 AM on Monday, congestion built around Sheikh Zayed Grand Mosque access roads due to large Eid Al Adha congregational prayer attendance. Thousands of worshippers arrived by private vehicle simultaneously. Limited permanent parking and temporary drop-off zones were quickly saturated. Vehicles circled continuously or queued at entry, blocking access lanes. Spillover occurred onto Al Khaleej Al Arabi Street. Tailback extended 2.6 km. No injuries. Flow improved by 9:00 AM after prayer conclusion. Weekend prayer traffic patterns.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Simultaneous high-volume arrival with inadequate parking/drop-off capacity",
+        "mechanism": "Religious holiday congregation â†’ fixed prayer time â†’ concentrated arrival â†’ parking supply exceeded â†’ circulating vehicles block access â†’ queue spills to arterial"
+      }
+    },
+    {
+      "id": "PE-07b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 6:10 AM on Sunday, congestion built around Sheikh Zayed Grand Mosque access roads due to large Eid Al Adha congregational prayer attendance. Thousands of worshippers arrived by private vehicle simultaneously. Limited permanent parking and temporary drop-off zones were quickly saturated. Vehicles circled continuously or queued at entry, blocking access lanes. Spillover occurred onto Al Khaleej Al Arabi Street. Tailback extended 2.6 km. No injuries. Flow improved by 9:00 AM after prayer conclusion. Weekend prayer traffic patterns. [Queue length: 1.9 km]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Simultaneous high-volume arrival with inadequate parking/drop-off capacity",
+        "mechanism": "Religious holiday congregation â†’ fixed prayer time â†’ concentrated arrival â†’ parking supply exceeded â†’ circulating vehicles block access â†’ queue spills to arterial"
+      }
+    },
+    {
+      "id": "PE-10",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 11:15 PM on Saturday, post-F1 concert exit congestion backed up on Yas Marina Circuit internal roads and exit to Sheikh Zayed bin Sultan Street. Concert finish coincided with ongoing race spectator departure. Narrow exit points and multiple merge points created slow dispersal. Tailback extended onto main highway. Minor shunt collision (no injuries). Flow restored by 2:00 AM.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Concurrent event finishes overwhelming exit capacity",
+        "mechanism": "Two events (concert + race) ending in close temporal proximity â†’ combined departure demand > exit capacity â†’ queue formation on internal roads â†’ propagation to highway exit"
+      }
+    },
+    {
+      "id": "PE-10a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 11:15 PM on Saturday, post-F1 concert exit congestion backed up on Yas Marina Circuit internal roads and exit to Sheikh Zayed bin Sultan Street. Concert finish coincided with ongoing race spectator departure. Narrow exit points and multiple merge points created slow dispersal. Tailback extended onto main highway. Minor shunt collision (no injuries). Flow restored by 2:00 AM. [Queue length: 4.8 km]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Concurrent event finishes overwhelming exit capacity",
+        "mechanism": "Two events (concert + race) ending in close temporal proximity â†’ combined departure demand > exit capacity â†’ queue formation on internal roads â†’ propagation to highway exit"
+      }
+    },
+    {
+      "id": "PE-10b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 11:15 PM on Saturday, post-F1 concert exit congestion backed up on Yas Marina Circuit internal roads and exit to Sheikh Zayed bin Sultan Street. Concert finish coincided with ongoing race spectator departure. Narrow exit points and multiple merge points created slow dispersal. Tailback extended onto main highway. Minor shunt collision (no injuries). Flow restored by 2:00 AM. [C4, C4, C4]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Concurrent event finishes overwhelming exit capacity",
+        "mechanism": "Two events (concert + race) ending in close temporal proximity â†’ combined departure demand > exit capacity â†’ queue formation on internal roads â†’ propagation to highway exit"
+      }
+    },
+    {
+      "id": "PE-12",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 7:50 PM on Thursday, heavy inbound traffic on Al Ain Road (E95) approaching Hazza Bin Zayed Stadium for Al Ain FC match. Approximately 20,000+ fans arriving in 60-minute window. Limited stadium access roads (two primary routes) both fed through signalized roundabouts. Roundabout capacity exceeded; queues formed at each approach. Spillover occurred onto E95 main carriageway. No injuries. Cleared post-match approximately 11:30 PM.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Roundabout capacity exceeded by event traffic surge",
+        "mechanism": "Match start time â†’ concentrated fan arrival â†’ multiple approach roads feeding same roundabout â†’ roundabout circulating capacity saturated â†’ approach queue growth â†’ upstream propagation to highway"
+      }
+    },
+    {
+      "id": "PE-12a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 7:50 PM on Friday, heavy inbound traffic on Al Ain Road (E95) approaching Hazza Bin Zayed Stadium for Al Ain FC match. Approximately 20,000+ fans arriving in 60-minute window. Limited stadium access roads (two primary routes) both fed through signalized roundabouts. Roundabout capacity exceeded; queues formed at each approach. Spillover occurred onto E95 main carriageway. No injuries. Cleared post-match approximately 11:30 PM.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Roundabout capacity exceeded by event traffic surge",
+        "mechanism": "Match start time â†’ concentrated fan arrival â†’ multiple approach roads feeding same roundabout â†’ roundabout circulating capacity saturated â†’ approach queue growth â†’ upstream propagation to highway"
+      }
+    },
+    {
+      "id": "PE-12b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 7:50 PM on Thursday, heavy inbound traffic on Al Ain Road (E95) approaching Hazza Bin Zayed Stadium for Al Ain FC match. Approximately 20,000+ fans arriving in 60-minute window. Limited stadium access roads (two primary routes) both fed through signalized roundabouts. Roundabout capacity exceeded; queues formed at each approach. Spillover occurred onto E95 main carriageway. No injuries. Cleared post-match approximately 11:30 PM. [Kickoff: 8:15 PM]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Roundabout capacity exceeded by event traffic surge",
+        "mechanism": "Match start time â†’ concentrated fan arrival â†’ multiple approach roads feeding same roundabout â†’ roundabout circulating capacity saturated â†’ approach queue growth â†’ upstream propagation to highway"
+      }
+    },
+    {
+      "id": "PE-13",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 3:10 PM on Monday, access congestion on Saadiyat bridge due to Abu Dhabi Art fair opening day. VIP, media, and early visitor vehicles converged. Enhanced security screening protocols created significant per-vehicle processing delays. Bridge flow rate dropped below arrival rate. Queue formed on bridge approach and extended 2.4 km toward city. No injuries. Reduced by 7:00 PM after peak ingress.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Security screening bottleneck at event access",
+        "mechanism": "VIP event with heightened security â†’ thorough vehicle checks â†’ extended processing time per vehicle â†’ capacity at screening point << approach flow â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-13a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 3:10 PM on Tuesday, access congestion on Saadiyat bridge due to Abu Dhabi Art fair opening day. VIP, media, and early visitor vehicles converged. Enhanced security screening protocols created significant per-vehicle processing delays. Bridge flow rate dropped below arrival rate. Queue formed on bridge approach and extended 2.4 km toward city. No injuries. Reduced by 7:00 PM after peak ingress.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Security screening bottleneck at event access",
+        "mechanism": "VIP event with heightened security â†’ thorough vehicle checks â†’ extended processing time per vehicle â†’ capacity at screening point << approach flow â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-13b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 2:30 PM on Monday, access congestion on Saadiyat bridge due to Abu Dhabi Art fair opening day. VIP, media, and early visitor vehicles converged. Enhanced security screening protocols created significant per-vehicle processing delays. Bridge flow rate dropped below arrival rate. Queue formed on bridge approach and extended 2.4 km toward city. No injuries. Reduced by 7:00 PM after peak ingress.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Security screening bottleneck at event access",
+        "mechanism": "VIP event with heightened security â†’ thorough vehicle checks â†’ extended processing time per vehicle â†’ capacity at screening point << approach flow â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-15",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 9:40 PM on Saturday, congestion on Al Maryah Island link roads during popular Ramadan night souq. Food and shopping crowds attracted large family visitor volumes. Drop-off zones at venue entrance became chaotic due to insufficient capacity and poor lane discipline. Vehicles queuing for drop-off blocked through lanes. Queue extended 2.8 km. No injuries. Eased after midnight.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Drop-off zone capacity exceeded with lane blockage",
+        "mechanism": "High pedestrian volume event â†’ concentrated drop-off activity â†’ drop-off bay capacity exceeded â†’ vehicles queue in travel lane awaiting bay access â†’ through lane blocked â†’ capacity reduction â†’ queue formation"
+      }
+    },
+    {
+      "id": "PE-15a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 9:40 PM on Friday, congestion on Al Maryah Island link roads during popular Ramadan night souq. Food and shopping crowds attracted large family visitor volumes. Drop-off zones at venue entrance became chaotic due to insufficient capacity and poor lane discipline. Vehicles queuing for drop-off blocked through lanes. Queue extended 2.8 km. No injuries. Eased after midnight.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Drop-off zone capacity exceeded with lane blockage",
+        "mechanism": "High pedestrian volume event â†’ concentrated drop-off activity â†’ drop-off bay capacity exceeded â†’ vehicles queue in travel lane awaiting bay access â†’ through lane blocked â†’ capacity reduction â†’ queue formation"
+      }
+    },
+    {
+      "id": "PE-15b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 9:40 PM on Saturday, congestion on Al Maryah Island link roads during popular Ramadan night souq. Food and shopping crowds attracted large family visitor volumes. Drop-off zones at venue entrance became chaotic due to insufficient capacity and poor lane discipline. Vehicles queuing for drop-off blocked through lanes. Queue extended 2.8 km. No injuries. Eased after midnight. [Queue length: 3.2 km]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Drop-off zone capacity exceeded with lane blockage",
+        "mechanism": "High pedestrian volume event â†’ concentrated drop-off activity â†’ drop-off bay capacity exceeded â†’ vehicles queue in travel lane awaiting bay access â†’ through lane blocked â†’ capacity reduction â†’ queue formation"
+      }
+    },
+    {
+      "id": "PE-18",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 8:50 AM on Monday, morning peak congestion approaching Al Maryah Island for ADGM Financial Week. Delegates and business visitors arrived during peak commute hour. Single bridge entry point created bottleneck. Event trafficå åŠ  on normal business commute. Queue formed on bridge approach; spillover to main routes. No injuries.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Event trafficå åŠ  on peak background demand",
+        "mechanism": "Conference start time aligned with morning peak â†’ event vehicles added to already near-capacity commute flow â†’ bridge entry point capacity exceeded â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-18a",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 8:50 AM on Tuesday, morning peak congestion approaching Al Maryah Island for ADGM Financial Week. Delegates and business visitors arrived during peak commute hour. Single bridge entry point created bottleneck. Event trafficå åŠ  on normal business commute. Queue formed on bridge approach; spillover to main routes. No injuries.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Event trafficå åŠ  on peak background demand",
+        "mechanism": "Conference start time aligned with morning peak â†’ event vehicles added to already near-capacity commute flow â†’ bridge entry point capacity exceeded â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "PE-18b",
+      "category": "Public Event",
+      "complexity_level": 2,
+      "description": "At 8:15 AM on Monday, morning peak congestion approaching Al Maryah Island for ADGM Financial Week. Delegates and business visitors arrived during peak commute hour. Single bridge entry point created bottleneck. Event trafficå åŠ  on normal business commute. Queue formed on bridge approach; spillover to main routes. No injuries.",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "Event trafficå åŠ  on peak background demand",
+        "mechanism": "Conference start time aligned with morning peak â†’ event vehicles added to already near-capacity commute flow â†’ bridge entry point capacity exceeded â†’ queue formation and propagation"
+      }
+    },
+    {
+      "id": "H-01",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Cardiology Ward",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:15 AM on Monday, a 65-year-old patient with congestive heart failure was readmitted to the cardiology ward within 30 days of discharge. The patient had stopped taking prescribed ACE inhibitors and beta-blockers three days after discharge, believing they were no longer needed. Blood pressure on admission was 165/95 mmHg. The patient reported shortness of breath and peripheral edema.",
+        "mechanism": "Medication non-adherence post-discharge"
+      }
+    },
+    {
+      "id": "H-01a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Cardiology Ward [medication adherence, follow-up care, symptom monitoring]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:15 AM on Monday, a 65-year-old patient with congestive heart failure was readmitted to the cardiology ward within 30 days of discharge. The patient had stopped taking prescribed ACE inhibitors and beta-blockers three days after discharge, believing they were no longer needed. Blood pressure on admission was 165/95 mmHg. The patient reported shortness of breath and peripheral edema.",
+        "mechanism": "Medication non-adherence post-discharge"
+      }
+    },
+    {
+      "id": "H-01b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Cardiology Ward [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:15 AM on Monday, a 65-year-old patient with congestive heart failure was readmitted to the cardiology ward within 30 days of discharge. The patient had stopped taking prescribed ACE inhibitors and beta-blockers three days after discharge, believing they were no longer needed. Blood pressure on admission was 165/95 mmHg. The patient reported shortness of breath and peripheral edema.",
+        "mechanism": "Medication non-adherence post-discharge"
+      }
+    },
+    {
+      "id": "H-02",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Primary Care Clinic",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:30 PM on Wednesday, a 52-year-old patient presented with worsening fatigue and unexplained weight loss over 6 months. Review of records showed that an elevated HbA1c of 8.2% and fasting glucose of 160 mg/dL from a routine blood test 4 months ago was never acted upon. The patient was subsequently diagnosed with Type 2 diabetes with early nephropathy.",
+        "mechanism": "Delayed follow-up on abnormal lab results"
+      }
+    },
+    {
+      "id": "H-02a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Primary Care Clinic [lab review protocol, alert system, follow-up tracking]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:30 PM on Wednesday, a 52-year-old patient presented with worsening fatigue and unexplained weight loss over 6 months. Review of records showed that an elevated HbA1c of 8.2% and fasting glucose of 160 mg/dL from a routine blood test 4 months ago was never acted upon. The patient was subsequently diagnosed with Type 2 diabetes with early nephropathy.",
+        "mechanism": "Delayed follow-up on abnormal lab results"
+      }
+    },
+    {
+      "id": "H-02b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Primary Care Clinic [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:30 PM on Wednesday, a 52-year-old patient presented with worsening fatigue and unexplained weight loss over 6 months. Review of records showed that an elevated HbA1c of 8.2% and fasting glucose of 160 mg/dL from a routine blood test 4 months ago was never acted upon. The patient was subsequently diagnosed with Type 2 diabetes with early nephropathy.",
+        "mechanism": "Delayed follow-up on abnormal lab results"
+      }
+    },
+    {
+      "id": "H-03",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Operating Room",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:00 AM on Tuesday, a patient developed a surgical site infection following elective laparoscopic cholecystectomy performed 7 days earlier. The infection was confirmed as methicillin-resistant Staphylococcus aureus (MRSA). Operative records showed that standard prophylactic antibiotics were administered but the patient had undocumented MRSA colonization.",
+        "mechanism": "Post-operative infection from unrecognized colonization"
+      }
+    },
+    {
+      "id": "H-03a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Operating Room [pre-operative screening, antibiotic prophylaxis, wound monitoring]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:00 AM on Tuesday, a patient developed a surgical site infection following elective laparoscopic cholecystectomy performed 7 days earlier. The infection was confirmed as methicillin-resistant Staphylococcus aureus (MRSA). Operative records showed that standard prophylactic antibiotics were administered but the patient had undocumented MRSA colonization.",
+        "mechanism": "Post-operative infection from unrecognized colonization"
+      }
+    },
+    {
+      "id": "H-03b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Operating Room [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:00 AM on Tuesday, a patient developed a surgical site infection following elective laparoscopic cholecystectomy performed 7 days earlier. The infection was confirmed as methicillin-resistant Staphylococcus aureus (MRSA). Operative records showed that standard prophylactic antibiotics were administered but the patient had undocumented MRSA colonization.",
+        "mechanism": "Post-operative infection from unrecognized colonization"
+      }
+    },
+    {
+      "id": "H-04",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Hospital Pharmacy",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 6:45 PM on Thursday, a patient received a 10-fold overdose of intravenous heparin due to a communication failure during shift change. The incoming nurse misread the infusion pump setting of 10 units/mL as 100 units/mL, and the error was not caught by the double-check protocol.",
+        "mechanism": "Shift change communication failure"
+      }
+    },
+    {
+      "id": "H-04a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Hospital Pharmacy [handoff protocol, medication verification, pump settings]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 6:45 PM on Thursday, a patient received a 10-fold overdose of intravenous heparin due to a communication failure during shift change. The incoming nurse misread the infusion pump setting of 10 units/mL as 100 units/mL, and the error was not caught by the double-check protocol.",
+        "mechanism": "Shift change communication failure"
+      }
+    },
+    {
+      "id": "H-04b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Hospital Pharmacy [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 6:45 PM on Thursday, a patient received a 10-fold overdose of intravenous heparin due to a communication failure during shift change. The incoming nurse misread the infusion pump setting of 10 units/mL as 100 units/mL, and the error was not caught by the double-check protocol.",
+        "mechanism": "Shift change communication failure"
+      }
+    },
+    {
+      "id": "H-05",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Emergency Department",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 11:20 PM on Saturday, a patient with fever and tachycardia was initially triaged as low acuity. Over 6 hours, the patient developed hypotension, altered mental status, and rising lactate levels (3.2 mmol/L). Sepsis was finally recognized at 5:30 AM, and the patient was transferred to ICU. Delay in antibiotic administration was associated with prolonged hospitalization.",
+        "mechanism": "Delayed sepsis recognition"
+      }
+    },
+    {
+      "id": "H-05a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Emergency Department [sepsis screening, vital sign monitoring, antibiotic timing]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 11:20 PM on Saturday, a patient with fever and tachycardia was initially triaged as low acuity. Over 6 hours, the patient developed hypotension, altered mental status, and rising lactate levels (3.2 mmol/L). Sepsis was finally recognized at 5:30 AM, and the patient was transferred to ICU. Delay in antibiotic administration was associated with prolonged hospitalization.",
+        "mechanism": "Delayed sepsis recognition"
+      }
+    },
+    {
+      "id": "H-05b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Emergency Department [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 11:20 PM on Saturday, a patient with fever and tachycardia was initially triaged as low acuity. Over 6 hours, the patient developed hypotension, altered mental status, and rising lactate levels (3.2 mmol/L). Sepsis was finally recognized at 5:30 AM, and the patient was transferred to ICU. Delay in antibiotic administration was associated with prolonged hospitalization.",
+        "mechanism": "Delayed sepsis recognition"
+      }
+    },
+    {
+      "id": "H-06",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Orthopedic Ward",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 10:00 AM on Sunday, a 78-year-old patient discharged 24 hours after hip replacement surgery fell at home attempting to climb stairs. Discharge instructions specified \"no stair climbing for 2 weeks\" but this was not verbally reviewed with the patient, who was unaware of the restriction.",
+        "mechanism": "Incomplete discharge communication"
+      }
+    },
+    {
+      "id": "H-06a",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Orthopedic Ward [discharge instructions, verbal review, patient education, home safety]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 10:00 AM on Sunday, a 78-year-old patient discharged 24 hours after hip replacement surgery fell at home attempting to climb stairs. Discharge instructions specified \"no stair climbing for 2 weeks\" but this was not verbally reviewed with the patient, who was unaware of the restriction.",
+        "mechanism": "Incomplete discharge communication"
+      }
+    },
+    {
+      "id": "H-06b",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Orthopedic Ward [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 10:00 AM on Sunday, a 78-year-old patient discharged 24 hours after hip replacement surgery fell at home attempting to climb stairs. Discharge instructions specified \"no stair climbing for 2 weeks\" but this was not verbally reviewed with the patient, who was unaware of the restriction.",
+        "mechanism": "Incomplete discharge communication"
+      }
+    },
+    {
+      "id": "H-07",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Oncology Clinic",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 1:30 PM on Monday, a patient was diagnosed with Stage III lung cancer. Records showed that a suspicious nodule on chest X-ray from 8 months earlier was never followed up due to misfiling of the radiology report. The cancer had progressed from potentially curable Stage I to advanced Stage III during this delay.",
+        "mechanism": "Radiology report misfiling â†’ delayed follow-up"
+      }
+    },
+    {
+      "id": "H-07a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Oncology Clinic [result tracking, follow-up protocols, cancer staging]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 1:30 PM on Monday, a patient was diagnosed with Stage III lung cancer. Records showed that a suspicious nodule on chest X-ray from 8 months earlier was never followed up due to misfiling of the radiology report. The cancer had progressed from potentially curable Stage I to advanced Stage III during this delay.",
+        "mechanism": "Radiology report misfiling â†’ delayed follow-up"
+      }
+    },
+    {
+      "id": "H-07b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Oncology Clinic [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 1:30 PM on Monday, a patient was diagnosed with Stage III lung cancer. Records showed that a suspicious nodule on chest X-ray from 8 months earlier was never followed up due to misfiling of the radiology report. The cancer had progressed from potentially curable Stage I to advanced Stage III during this delay.",
+        "mechanism": "Radiology report misfiling â†’ delayed follow-up"
+      }
+    },
+    {
+      "id": "H-08",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "ICU",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:30 AM on Wednesday, a patient developed a central line-associated bloodstream infection (CLABSI) 10 days after ICU admission. Observation data showed that hand hygiene compliance among staff caring for the line was only 45% during the insertion and maintenance period. The infection added 14 days to hospital stay and required IV antibiotics.",
+        "mechanism": "Poor hand hygiene during central line care"
+      }
+    },
+    {
+      "id": "H-08a",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "ICU [hand hygiene compliance, sterile technique, line care protocol]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:30 AM on Wednesday, a patient developed a central line-associated bloodstream infection (CLABSI) 10 days after ICU admission. Observation data showed that hand hygiene compliance among staff caring for the line was only 45% during the insertion and maintenance period. The infection added 14 days to hospital stay and required IV antibiotics.",
+        "mechanism": "Poor hand hygiene during central line care"
+      }
+    },
+    {
+      "id": "H-08b",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "ICU [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:30 AM on Wednesday, a patient developed a central line-associated bloodstream infection (CLABSI) 10 days after ICU admission. Observation data showed that hand hygiene compliance among staff caring for the line was only 45% during the insertion and maintenance period. The infection added 14 days to hospital stay and required IV antibiotics.",
+        "mechanism": "Poor hand hygiene during central line care"
+      }
+    },
+    {
+      "id": "H-09",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Emergency Department",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 PM on Tuesday, a patient with abdominal pain was diagnosed with appendicitis based on CT findings and underwent appendectomy. Post-operative pathology revealed a normal appendix. The patient's symptoms were actually caused by a ruptured ovarian cyst, which was visible on the same CT but not reported.",
+        "mechanism": "Radiology misinterpretation of CT scan"
+      }
+    },
+    {
+      "id": "H-09a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Emergency Department [CT interpretation, differential diagnosis, surgical decision]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 PM on Tuesday, a patient with abdominal pain was diagnosed with appendicitis based on CT findings and underwent appendectomy. Post-operative pathology revealed a normal appendix. The patient's symptoms were actually caused by a ruptured ovarian cyst, which was visible on the same CT but not reported.",
+        "mechanism": "Radiology misinterpretation of CT scan"
+      }
+    },
+    {
+      "id": "H-09b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Emergency Department [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 PM on Tuesday, a patient with abdominal pain was diagnosed with appendicitis based on CT findings and underwent appendectomy. Post-operative pathology revealed a normal appendix. The patient's symptoms were actually caused by a ruptured ovarian cyst, which was visible on the same CT but not reported.",
+        "mechanism": "Radiology misinterpretation of CT scan"
+      }
+    },
+    {
+      "id": "H-10",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Outpatient Pharmacy",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 11:00 AM on Friday, a patient on warfarin for atrial fibrillation was prescribed trimethoprim-sulfamethoxazole for a urinary tract infection. The drug interaction was not checked by the prescribing physician or flagged by the pharmacy system. Within 5 days, the patient's INR rose to 8.5, resulting in a gastrointestinal bleed requiring hospitalization.",
+        "mechanism": "Failure to check drug-drug interaction"
+      }
+    },
+    {
+      "id": "H-10a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Outpatient Pharmacy [drug interaction checking, anticoagulation monitoring, patient education]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 11:00 AM on Friday, a patient on warfarin for atrial fibrillation was prescribed trimethoprim-sulfamethoxazole for a urinary tract infection. The drug interaction was not checked by the prescribing physician or flagged by the pharmacy system. Within 5 days, the patient's INR rose to 8.5, resulting in a gastrointestinal bleed requiring hospitalization.",
+        "mechanism": "Failure to check drug-drug interaction"
+      }
+    },
+    {
+      "id": "H-10b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Outpatient Pharmacy [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 11:00 AM on Friday, a patient on warfarin for atrial fibrillation was prescribed trimethoprim-sulfamethoxazole for a urinary tract infection. The drug interaction was not checked by the prescribing physician or flagged by the pharmacy system. Within 5 days, the patient's INR rose to 8.5, resulting in a gastrointestinal bleed requiring hospitalization.",
+        "mechanism": "Failure to check drug-drug interaction"
+      }
+    },
+    {
+      "id": "H-11",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Surgical Ward",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:00 AM on Saturday, a post-operative patient reported severe pain (9/10) but received only acetaminophen because the night nurse was hesitant to administer prescribed opioids due to fear of respiratory depression. The patient remained in severe pain for 6 hours until the day shift nurse administered the ordered morphine.",
+        "mechanism": "Nurse's failure to administer ordered medication due to fear"
+      }
+    },
+    {
+      "id": "H-11a",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Surgical Ward [pain assessment, medication administration, opioid safety]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:00 AM on Saturday, a post-operative patient reported severe pain (9/10) but received only acetaminophen because the night nurse was hesitant to administer prescribed opioids due to fear of respiratory depression. The patient remained in severe pain for 6 hours until the day shift nurse administered the ordered morphine.",
+        "mechanism": "Nurse's failure to administer ordered medication due to fear"
+      }
+    },
+    {
+      "id": "H-11b",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Surgical Ward [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:00 AM on Saturday, a post-operative patient reported severe pain (9/10) but received only acetaminophen because the night nurse was hesitant to administer prescribed opioids due to fear of respiratory depression. The patient remained in severe pain for 6 hours until the day shift nurse administered the ordered morphine.",
+        "mechanism": "Nurse's failure to administer ordered medication due to fear"
+      }
+    },
+    {
+      "id": "H-12",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Operating Room",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:30 AM on Tuesday, an elective laparoscopic cholecystectomy was aborted after the insufflator malfunctioned, failing to maintain pneumoperitoneum. The equipment had not been checked before the procedure per protocol. The patient required rescheduling and experienced an additional week of symptoms.",
+        "mechanism": "Failure to perform pre-operative equipment check"
+      }
+    },
+    {
+      "id": "H-12a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Operating Room [pre-operative checklist, equipment verification, backup equipment]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:30 AM on Tuesday, an elective laparoscopic cholecystectomy was aborted after the insufflator malfunctioned, failing to maintain pneumoperitoneum. The equipment had not been checked before the procedure per protocol. The patient required rescheduling and experienced an additional week of symptoms.",
+        "mechanism": "Failure to perform pre-operative equipment check"
+      }
+    },
+    {
+      "id": "H-12b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Operating Room [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:30 AM on Tuesday, an elective laparoscopic cholecystectomy was aborted after the insufflator malfunctioned, failing to maintain pneumoperitoneum. The equipment had not been checked before the procedure per protocol. The patient required rescheduling and experienced an additional week of symptoms.",
+        "mechanism": "Failure to perform pre-operative equipment check"
+      }
+    },
+    {
+      "id": "H-13",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Blood Bank",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 7:15 PM on Thursday, a patient with blood type A positive received one unit of B positive red blood cells due to mislabeling of the blood sample at the bedside. Within 30 minutes, the patient developed fever, hypotension, and hemoglobinuriaâ€”a severe acute hemolytic transfusion reaction requiring ICU admission.",
+        "mechanism": "Bedside blood sample mislabeling"
+      }
+    },
+    {
+      "id": "H-13a",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Blood Bank [patient identification, sample labeling, crossmatch verification]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 7:15 PM on Thursday, a patient with blood type A positive received one unit of B positive red blood cells due to mislabeling of the blood sample at the bedside. Within 30 minutes, the patient developed fever, hypotension, and hemoglobinuriaâ€”a severe acute hemolytic transfusion reaction requiring ICU admission.",
+        "mechanism": "Bedside blood sample mislabeling"
+      }
+    },
+    {
+      "id": "H-13b",
+      "category": "Healthcare",
+      "complexity_level": 2,
+      "description": "Blood Bank [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 7:15 PM on Thursday, a patient with blood type A positive received one unit of B positive red blood cells due to mislabeling of the blood sample at the bedside. Within 30 minutes, the patient developed fever, hypotension, and hemoglobinuriaâ€”a severe acute hemolytic transfusion reaction requiring ICU admission.",
+        "mechanism": "Bedside blood sample mislabeling"
+      }
+    },
+    {
+      "id": "H-14",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Observation Unit",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 4:00 PM on Friday, a patient with asthma exacerbation was discharged despite persistent wheezing and oxygen requirement of 2L/min. The discharging resident was pressured to free up beds for incoming admissions. The patient returned to the ED at 10:00 PM with respiratory failure requiring intubation and ICU admission.",
+        "mechanism": "Premature discharge due to bed pressure"
+      }
+    },
+    {
+      "id": "H-14a",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Observation Unit [discharge criteria, clinical stability assessment, follow-up planning]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 4:00 PM on Friday, a patient with asthma exacerbation was discharged despite persistent wheezing and oxygen requirement of 2L/min. The discharging resident was pressured to free up beds for incoming admissions. The patient returned to the ED at 10:00 PM with respiratory failure requiring intubation and ICU admission.",
+        "mechanism": "Premature discharge due to bed pressure"
+      }
+    },
+    {
+      "id": "H-14b",
+      "category": "Healthcare",
+      "complexity_level": 1,
+      "description": "Observation Unit [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 4:00 PM on Friday, a patient with asthma exacerbation was discharged despite persistent wheezing and oxygen requirement of 2L/min. The discharging resident was pressured to free up beds for incoming admissions. The patient returned to the ED at 10:00 PM with respiratory failure requiring intubation and ICU admission.",
+        "mechanism": "Premature discharge due to bed pressure"
+      }
+    },
+    {
+      "id": "F-01",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "NYSE",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:45 PM on Monday, the S&P 500 dropped 8% in 12 minutes before recovering. Investigation revealed that a large sell order triggered multiple high-frequency trading algorithms, which began rapidly selling and withdrawing liquidity, creating a feedback loop of falling prices and further selling.",
+        "mechanism": "Algorithmic trading feedback loop"
+      }
+    },
+    {
+      "id": "F-01a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "NYSE [algorithmic trading rules, circuit breakers, market liquidity]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:45 PM on Monday, the S&P 500 dropped 8% in 12 minutes before recovering. Investigation revealed that a large sell order triggered multiple high-frequency trading algorithms, which began rapidly selling and withdrawing liquidity, creating a feedback loop of falling prices and further selling.",
+        "mechanism": "Algorithmic trading feedback loop"
+      }
+    },
+    {
+      "id": "F-01b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "NYSE [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:45 PM on Monday, the S&P 500 dropped 8% in 12 minutes before recovering. Investigation revealed that a large sell order triggered multiple high-frequency trading algorithms, which began rapidly selling and withdrawing liquidity, creating a feedback loop of falling prices and further selling.",
+        "mechanism": "Algorithmic trading feedback loop"
+      }
+    },
+    {
+      "id": "F-02",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Rating Agency",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:30 AM on Tuesday, a major credit rating agency mistakenly downgraded a corporate bond from BBB to CCC due to a data entry error in their financial model. The error was not caught by quality control. The company's borrowing costs increased by 2.5% before the error was corrected 48 hours later.",
+        "mechanism": "Data entry error in credit rating model"
+      }
+    },
+    {
+      "id": "F-02a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Rating Agency [data verification, quality control, rating methodology]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:30 AM on Tuesday, a major credit rating agency mistakenly downgraded a corporate bond from BBB to CCC due to a data entry error in their financial model. The error was not caught by quality control. The company's borrowing costs increased by 2.5% before the error was corrected 48 hours later.",
+        "mechanism": "Data entry error in credit rating model"
+      }
+    },
+    {
+      "id": "F-02b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Rating Agency [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:30 AM on Tuesday, a major credit rating agency mistakenly downgraded a corporate bond from BBB to CCC due to a data entry error in their financial model. The error was not caught by quality control. The company's borrowing costs increased by 2.5% before the error was corrected 48 hours later.",
+        "mechanism": "Data entry error in credit rating model"
+      }
+    },
+    {
+      "id": "F-03",
+      "category": "Finance",
+      "complexity_level": 1,
+      "description": "Investment Bank",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 6:00 PM on Thursday, an investment banker traded shares of a client company ahead of an announced merger. The SEC detected unusual trading patterns from the banker's personal account. The banker was placed on leave pending investigation.",
+        "mechanism": "Insider trading based on confidential information"
+      }
+    },
+    {
+      "id": "F-03a",
+      "category": "Finance",
+      "complexity_level": 1,
+      "description": "Investment Bank [information barriers, compliance monitoring, insider trading policies]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 6:00 PM on Thursday, an investment banker traded shares of a client company ahead of an announced merger. The SEC detected unusual trading patterns from the banker's personal account. The banker was placed on leave pending investigation.",
+        "mechanism": "Insider trading based on confidential information"
+      }
+    },
+    {
+      "id": "F-03b",
+      "category": "Finance",
+      "complexity_level": 1,
+      "description": "Investment Bank [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 6:00 PM on Thursday, an investment banker traded shares of a client company ahead of an announced merger. The SEC detected unusual trading patterns from the banker's personal account. The banker was placed on leave pending investigation.",
+        "mechanism": "Insider trading based on confidential information"
+      }
+    },
+    {
+      "id": "F-04",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Hedge Fund",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:30 AM on Friday, a hedge fund received a margin call after a 15% overnight drop in their largest position. The fund had used 8:1 leverage without adequate risk limits. Unable to meet the margin call, the fund was forced to liquidate positions at a loss, reducing assets under management by 40%.",
+        "mechanism": "Excessive leverage without risk limits"
+      }
+    },
+    {
+      "id": "F-04a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Hedge Fund [collateral requirements, leverage limits, risk management, position monitoring]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:30 AM on Friday, a hedge fund received a margin call after a 15% overnight drop in their largest position. The fund had used 8:1 leverage without adequate risk limits. Unable to meet the margin call, the fund was forced to liquidate positions at a loss, reducing assets under management by 40%.",
+        "mechanism": "Excessive leverage without risk limits"
+      }
+    },
+    {
+      "id": "F-04b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Hedge Fund [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 8:30 AM on Friday, a hedge fund received a margin call after a 15% overnight drop in their largest position. The fund had used 8:1 leverage without adequate risk limits. Unable to meet the margin call, the fund was forced to liquidate positions at a loss, reducing assets under management by 40%.",
+        "mechanism": "Excessive leverage without risk limits"
+      }
+    },
+    {
+      "id": "F-05",
+      "category": "Finance",
+      "complexity_level": 1,
+      "description": "Bank",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:00 PM on Wednesday, a customer's mortgage payment was processed 5 days after receipt due to a batch processing error. The customer was assessed a $150 late fee and a negative credit report entry. The bank reversed the fee but the credit report correction took 45 days.",
+        "mechanism": "Batch processing error causing payment delay"
+      }
+    },
+    {
+      "id": "F-05a",
+      "category": "Finance",
+      "complexity_level": 1,
+      "description": "Bank [payment processing, error monitoring, customer notification]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:00 PM on Wednesday, a customer's mortgage payment was processed 5 days after receipt due to a batch processing error. The customer was assessed a $150 late fee and a negative credit report entry. The bank reversed the fee but the credit report correction took 45 days.",
+        "mechanism": "Batch processing error causing payment delay"
+      }
+    },
+    {
+      "id": "F-05b",
+      "category": "Finance",
+      "complexity_level": 1,
+      "description": "Bank [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 2:00 PM on Wednesday, a customer's mortgage payment was processed 5 days after receipt due to a batch processing error. The customer was assessed a $150 late fee and a negative credit report entry. The bank reversed the fee but the credit report correction took 45 days.",
+        "mechanism": "Batch processing error causing payment delay"
+      }
+    },
+    {
+      "id": "F-06",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Retail Bank",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 PM on Sunday, a customer's account was frozen after a $25,000 fraudulent wire transfer was detected. The fraud detection system flagged the transaction as suspicious and automatically froze the account. However, the customer was not notified for 12 hours, during which legitimate transactions were declined.",
+        "mechanism": "Automated fraud detection with delayed notification"
+      }
+    },
+    {
+      "id": "F-06a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Retail Bank [fraud detection rules, customer notification, account freeze protocols]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 PM on Sunday, a customer's account was frozen after a $25,000 fraudulent wire transfer was detected. The fraud detection system flagged the transaction as suspicious and automatically froze the account. However, the customer was not notified for 12 hours, during which legitimate transactions were declined.",
+        "mechanism": "Automated fraud detection with delayed notification"
+      }
+    },
+    {
+      "id": "F-06b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Retail Bank [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 PM on Sunday, a customer's account was frozen after a $25,000 fraudulent wire transfer was detected. The fraud detection system flagged the transaction as suspicious and automatically froze the account. However, the customer was not notified for 12 hours, during which legitimate transactions were declined.",
+        "mechanism": "Automated fraud detection with delayed notification"
+      }
+    },
+    {
+      "id": "F-07",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Wealth Management",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 10:00 AM on Thursday, a retiree's portfolio lost 30% of its value after the wealth manager recommended a \"low-risk\" product that was actually a high-yield bond fund with significant interest rate risk. The product documentation clearly stated the risk, but the manager did not read or disclose it.",
+        "mechanism": "Failure to read and disclose product risk"
+      }
+    },
+    {
+      "id": "F-07a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Wealth Management [due diligence, risk disclosure, suitability determination, prospectus review]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 10:00 AM on Thursday, a retiree's portfolio lost 30% of its value after the wealth manager recommended a \"low-risk\" product that was actually a high-yield bond fund with significant interest rate risk. The product documentation clearly stated the risk, but the manager did not read or disclose it.",
+        "mechanism": "Failure to read and disclose product risk"
+      }
+    },
+    {
+      "id": "F-07b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Wealth Management [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 10:00 AM on Thursday, a retiree's portfolio lost 30% of its value after the wealth manager recommended a \"low-risk\" product that was actually a high-yield bond fund with significant interest rate risk. The product documentation clearly stated the risk, but the manager did not read or disclose it.",
+        "mechanism": "Failure to read and disclose product risk"
+      }
+    },
+    {
+      "id": "F-08",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Clearing House",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 3:30 PM on Tuesday, a major clearing member failed to deliver securities for a trade settlement, causing a cascading settlement failure across multiple counterparties. The clearing house had not enforced its capital requirements on the member, which was undercapitalized.",
+        "mechanism": "Clearing house failure to enforce capital requirements"
+      }
+    },
+    {
+      "id": "F-08a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Clearing House [capital requirements, member monitoring, settlement guarantees, risk management]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 3:30 PM on Tuesday, a major clearing member failed to deliver securities for a trade settlement, causing a cascading settlement failure across multiple counterparties. The clearing house had not enforced its capital requirements on the member, which was undercapitalized.",
+        "mechanism": "Clearing house failure to enforce capital requirements"
+      }
+    },
+    {
+      "id": "F-08b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Clearing House [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 3:30 PM on Tuesday, a major clearing member failed to deliver securities for a trade settlement, causing a cascading settlement failure across multiple counterparties. The clearing house had not enforced its capital requirements on the member, which was undercapitalized.",
+        "mechanism": "Clearing house failure to enforce capital requirements"
+      }
+    },
+    {
+      "id": "F-09",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Consumer Bank",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 AM on Saturday, a qualified applicant was denied a mortgage by the bank's automated underwriting system. The algorithm had been trained on historical data that reflected past discriminatory lending practices. The applicant had a 780 credit score, stable income, and 20% down payment but was denied due to zip code correlation with race.",
+        "mechanism": "Algorithmic bias from historical discriminatory data"
+      }
+    },
+    {
+      "id": "F-09a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Consumer Bank [algorithm fairness, data bias detection, fair lending compliance, model audit]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 AM on Saturday, a qualified applicant was denied a mortgage by the bank's automated underwriting system. The algorithm had been trained on historical data that reflected past discriminatory lending practices. The applicant had a 780 credit score, stable income, and 20% down payment but was denied due to zip code correlation with race.",
+        "mechanism": "Algorithmic bias from historical discriminatory data"
+      }
+    },
+    {
+      "id": "F-09b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Consumer Bank [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 9:00 AM on Saturday, a qualified applicant was denied a mortgage by the bank's automated underwriting system. The algorithm had been trained on historical data that reflected past discriminatory lending practices. The applicant had a 780 credit score, stable income, and 20% down payment but was denied due to zip code correlation with race.",
+        "mechanism": "Algorithmic bias from historical discriminatory data"
+      }
+    },
+    {
+      "id": "F-10",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Commodity Exchange",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 1:00 PM on Wednesday, a trader placed a large spoofing order for crude oil futuresâ€”bidding up prices with no intent to executeâ€”then canceled the orders and sold into the artificially high prices. The scheme netted $2 million before detection. Other market participants traded at distorted prices.",
+        "mechanism": "Spoofing manipulation to create artificial prices"
+      }
+    },
+    {
+      "id": "F-10a",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Commodity Exchange [market surveillance, manipulation detection, trade monitoring, order cancellation patterns]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 1:00 PM on Wednesday, a trader placed a large spoofing order for crude oil futuresâ€”bidding up prices with no intent to executeâ€”then canceled the orders and sold into the artificially high prices. The scheme netted $2 million before detection. Other market participants traded at distorted prices.",
+        "mechanism": "Spoofing manipulation to create artificial prices"
+      }
+    },
+    {
+      "id": "F-10b",
+      "category": "Finance",
+      "complexity_level": 2,
+      "description": "Commodity Exchange [Original]",
+      "minimal_sufficient_set": [],
+      "causal_ground_truth": {
+        "primary_cause": "At 1:00 PM on Wednesday, a trader placed a large spoofing order for crude oil futuresâ€”bidding up prices with no intent to executeâ€”then canceled the orders and sold into the artificially high prices. The scheme netted $2 million before detection. Other market participants traded at distorted prices.",
+        "mechanism": "Spoofing manipulation to create artificial prices"
+      }
+    }
+  ]
+}

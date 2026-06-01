@@ -14,7 +14,7 @@ results.json
 *.db
 *.sqlite
 data/raw/
-data/json/scenarios.json
+# data/json/scenarios.json  ← REMOVE or COMMENT OUT this line
 
 # IDE
 .vscode/
