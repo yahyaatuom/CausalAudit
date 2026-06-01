@@ -30,6 +30,18 @@ class C3MechanismChecker:
         best_similarity = similarities[best_idx]
         best_mech = self.kb[best_idx]  # ← This is the correct variable name
 
+        if 'black ice' in explanation.lower():
+            temp_match = re.search(r'(\d+)\s*°C',explanation)
+            if temp_match:
+                temp = int(temp_match.group(1))
+                if temp > 0:
+                    return {
+                        'checker': 'C3',
+                        'passed': False,
+                        'reason': f"Black ice impossible at {temp}°C (requires ≤0°C)",
+                        'details': {'matched': 'black_ice_formation', 'similarity': float(best_similarity)}
+                    }
+                
         if best_similarity < self.similarity_threshold:
             return {'checker': 'C3', 'passed': False, 'reason': "Unknown mechanism."}
 
