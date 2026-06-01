@@ -11,24 +11,13 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from contextlib import asynccontextmanager
 
-# SlowAPI imports for rate limiting
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
-from slowapi.errors import RateLimitExceeded
-
-# Import components from Causal-Guard (C3 temporarily disabled)
+# Import components from Causal-Guard
 from llm_interface import GroqLLM
 from checkers.c1_temporal import C1TemporalChecker
 from checkers.c2_spatial import C2SpatialChecker
-# from checkers.c3_mechanism import C3MechanismChecker  # DISABLED - library conflict
+# from checkers.c3_mechanism import C3MechanismChecker  # DISABLED
 from checkers.c4_spurious import C4SpuriousChecker
 from checkers.c5_completeness import C5CompletenessChecker
-
-# ============================================================
-# RATE LIMITING SETUP
-# ============================================================
-
-limiter = Limiter(key_func=get_remote_address)
 
 # ============================================================
 # DATABASE (Optional)
@@ -85,19 +74,17 @@ class HealthResponse(BaseModel):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Handle startup and shutdown events"""
-    # Startup
     print("🚀 Starting Causal-Guard API...")
     app.state.llm = GroqLLM()
     app.state.checkers = {
         'C1': C1TemporalChecker(),
         'C2': C2SpatialChecker(),
-        # 'C3': C3MechanismChecker(),  # DISABLED
+        # 'C3': C3MechanismChecker(),
         'C4': C4SpuriousChecker(),
         'C5': C5CompletenessChecker()
     }
-    print("✅ Causal-Guard initialized successfully (C3 temporarily disabled)")
+    print("✅ Causal-Guard initialized successfully")
     yield
-    # Shutdown
     print("🛑 Shutting down Causal-Guard API...")
 
 # ============================================================
@@ -106,18 +93,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Causal-Guard API",
-    description="Neuro-symbolic verification layer for LLM-generated explanations. Audits causal admissibility against C₁–C₅ constraints. (C3 temporarily disabled due to library conflict)",
+    description="Neuro-symbolic verification layer for LLM-generated explanations. Audits causal admissibility against C₁–C₅ constraints.",
     version="1.0.0",
     lifespan=lifespan
 )
 
-# Add rate limit exception handler
-app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
-
 # Enable CORS for web UI
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict to your domain in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -205,13 +189,9 @@ async def health_check():
 
 
 @app.post("/validate", response_model=ValidateResponse)
-@limiter.limit("10/minute")  # 10 requests per minute
-async def validate(request: ValidateRequest, background_tasks: BackgroundTasks, req: Request = None):
+async def validate(request: ValidateRequest, background_tasks: BackgroundTasks):
     """
     Validate an incident explanation against C₁–C₅ constraints
-    
-    - If `explanation` is provided: validates it directly
-    - If `explanation` is not provided: generates one using the specified model
     """
     request_id = uuid.uuid4().hex[:16]
     start_time = time.time()
@@ -230,7 +210,6 @@ async def validate(request: ValidateRequest, background_tasks: BackgroundTasks, 
         explanation = request.explanation
         model_used = "user_provided"
     else:
-        # Switch model temporarily
         app.state.llm.model = request.model
         llm_result = app.state.llm.generate_explanation(request.incident)
         explanation = llm_result['explanation']
