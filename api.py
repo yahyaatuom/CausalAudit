@@ -16,11 +16,11 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
-# Import components from Causal-Guard
+# Import components from Causal-Guard (C3 temporarily disabled)
 from llm_interface import GroqLLM
 from checkers.c1_temporal import C1TemporalChecker
 from checkers.c2_spatial import C2SpatialChecker
-from checkers.c3_mechanism import C3MechanismChecker
+# from checkers.c3_mechanism import C3MechanismChecker  # DISABLED - library conflict
 from checkers.c4_spurious import C4SpuriousChecker
 from checkers.c5_completeness import C5CompletenessChecker
 
@@ -91,11 +91,11 @@ async def lifespan(app: FastAPI):
     app.state.checkers = {
         'C1': C1TemporalChecker(),
         'C2': C2SpatialChecker(),
-        'C3': C3MechanismChecker(),
+        # 'C3': C3MechanismChecker(),  # DISABLED
         'C4': C4SpuriousChecker(),
         'C5': C5CompletenessChecker()
     }
-    print("✅ Causal-Guard initialized successfully")
+    print("✅ Causal-Guard initialized successfully (C3 temporarily disabled)")
     yield
     # Shutdown
     print("🛑 Shutting down Causal-Guard API...")
@@ -106,7 +106,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Causal-Guard API",
-    description="Neuro-symbolic verification layer for LLM-generated explanations. Audits causal admissibility against C₁–C₅ constraints.",
+    description="Neuro-symbolic verification layer for LLM-generated explanations. Audits causal admissibility against C₁–C₅ constraints. (C3 temporarily disabled due to library conflict)",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -307,7 +307,7 @@ async def validate_batch(requests: List[ValidateRequest], background_tasks: Back
 
 
 # ============================================================
-# RUN WITH: uvicorn api:app --reload --host 0.0.0.0 --port 8000
+# RUN WITH: python api.py
 # ============================================================
 
 if __name__ == "__main__":
