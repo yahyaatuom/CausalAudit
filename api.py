@@ -40,7 +40,7 @@ class ValidateRequest(BaseModel):
     incident: str = Field(..., description="Incident description", min_length=10, max_length=5000)
     explanation: Optional[str] = Field(None, description="Optional pre-generated explanation. If not provided, Causal-Guard generates one.")
     scenario_id: Optional[str] = Field(None, description="Optional scenario ID for tracking")
-    model: str = Field("meta/llama3-8b-instruct", description="LLM model to use")
+    model: str = Field("llama-3.3-70b-versatile", description="LLM model to use")
 
 class CheckerResult(BaseModel):
     """Individual checker result"""
