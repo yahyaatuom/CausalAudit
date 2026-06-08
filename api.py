@@ -11,17 +11,12 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from contextlib import asynccontextmanager
 
-# Import components from Causal-Guard
 from llm_interface import GroqLLM
 from checkers.c1_temporal import C1TemporalChecker
 from checkers.c2_spatial import C2SpatialChecker
 from checkers.c3_mechanism import C3MechanismChecker  # DISABLED
 from checkers.c4_spurious import C4SpuriousChecker
 from checkers.c5_completeness import C5CompletenessChecker
-
-# ============================================================
-# DATABASE (Optional)
-# ============================================================
 
 try:
     import psycopg2
@@ -30,10 +25,6 @@ try:
 except ImportError:
     DB_AVAILABLE = False
     print("⚠️ PostgreSQL not available. Running without database logging.")
-
-# ============================================================
-# PYDANTIC MODELS (Request/Response Schemas)
-# ============================================================
 
 class ValidateRequest(BaseModel):
     """Request model for validation endpoint"""
@@ -67,10 +58,6 @@ class HealthResponse(BaseModel):
     timestamp: str
     checkers_available: List[str]
 
-# ============================================================
-# LIFESPAN MANAGEMENT (Startup/Shutdown)
-# ============================================================
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Handle startup and shutdown events"""
@@ -87,10 +74,6 @@ async def lifespan(app: FastAPI):
     yield
     print("🛑 Shutting down Causal-Guard API...")
 
-# ============================================================
-# FASTAPI APP INITIALIZATION
-# ============================================================
-
 app = FastAPI(
     title="Causal-Guard API",
     description="Neuro-symbolic verification layer for LLM-generated explanations. Audits causal admissibility against C₁–C₅ constraints.",
@@ -98,7 +81,6 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Enable CORS for web UI
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -106,10 +88,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# ============================================================
-# HELPER FUNCTIONS
-# ============================================================
 
 def build_scenario(incident: str, scenario_id: str = None) -> dict:
     """Build a minimal scenario object for the checkers"""
@@ -162,10 +140,6 @@ def save_to_db(request_id: str, incident: str, explanation: str, model: str,
     except Exception as e:
         print(f"⚠️ DB save failed: {e}")
 
-# ============================================================
-# API ENDPOINTS
-# ============================================================
-
 @app.get("/", response_model=HealthResponse)
 async def root():
     """Root endpoint - health check"""
@@ -202,10 +176,8 @@ async def validate(request: ValidateRequest, background_tasks: BackgroundTasks):
     if len(request.incident) > 5000:
         raise HTTPException(status_code=400, detail="Incident too long (max 5000 chars)")
 
-    # Step 1: Build scenario object
     scenario = build_scenario(request.incident, request.scenario_id)
 
-    # Step 2: Get explanation (generate if not provided)
     if request.explanation:
         explanation = request.explanation
         model_used = "user_provided"
@@ -215,7 +187,6 @@ async def validate(request: ValidateRequest, background_tasks: BackgroundTasks):
         explanation = llm_result['explanation']
         model_used = request.model
 
-    # Step 3: Run all checkers
     results = {}
     violations = []
 
@@ -243,20 +214,14 @@ async def validate(request: ValidateRequest, background_tasks: BackgroundTasks):
                 'reason': f"Checker error: {str(e)}"
             })
 
-    # Step 4: Determine overall admissibility
     admissible = len(violations) == 0
 
-    # Step 5: Calculate latency
     latency_ms = int((time.time() - start_time) * 1000)
 
-    # Step 6: Save to database (background)
     background_tasks.add_task(
         save_to_db, request_id, request.incident, explanation,
         model_used, results, admissible, latency_ms
     )
-    #pass  # DISABLED DB LOGGING FOR NOW
-
-    # Step 7: Return response
     return ValidateResponse(
         request_id=request_id,
         timestamp=datetime.utcnow().isoformat(),
