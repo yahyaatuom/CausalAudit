@@ -11,13 +11,10 @@ from llm_interface import GroqLLM
 import psycopg2
 from psycopg2.extras import Json
 
-# --- 1. CONFIGURATION & INITIALIZATION ---
-print("🚀 Initializing Causal-Guard Validation Layer...")
+print(" Initializing Causal-Guard Validation Layer...")
 
-# Shared Embedding Model (Prevents redundant memory usage)
 shared_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Initialize LLM and Checkers with the shared model
 llm = GroqLLM()
 c1_checker = C1TemporalChecker() 
 c2_checker = C2SpatialChecker()
@@ -39,7 +36,6 @@ def save_to_db(scenario, llm_result, checks):
         )
         cur = conn.cursor()
         
-        # Create table if it doesn't exist
         cur.execute("""
             CREATE TABLE IF NOT EXISTS causal_audit_logs (
                 id SERIAL PRIMARY KEY,
@@ -71,19 +67,17 @@ def save_to_db(scenario, llm_result, checks):
         conn.commit()
         cur.close()
         conn.close()
-        print("   💾 Saved to database")
+        print("  Saved to database")
     except Exception as e:
-        print(f"⚠️  Database Sync Warning: {e} (Result not saved to SQL)")
+        print(f" Database Sync Warning: {e} (Result not saved to SQL)")
 
-# --- 2. LOAD DATA ---
 json_path = os.path.join(os.path.dirname(__file__), 'data', 'json', 'scenarios.json')
 with open(json_path, 'r', encoding='utf-8') as f:
     data = json.load(f)
-print(f"✅ Loaded {len(data['scenarios'])} scenarios")
+print(f" Loaded {len(data['scenarios'])} scenarios")
 scenarios = data['scenarios']
-print(f"✅ Loaded {len(scenarios)} scenarios\n")
+print(f" Loaded {len(scenarios)} scenarios\n")
 
-# --- 3. MAIN VALIDATION LOOP ---
 results = []
 
 for i, scenario in enumerate(scenarios):
@@ -91,8 +85,7 @@ for i, scenario in enumerate(scenarios):
     print(f"Scenario {i+1}/{len(scenarios)}: {scenario['id']} - {scenario['category']}")
     print(f"{'='*60}")
     
-    # Step A: Get LLM explanation
-    print("🤖 Requesting LLM Analysis...")
+    print(" Requesting LLM Analysis...")
     start_time = time.time()
     llm_result = llm.generate_explanation(scenario['description'])
     elapsed = time.time() - start_time
@@ -102,38 +95,34 @@ for i, scenario in enumerate(scenarios):
         continue
 
     print(f"   Model: {llm_result['model']} ({elapsed:.2f}s)")
-    print(f"📝 Explanation: {llm_result['explanation'][:150]}...")
+    print(f" Explanation: {llm_result['explanation'][:150]}...")
 
-    # Step B: Run Validation Suite
-    print("🔍 Running Causal-Guard Checks...")
+    print(" Running Causal-Guard Checks...")
     
     c1 = c1_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C1 Temporal]  {'✅ PASS' if c1['passed'] else '❌ FAIL'}")
+    print(f"   [C1 Temporal]  {' PASS' if c1['passed'] else ' FAIL'}")
 
     c2 = c2_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C2 Spatial]   {'✅ PASS' if c2['passed'] else '❌ FAIL'}")
+    print(f"   [C2 Spatial]   {' PASS' if c2['passed'] else ' FAIL'}")
 
     c3 = c3_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C3 Mechanism] {'✅ PASS' if c3['passed'] else '❌ FAIL'}")
+    print(f"   [C3 Mechanism] {' PASS' if c3['passed'] else ' FAIL'}")
     if not c3['passed']:
         print(f"      Reason: {c3['reason']}")
 
-    # C4 Checker
-    print("\n🎭 Running C₄ Spurious Checker...")
+    print("\n Running C₄ Spurious Checker...")
     c4 = c4_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C4 Spurious]  {'✅ PASS' if c4['passed'] else '❌ FAIL'}")
+    print(f"   [C4 Spurious]  {' PASS' if c4['passed'] else ' FAIL'}")
     if not c4['passed']:
         for v in c4['details']['violations']:
             print(f"     - {v['factor']}: {v['reason']}")
 
-    # C5 Checker
-    print("\n📋 Running C₅ Completeness Checker...")
+    print("\n Running C₅ Completeness Checker...")
     c5 = c5_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C5 Completeness] {'✅ PASS' if c5['passed'] else '❌ FAIL'}")
+    print(f"   [C5 Completeness] {' PASS' if c5['passed'] else ' FAIL'}")
     if not c5['passed']:
         print(f"     Missing: {c5['details']['missing']}")
 
-    # Step C: Bundle and Save
     checker_suite = {
         "C1": c1, 
         "C2": c2, 
@@ -151,7 +140,6 @@ for i, scenario in enumerate(scenarios):
     save_to_db(scenario, llm_result, checker_suite)
     print("-" * 60)
 
-# --- 4. FINAL SUMMARY ---
 total = len(results)
 if total > 0:
     c1_p = sum(1 for r in results if r['checks']['C1']['passed'])
@@ -163,12 +151,12 @@ if total > 0:
     print("\n" + "█"*60)
     print("FINAL VALIDATION SUMMARY")
     print("█"*60)
-    print(f"✅ C1 Temporal Consistency:  {c1_p}/{total} ({c1_p/total*100:.1f}%)")
-    print(f"📍 C2 Spatial Plausibility:  {c2_p}/{total} ({c2_p/total*100:.1f}%)")
-    print(f"🔬 C3 Mechanistic Accuracy:  {c3_p}/{total} ({c3_p/total*100:.1f}%)")
-    print(f"🎭 C4 Spurious Correlations:  {c4_p}/{total} ({c4_p/total*100:.1f}%)")
-    print(f"📋 C5 Completeness:          {c5_p}/{total} ({c5_p/total*100:.1f}%)")
+    print(f" C1 Temporal Consistency:  {c1_p}/{total} ({c1_p/total*100:.1f}%)")
+    print(f" C2 Spatial Plausibility:  {c2_p}/{total} ({c2_p/total*100:.1f}%)")
+    print(f" C3 Mechanistic Accuracy:  {c3_p}/{total} ({c3_p/total*100:.1f}%)")
+    print(f" C4 Spurious Correlations:  {c4_p}/{total} ({c4_p/total*100:.1f}%)")
+    print(f" C5 Completeness:          {c5_p}/{total} ({c5_p/total*100:.1f}%)")
     
     with open('results.json', 'w') as f:
         json.dump(results, f, indent=2)
-    print(f"\n📄 Full report saved to results.json")
+    print(f"\n Full report saved to results.json")
