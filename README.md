@@ -15,10 +15,9 @@ Causal-Guard is a **neuro-symbolic verification layer** that audits LLM-generate
 | **Latency** | <500ms per explanation |
 
 ## 🚀 Quick Start
-
 ```bash
-git clone https://github.com/yahyaatuom/causal-guard.git
-cd causal-guard
+git clone https://github.com/yahyaatuom/CausalAudit.git
+cd causalaudit
 pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your API keys
