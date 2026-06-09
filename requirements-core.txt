@@ -1,0 +1,9 @@
+# Core Causal-Guard dependencies only
+groq==1.4.0
+openai==2.31.0
+python-dotenv==1.0.0
+sentence-transformers==5.5.1
+numpy==1.24.3
+scikit-learn==1.7.2
+psycopg2-binary==2.9.9
+pandas==2.3.3
