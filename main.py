@@ -375,40 +375,51 @@ def main():
         print("❌ No scenarios to process. Exiting.")
         return
     
-    print(f"\n📋 Processing {len(scenarios)} scenarios...\n")
+    # Split into train and test sets
+    print(f"\n📊 Total scenarios loaded: {len(scenarios)}")
+    train_scenarios, test_scenarios = split_scenarios(scenarios, test_size=0.2)
     
-    results = []
+    print(f"📚 Training set: {len(train_scenarios)} scenarios (80%)")
+    print(f"🧪 Test set: {len(test_scenarios)} scenarios (20%)")
+    print(f"   Note: Test set used ONLY for final evaluation, not for tuning.\n")
     
-    for i, scenario in enumerate(scenarios):
-        result = process_scenario(scenario, i, len(scenarios))
-        if result:
-            results.append(result)
-            save_to_db(scenario, result['llm_result'], result['checks'])
-        print("-" * 60)
+    # ============================================================
+    # TRAINING PHASE (for future ML models)
+    # ============================================================
+    # Currently, checkers are rule-based, so no training needed.
+    # But we keep the split for future ML-based checkers.
+    # For now, we just evaluate on both sets separately.
+    # ============================================================
     
-    # Print summary
-    if results:
-        total = len(results)
-        c1_p = sum(1 for r in results if r['checks']['C1']['passed'])
-        c2_p = sum(1 for r in results if r['checks']['C2']['passed'])
-        c3_p = sum(1 for r in results if r['checks']['C3']['passed'])
-        c4_p = sum(1 for r in results if r['checks']['C4']['passed'])
-        c5_p = sum(1 for r in results if r['checks']['C5']['passed'])
-        
+    # Process training set (for reference)
+    print("\n" + "█"*60)
+    print("🎯 PROCESSING TRAINING SET (80%)")
+    print("█"*60)
+    train_results = evaluate_on_set(train_scenarios, "training")
+    train_summary = print_summary(train_results, "training")
+    
+    # Process test set (for final evaluation)
+    print("\n" + "█"*60)
+    print("🎯 PROCESSING TEST SET (20%) — THIS IS YOUR VALIDATION RESULT")
+    print("█"*60)
+    test_results = evaluate_on_set(test_scenarios, "test")
+    test_summary = print_summary(test_results, "test")
+    
+    # Save results
+    with open('results_train.json', 'w') as f:
+        json.dump(train_results, f, indent=2)
+    with open('results_test.json', 'w') as f:
+        json.dump(test_results, f, indent=2)
+    
+    print(f"\n📄 Training results saved to results_train.json")
+    print(f"📄 Test results saved to results_test.json")
+    
+    if test_summary:
         print("\n" + "█"*60)
-        print("FINAL VALIDATION SUMMARY")
+        print("🏆 FINAL VALIDATION RESULT (Test Set)")
         print("█"*60)
-        print(f"✅ C1 Temporal Consistency:   {c1_p}/{total} ({c1_p/total*100:.1f}%)")
-        print(f"📍 C2 Spatial Plausibility:   {c2_p}/{total} ({c2_p/total*100:.1f}%)")
-        print(f"🔬 C3 Mechanistic Accuracy:   {c3_p}/{total} ({c3_p/total*100:.1f}%)")
-        print(f"🎭 C4 Spurious Correlations:  {c4_p}/{total} ({c4_p/total*100:.1f}%)")
-        print(f"📋 C5 Completeness:           {c5_p}/{total} ({c5_p/total*100:.1f}%)")
-        
-        with open('results.json', 'w') as f:
-            json.dump(results, f, indent=2)
-        print(f"\n📄 Full report saved to results.json")
-    else:
-        print("❌ No valid results to summarize.")
+        print(f"This is your actual model performance. Report these numbers.")
+        print(f"Training set numbers are for reference only (may be optimistic).")
 
 
 if __name__ == "__main__":
