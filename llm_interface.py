@@ -28,7 +28,7 @@ class GroqLLM:
         self.temperature = 0
         self.max_retries = 2
         
-        # CRITICAL FIX: Early exit on missing API key
+        # Early exit on missing API key
         if not self.api_key:
             error_msg = (
                 "\n" + "="*60 + "\n"
@@ -51,29 +51,37 @@ class GroqLLM:
         )
     
     def _build_structured_prompt(self, scenario_description: str) -> str:
-        """Build prompt that forces structured JSON output"""
-        return f"""Analyze the following incident and provide a structured causal explanation.
+        """
+        Build prompt that forces structured JSON output with causal framing.
+        
+        CRITICAL: This prompt explicitly constrains the LLM to output valid JSON
+        with specific fields required by the C₁–C₅ checkers.
+        """
+        return f"""You are a causal reasoning system for urban transportation incidents.
 
 INCIDENT: {scenario_description}
 
-You MUST respond with a valid JSON object containing exactly these fields:
+TASK: Analyze the incident and output a STRICT JSON object with EXACTLY these fields.
+Do NOT include any text before or after the JSON. Do NOT use markdown code blocks.
 
+REQUIRED JSON STRUCTURE:
 {{
-    "primary_cause": "one sentence describing the main cause",
-    "mechanism": "step-by-step causal chain using → arrows (e.g., 'event A → event B → event C')",
+    "primary_cause": "string (one sentence describing the main cause)",
+    "mechanism": "string (causal chain using → arrows, e.g., 'A → B → C')",
     "contributing_factors": ["factor1", "factor2", "factor3"],
-    "temporal_sequence": ["event1 at time1", "event2 at time2"],
-    "spatial_location": "specific road or intersection where incident occurred",
-    "confidence": 0.0-1.0 (how confident are you in this explanation)
+    "temporal_sequence": ["event1 at time1", "event2 at time2", "event3 at time3"],
+    "spatial_location": "string (specific road or intersection)",
+    "confidence": 0.95
 }}
 
-RULES:
-- Do NOT include any text outside the JSON object
-- Do NOT wrap in markdown code blocks (just raw JSON)
-- Use double quotes, not single quotes
-- Ensure valid JSON syntax
+CAUSAL REASONING RULES:
+1. Cause must precede effect in time (temporal precedence)
+2. Cause must be geographically plausible (spatial relevance)
+3. Causal mechanism must be physically possible (mechanistic plausibility)
+4. Avoid spurious correlations (correlation ≠ causation)
+5. Include all necessary causal factors (completeness)
 
-Example response for a weather-related crash:
+EXAMPLE RESPONSE:
 {{
     "primary_cause": "Hydroplaning due to standing water on wet road",
     "mechanism": "heavy rain → standing water accumulation → tire hydroplaning → loss of steering control → collision with barrier",
@@ -83,7 +91,7 @@ Example response for a weather-related crash:
     "confidence": 0.95
 }}
 
-Now respond with ONLY valid JSON:"""
+Now respond with ONLY valid JSON (no other text):"""
     
     def _extract_json_from_response(self, text: str) -> Optional[Dict[str, Any]]:
         """Extract JSON from LLM response, handling various edge cases"""
@@ -91,14 +99,15 @@ Now respond with ONLY valid JSON:"""
         text = re.sub(r'```json\s*', '', text)
         text = re.sub(r'```\s*', '', text)
         
-        # Try to find JSON object
-        json_match = re.search(r'\{.*\}', text, re.DOTALL)
-        if not json_match:
+        # Find JSON object (first { to last })
+        start = text.find('{')
+        end = text.rfind('}')
+        if start == -1 or end == -1 or start > end:
             return None
         
-        json_str = json_match.group()
+        json_str = text[start:end+1]
         
-        # Try to fix common JSON issues
+        # Attempt to parse
         try:
             return json.loads(json_str)
         except json.JSONDecodeError:
@@ -110,24 +119,6 @@ Now respond with ONLY valid JSON:"""
             except json.JSONDecodeError:
                 return None
     
-    def _get_fallback_response(self, scenario_description: str, error_msg: str = "") -> Dict[str, Any]:
-        """Return structured fallback when API or parsing fails"""
-        return {
-            'structured_output': {
-                "primary_cause": f"Unable to analyze: {error_msg[:100]}",
-                "mechanism": "analysis_failed",
-                "contributing_factors": [],
-                "temporal_sequence": [],
-                "spatial_location": "unknown",
-                "confidence": 0.0
-            },
-            'explanation': f"Analysis temporarily unavailable. {error_msg}\n\nIncident: {scenario_description[:200]}...",
-            'model': self.model,
-            'tokens': {'prompt': 0, 'completion': 0, 'total': 0},
-            'structured': False,
-            'error': error_msg
-        }
-    
     def generate_explanation(self, scenario_description: str) -> Dict[str, Any]:
         """Send scenario to Groq and get structured explanation with retry logic"""
         prompt = self._build_structured_prompt(scenario_description)
@@ -138,7 +129,7 @@ Now respond with ONLY valid JSON:"""
                     model=self.model,
                     messages=[{"role": "user", "content": prompt}],
                     temperature=self.temperature,
-                    max_tokens=500,
+                    max_tokens=800,  # Increased for structured output
                     timeout=45
                 )
                 
@@ -161,8 +152,16 @@ Now respond with ONLY valid JSON:"""
                         'error': None
                     }
                 else:
+                    # Return fallback with error indicator
                     return {
-                        'structured_output': None,
+                        'structured_output': {
+                            "primary_cause": "PARSE_ERROR: Could not extract JSON",
+                            "mechanism": "unknown",
+                            "contributing_factors": [],
+                            "temporal_sequence": [],
+                            "spatial_location": "unknown",
+                            "confidence": 0.0
+                        },
                         'explanation': raw_response,
                         'model': self.model,
                         'tokens': {
@@ -177,10 +176,38 @@ Now respond with ONLY valid JSON:"""
             except Exception as e:
                 print(f"⚠️ Attempt {attempt + 1}/{self.max_retries} failed: {e}")
                 if attempt == self.max_retries - 1:
-                    return self._get_fallback_response(scenario_description, str(e))
+                    return {
+                        'structured_output': {
+                            "primary_cause": f"API_ERROR: {str(e)[:100]}",
+                            "mechanism": "unknown",
+                            "contributing_factors": [],
+                            "temporal_sequence": [],
+                            "spatial_location": "unknown",
+                            "confidence": 0.0
+                        },
+                        'explanation': f"Error: {str(e)}",
+                        'model': self.model,
+                        'tokens': {'prompt': 0, 'completion': 0, 'total': 0},
+                        'structured': False,
+                        'error': str(e)
+                    }
                 time.sleep(2)
         
-        return self._get_fallback_response(scenario_description, "Max retries exceeded")
+        return {
+            'structured_output': {
+                "primary_cause": "MAX_RETRIES_EXCEEDED",
+                "mechanism": "unknown",
+                "contributing_factors": [],
+                "temporal_sequence": [],
+                "spatial_location": "unknown",
+                "confidence": 0.0
+            },
+            'explanation': "Error after max retries",
+            'model': self.model,
+            'tokens': {'prompt': 0, 'completion': 0, 'total': 0},
+            'structured': False,
+            'error': "Max retries exceeded"
+        }
     
     def set_model(self, model_name: str):
         """Change the model after initialization"""
