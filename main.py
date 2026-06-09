@@ -242,26 +242,19 @@ def process_scenario(scenario, index, total):
     print("🔍 Running Causal-Guard Checks...")
     
     c1 = c1_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C1 Temporal]     {'✅ PASS' if c1['passed'] else '❌ FAIL'}")
+    print(f"   [C1 Temporal]     {'✅ PASS' if c1['passed'] else '❌ FAIL'} (conf: {c1['confidence']:.2f})")
     
     c2 = c2_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C2 Spatial]      {'✅ PASS' if c2['passed'] else '❌ FAIL'}")
+    print(f"   [C2 Spatial]      {'✅ PASS' if c2['passed'] else '❌ FAIL'} (conf: {c2['confidence']:.2f})")
     
     c3 = c3_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C3 Mechanism]    {'✅ PASS' if c3['passed'] else '❌ FAIL'}")
-    if not c3['passed']:
-        print(f"      Reason: {c3['reason']}")
+    print(f"   [C3 Mechanism]    {'✅ PASS' if c3['passed'] else '❌ FAIL'} (conf: {c3['confidence']:.2f})")
     
     c4 = c4_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C4 Spurious]     {'✅ PASS' if c4['passed'] else '❌ FAIL'}")
-    if not c4['passed']:
-        for v in c4['details']['violations']:
-            print(f"     - {v['factor']}: {v['reason']}")
+    print(f"   [C4 Spurious]     {'✅ PASS' if c4['passed'] else '❌ FAIL'} (conf: {c4['confidence']:.2f})")
     
     c5 = c5_checker.check(scenario, llm_result['explanation'])
-    print(f"   [C5 Completeness] {'✅ PASS' if c5['passed'] else '❌ FAIL'}")
-    if not c5['passed']:
-        print(f"     Missing: {c5['details']['missing']}")
+    print(f"   [C5 Completeness] {'✅ PASS' if c5['passed'] else '❌ FAIL'} (conf: {c5['confidence']:.2f})")
     
     return {
         'scenario_id': scenario['id'],
