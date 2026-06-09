@@ -4,6 +4,7 @@ import time
 import sys
 import os
 import uuid
+from datetime import datetime
 from sentence_transformers import SentenceTransformer
 from checkers.c1_temporal import C1TemporalChecker
 from checkers.c2_spatial import C2SpatialChecker
@@ -35,8 +36,9 @@ c3_checker = C3MechanismChecker(shared_model=shared_model)
 c4_checker = C4SpuriousChecker()
 c5_checker = C5CompletenessChecker()
 
-# Generate a unique run_id for this execution
+# Generate unique identifiers for this run
 RUN_ID = str(uuid.uuid4())[:8]
+TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
 # ============================================================
@@ -133,7 +135,6 @@ def clear_old_results():
         )
         cur = conn.cursor()
         
-        # Ask user if they want to clear
         response = input("Clear previous results? (y/n): ")
         if response.lower() == 'y':
             cur.execute("DELETE FROM causal_audit_logs")
@@ -384,6 +385,21 @@ def print_summary(results, set_name):
 
 
 # ============================================================
+# SAVE RESULTS WITH TIMESTAMP
+# ============================================================
+
+def save_results_with_timestamp(results, prefix):
+    """Save results with timestamp to avoid overwriting"""
+    filename = f"{prefix}_{TIMESTAMP}_{RUN_ID}.json"
+    
+    with open(filename, 'w') as f:
+        json.dump(results, f, indent=2)
+    
+    print(f"📄 Results saved to {filename}")
+    return filename
+
+
+# ============================================================
 # MAIN EXECUTION
 # ============================================================
 
@@ -405,7 +421,8 @@ def main():
     print(f"📚 Training set: {len(train_scenarios)} scenarios (80%)")
     print(f"🧪 Test set: {len(test_scenarios)} scenarios (20%)")
     print(f"   Note: Test set used ONLY for final evaluation, not for tuning.\n")
-    print(f"🔑 Run ID: {RUN_ID} (all results tagged with this ID)\n")
+    print(f"🔑 Run ID: {RUN_ID} (all results tagged with this ID)")
+    print(f"⏰ Timestamp: {TIMESTAMP}\n")
     
     # Process training set (for reference)
     print("\n" + "█"*60)
@@ -421,14 +438,26 @@ def main():
     test_results = evaluate_on_set(test_scenarios, "test")
     test_summary = print_summary(test_results, "test")
     
-    # Save results
-    with open('results_train.json', 'w') as f:
-        json.dump(train_results, f, indent=2)
-    with open('results_test.json', 'w') as f:
-        json.dump(test_results, f, indent=2)
+    # Save results with timestamps (no overwriting)
+    train_filename = save_results_with_timestamp(train_results, "results_train")
+    test_filename = save_results_with_timestamp(test_results, "results_test")
     
-    print(f"\n📄 Training results saved to results_train.json")
-    print(f"📄 Test results saved to results_test.json")
+    # Also save metadata
+    metadata = {
+        "run_id": RUN_ID,
+        "timestamp": TIMESTAMP,
+        "model": llm.model,
+        "train_scenarios": len(train_results),
+        "test_scenarios": len(test_results),
+        "train_summary": train_summary,
+        "test_summary": test_summary
+    }
+    with open(f"metadata_{TIMESTAMP}_{RUN_ID}.json", 'w') as f:
+        json.dump(metadata, f, indent=2)
+    
+    print(f"\n📄 Training results saved to {train_filename}")
+    print(f"📄 Test results saved to {test_filename}")
+    print(f"📄 Metadata saved to metadata_{TIMESTAMP}_{RUN_ID}.json")
     print(f"🔑 All results tagged with run_id: {RUN_ID}")
     
     if test_summary:
