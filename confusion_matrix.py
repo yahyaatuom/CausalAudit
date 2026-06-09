@@ -40,27 +40,32 @@ def load_ground_truth():
 # ============================================================
 
 def load_results_from_db():
-    """Load Causal-Guard results from PostgreSQL"""
+    """Load only the most recent run's results"""
     try:
-        conn = psycopg2.connect(
-            dbname=os.getenv("DB_NAME", "causal_guard"),
-            user=os.getenv("DB_USER", "postgres"),
-            password=os.getenv("DB_PASSWORD"),
-            host=os.getenv("DB_HOST", "localhost")
-        )
+        conn = psycopg2.connect(...)
         cur = conn.cursor(cursor_factory=RealDictCursor)
+        
+        # Get the most recent run_id
+        cur.execute("""
+            SELECT DISTINCT run_id FROM causal_audit_logs 
+            ORDER BY created_at DESC LIMIT 1
+        """)
+        latest_run = cur.fetchone()
+        
+        if not latest_run:
+            return []
+        
+        run_id = latest_run['run_id']
+        print(f"📊 Using results from run: {run_id}")
         
         cur.execute("""
             SELECT scenario_id, check_results 
             FROM causal_audit_logs 
+            WHERE run_id = %s
             ORDER BY created_at DESC
-        """)
-        results = cur.fetchall()
-        cur.close()
-        conn.close()
+        """, (run_id,))
         
-        print(f"✅ Loaded {len(results)} results from database")
-        return results
+        return cur.fetchall()
         
     except Exception as e:
         print(f"⚠️ Could not load from database: {e}")
