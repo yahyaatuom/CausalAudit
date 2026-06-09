@@ -213,7 +213,10 @@ def main():
     # Save metrics to file
     with open('confusion_metrics.json', 'w') as f:
         json.dump(metrics, f, indent=2)
+    
     print("\n💾 Metrics saved to confusion_metrics.json")
+    print("📊 Causal-Guard evaluation complete. Use these metrics for paper reporting.")
+    print("⚠️ Note: This is an evaluation tool, not a production system.")
 
 
 if __name__ == "__main__":
