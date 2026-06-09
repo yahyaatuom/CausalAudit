@@ -270,7 +270,99 @@ def process_scenario(scenario, index, total):
         'llm_result': llm_result
     }
 
+# ============================================================
+# TRAIN/TEST SPLIT
+# ============================================================
 
+from sklearn.model_selection import train_test_split
+
+def split_scenarios(scenarios, test_size=0.2, random_state=42):
+    """
+    Split scenarios into training and test sets.
+    
+    Args:
+        scenarios: List of scenario dictionaries
+        test_size: Proportion for test set (default 0.2 = 20%)
+        random_state: For reproducible splits
+    
+    Returns:
+        train_scenarios, test_scenarios
+    """
+    # Ensure we don't split by scenario ID (keep perturbations together)
+    # Group by base scenario ID (without a/b/c suffix)
+    base_groups = {}
+    for s in scenarios:
+        base_id = s['id'].rstrip('abc')
+        if base_id not in base_groups:
+            base_groups[base_id] = []
+        base_groups[base_id].append(s)
+    
+    # Split base groups, not individual scenarios
+    base_ids = list(base_groups.keys())
+    train_ids, test_ids = train_test_split(
+        base_ids, test_size=test_size, random_state=random_state
+    )
+    
+    train_scenarios = []
+    test_scenarios = []
+    
+    for bid in train_ids:
+        train_scenarios.extend(base_groups[bid])
+    for bid in test_ids:
+        test_scenarios.extend(base_groups[bid])
+    
+    return train_scenarios, test_scenarios
+
+
+def evaluate_on_set(scenarios, set_name):
+    """Run evaluation on a set of scenarios"""
+    print(f"\n{'='*60}")
+    print(f"📊 EVALUATING ON {set_name.upper()} SET ({len(scenarios)} scenarios)")
+    print(f"{'='*60}")
+    
+    results = []
+    
+    for i, scenario in enumerate(scenarios):
+        result = process_scenario(scenario, i, len(scenarios))
+        if result:
+            results.append(result)
+            save_to_db(scenario, result['llm_result'], result['checks'])
+        print("-" * 40)
+    
+    return results
+
+
+def print_summary(results, set_name):
+    """Print summary for a result set"""
+    if not results:
+        print(f"No results for {set_name} set")
+        return None
+    
+    total = len(results)
+    c1_p = sum(1 for r in results if r['checks']['C1']['passed'])
+    c2_p = sum(1 for r in results if r['checks']['C2']['passed'])
+    c3_p = sum(1 for r in results if r['checks']['C3']['passed'])
+    c4_p = sum(1 for r in results if r['checks']['C4']['passed'])
+    c5_p = sum(1 for r in results if r['checks']['C5']['passed'])
+    
+    print(f"\n{'='*60}")
+    print(f"📊 {set_name.upper()} SET SUMMARY")
+    print(f"{'='*60}")
+    print(f"✅ C1 Temporal:      {c1_p}/{total} ({c1_p/total*100:.1f}%)")
+    print(f"📍 C2 Spatial:       {c2_p}/{total} ({c2_p/total*100:.1f}%)")
+    print(f"🔬 C3 Mechanism:     {c3_p}/{total} ({c3_p/total*100:.1f}%)")
+    print(f"🎭 C4 Spurious:      {c4_p}/{total} ({c4_p/total*100:.1f}%)")
+    print(f"📋 C5 Completeness:  {c5_p}/{total} ({c5_p/total*100:.1f}%)")
+    
+    return {
+        'set_name': set_name,
+        'total': total,
+        'C1': c1_p/total*100,
+        'C2': c2_p/total*100,
+        'C3': c3_p/total*100,
+        'C4': c4_p/total*100,
+        'C5': c5_p/total*100
+    }
 # ============================================================
 # MAIN EXECUTION
 # ============================================================
