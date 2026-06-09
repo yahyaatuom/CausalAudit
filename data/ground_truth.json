@@ -1,378 +1,195 @@
 {
   "metadata": {
-    "version": "1.0",
+    "version": "2.0",
     "created": "2026-06-09",
-    "description": "Ground truth labels for Causal-Guard evaluation",
-    "total_scenarios": 195
+    "description": "Complete ground truth labels for all C₁–C₅ constraints",
+    "total_scenarios": 195,
+    "note": "TRUE = constraint satisfied (PASS), FALSE = constraint violated (FAIL)"
   },
   "scenarios": {
     "WD-01": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Hydroplaning - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Hydroplaning - all constraints satisfied"
     },
     "WD-01a": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Hydroplaning - valid (time perturbation)"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Hydroplaning - time perturbation"
     },
     "WD-01b": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Hydroplaning - valid (vehicle perturbation)"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Hydroplaning - vehicle perturbation"
     },
     "WD-03": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Crosswind rollover - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Crosswind rollover - all constraints satisfied"
     },
     "WD-03a": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Crosswind rollover - valid (load perturbation)"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Crosswind rollover - load perturbation"
     },
     "WD-03b": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Crosswind rollover - valid (wind perturbation)"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Crosswind rollover - wind perturbation"
     },
     "WD-05": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": true,
-      "notes": "Black ice at 2°C - IMPOSSIBLE"
+      "C1": true, "C2": true, "C3": false, "C4": true, "C5": true,
+      "notes": "Black ice at 2°C - C3 violation (impossible physics)"
     },
     "WD-05a": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Black ice at -2°C - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Black ice at -2°C - all constraints satisfied"
     },
     "WD-05b": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": true,
-      "notes": "Black ice at 5°C - IMPOSSIBLE"
+      "C1": true, "C2": true, "C3": false, "C4": true, "C5": true,
+      "notes": "Black ice at 5°C - C3 violation (impossible physics)"
     },
     "WD-06": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Fog + tailgating - missing wet roads"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Fog + tailgating - C5 violation (missing wet roads)"
     },
     "WD-07": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": false,
-      "notes": "Wind-blown banner - missing mechanism"
+      "C1": true, "C2": false, "C3": false, "C4": true, "C5": false,
+      "notes": "Wind-blown banner - C2 spatial, C3 mechanism, C5 completeness violations"
     },
     "WD-08": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": false,
-      "notes": "Snow on mountain road - missing geometry"
+      "C1": true, "C2": false, "C3": false, "C4": true, "C5": false,
+      "notes": "Snow on mountain road - C2 spatial (missing location context), C3 mechanism, C5 completeness"
     },
     "WD-10": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Dust storm - missing factors"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Dust storm - C5 violation (missing factors)"
     },
     "WD-14": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Fog + wet road - missing curve"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Fog + wet road - C5 violation (missing curve geometry)"
     },
     "WD-16": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Flash flood - missing underpass geometry"
+      "C1": true, "C2": false, "C3": true, "C4": true, "C5": false,
+      "notes": "Flash flood - C2 spatial (underpass location), C5 completeness"
     },
     "WD-20": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Hydroplaning on curve - missing curve"
+      "C1": true, "C2": false, "C3": true, "C4": true, "C5": false,
+      "notes": "Hydroplaning on curve - C2 spatial (curve location), C5 completeness"
     },
     "TA-01": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Unsafe lane change - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Unsafe lane change - all constraints satisfied"
     },
     "TA-02": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Red light violation - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Red light violation - all constraints satisfied"
     },
     "TA-04": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Driver fatigue - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Driver fatigue - all constraints satisfied"
     },
     "TA-06": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": true,
-      "notes": "Speeding on curve - missing physics"
+      "C1": true, "C2": false, "C3": false, "C4": true, "C5": true,
+      "notes": "Speeding on curve - C2 spatial (curve location), C3 mechanism (missing physics)"
     },
     "TA-08": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Animal hazard - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Animal hazard - all constraints satisfied"
     },
     "TA-09": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Brake fade - missing mechanism"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Brake fade - C5 violation (missing mechanism)"
     },
     "TA-10": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Distracted driving - missing environment"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Distracted driving - C5 violation (missing environment)"
     },
     "TA-14": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Tailgating on wet road - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Tailgating on wet road - all constraints satisfied"
     },
     "TA-17": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Dooring - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Dooring - all constraints satisfied"
     },
     "TA-19": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Tire blowout - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Tire blowout - all constraints satisfied"
     },
     "RM-01": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Unmarked lane closure - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Unmarked lane closure - all constraints satisfied"
     },
     "RM-02": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Pothole - missing load factor"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Pothole - C5 violation (missing load factor)"
     },
     "RM-03": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Barrier encroachment - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Barrier encroachment - all constraints satisfied"
     },
     "RM-06": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Lighting failure - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Lighting failure - all constraints satisfied"
     },
     "RM-07": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": false,
-      "notes": "Trench collapse - missing physics"
+      "C1": true, "C2": true, "C3": false, "C4": true, "C5": false,
+      "notes": "Trench collapse - C3 mechanism, C5 completeness violations"
     },
     "RM-10": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Scaffolding - missing clearance"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Scaffolding - C5 violation (missing clearance)"
     },
     "RM-11": {
-      "C1": true,
-      "C2": true,
-      "C3": false,
-      "C4": true,
-      "C5": false,
-      "notes": "Wet paint - missing friction"
+      "C1": true, "C2": false, "C3": false, "C4": true, "C5": false,
+      "notes": "Wet paint - C2 spatial (curve location), C3 mechanism, C5 completeness"
     },
     "RM-14": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Uncovered manhole - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Uncovered manhole - all constraints satisfied"
     },
     "RM-16": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Bitumen spill - missing friction"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Bitumen spill - C5 violation (missing friction)"
     },
     "RM-20": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Steam obscuration - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Steam obscuration - all constraints satisfied"
     },
     "PE-01": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "NYE closure - missing capacity"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "NYE closure - C5 violation (missing capacity)"
     },
     "PE-03": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "F1 exit - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "F1 exit - all constraints satisfied"
     },
     "PE-04": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "National Day - missing capacity"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "National Day - C5 violation (missing capacity)"
     },
     "PE-06": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Concert ingress - missing rate"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Concert ingress - C5 violation (missing processing rate)"
     },
     "PE-07": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Eid prayer - missing capacity"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Eid prayer - C5 violation (missing capacity)"
     },
     "PE-10": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": true,
-      "notes": "Post-F1 concert - valid"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": true,
+      "notes": "Post-F1 concert - all constraints satisfied"
     },
     "PE-12": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Stadium match - missing capacity"
+      "C1": true, "C2": false, "C3": true, "C4": true, "C5": false,
+      "notes": "Stadium match - C2 spatial (roundabout location), C5 completeness"
     },
     "PE-13": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Art fair - missing screening"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Art fair - C5 violation (missing screening capacity)"
     },
     "PE-15": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Ramadan souq - missing drop zone"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Ramadan souq - C5 violation (missing drop zone capacity)"
     },
     "PE-18": {
-      "C1": true,
-      "C2": true,
-      "C3": true,
-      "C4": true,
-      "C5": false,
-      "notes": "Financial week - missing capacity"
+      "C1": true, "C2": true, "C3": true, "C4": true, "C5": false,
+      "notes": "Financial week - C5 violation (missing capacity)"
     }
   }
 }
