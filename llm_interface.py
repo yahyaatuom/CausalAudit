@@ -17,7 +17,7 @@ load_dotenv(env_path)
 class GroqLLM:
     def __init__(self, model="llama-3.3-70b-versatile"):
         """
-        Initialize Groq LLM client with structured output support
+        Initialize Groq LLM client with structured output support.
         
         Raises:
             ValueError: If GROQ_API_KEY is missing
@@ -28,7 +28,6 @@ class GroqLLM:
         self.temperature = 0
         self.max_retries = 2
         
-        # Early exit on missing API key
         if not self.api_key:
             error_msg = (
                 "\n" + "="*60 + "\n"
@@ -42,21 +41,13 @@ class GroqLLM:
             print(error_msg)
             raise ValueError("GROQ_API_KEY is required but not found. Check your .env file.")
         
-        print(f"✅ API Key loaded successfully")
-        print(f"✅ Using model: {self.model}")
-        
         self.client = OpenAI(
             base_url=self.base_url,
             api_key=self.api_key
         )
     
     def _build_structured_prompt(self, scenario_description: str) -> str:
-        """
-        Build prompt that forces structured JSON output with causal framing.
-        
-        CRITICAL: This prompt explicitly constrains the LLM to output valid JSON
-        with specific fields required by the C₁–C₅ checkers.
-        """
+        """Build prompt that forces structured JSON output."""
         return f"""You are a causal reasoning system for urban transportation incidents.
 
 INCIDENT: {scenario_description}
@@ -94,12 +85,12 @@ EXAMPLE RESPONSE:
 Now respond with ONLY valid JSON (no other text):"""
     
     def _extract_json_from_response(self, text: str) -> Optional[Dict[str, Any]]:
-        """Extract JSON from LLM response, handling various edge cases"""
+        """Extract JSON from LLM response."""
         # Remove markdown code blocks
         text = re.sub(r'```json\s*', '', text)
         text = re.sub(r'```\s*', '', text)
         
-        # Find JSON object (first { to last })
+        # Find JSON object
         start = text.find('{')
         end = text.rfind('}')
         if start == -1 or end == -1 or start > end:
@@ -107,7 +98,6 @@ Now respond with ONLY valid JSON (no other text):"""
         
         json_str = text[start:end+1]
         
-        # Attempt to parse
         try:
             return json.loads(json_str)
         except json.JSONDecodeError:
@@ -120,7 +110,7 @@ Now respond with ONLY valid JSON (no other text):"""
                 return None
     
     def generate_explanation(self, scenario_description: str) -> Dict[str, Any]:
-        """Send scenario to Groq and get structured explanation with retry logic"""
+        """Send scenario to Groq and get structured explanation with retry logic."""
         prompt = self._build_structured_prompt(scenario_description)
         
         for attempt in range(self.max_retries):
@@ -129,13 +119,11 @@ Now respond with ONLY valid JSON (no other text):"""
                     model=self.model,
                     messages=[{"role": "user", "content": prompt}],
                     temperature=self.temperature,
-                    max_tokens=800,  # Increased for structured output
+                    max_tokens=800,
                     timeout=45
                 )
                 
                 raw_response = response.choices[0].message.content
-                
-                # Extract structured JSON
                 structured = self._extract_json_from_response(raw_response)
                 
                 if structured and all(k in structured for k in ["primary_cause", "mechanism"]):
@@ -152,7 +140,6 @@ Now respond with ONLY valid JSON (no other text):"""
                         'error': None
                     }
                 else:
-                    # Return fallback with error indicator
                     return {
                         'structured_output': {
                             "primary_cause": "PARSE_ERROR: Could not extract JSON",
@@ -210,14 +197,8 @@ Now respond with ONLY valid JSON (no other text):"""
         }
     
     def set_model(self, model_name: str):
-        """Change the model after initialization"""
+        """Change the model after initialization."""
         self.model = model_name
-        print(f"✅ Model changed to: {self.model}")
-    
-    def get_structured_explanation(self, scenario_description: str) -> Optional[Dict[str, Any]]:
-        """Convenience method to get only the structured output"""
-        result = self.generate_explanation(scenario_description)
-        return result.get('structured_output')
 
 
 # For backward compatibility
