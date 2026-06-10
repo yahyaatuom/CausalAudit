@@ -147,6 +147,34 @@ def clear_old_results():
         print(f"⚠️ Could not clear results: {e}")
 
 
+# main.py - replace database section
+
+from db import get_db
+
+# ============================================================
+# DATABASE (Auto-detects SQLite or PostgreSQL)
+# ============================================================
+
+db = get_db()
+
+def save_to_db(scenario, llm_result, checks):
+    """Save results using database abstraction"""
+    try:
+        all_passed = all(c['passed'] for c in checks.values())
+        
+        db.save_result(
+            scenario_id=scenario['id'],
+            category=scenario['category'],
+            explanation=llm_result['explanation'],
+            checks=checks,
+            all_passed=all_passed,
+            metadata={"model": llm_result['model'], "tokens": llm_result['tokens']},
+            run_id=RUN_ID
+        )
+    except Exception as e:
+        print(f"⚠️ Database error: {e}")
+
+        
 # ============================================================
 # SCENARIO LOADING WITH GRACEFUL FALLBACK
 # ============================================================
