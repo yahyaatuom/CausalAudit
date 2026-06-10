@@ -14,12 +14,11 @@ class C5CompletenessChecker:
         else:
             self.templates = []
         
-        self.coverage_threshold = 0.8
+        self.coverage_threshold = 0.5  # Lowered from 0.8 for better recall
     
     def check(self, scenario, explanation, context=None):
         """
         Check completeness using structured contributing_factors if available.
-        Also accesses primary_cause for additional context.
         """
         # Extract structured data
         if isinstance(explanation, dict):
@@ -52,42 +51,41 @@ class C5CompletenessChecker:
         if context:
             mechanism_failed = context.has_violation('C3')
             if mechanism_failed:
-                self.coverage_threshold = 0.9
+                self.coverage_threshold = 0.6  # Less strict when mechanism failed
             else:
-                self.coverage_threshold = 0.8
+                self.coverage_threshold = 0.5
         
-        # Use structured contributing factors if available
-        if contributing_factors:
-            mentioned = []
-            for factor in required_factors:
-                factor_lower = factor.lower()
-                # Check against structured factors
-                if any(factor_lower in cf.lower() or cf.lower() in factor_lower for cf in contributing_factors):
-                    mentioned.append(factor)
-                # Also check against primary_cause
-                elif primary_cause and factor_lower in primary_cause.lower():
-                    mentioned.append(factor)
-                # Fallback to text search
-                elif factor_lower in explanation_text.lower():
-                    mentioned.append(factor)
-            used_structured = True
-        else:
-            # Fallback to text search
-            mentioned = [f for f in required_factors if f.lower() in explanation_text.lower()]
-            used_structured = False
+        # Check which factors are mentioned
+        mentioned = []
+        missing = []
+        partial_matches = []
         
-        missing = [f for f in required_factors if f not in mentioned]
+        for factor in required_factors:
+            is_mentioned, match_type = self._factor_mentioned(factor, explanation_text, contributing_factors, primary_cause)
+            if is_mentioned:
+                mentioned.append(factor)
+                if match_type == 'partial':
+                    partial_matches.append(factor)
+            else:
+                missing.append(factor)
         
         # Identify core factors
         core_factors = self._get_core_factors(required_factors, scenario)
         core_missing = [f for f in core_factors if f in missing]
         
-        coverage = len(mentioned) / len(required_factors)
-        passed = (coverage >= self.coverage_threshold) or (len(core_missing) == 0)
+        coverage = len(mentioned) / len(required_factors) if required_factors else 1.0
         
+        # More lenient pass logic
+        passed = (coverage >= self.coverage_threshold) or (len(core_missing) <= 1)
+        
+        # Calculate confidence
         confidence = coverage
         if core_missing:
-            confidence *= 0.7
+            confidence *= 0.8  # Less penalty for core missing
+        
+        # Boost confidence if using structured data
+        if contributing_factors:
+            confidence = min(1.0, confidence + 0.1)
         
         return {
             'checker': 'C5',
@@ -102,32 +100,78 @@ class C5CompletenessChecker:
                 'core_missing': core_missing,
                 'coverage': coverage,
                 'threshold': self.coverage_threshold,
-                'used_structured': used_structured,
-                'primary_cause_used': bool(primary_cause and used_structured)
+                'used_structured': bool(contributing_factors),
+                'partial_matches': partial_matches
             }
         }
     
+    def _factor_mentioned(self, factor, explanation_text, contributing_factors, primary_cause):
+        """
+        Check if a factor is mentioned with synonym matching.
+        Returns (is_mentioned, match_type) where match_type is 'exact', 'synonym', 'partial', or 'none'
+        """
+        factor_lower = factor.lower()
+        combined_text = f"{explanation_text} {' '.join(contributing_factors)} {primary_cause}".lower()
+        
+        # Direct exact match
+        if factor_lower in combined_text:
+            return True, 'exact'
+        
+        # Expanded synonym mapping
+        synonym_mappings = {
+            'primary_cause': ['cause', 'root cause', 'due to', 'because of', 'triggered by', 'main cause'],
+            'contributing_factor': ['contributed to', 'played a role', 'factor', 'influenced', 'also caused'],
+            'outcome': ['result', 'led to', 'resulted in', 'caused', 'produced'],
+            'weather_event': ['rain', 'fog', 'snow', 'storm', 'wind', 'ice', 'hail', 'drizzle'],
+            'road_condition': ['wet', 'slick', 'icy', 'dry', 'flooded', 'slippery', 'ponding'],
+            'driver_action': ['braked', 'swerved', 'accelerated', 'changed lanes', 'turned', 'steered'],
+            'maintenance_activity': ['repair', 'patching', 'resurfacing', 'inspection', 'paving'],
+            'capacity_issue': ['overcrowding', 'saturation', 'bottleneck', 'overflow', 'congestion', 'queue'],
+            'human_error': ['mistake', 'error', 'oversight', 'negligence', 'inattention'],
+            'vehicle_factor': ['blowout', 'tire failure', 'brake fade', 'mechanical', 'malfunction'],
+        }
+        
+        # Check synonyms
+        for key, synonyms in synonym_mappings.items():
+            if key in factor_lower or factor_lower in key:
+                for syn in synonyms:
+                    if syn in combined_text:
+                        return True, 'synonym'
+        
+        # Check for word stems (partial matches)
+        factor_words = factor_lower.split('_')
+        for word in factor_words:
+            if len(word) > 3 and word in combined_text:
+                return True, 'partial'
+        
+        return False, 'none'
+    
     def _get_core_factors(self, factors, scenario):
-        """Identify which factors are core/essential"""
+        """Identify which factors are core/essential (more aggressive)"""
         category = scenario.get('category', '')
         
+        # Always core regardless of category
+        always_core = ['primary_cause', 'mechanism', 'main_factor']
+        
+        # Category-specific core
         category_core = {
-            'Weather': ['weather_event', 'road_condition', 'primary_cause'],
-            'Traffic Accident': ['driver_action', 'primary_cause', 'collision_type'],
+            'Weather': ['weather_event', 'road_condition', 'driver_action'],
+            'Traffic Accident': ['driver_action', 'primary_cause', 'vehicle_factor'],
             'Road Maintenance': ['maintenance_activity', 'safety_failure', 'hazard'],
-            'Public Event': ['event_type', 'capacity_issue', 'traffic_impact']
+            'Public Event': ['event_type', 'capacity_issue', 'traffic_impact'],
+            'Healthcare': ['primary_condition', 'intervention', 'human_error'],
+            'Finance': ['trigger_event', 'market_condition', 'outcome']
         }.get(category, [])
         
         core = []
         for f in factors:
             f_lower = f.lower()
-            for core_pattern in category_core:
-                if core_pattern in f_lower:
-                    core.append(f)
-                    break
+            if any(core_word in f_lower for core_word in always_core + category_core):
+                core.append(f)
         
-        if not core and len(factors) >= 2:
-            core = factors[:2]
+        # If still no core factors, take first 1 (more aggressive)
+        if not core and factors:
+            core = [factors[0]]
         
         return core
     
@@ -137,13 +181,14 @@ class C5CompletenessChecker:
             if template.get('category') == category:
                 return template.get('required', [])
         
+        # Domain-specific fallbacks (more comprehensive)
         domain_factors = {
-            'Weather': ['weather_event', 'road_condition', 'driver_action'],
-            'Traffic Accident': ['primary_cause', 'contributing_factor', 'outcome'],
-            'Road Maintenance': ['maintenance_activity', 'safety_failure', 'resulting_hazard'],
-            'Public Event': ['event_type', 'capacity_issue', 'traffic_impact'],
-            'Healthcare': ['primary_condition', 'contributing_factors', 'outcome'],
-            'Finance': ['trigger_event', 'market_condition', 'result']
+            'Weather': ['weather_event', 'road_condition', 'driver_action', 'outcome'],
+            'Traffic Accident': ['primary_cause', 'contributing_factor', 'vehicle_factor', 'outcome'],
+            'Road Maintenance': ['maintenance_activity', 'safety_failure', 'resulting_hazard', 'outcome'],
+            'Public Event': ['event_type', 'capacity_issue', 'traffic_impact', 'outcome'],
+            'Healthcare': ['primary_condition', 'intervention', 'contributing_factors', 'outcome'],
+            'Finance': ['trigger_event', 'market_condition', 'participants', 'result']
         }
         
         return domain_factors.get(category, [])

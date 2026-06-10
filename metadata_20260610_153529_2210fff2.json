@@ -1,0 +1,17 @@
+{
+  "run_id": "2210fff2",
+  "timestamp": "20260610_153529",
+  "model": "llama-3.3-70b-versatile",
+  "train_scenarios": 143,
+  "test_scenarios": 0,
+  "train_summary": {
+    "set_name": "training",
+    "total": 143,
+    "C1": 100.0,
+    "C2": 100.0,
+    "C3": 0.0,
+    "C4": 100.0,
+    "C5": 14.685314685314685
+  },
+  "test_summary": null
+}

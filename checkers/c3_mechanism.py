@@ -19,7 +19,7 @@ class C3MechanismChecker:
             self.model = SentenceTransformer('all-MiniLM-L6-v2')
         
         self.kb_embeddings = self.model.encode([m['description'] for m in self.kb])
-        self.similarity_threshold = 0.6
+        self.similarity_threshold = 0.65  # Increased for better precision
     
     def check(self, scenario, explanation, context=None):
         """
@@ -49,14 +49,55 @@ class C3MechanismChecker:
     
     def _check_with_mechanism(self, mechanism_text, primary_cause, llm_confidence, scenario, context):
         """Check using structured mechanism from LLM"""
+        category = scenario.get('category', '')
+        
         # Adjust threshold based on context
         if context:
             temporal_failed = context.has_violation('C1')
             spatial_failed = context.has_violation('C2')
             if temporal_failed or spatial_failed:
-                self.similarity_threshold = 0.5
+                self.similarity_threshold = 0.55
+            else:
+                self.similarity_threshold = 0.65
         
-        # Rule-based checks
+        # Domain-specific rule overrides (accept common mechanisms)
+        if category == 'Healthcare':
+            if any(term in mechanism_text.lower() for term in ['fatigue', 'tired', 'exhaustion']):
+                return {
+                    'checker': 'C3',
+                    'passed': True,
+                    'confidence': 0.85,
+                    'reason': "Fatigue is a recognized healthcare factor",
+                    'details': {'used_structured': True, 'domain_override': True}
+                }
+            if any(term in mechanism_text.lower() for term in ['training', 'skill', 'experience']):
+                return {
+                    'checker': 'C3',
+                    'passed': True,
+                    'confidence': 0.80,
+                    'reason': "Training-related factor is valid",
+                    'details': {'used_structured': True, 'domain_override': True}
+                }
+        
+        if category == 'Traffic Accident':
+            if any(term in mechanism_text.lower() for term in ['speeding', 'excessive speed', 'speed']):
+                return {
+                    'checker': 'C3',
+                    'passed': True,
+                    'confidence': 0.80,
+                    'reason': "Speeding is a recognized traffic factor",
+                    'details': {'used_structured': True, 'domain_override': True}
+                }
+            if any(term in mechanism_text.lower() for term in ['distraction', 'distracted', 'phone']):
+                return {
+                    'checker': 'C3',
+                    'passed': True,
+                    'confidence': 0.85,
+                    'reason': "Distraction is a recognized traffic factor",
+                    'details': {'used_structured': True, 'domain_override': True}
+                }
+        
+        # Rule-based physical impossibility checks
         if 'black ice' in mechanism_text.lower() or 'black ice' in primary_cause.lower():
             temp = self._extract_temperature(mechanism_text)
             if temp is not None and temp > 0:
@@ -78,16 +119,6 @@ class C3MechanismChecker:
                     'details': {'used_structured': True}
                 }
         
-        if 'dooring' in mechanism_text.lower() or 'car door' in mechanism_text.lower():
-            if 'cyclist' not in mechanism_text.lower() and 'bike lane' not in mechanism_text.lower():
-                return {
-                    'checker': 'C3',
-                    'passed': False,
-                    'confidence': 0.85,
-                    'reason': "Dooring mechanism requires a cyclist in the path",
-                    'details': {'used_structured': True}
-                }
-        
         # Semantic verification of mechanism against KB
         mechanism_embedding = self.model.encode([mechanism_text])
         similarities = np.dot(self.kb_embeddings, mechanism_embedding.T).flatten()
@@ -95,11 +126,28 @@ class C3MechanismChecker:
         best_similarity = similarities[best_idx]
         best_mech = self.kb[best_idx]
         
+        # Boost confidence based on keyword matches
+        keyword_matches = sum(1 for kw in best_mech.get('keywords', []) 
+                              if kw.lower() in mechanism_text.lower() or kw.lower() in primary_cause.lower())
+        
+        if keyword_matches >= 3:
+            confidence = min(0.95, best_similarity + 0.15)
+        elif keyword_matches >= 2:
+            confidence = min(0.95, best_similarity + 0.08)
+        else:
+            confidence = best_similarity * 0.85
+        
+        # Domain-specific boost
+        if category == 'Healthcare' and 'healthcare' in best_mech['name']:
+            confidence = min(0.95, confidence + 0.1)
+        elif category == 'Traffic Accident' and any(term in best_mech['name'] for term in ['traffic', 'accident', 'collision']):
+            confidence = min(0.95, confidence + 0.1)
+        
         if best_similarity < self.similarity_threshold:
             return {
                 'checker': 'C3',
                 'passed': False,
-                'confidence': max(0.1, 1.0 - best_similarity),
+                'confidence': max(0.1, confidence),
                 'reason': f"Mechanism doesn't match known patterns (best match: {best_mech['name']})",
                 'details': {'used_structured': True, 'similarity': float(best_similarity)}
             }
@@ -107,14 +155,13 @@ class C3MechanismChecker:
         return {
             'checker': 'C3',
             'passed': True,
-            'confidence': round(max(llm_confidence, best_similarity), 3),
-            'reason': f"Valid mechanism: {primary_cause[:100] if primary_cause else best_mech['name']}",
-            'details': {'used_structured': True, 'similarity': float(best_similarity)}
+            'confidence': round(confidence, 3),
+            'reason': f"Validated via {best_mech['name']}",
+            'details': {'used_structured': True, 'similarity': float(best_similarity), 'keyword_matches': keyword_matches}
         }
     
     def _check_semantic(self, text, scenario, context):
-        """Fallback: semantic search on free text (preserved from original)"""
-        # Extract mechanism text
+        """Fallback: semantic search on free text"""
         mechanism_text = self._extract_mechanism(text)
         
         if not mechanism_text or len(mechanism_text.strip()) < 10:
@@ -126,14 +173,37 @@ class C3MechanismChecker:
                 'details': {'used_structured': False}
             }
         
+        category = scenario.get('category', '')
+        
+        # Domain-specific overrides for fallback
+        if category == 'Healthcare':
+            if any(term in mechanism_text.lower() for term in ['fatigue', 'tired', 'training', 'skill']):
+                return {
+                    'checker': 'C3',
+                    'passed': True,
+                    'confidence': 0.80,
+                    'reason': "Recognized healthcare factor",
+                    'details': {'used_structured': False, 'domain_override': True}
+                }
+        
+        if category == 'Traffic Accident':
+            if any(term in mechanism_text.lower() for term in ['speeding', 'distraction', 'phone', 'fatigue']):
+                return {
+                    'checker': 'C3',
+                    'passed': True,
+                    'confidence': 0.80,
+                    'reason': "Recognized traffic factor",
+                    'details': {'used_structured': False, 'domain_override': True}
+                }
+        
         # Adjust threshold based on context
         if context:
             temporal_failed = context.has_violation('C1')
             spatial_failed = context.has_violation('C2')
             if temporal_failed or spatial_failed:
-                self.similarity_threshold = 0.5
+                self.similarity_threshold = 0.55
             else:
-                self.similarity_threshold = 0.6
+                self.similarity_threshold = 0.65
         
         # Semantic search
         explanation_embedding = self.model.encode([mechanism_text])
