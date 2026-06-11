@@ -192,3 +192,4 @@ class C5CompletenessChecker:
         }
         
         return domain_factors.get(category, [])
+    
