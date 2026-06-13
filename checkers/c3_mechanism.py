@@ -1,4 +1,5 @@
 # checkers/c3_mechanism.py
+from ast import pattern
 import re
 import json
 import numpy as np
@@ -19,7 +20,7 @@ class C3MechanismChecker:
             self.model = SentenceTransformer('all-MiniLM-L6-v2')
         
         self.kb_embeddings = self.model.encode([m['description'] for m in self.kb])
-        self.similarity_threshold = 0.65  # Increased for better precision
+        self.similarity_threshold = 0.75  # Increased for better precision
     
     def check(self, scenario, explanation, context=None):
         """
@@ -143,6 +144,19 @@ class C3MechanismChecker:
         elif category == 'Traffic Accident' and any(term in best_mech['name'] for term in ['traffic', 'accident', 'collision']):
             confidence = min(0.95, confidence + 0.1)
         
+        common_sense_patterns = [
+    'rain → wet road', 'fog → low visibility', 'ice → slippery',
+    'distraction → delayed reaction', 'speed → loss of control'
+]
+        for pattern in common_sense_patterns:
+            if pattern in mechanism_text.lower():
+                return {
+            'checker': 'C3',
+            'passed': True,
+            'confidence': 0.90,
+            'reason': f"Common sense mechanism: {pattern}",
+            'details': {'used_structured': True, 'common_sense': True}
+        }
         if best_similarity < self.similarity_threshold:
             return {
                 'checker': 'C3',
