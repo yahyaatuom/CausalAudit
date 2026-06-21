@@ -40,140 +40,81 @@ c5_checker = C5CompletenessChecker()
 RUN_ID = str(uuid.uuid4())[:8]
 TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
+# main.py - Replace lines 38-175 with this clean version
 
 # ============================================================
-# DATABASE HELPER WITH DEDUPLICATION
+# DATABASE (SQLite only - no PostgreSQL dependencies)
 # ============================================================
+
+import sqlite3
+import json
+
+DB_PATH = os.path.join(os.path.dirname(__file__), 'causal_audit.db')
+
+def init_db():
+    """Initialize SQLite database with schema"""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS causal_audit_logs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            scenario_id TEXT,
+            incident_category TEXT,
+            llm_explanation TEXT,
+            check_results TEXT,  -- JSON stored as text
+            all_passed INTEGER,  -- 0 or 1
+            metadata TEXT,       -- JSON stored as text
+            run_id TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    
+    conn.commit()
+    conn.close()
+    print(f"✅ SQLite database initialized at {DB_PATH}")
 
 def save_to_db(scenario, llm_result, checks):
-    """Saves results to PostgreSQL with deduplication using run_id."""
+    """Save results to SQLite"""
     try:
-        DB_NAME = os.getenv("DB_NAME")
-        DB_USER = os.getenv("DB_USER")
-        DB_PASSWORD = os.getenv("DB_PASSWORD")
-        DB_HOST = os.getenv("DB_HOST", "localhost")
-        
-        if not all([DB_NAME, DB_USER, DB_PASSWORD]):
-            print("⚠️ Database credentials missing. Skipping save.")
-            return
-        
-        conn = psycopg2.connect(
-            dbname=DB_NAME,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            host=DB_HOST
-        )
+        conn = sqlite3.connect(DB_PATH)
         cur = conn.cursor()
         
-        # Create table if not exists
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS causal_audit_logs (
-                id SERIAL PRIMARY KEY,
-                scenario_id VARCHAR(50),
-                incident_category VARCHAR(50),
-                llm_explanation TEXT,
-                check_results JSONB,
-                all_passed BOOLEAN,
-                metadata JSONB,
-                run_id VARCHAR(50),
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-        
-        # Check if this scenario already exists for this run
+        # Check for duplicate in this run
         cur.execute("""
             SELECT id FROM causal_audit_logs 
-            WHERE scenario_id = %s AND run_id = %s
+            WHERE scenario_id = ? AND run_id = ?
         """, (scenario['id'], RUN_ID))
         
         if cur.fetchone():
             print(f"   ⚠️ Skipping duplicate: {scenario['id']} already in this run")
-            cur.close()
             conn.close()
             return
         
-        all_passed = all(c['passed'] for c in checks.values())
+        all_passed = 1 if all(c['passed'] for c in checks.values()) else 0
         
-        insert_query = """
+        cur.execute("""
             INSERT INTO causal_audit_logs 
             (scenario_id, incident_category, llm_explanation, check_results, all_passed, metadata, run_id)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        """
-        cur.execute(insert_query, (
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
             scenario['id'],
             scenario['category'],
             llm_result['explanation'],
-            Json(checks),
+            json.dumps(checks),
             all_passed,
-            Json({"model": llm_result['model'], "tokens": llm_result['tokens']}),
+            json.dumps({"model": llm_result['model'], "tokens": llm_result['tokens']}),
             RUN_ID
         ))
         conn.commit()
-        cur.close()
         conn.close()
         print("   💾 Saved to database")
         
     except Exception as e:
         print(f"⚠️ Database error: {e}")
 
-
-def clear_old_results():
-    """Clear previous run results (optional, for fresh starts)"""
-    try:
-        DB_NAME = os.getenv("DB_NAME")
-        DB_USER = os.getenv("DB_USER")
-        DB_PASSWORD = os.getenv("DB_PASSWORD")
-        
-        if not all([DB_NAME, DB_USER, DB_PASSWORD]):
-            return
-        
-        conn = psycopg2.connect(
-            dbname=DB_NAME,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            host=os.getenv("DB_HOST", "localhost")
-        )
-        cur = conn.cursor()
-        
-        response = input("Clear previous results? (y/n): ")
-        if response.lower() == 'y':
-            cur.execute("DELETE FROM causal_audit_logs")
-            conn.commit()
-            print("✅ Previous results cleared")
-        
-        cur.close()
-        conn.close()
-    except Exception as e:
-        print(f"⚠️ Could not clear results: {e}")
-
-
-# main.py - replace database section
-
-from db import get_db
-
-# ============================================================
-# DATABASE (Auto-detects SQLite or PostgreSQL)
-# ============================================================
-
-db = get_db()
-
-def save_to_db(scenario, llm_result, checks):
-    """Save results using database abstraction"""
-    try:
-        all_passed = all(c['passed'] for c in checks.values())
-        
-        db.save_result(
-            scenario_id=scenario['id'],
-            category=scenario['category'],
-            explanation=llm_result['explanation'],
-            checks=checks,
-            all_passed=all_passed,
-            metadata={"model": llm_result['model'], "tokens": llm_result['tokens']},
-            run_id=RUN_ID
-        )
-    except Exception as e:
-        print(f"⚠️ Database error: {e}")
-
+# Call this at startup
+init_db()
         
 # ============================================================
 # SCENARIO LOADING WITH GRACEFUL FALLBACK
@@ -270,6 +211,34 @@ def load_scenarios():
         data = create_sample_scenarios_file(json_path)
         return data.get('scenarios', [])
 
+# Add to main.py after loading scenarios
+
+def extract_non_causal_correlates(scenarios):
+    """Extract likely non-causal correlates from descriptions"""
+    common_non_causal = {
+        'day_of_week': ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
+        'time_period': ['morning', 'afternoon', 'evening', 'night', 'rush hour'],
+        'vehicle_color': ['red', 'blue', 'white', 'black', 'silver', 'grey', 'yellow'],
+        'traffic_context': ['weekend shopping', 'holiday anticipation', 'commuter traffic'],
+    }
+    
+    for s in scenarios:
+        if 'causal_ground_truth' not in s:
+            s['causal_ground_truth'] = {}
+        
+        if 'non_causal_correlates' not in s['causal_ground_truth']:
+            desc_lower = s.get('description', '').lower()
+            non_causal = []
+            
+            # Check for known non-causal patterns in description
+            for category, terms in common_non_causal.items():
+                for term in terms:
+                    if term in desc_lower:
+                        non_causal.append(term)
+            
+            s['causal_ground_truth']['non_causal_correlates'] = non_causal
+    
+    return scenarios
 
 # ============================================================
 # SINGLE SCENARIO PROCESSING
@@ -433,10 +402,10 @@ def save_results_with_timestamp(results, prefix):
 
 def main():
     # Optional: Clear previous results
-    clear_old_results()
     
     # Load scenarios
     scenarios = load_scenarios()
+    scenarios = extract_non_causal_correlates(scenarios)
     
     if not scenarios:
         print("❌ No scenarios to process. Exiting.")

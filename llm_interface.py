@@ -45,7 +45,7 @@ class GroqLLM:
             base_url=self.base_url,
             api_key=self.api_key
         )
-    
+
     def _build_structured_prompt(self, scenario_description: str) -> str:
         """Build prompt that forces structured JSON output."""
         return f"""You are a causal reasoning system for urban transportation incidents.
@@ -140,6 +140,7 @@ Now respond with ONLY valid JSON (no other text):"""
                         'error': None
                     }
                 else:
+                    # Handle case where JSON extraction failed but we got a response
                     return {
                         'structured_output': {
                             "primary_cause": "PARSE_ERROR: Could not extract JSON",
@@ -180,6 +181,7 @@ Now respond with ONLY valid JSON (no other text):"""
                     }
                 time.sleep(2)
         
+        # Fallback if all retries exhausted
         return {
             'structured_output': {
                 "primary_cause": "MAX_RETRIES_EXCEEDED",
