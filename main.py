@@ -4,6 +4,7 @@ import time
 import sys
 import os
 import uuid
+import re  # <-- ADD THIS
 from datetime import datetime
 from sentence_transformers import SentenceTransformer
 from checkers.c1_temporal import C1TemporalChecker
@@ -12,8 +13,6 @@ from checkers.c3_mechanism import C3MechanismChecker
 from checkers.c4_spurious import C4SpuriousChecker
 from checkers.c5_completeness import C5CompletenessChecker
 from llm_interface import GroqLLM
-import psycopg2
-from psycopg2.extras import Json
 from sklearn.model_selection import train_test_split
 
 # ============================================================
@@ -22,14 +21,33 @@ from sklearn.model_selection import train_test_split
 
 print("🚀 Initializing Causal-Guard Validation Layer...")
 
-shared_model = SentenceTransformer('all-MiniLM-L6-v2')
+# Load embedding model with fallback
+print("📦 Loading embedding model...")
+try:
+    shared_model = SentenceTransformer('all-MiniLM-L6-v2')
+    print("✅ Loaded all-MiniLM-L6-v2")
+except Exception as e:
+    print(f"⚠️ Could not load all-MiniLM-L6-v2: {e}")
+    print("📦 Falling back to simpler local embeddings...")
+    
+    try:
+        shared_model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
+        print("✅ Loaded paraphrase-MiniLM-L3-v2")
+    except Exception as e2:
+        print(f"⚠️ Could not load paraphrase-MiniLM-L3-v2: {e2}")
+        print("⚠️ Using TF-IDF fallback for text similarity")
+        shared_model = None
+
+# Initialize LLM
 try:
     llm = GroqLLM()
+    print(f"✅ LLM initialized: {llm.model}")
 except ValueError as e:
     print(f"\n❌ Failed to initialize LLM: {e}")
     print("Exiting. Please fix the API key issue and try again.\n")
     sys.exit(1)
 
+# Initialize checkers
 c1_checker = C1TemporalChecker()
 c2_checker = C2SpatialChecker()
 c3_checker = C3MechanismChecker(shared_model=shared_model)
@@ -40,14 +58,12 @@ c5_checker = C5CompletenessChecker()
 RUN_ID = str(uuid.uuid4())[:8]
 TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-# main.py - Replace lines 38-175 with this clean version
 
 # ============================================================
 # DATABASE (SQLite only - no PostgreSQL dependencies)
 # ============================================================
 
 import sqlite3
-import json
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'causal_audit.db')
 
@@ -115,7 +131,8 @@ def save_to_db(scenario, llm_result, checks):
 
 # Call this at startup
 init_db()
-        
+
+
 # ============================================================
 # SCENARIO LOADING WITH GRACEFUL FALLBACK
 # ============================================================
@@ -211,7 +228,6 @@ def load_scenarios():
         data = create_sample_scenarios_file(json_path)
         return data.get('scenarios', [])
 
-# Add to main.py after loading scenarios
 
 def extract_non_causal_correlates(scenarios):
     """Extract likely non-causal correlates from descriptions"""
@@ -239,6 +255,7 @@ def extract_non_causal_correlates(scenarios):
             s['causal_ground_truth']['non_causal_correlates'] = non_causal
     
     return scenarios
+
 
 # ============================================================
 # SINGLE SCENARIO PROCESSING
@@ -348,39 +365,7 @@ def evaluate_on_set(scenarios, set_name):
     return results
 
 
-def print_summary(results, set_name):
-    """Print summary for a result set"""
-    if not results:
-        print(f"No results for {set_name} set")
-        return None
-    
-    total = len(results)
-    c1_p = sum(1 for r in results if r['checks']['C1']['passed'])
-    c2_p = sum(1 for r in results if r['checks']['C2']['passed'])
-    c3_p = sum(1 for r in results if r['checks']['C3']['passed'])
-    c4_p = sum(1 for r in results if r['checks']['C4']['passed'])
-    c5_p = sum(1 for r in results if r['checks']['C5']['passed'])
-    
-    print(f"\n{'='*60}")
-    print(f"📊 {set_name.upper()} SET SUMMARY")
-    print(f"{'='*60}")
-    print(f"✅ C1 Temporal:      {c1_p}/{total} ({c1_p/total*100:.1f}%)")
-    print(f"📍 C2 Spatial:       {c2_p}/{total} ({c2_p/total*100:.1f}%)")
-    print(f"🔬 C3 Mechanism:     {c3_p}/{total} ({c3_p/total*100:.1f}%)")
-    print(f"🎭 C4 Spurious:      {c4_p}/{total} ({c4_p/total*100:.1f}%)")
-    print(f"📋 C5 Completeness:  {c5_p}/{total} ({c5_p/total*100:.1f}%)")
-    
-    return {
-        'set_name': set_name,
-        'total': total,
-        'C1': c1_p/total*100,
-        'C2': c2_p/total*100,
-        'C3': c3_p/total*100,
-        'C4': c4_p/total*100,
-        'C5': c5_p/total*100
-    }
 def print_summary(results, scenarios, set_name):
-    import re
     """Print summary with accuracy vs ground truth"""
     if not results:
         print(f"No results for {set_name} set")
@@ -388,7 +373,7 @@ def print_summary(results, scenarios, set_name):
     
     total = len(results)
     
-    # Count PASS rates (existing functionality)
+    # Count PASS rates
     c1_p = sum(1 for r in results if r['checks']['C1']['passed'])
     c2_p = sum(1 for r in results if r['checks']['C2']['passed'])
     c3_p = sum(1 for r in results if r['checks']['C3']['passed'])
@@ -411,7 +396,7 @@ def print_summary(results, scenarios, set_name):
         mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
         if mechanism:
             c1_total += 1
-            # Parse steps from mechanism
+            # Parse steps from mechanism (handle both arrow types)
             steps = re.split(r' → | → |â†’ |â†’', mechanism)
             # Get the explanation text
             explanation = r.get('explanation', '').lower()
@@ -438,7 +423,6 @@ def print_summary(results, scenarios, set_name):
             flagged_any = len(violations) > 0
             
             # Correct if: passed and flagged non-causal, OR failed and didn't flag
-            # (i.e., C4 correctly identified or didn't falsely identify spurious factors)
             correct = (c4_passed and flagged_any) or (not c4_passed and not flagged_any)
             if correct:
                 c4_correct += 1
@@ -477,6 +461,7 @@ def print_summary(results, scenarios, set_name):
         }
     }
 
+
 # ============================================================
 # SAVE RESULTS WITH TIMESTAMP
 # ============================================================
@@ -497,8 +482,6 @@ def save_results_with_timestamp(results, prefix):
 # ============================================================
 
 def main():
-    # Optional: Clear previous results
-    
     # Load scenarios
     scenarios = load_scenarios()
     scenarios = extract_non_causal_correlates(scenarios)
@@ -522,7 +505,7 @@ def main():
     print("🎯 PROCESSING TRAINING SET (80%)")
     print("█"*60)
     train_results = evaluate_on_set(train_scenarios, "training")
-    train_summary = print_summary(train_results,train_scenarios, "training")
+    train_summary = print_summary(train_results, train_scenarios, "training")
     
     # Process test set (for final evaluation)
     print("\n" + "█"*60)

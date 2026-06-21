@@ -46,10 +46,12 @@ class C5CompletenessChecker:
                 'reason': 'No required factors specified',
                 'details': {'warning': 'Missing minimal_sufficient_set in scenario'}
             }
+        
         print(f"\n🔍 C5 DEBUG for {scenario.get('id', 'unknown')}:")
         print(f"   Required factors: {required_factors}")
         print(f"   Mentioned (structured): {contributing_factors}")
         print(f"   Mentioned (text): {explanation_text[:200]}...")
+        
         # Adjust threshold based on context
         if context:
             mechanism_failed = context.has_violation('C3')
@@ -72,15 +74,12 @@ class C5CompletenessChecker:
             else:
                 missing.append(factor)
         
-        print(f"   Final mentioned: {mentioned}")
-        print(f"   Final missing: {missing}")
-        print(f" coverage: {coverage}")
-        print(f"  passed: {passed}")
+        # CALCULATE coverage AND passed BEFORE printing them
+        coverage = len(mentioned) / len(required_factors) if required_factors else 1.0
+        
         # Identify core factors
         core_factors = self._get_core_factors(required_factors, scenario)
         core_missing = [f for f in core_factors if f in missing]
-        
-        coverage = len(mentioned) / len(required_factors) if required_factors else 1.0
         
         # More lenient pass logic
         passed = (coverage >= self.coverage_threshold) or (len(core_missing) <= 1)
@@ -93,6 +92,12 @@ class C5CompletenessChecker:
         # Boost confidence if using structured data
         if contributing_factors:
             confidence = min(1.0, confidence + 0.1)
+        
+        # NOW print the debug info (after variables are defined)
+        print(f"   Final mentioned: {mentioned}")
+        print(f"   Final missing: {missing}")
+        print(f"   Coverage: {coverage:.2%}")
+        print(f"   Passed: {passed}")
         
         return {
             'checker': 'C5',
@@ -199,4 +204,3 @@ class C5CompletenessChecker:
         }
         
         return domain_factors.get(category, [])
-    
