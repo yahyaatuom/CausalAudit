@@ -379,7 +379,103 @@ def print_summary(results, set_name):
         'C4': c4_p/total*100,
         'C5': c5_p/total*100
     }
-
+def print_summary(results, scenarios, set_name):
+    import re
+    """Print summary with accuracy vs ground truth"""
+    if not results:
+        print(f"No results for {set_name} set")
+        return None
+    
+    total = len(results)
+    
+    # Count PASS rates (existing functionality)
+    c1_p = sum(1 for r in results if r['checks']['C1']['passed'])
+    c2_p = sum(1 for r in results if r['checks']['C2']['passed'])
+    c3_p = sum(1 for r in results if r['checks']['C3']['passed'])
+    c4_p = sum(1 for r in results if r['checks']['C4']['passed'])
+    c5_p = sum(1 for r in results if r['checks']['C5']['passed'])
+    
+    # Calculate accuracy vs ground truth
+    c1_correct = 0
+    c4_correct = 0
+    c1_total = 0
+    c4_total = 0
+    
+    for r in results:
+        # Find corresponding scenario
+        scenario = next((s for s in scenarios if s['id'] == r['scenario_id']), None)
+        if not scenario:
+            continue
+        
+        # C1: Check if temporal sequence matches mechanism
+        mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
+        if mechanism:
+            c1_total += 1
+            # Parse steps from mechanism
+            steps = re.split(r' → | → |â†’ |â†’', mechanism)
+            # Get the explanation text
+            explanation = r.get('explanation', '').lower()
+            
+            # Check if key causal steps are present in the explanation
+            key_steps = [s.strip() for s in steps if len(s.strip()) > 5]
+            step_found = any(step.lower() in explanation for step in key_steps)
+            
+            # Also check if C1 passed
+            c1_passed = r['checks']['C1']['passed']
+            
+            # Correct if: C1 passed AND key steps are in explanation
+            if c1_passed and step_found:
+                c1_correct += 1
+        
+        # C4: Check spurious detection matches non_causal_correlates
+        non_causal = scenario.get('causal_ground_truth', {}).get('non_causal_correlates', [])
+        if non_causal:
+            c4_total += 1
+            c4_passed = r['checks']['C4']['passed']
+            
+            # Check if C4 flagged at least one non-causal factor
+            violations = r['checks']['C4'].get('details', {}).get('violations', [])
+            flagged_any = len(violations) > 0
+            
+            # Correct if: passed and flagged non-causal, OR failed and didn't flag
+            # (i.e., C4 correctly identified or didn't falsely identify spurious factors)
+            correct = (c4_passed and flagged_any) or (not c4_passed and not flagged_any)
+            if correct:
+                c4_correct += 1
+    
+    print(f"\n{'='*60}")
+    print(f"📊 {set_name.upper()} SET SUMMARY")
+    print(f"{'='*60}")
+    print(f"✅ C1 Temporal:      {c1_p}/{total} ({c1_p/total*100:.1f}%) PASS rate")
+    print(f"📍 C2 Spatial:       {c2_p}/{total} ({c2_p/total*100:.1f}%) PASS rate")
+    print(f"🔬 C3 Mechanism:     {c3_p}/{total} ({c3_p/total*100:.1f}%) PASS rate")
+    print(f"🎭 C4 Spurious:      {c4_p}/{total} ({c4_p/total*100:.1f}%) PASS rate")
+    print(f"📋 C5 Completeness:  {c5_p}/{total} ({c5_p/total*100:.1f}%) PASS rate")
+    
+    # Print accuracy metrics (if ground truth available)
+    if c1_total > 0 or c4_total > 0:
+        print(f"\n🎯 ACCURACY VS GROUND TRUTH:")
+        if c1_total > 0:
+            print(f"   📋 C1 Temporal Accuracy:     {c1_correct}/{c1_total} ({c1_correct/c1_total*100:.1f}%)")
+        if c4_total > 0:
+            print(f"   🎭 C4 Spurious Accuracy:     {c4_correct}/{c4_total} ({c4_correct/c4_total*100:.1f}%)")
+        print(f"   (Compares checker output to ground truth labels)")
+    
+    return {
+        'set_name': set_name,
+        'total': total,
+        'pass_rates': {
+            'C1': c1_p/total*100,
+            'C2': c2_p/total*100,
+            'C3': c3_p/total*100,
+            'C4': c4_p/total*100,
+            'C5': c5_p/total*100
+        },
+        'accuracy': {
+            'C1': c1_correct/c1_total*100 if c1_total > 0 else None,
+            'C4': c4_correct/c4_total*100 if c4_total > 0 else None
+        }
+    }
 
 # ============================================================
 # SAVE RESULTS WITH TIMESTAMP
@@ -426,14 +522,14 @@ def main():
     print("🎯 PROCESSING TRAINING SET (80%)")
     print("█"*60)
     train_results = evaluate_on_set(train_scenarios, "training")
-    train_summary = print_summary(train_results, "training")
+    train_summary = print_summary(train_results,train_scenarios, "training")
     
     # Process test set (for final evaluation)
     print("\n" + "█"*60)
     print("🎯 PROCESSING TEST SET (20%) — THIS IS YOUR VALIDATION RESULT")
     print("█"*60)
     test_results = evaluate_on_set(test_scenarios, "test")
-    test_summary = print_summary(test_results, "test")
+    test_summary = print_summary(test_results, test_scenarios, "test")
     
     # Save results with timestamps (no overwriting)
     train_filename = save_results_with_timestamp(train_results, "results_train")
