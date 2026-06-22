@@ -4,7 +4,8 @@ import time
 import sys
 import os
 import uuid
-import re  # <-- ADD THIS
+import re
+import numpy as np
 from datetime import datetime
 from sentence_transformers import SentenceTransformer
 from checkers.c1_temporal import C1TemporalChecker
@@ -90,8 +91,24 @@ def init_db():
     conn.close()
     print(f"✅ SQLite database initialized at {DB_PATH}")
 
+# main.py - Update the save_to_db function
+
+import json
+import numpy as np  # <-- ADD THIS IMPORT at the top
+
+# Custom JSON encoder to handle numpy types
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NumpyEncoder, self).default(obj)
+
 def save_to_db(scenario, llm_result, checks):
-    """Save results to SQLite"""
+    """Save results to SQLite with numpy type handling"""
     try:
         conn = sqlite3.connect(DB_PATH)
         cur = conn.cursor()
@@ -109,6 +126,13 @@ def save_to_db(scenario, llm_result, checks):
         
         all_passed = 1 if all(c['passed'] for c in checks.values()) else 0
         
+        # Use custom encoder for numpy types
+        checks_json = json.dumps(checks, cls=NumpyEncoder)
+        metadata_json = json.dumps(
+            {"model": llm_result['model'], "tokens": llm_result['tokens']}, 
+            cls=NumpyEncoder
+        )
+        
         cur.execute("""
             INSERT INTO causal_audit_logs 
             (scenario_id, incident_category, llm_explanation, check_results, all_passed, metadata, run_id)
@@ -117,9 +141,9 @@ def save_to_db(scenario, llm_result, checks):
             scenario['id'],
             scenario['category'],
             llm_result['explanation'],
-            json.dumps(checks),
+            checks_json,
             all_passed,
-            json.dumps({"model": llm_result['model'], "tokens": llm_result['tokens']}),
+            metadata_json,
             RUN_ID
         ))
         conn.commit()

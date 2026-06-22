@@ -8,8 +8,29 @@ class C4SpuriousChecker:
         self.name = "C₄ Non-Spuriousness"
         
         kb_path = Path(__file__).parent.parent / kb_path
-        with open(kb_path, 'r', encoding='utf-8') as f:
-            self.patterns = json.load(f)['patterns']
+        try:
+            with open(kb_path, 'r', encoding='utf-8') as f:
+                self.patterns = json.load(f)['patterns']
+        except FileNotFoundError:
+            # Default patterns if file doesn't exist
+            self.patterns = [
+                {
+                    "name": "temporal_correlate",
+                    "regex": r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday|morning|afternoon|evening|night|rush hour)",
+                    "reason": "Temporal correlates are often spurious unless causally linked"
+                },
+                {
+                    "name": "color_correlate",
+                    "regex": r"(red|blue|white|black|silver|grey|yellow|green)",
+                    "reason": "Vehicle color is rarely causal in accidents"
+                },
+                {
+                    "name": "traffic_context",
+                    "regex": r"(weekend shopping|holiday anticipation|commuter traffic|normal traffic)",
+                    "reason": "Traffic context may be correlated but not causal"
+                }
+            ]
+            print(f"⚠️ Using default spurious patterns for C4")
     
     def check(self, scenario, explanation):
         """
@@ -73,71 +94,73 @@ class C4SpuriousChecker:
     
     def _is_spurious_factor(self, factor, scenario):
         """Check if a contributing factor is actually spurious"""
-        spurious_indicators = ['weather', 'time', 'day', 'color', 'age', 'gender', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'morning', 'evening', 'afternoon', 'night']
+        spurious_indicators = ['weather', 'time', 'day', 'color', 'age', 'gender', 
+                              'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 
+                              'saturday', 'sunday', 'morning', 'evening', 'afternoon', 'night']
         factor_lower = factor.lower()
         return any(indicator in factor_lower for indicator in spurious_indicators)
     
-    # c4_spurious.py - Modify _is_causal_in_scenario()
-
-def _is_causal_in_scenario(self, factor, scenario):
-    """Check if a factor is actually causal in the scenario"""
-    factor_lower = factor.lower()
-    
-    # Check mechanism string for causal factors
-    mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
-    if mechanism:
-        # Extract all parts from mechanism (split by arrows)
-        parts = re.split(r' → | → |â†’ |â†’', mechanism)
-        for part in parts:
-            if part.strip().lower() in factor_lower:
-                return True
-    
-    # Check minimal_sufficient_set (if populated)
-    if 'minimal_sufficient_set' in scenario:
-        for causal in scenario['minimal_sufficient_set']:
-            if isinstance(causal, str) and causal.lower() in factor_lower:
-                return True
-    
-    # Check if in non_causal_correlates (once populated)
-    if 'causal_ground_truth' in scenario:
-        non_causal = scenario['causal_ground_truth'].get('non_causal_correlates', [])
+    def _is_causal_in_scenario(self, factor, scenario):
+        """
+        Check if a factor is actually causal in the scenario.
+        Uses mechanism string and minimal_sufficient_set.
+        """
+        factor_lower = factor.lower()
+        
+        # Check mechanism string for causal factors
+        mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
+        if mechanism:
+            # Extract all parts from mechanism (split by arrows)
+            parts = re.split(r' → | → |â†’ |â†’', mechanism)
+            for part in parts:
+                part_lower = part.strip().lower()
+                # Check if the factor is part of the mechanism
+                if factor_lower in part_lower or part_lower in factor_lower:
+                    return True
+        
+        # Check minimal_sufficient_set
+        minimal_set = scenario.get('minimal_sufficient_set', [])
+        for causal in minimal_set:
+            if isinstance(causal, str):
+                causal_lower = causal.lower()
+                if factor_lower in causal_lower or causal_lower in factor_lower:
+                    return True
+        
+        # Check primary_cause
+        primary_cause = scenario.get('causal_ground_truth', {}).get('primary_cause', '')
+        if primary_cause and factor_lower in primary_cause.lower():
+            return True
+        
+        # Check non-causal correlates from ground truth
+        non_causal = scenario.get('causal_ground_truth', {}).get('non_causal_correlates', [])
         for nc in non_causal:
             if isinstance(nc, str) and nc.lower() in factor_lower:
                 return False
-    
-    # Common non-causal patterns (fallback)
-    common_spurious = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 
-                      'saturday', 'sunday', 'morning', 'evening', 'afternoon', 
-                      'night', 'red', 'blue', 'white', 'black', 'silver', 'grey']
-    
-    for word in common_spurious:
-        if word in factor_lower:
-            return False
-    
-    return True  # Default to treating as causal
-
-    def _is_causal_in_scenario(self, factor, scenario):
-        """Check if a factor is actually causal in the scenario"""
-        factor_lower = factor.lower()
         
-        # Check non-causal correlates from scenario
-        if 'causal_ground_truth' in scenario:
-            non_causal = scenario['causal_ground_truth'].get('non_causal_correlates', [])
-            for nc in non_causal:
-                if isinstance(nc, str) and nc.lower() in factor_lower:
+        # Common non-causal patterns (fallback)
+        common_spurious = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 
+                          'saturday', 'sunday', 'morning', 'evening', 'afternoon', 
+                          'night', 'red', 'blue', 'white', 'black', 'silver', 'grey',
+                          'yellow', 'green', 'rush hour', 'commuter', 'weekend', 'holiday']
+        
+        # Check if the factor is purely non-causal
+        desc_lower = scenario.get('description', '').lower()
+        for word in common_spurious:
+            if word in factor_lower:
+                # If the word is in the description but not in the mechanism,
+                # it's likely non-causal
+                if word in desc_lower:
+                    if mechanism and word not in mechanism.lower():
+                        return False
+        
+        # If the factor is in the description but not in the mechanism,
+        # check if it's explicitly a contributing factor
+        if factor_lower in desc_lower and mechanism:
+            if factor_lower not in mechanism.lower():
+                contributing = scenario.get('causal_ground_truth', {}).get('contributing_factors', [])
+                # Check if factor is in contributing factors
+                if not any(factor_lower in c.lower() for c in contributing):
                     return False
         
-        # Check if it's in minimal sufficient set (then it IS causal)
-        if 'minimal_sufficient_set' in scenario:
-            for causal in scenario['minimal_sufficient_set']:
-                if isinstance(causal, str) and causal.lower() in factor_lower:
-                    return True
-        
-        # Common non-causal patterns
-        common_spurious = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'morning', 'evening', 'afternoon', 'night', 'red', 'blue', 'white', 'black', 'silver', 'grey', 'yellow']
-        
-        for word in common_spurious:
-            if word in factor_lower and word not in str(scenario.get('description', '')).lower():
-                return False
-        
+        # Default: treat as causal if we can't determine otherwise
         return True
