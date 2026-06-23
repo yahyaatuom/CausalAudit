@@ -2,59 +2,33 @@
   "mechanisms": [
     {
       "name": "black_ice_formation",
-      "description": "Black ice forms when temperatures drop below freezing (≤0°C) on wet surfaces",
-      "conditions": {
-        "temperature_max": 0,
-        "requires_moisture": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "black ice",
         "ice patches",
         "icy road"
       ],
-      "valid_examples": [
-        "-2°C",
-        "0°C",
-        "below freezing"
-      ],
-      "invalid_examples": [
-        "2°C",
-        "5°C",
-        "above freezing"
-      ],
-      "physical_law": "Water freezes at 0°C at standard pressure"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "hydroplaning",
-      "description": "Hydroplaning occurs when water depth exceeds tire tread depth, lifting tire from pavement",
-      "conditions": {
-        "requires_water": true,
-        "requires_speed": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "hydroplaning",
         "aquaplaning",
         "standing water",
         "water film"
       ],
-      "valid_examples": [
-        "heavy rain",
-        "standing water",
-        "flooded road"
-      ],
-      "invalid_examples": [
-        "light drizzle",
-        "dry road"
-      ],
-      "physical_law": "Hydrodynamic pressure lifts tire when water can't be displaced"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "crosswind_rollover",
-      "description": "High-sided vehicles can overturn when crosswind force exceeds stability threshold",
-      "conditions": {
-        "requires_high_sides": true,
-        "wind_speed_min": 50
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "crosswind",
         "gusts",
@@ -62,68 +36,39 @@
         "overturned",
         "rollover"
       ],
-      "valid_examples": [
-        "empty truck",
-        "high-sided vehicle",
-        "exposed highway"
-      ],
-      "invalid_examples": [
-        "low-profile car",
-        "sheltered area"
-      ],
-      "physical_law": "Overturning moment = wind pressure × side area × height"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "fog_reduced_visibility",
-      "description": "Dense fog reduces visibility, increasing stopping distance and reaction time",
-      "conditions": {
-        "visibility_max": 100
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "fog",
         "dense fog",
         "visibility",
         "reduced visibility"
       ],
-      "valid_examples": [
-        "dense fog",
-        "morning fog",
-        "coastal fog"
-      ],
-      "invalid_examples": [
-        "clear conditions"
-      ],
-      "physical_law": "Stopping distance = reaction distance + braking distance"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "wet_road_reduced_friction",
-      "description": "Wet roads reduce tire friction, increasing stopping distance by 30-50%",
-      "conditions": {
-        "requires_water": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "wet road",
         "slick surface",
         "reduced traction",
         "damp"
       ],
-      "valid_examples": [
-        "rain",
-        "drizzle",
-        "morning mist"
-      ],
-      "invalid_examples": [
-        "dry road"
-      ],
-      "physical_law": "Friction coefficient decreases by 30-50% on wet pavement"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "brake_fade",
-      "description": "Prolonged braking on descent causes brake overheating and reduced stopping power",
-      "conditions": {
-        "requires_descent": true,
-        "requires_prolonged_braking": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "brake fade",
         "brake failure",
@@ -131,68 +76,38 @@
         "descending",
         "steep gradient"
       ],
-      "valid_examples": [
-        "mountain road",
-        "steep hill",
-        "heavy load"
-      ],
-      "invalid_examples": [
-        "flat road",
-        "short stop"
-      ],
-      "physical_law": "Brake friction coefficient decreases exponentially with temperature"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "tire_blowout_asymmetric_drag",
-      "description": "Sudden tire deflation creates asymmetric drag, pulling vehicle toward failed tire",
-      "conditions": {
-        "requires_blowout": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "blowout",
         "tire failure",
         "tire burst"
       ],
-      "valid_examples": [
-        "front tire",
-        "high speed",
-        "underinflation"
-      ],
-      "invalid_examples": [
-        "slow leak"
-      ],
-      "physical_law": "Rolling resistance increases dramatically on failed tire"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "dooring",
-      "description": "Opening car door into cyclist's path causes collision with minimal reaction time",
-      "conditions": {
-        "requires_door_opening": true,
-        "requires_cyclist": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "dooring",
         "car door",
         "cyclist",
         "bike lane"
       ],
-      "valid_examples": [
-        "parked car",
-        "opening door"
-      ],
-      "invalid_examples": [
-        "moving car",
-        "pedestrian"
-      ],
-      "physical_law": "Cyclist reaction time at 20 km/h is <1 second"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "cargo_shift_destabilization",
-      "description": "Improperly secured cargo shifts during maneuvers, altering the vehicle's center of gravity and causing loss of control or rollover.",
-      "conditions": {
-        "requires_movement": true,
-        "requires_improper_securing": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "load shift",
         "shifting cargo",
@@ -200,25 +115,13 @@
         "center of gravity",
         "top-heavy"
       ],
-      "valid_examples": [
-        "sharp turn",
-        "sudden braking",
-        "loose pallets",
-        "steel coils"
-      ],
-      "invalid_examples": [
-        "empty trailer",
-        "properly lashed"
-      ],
-      "physical_law": "Conservation of momentum; Torque = Force x Distance from pivot"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "driver_fatigue_reaction_delay",
-      "description": "Prolonged driving hours lead to microsleep or delayed cognitive processing, increasing reaction time for urban hazards.",
-      "conditions": {
-        "driving_hours_max": 11,
-        "requires_human_driver": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "fatigue",
         "drowsy",
@@ -226,24 +129,13 @@
         "reaction time",
         "attention lapse"
       ],
-      "valid_examples": [
-        "night shift",
-        "long haul",
-        "12-hour shift"
-      ],
-      "invalid_examples": [
-        "fully rested",
-        "autonomous mode"
-      ],
-      "physical_law": "Human reaction time increases linearly with sleep deprivation hours"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "blind_spot_encroachment",
-      "description": "Large logistics vehicles have significant 'no-zones' where smaller road users (cyclists/pedestrians) are invisible to the driver.",
-      "conditions": {
-        "requires_large_vehicle": true,
-        "requires_proximity": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "blind spot",
         "no-zone",
@@ -251,24 +143,13 @@
         "mirror gap",
         "turning radius"
       ],
-      "valid_examples": [
-        "right turn",
-        "merging",
-        "cyclist in blind spot"
-      ],
-      "invalid_examples": [
-        "forward vision",
-        "camera-assisted"
-      ],
-      "physical_law": "Angle of incidence vs field of view limits"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "infrastructure_overload_strike",
-      "description": "Logistics vehicles exceeding height or weight limits cause structural damage to urban infrastructure like bridges or tunnels.",
-      "conditions": {
-        "requires_height_excess": true,
-        "requires_weight_excess": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "low bridge",
         "height clearance",
@@ -276,24 +157,13 @@
         "bridge strike",
         "tunnel ceiling"
       ],
-      "valid_examples": [
-        "4.2m clearance",
-        "over-height truck",
-        "weight limit"
-      ],
-      "invalid_examples": [
-        "standard car",
-        "open highway"
-      ],
-      "physical_law": "Normal force exceeds material yield strength upon impact"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "double_parking_congestion_trigger",
-      "description": "Delivery vehicles parking in active lanes force traffic into unexpected maneuvers, creating 'near-miss' scenarios or rear-end collisions.",
-      "conditions": {
-        "requires_lane_blockage": true,
-        "requires_high_traffic": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "double parked",
         "unloading",
@@ -301,24 +171,13 @@
         "traffic flow",
         "bottleneck"
       ],
-      "valid_examples": [
-        "delivery stop",
-        "narrow street",
-        "blocking bike lane"
-      ],
-      "invalid_examples": [
-        "dedicated loading bay",
-        "empty road"
-      ],
-      "physical_law": "Fluid dynamics of traffic flow: capacity drops as lanes decrease"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "thermal_expansion_buckling",
-      "description": "High ambient temperatures cause road surface materials (especially rail or older asphalt) to expand and buckle, creating sudden vertical hazards.",
-      "conditions": {
-        "temperature_min": 38,
-        "requires_direct_sunlight": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "buckling",
         "heat warp",
@@ -326,25 +185,13 @@
         "thermal expansion",
         "pavement blowout"
       ],
-      "valid_examples": [
-        "40°C",
-        "heatwave",
-        "expanded joints"
-      ],
-      "invalid_examples": [
-        "night time",
-        "winter",
-        "cool breeze"
-      ],
-      "physical_law": "Linear thermal expansion: ΔL = αL₀ΔT"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "crowd_turbulence_bottleneck",
-      "description": "During public events, high-density crowds behave like a fluid; sudden movements create 'shockwaves' that push pedestrians into the path of logistics vehicles.",
-      "conditions": {
-        "requires_event": true,
-        "density_threshold": "4 people/m²"
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "crowd crush",
         "surge",
@@ -352,24 +199,13 @@
         "shockwave",
         "stampede"
       ],
-      "valid_examples": [
-        "concert exit",
-        "stadium crowd",
-        "festival"
-      ],
-      "invalid_examples": [
-        "empty sidewalk",
-        "normal foot traffic"
-      ],
-      "physical_law": "Lighthill-Whitham-Richards (LWR) model for flow density"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "unmarked_construction_excavation",
-      "description": "Road maintenance involving open trenches or milled surfaces without proper transition wedges causes suspension failure or tire snagging.",
-      "conditions": {
-        "requires_maintenance": true,
-        "vertical_drop_min": 5
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "milled surface",
         "exposed trench",
@@ -377,27 +213,13 @@
         "construction zone",
         "uneven lanes"
       ],
-      "valid_examples": [
-        "roadworks",
-        "resurfacing",
-        "utility repair"
-      ],
-      "invalid_examples": [
-        "freshly paved",
-        "finished road"
-      ],
-      "physical_law": "Impact force = (mass × velocity²) / stopping distance"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "sun_glare_disability",
-      "description": "Low-angle sun (dawn/dusk) creates intense specular reflection off wet roads or glass buildings, causing temporary functional blindness.",
-      "conditions": {
-        "requires_low_sun_angle": true,
-        "time_window": [
-          "06:00-08:00",
-          "17:00-19:00"
-        ]
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "sun glare",
         "blinded by light",
@@ -405,25 +227,13 @@
         "specular reflection",
         "visor"
       ],
-      "valid_examples": [
-        "sunrise",
-        "sunset",
-        "westbound at dusk"
-      ],
-      "invalid_examples": [
-        "overcast",
-        "midnight",
-        "noon"
-      ],
-      "physical_law": "Lambert’s Cosine Law for luminous intensity"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "loose_chippings_traction_loss",
-      "description": "New 'surface dressing' maintenance leaves loose gravel; high speeds cause these chippings to act like ball bearings, reducing friction.",
-      "conditions": {
-        "requires_recent_maintenance": true,
-        "speed_threshold_min": 40
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "loose chippings",
         "gravel",
@@ -431,22 +241,13 @@
         "surface dressing",
         "windscreen chip"
       ],
-      "valid_examples": [
-        "newly graveled",
-        "temporary speed limit"
-      ],
-      "invalid_examples": [
-        "swept road",
-        "worn asphalt"
-      ],
-      "physical_law": "Rolling resistance of granular media"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "bridge_strike_geometry",
-      "description": "Logistics vehicles exceeding height clearances suffer structural failure upon impact with overhead infrastructure.",
-      "conditions": {
-        "requires_height_excess": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "low bridge",
         "clearance",
@@ -454,24 +255,13 @@
         "overheight",
         "struck bridge"
       ],
-      "valid_examples": [
-        "4.2m bridge",
-        "double-decker trailer",
-        "14-foot clearance"
-      ],
-      "invalid_examples": [
-        "standard sedan",
-        "open sky"
-      ],
-      "physical_law": "Inelastic collision: Rigid body geometry exceeds spatial constraints"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "liquid_cargo_slosh",
-      "description": "Half-full liquid tankers experience dynamic center-of-gravity shifts during cornering, leading to unpredictable lateral forces.",
-      "conditions": {
-        "requires_liquid_cargo": true,
-        "partial_fill": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "slosh",
         "liquid surge",
@@ -479,24 +269,13 @@
         "baffle failure",
         "dynamic load"
       ],
-      "valid_examples": [
-        "half-full tanker",
-        "milk truck",
-        "water carrier"
-      ],
-      "invalid_examples": [
-        "solid cargo",
-        "empty tanker",
-        "full tanker"
-      ],
-      "physical_law": "Fluid dynamics: Free surface effect shifting the center of gravity"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "milled_surface_tramlining",
-      "description": "Road maintenance involving longitudinal grooves (milling) forces tires to follow the groove path, causing 'tramlining' and loss of steering control.",
-      "conditions": {
-        "requires_maintenance": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "milled road",
         "grooved pavement",
@@ -504,70 +283,39 @@
         "steering pull",
         "tramlining"
       ],
-      "valid_examples": [
-        "resurfacing zone",
-        "exposed grooves",
-        "construction site"
-      ],
-      "invalid_examples": [
-        "fresh asphalt",
-        "smooth pavement"
-      ],
-      "physical_law": "Lateral force generation via tire-tread and groove interlocking"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "thermal_expansion_buckling",
-      "description": "Extreme heat causes road materials to expand beyond joint capacity, resulting in vertical heaving or 'blowouts'.",
-      "conditions": {
-        "temperature_min": 38
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "buckling",
         "heat heave",
         "pavement blowout",
         "thermal expansion"
       ],
-      "valid_examples": [
-        "40°C",
-        "heatwave",
-        "summer afternoon"
-      ],
-      "invalid_examples": [
-        "winter",
-        "night time",
-        "cool weather"
-      ],
-      "physical_law": "Linear thermal expansion: ΔL = αL₀ΔT"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "crowd_shockwave_turbulence",
-      "description": "High pedestrian density at events creates shockwaves where movement at the front causes a delayed, amplified 'surge' at the back.",
-      "conditions": {
-        "requires_event": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "crowd surge",
         "shockwave",
         "pedestrian density",
         "bottleneck"
       ],
-      "valid_examples": [
-        "stadium exit",
-        "festival crowd",
-        "parade"
-      ],
-      "invalid_examples": [
-        "empty street",
-        "low density"
-      ],
-      "physical_law": "Fluid-like flow models (LWR) for high-density crowds"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "sun_glare_disability",
-      "description": "Specular reflection from low-angle sun (dawn/dusk) off wet roads or glass buildings causes temporary functional blindness.",
-      "conditions": {
-        "low_sun_angle": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "sun glare",
         "blinded",
@@ -575,48 +323,26 @@
         "specular reflection",
         "sunset"
       ],
-      "valid_examples": [
-        "sunrise",
-        "sunset",
-        "westbound at 6PM"
-      ],
-      "invalid_examples": [
-        "noon",
-        "overcast",
-        "midnight"
-      ],
-      "physical_law": "Lambert’s Cosine Law for luminous intensity and disability glare"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "viscous_aquaplaning_thin_film",
-      "description": "A very thin film of water mixed with road oil creates a viscous layer that reduces friction even at low speeds.",
-      "conditions": {
-        "requires_moisture": true,
-        "first_rain": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "slick surface",
         "oil film",
         "first rain",
         "greasy road"
       ],
-      "valid_examples": [
-        "light drizzle after dry spell",
-        "oil patches"
-      ],
-      "invalid_exampleresult s": [
-        "heavy wash",
-        "dry road"
-      ],
-      "physical_law": "Boundary lubrication theory: Friction = f(viscosity, speed, pressure)"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "jackknife_instability",
-      "description": "An articulated vehicle folds because the drive wheels lock or lose traction, causing the trailer to push the cab out of alignment.",
-      "conditions": {
-        "requires_articulated_vehicle": true,
-        "requires_low_friction": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "jackknife",
         "articulated",
@@ -624,23 +350,13 @@
         "trailer swing",
         "locked wheels"
       ],
-      "valid_examples": [
-        "hard braking on ice",
-        "empty trailer on wet road"
-      ],
-      "invalid_examples": [
-        "straight truck",
-        "gradual braking"
-      ],
-      "physical_law": "Vector instability: Momentum of trailer > Frictional force of tractor rear axle"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "venturi_effect_tunnel_gust",
-      "description": "Air speed increases as it is forced through narrow urban gaps or tunnels, creating sudden lateral forces on vehicles exiting the structure.",
-      "conditions": {
-        "requires_narrow_gap": true,
-        "high_ambient_wind": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "venturi effect",
         "wind tunnel",
@@ -648,45 +364,26 @@
         "urban canyon",
         "lateral gust"
       ],
-      "valid_examples": [
-        "exiting tunnel",
-        "driving between skyscrapers"
-      ],
-      "invalid_examples": [
-        "open plain",
-        "low wind"
-      ],
-      "physical_law": "Bernoulli's Principle: Fluid velocity increases as cross-sectional area decreases"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "ice_bridge_sublimation",
-      "description": "Bridges freeze before the surrounding roadway because they lack the thermal mass of the earth and are exposed to air on both sides.",
-      "conditions": {
-        "temperature_near_freezing": true,
-        "requires_bridge": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "bridge freezes first",
         "overpass ice",
         "thermal isolation",
         "black ice"
       ],
-      "valid_examples": [
-        "elevated highway",
-        "river crossing at 1°C"
-      ],
-      "invalid_examples": [
-        "ground-level road",
-        "5°C"
-      ],
-      "physical_law": "Newton's Law of Cooling: Increased surface area exposure leads to faster heat loss"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "coning_and_cratering_pothole",
-      "description": "Freeze-thaw cycles cause pavement to expand and crack; vehicle weight then collapses the void, creating a sudden vertical hazard.",
-      "conditions": {
-        "requires_freeze_thaw_cycle": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "pothole",
         "pavement failure",
@@ -694,46 +391,26 @@
         "cratering",
         "rim damage"
       ],
-      "valid_examples": [
-        "early spring road",
-        "puddled road surface"
-      ],
-      "invalid_examples": [
-        "brand new asphalt",
-        "desert climate"
-      ],
-      "physical_law": "Volumetric expansion of water (approx. 9%) upon freezing"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "leaf_mulch_lubrication",
-      "description": "Wet leaves on the road compress into a waxy, low-friction organic film, creating conditions similar to ice.",
-      "conditions": {
-        "requires_wet_leaves": true,
-        "season": "autumn"
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "wet leaves",
         "leaf mulch",
         "organic slick",
         "autumn hazards"
       ],
-      "valid_examples": [
-        "tree-lined street",
-        "damp autumn morning"
-      ],
-      "invalid_examples": [
-        "dry leaves",
-        "pine forest"
-      ],
-      "physical_law": "Boundary lubrication: Pectin and water create a viscous slip layer"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "hydrodynamic_spray_obscuration",
-      "description": "Large tires aerosolize water on the road, creating a 'rooster tail' spray that reduces visibility for following and passing vehicles.",
-      "conditions": {
-        "requires_wet_road": true,
-        "requires_high_speed": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "road spray",
         "mist",
@@ -741,370 +418,207 @@
         "blind overtaking",
         "splash"
       ],
-      "valid_examples": [
-        "passing a semi in rain",
-        "motorway cruising at 100km/h"
-      ],
-      "invalid_examples": [
-        "dry road",
-        "slow traffic"
-      ],
-      "physical_law": "Centrifugal ejection and atomization of fluid by rotating treads"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "pork_chop_maneuver_swing",
-      "description": "Long vehicles must swing wide left to make a tight right turn, creating a temporary gap that lures cyclists into a 'crush zone'.",
-      "conditions": {
-        "requires_long_wheelbase": true,
-        "requires_tight_turn": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "wide turn",
         "swing out",
         "right hook",
         "blind side squeeze"
       ],
-      "valid_examples": [
-        "articulated truck turning right",
-        "city bus turn"
-      ],
-      "invalid_examples": [
-        "passenger car turn",
-        "straight road"
-      ],
-      "physical_law": "Off-tracking: Rear wheels follow a shorter path than front wheels"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "whiteout_glare",
-      "description": "Diffuse light in heavy snow eliminates shadows and horizons, causing loss of spatial orientation and depth perception.",
-      "conditions": {
-        "requires_snowfall": true,
-        "requires_overcast_sky": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "whiteout",
         "snow glare",
         "flat light",
         "disorientation"
       ],
-      "valid_examples": [
-        "blizzard",
-        "heavy lake-effect snow"
-      ],
-      "invalid_examples": [
-        "night snow",
-        "light flurries"
-      ],
-      "physical_law": "Multiple Mie scattering of light by ice crystals"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "vapor_lock_fuel_starvation",
-      "description": "Fuel in lines turns to gas due to engine heat and high ambient temperature, causing the engine to stall unexpectedly.",
-      "conditions": {
-        "temperature_min": 35,
-        "requires_internal_combustion": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "vapor lock",
         "engine stall",
         "fuel boiling",
         "heat soak"
       ],
-      "valid_examples": [
-        "stop-and-go traffic in heatwave",
-        "mountain climb"
-      ],
-      "invalid_examples": [
-        "electric vehicle",
-        "cool weather"
-      ],
-      "physical_law": "Phase change: Liquid fuel reaches boiling point at ambient pressure"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "resonance_frequency_wobble",
-      "description": "Regular road ripples (washboarding) match the vehicle's suspension natural frequency, leading to uncontrolled bouncing and loss of contact.",
-      "conditions": {
-        "requires_unpaved_road": true,
-        "speed_threshold_match": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "washboarding",
         "corrugation",
         "resonance",
         "suspension bounce"
       ],
-      "valid_examples": [
-        "gravel road",
-        "dirt track at 50km/h"
-      ],
-      "invalid_examples": [
-        "smooth asphalt",
-        "walking speed"
-      ],
-      "physical_law": "Forced oscillation: Driving frequency = Natural frequency ($f_0$)"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "mirage_depth_distortion",
-      "description": "Hot air near the road surface refracts light, creating 'puddles' that obscure hazards or cause drivers to brake unnecessarily.",
-      "conditions": {
-        "temperature_min": 32,
-        "requires_flat_road": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "inferior mirage",
         "heat shimmer",
         "optical illusion",
         "road puddle"
       ],
-      "valid_examples": [
-        "desert highway",
-        "long straight asphalt in summer"
-      ],
-      "invalid_examples": [
-        "hilly terrain",
-        "winter"
-      ],
-      "physical_law": "Snell's Law: Refraction through air density gradients"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "brake_line_moisture_freeze",
-      "description": "Accumulated condensation in pneumatic brake lines freezes, preventing brake release or application in heavy logistics vehicles.",
-      "conditions": {
-        "temperature_max": -5,
-        "requires_air_brakes": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "frozen air lines",
         "brake lockup",
         "pneumatic failure",
         "air dryer failure"
       ],
-      "valid_examples": [
-        "truck parked overnight in sub-zero",
-        "cold snap"
-      ],
-      "invalid_examples": [
-        "hydraulic brakes",
-        "warm climate"
-      ],
-      "physical_law": "Freezing point of water; Boyle's Law (condensation under pressure)"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "pavement_bleeding_slick",
-      "description": "In extreme heat, asphalt binder melts and rises to the surface, creating a 'tacky' then 'slick' layer with very low friction.",
-      "conditions": {
-        "temperature_min": 40,
-        "requires_direct_sunlight": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "bleeding asphalt",
         "bitumen flush",
         "sweating road",
         "sticky road"
       ],
-      "valid_examples": [
-        "fresh sealcoat in summer",
-        "extreme heatwave"
-      ],
-      "invalid_examples": [
-        "concrete road",
-        "shaded road"
-      ],
-      "physical_law": "Viscosity reduction of bitumen as a function of temperature"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "wildlife_collision_braking_chain",
-      "description": "Sudden appearance of animals causes high-G braking maneuvers, leading to rear-end collisions in high-speed corridors.",
-      "conditions": {
-        "requires_wildlife_corridor": true,
-        "time_window": [
-          "18:00-06:00"
-        ]
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "deer crossing",
         "animal strike",
         "panic braking",
         "swerve"
       ],
-      "valid_examples": [
-        "rural highway at dusk",
-        "forested road"
-      ],
-      "invalid_examples": [
-        "city center",
-        "fenced motorway"
-      ],
-      "physical_law": "Kinetic energy dissipation during emergency braking"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "bridge_expansion_joint_gap",
-      "description": "Cold weather causes bridge sections to contract, widening expansion joints and creating 'tire-trap' gaps for cyclists or small wheels.",
-      "conditions": {
-        "temperature_max": -10,
-        "requires_bridge": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "expansion joint",
         "bridge gap",
         "tire trap",
         "structural contraction"
       ],
-      "valid_examples": [
-        "steel bridge in winter",
-        "viaduct joints"
-      ],
-      "invalid_examples": [
-        "monolithic pavement",
-        "summer"
-      ],
-      "physical_law": "Thermal contraction: $\\Delta L = \\alpha L_0 \\Delta T$ (negative $\\Delta T$)"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "gravel_windrow_instability",
-      "description": "Grading of unpaved roads leaves a 'windrow' of loose material in the center; crossing this causes sudden asymmetric drag and swerving.",
-      "conditions": {
-        "requires_unpaved_road": true,
-        "requires_recent_grading": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "windrow",
         "gravel ridge",
         "loose berm",
         "steering pull"
       ],
-      "valid_examples": [
-        "passing on a dirt road",
-        "entering a construction site"
-      ],
-      "invalid_examples": [
-        "paved road",
-        "compacted gravel"
-      ],
-      "physical_law": "Displacement resistance: Drag force $\\propto$ depth of loose medium"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "tire_bead_unseating",
-      "description": "Low tire pressure combined with high lateral G-forces (sharp turns) causes the tire to peel off the rim, resulting in instant loss of control.",
-      "conditions": {
-        "requires_underinflation": true,
-        "requires_sharp_turn": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "de-beading",
         "rim slip",
         "tire roll-off",
         "blowout"
       ],
-      "valid_examples": [
-        "emergency swerve",
-        "heavy load on soft tires"
-      ],
-      "invalid_examples": [
-        "straight line driving",
-        "correctly inflated tires"
-      ],
-      "physical_law": "Internal pressure < Lateral force component at the bead seat"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "shadow_ice_persistence",
-      "description": "In hilly or forested areas, ice remains in shaded sections of the road long after the rest of the road has thawed.",
-      "conditions": {
-        "requires_terrain_shadow": true,
-        "rising_ambient_temperature": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "shadow ice",
         "hidden patch",
         "microclimate",
         "thaw-lag"
       ],
-      "valid_examples": [
-        "mountain curve in shade",
-        "forest tunnel"
-      ],
-      "invalid_examples": [
-        "open field",
-        "constant sub-zero"
-      ],
-      "physical_law": "Radiative heat transfer: Lack of shortwave solar radiation prevents melting"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "dust_devil_buffeting",
-      "description": "Small, intense vortices in dry conditions create sudden, localized pressure drops and erratic wind gusts.",
-      "conditions": {
-        "requires_dry_soil": true,
-        "requires_intense_heating": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "dust devil",
         "whirlwind",
         "sudden gust",
         "visibility drop"
       ],
-      "valid_examples": [
-        "desert road at noon",
-        "unpaved lot"
-      ],
-      "invalid_examples": [
-        "rainy day",
-        "stable air"
-      ],
-      "physical_law": "Convective instability: Rapid vertical air movement with rotation"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "black_ice_formation",
-      "description": "Black ice forms when temperatures drop below freezing (≤0°C) on wet surfaces",
-      "conditions": {
-        "temperature_max": 0,
-        "requires_moisture": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "black ice",
         "ice patches",
         "icy road"
       ],
-      "valid_examples": [
-        "-2°C",
-        "-5°C",
-        "below freezing"
-      ],
-      "invalid_examples": [
-        "2°C",
-        "5°C",
-        "6°C",
-        "above freezing"
-      ]
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "hydroplaning_rebound_collision",
-      "description": "After a vehicle regains traction post-hydroplane, the tires are often steered at an angle, causing the vehicle to dart suddenly into an adjacent lane.",
-      "conditions": {
-        "requires_traction_recovery": true,
-        "requires_steering_input": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "traction snap",
         "rebound",
         "over-correction",
         "hook-and-ladder"
       ],
-      "valid_examples": [
-        "steering during a skid",
-        "exiting a deep puddle"
-      ],
-      "invalid_examples": [
-        "keeping wheels straight during hydroplaning"
-      ],
-      "physical_law": "Static friction > Kinetic friction; sudden lateral force application"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "visual_distraction_mobile_phone",
-      "description": "Driver looking at mobile phone diverts visual attention from roadway, increasing reaction time by 2-3 seconds",
-      "conditions": {
-        "requires_visual_distraction": true,
-        "increases_reaction_time": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "phone",
         "mobile",
@@ -1114,26 +628,13 @@
         "cell phone",
         "distracted driving"
       ],
-      "valid_examples": [
-        "looking at phone",
-        "texting while driving",
-        "reading a message",
-        "browsing phone"
-      ],
-      "invalid_examples": [
-        "hands-free call",
-        "using voice assistant",
-        "glancing at GPS"
-      ],
-      "physical_law": "Visual reaction time increases from ~0.75s to ~2.5s when eyes off road"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "cognitive_distraction_conversation",
-      "description": "Engaging in conversation (passenger, hands-free call) diverts cognitive resources, reducing hazard detection",
-      "conditions": {
-        "requires_cognitive_load": true,
-        "reduces_situational_awareness": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "conversation",
         "talking",
@@ -1142,25 +643,13 @@
         "discussing",
         "hands-free call"
       ],
-      "valid_examples": [
-        "talking to passenger",
-        "on a phone call",
-        "arguing with passenger"
-      ],
-      "invalid_examples": [
-        "singing alone",
-        "listening to music",
-        "radio playing"
-      ],
-      "physical_law": "Cognitive distraction causes 'inattentional blindness' — missing up to 50% of peripheral hazards"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "manual_distraction_reaching",
-      "description": "Driver reaching for object (phone, food, navigation) removes hands from steering wheel, reducing control",
-      "conditions": {
-        "requires_manual_distraction": true,
-        "reduces_vehicle_control": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "reaching for",
         "grabbing",
@@ -1169,25 +658,13 @@
         "adjusting",
         "reaching"
       ],
-      "valid_examples": [
-        "reaching for phone",
-        "adjusting GPS",
-        "picking up dropped item",
-        "reaching for coffee"
-      ],
-      "invalid_examples": [
-        "using steering wheel controls",
-        "voice command"
-      ],
-      "physical_law": "One hand off steering wheel reduces corrective steering capacity by 50-70%"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "visual_distraction_GPS",
-      "description": "Driver looking at GPS screen diverts eyes from roadway, typical glance duration 1.5-2 seconds",
-      "conditions": {
-        "requires_visual_distraction": true,
-        "typical_glance_duration_sec": 2.0
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "GPS",
         "navigation",
@@ -1197,25 +674,13 @@
         "infotainment",
         "dashboard screen"
       ],
-      "valid_examples": [
-        "looking at GPS",
-        "programming navigation",
-        "reading map",
-        "touching screen"
-      ],
-      "invalid_examples": [
-        "audible GPS directions",
-        "heads-up display"
-      ],
-      "physical_law": "At 100 km/h, 2 seconds of eyes-off-road = 55 meters traveled blind"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "visual_distraction_external",
-      "description": "Driver looking at external distraction (accident, billboard, pedestrian) diverts attention from driving task",
-      "conditions": {
-        "requires_visual_distraction": true,
-        "is_external": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "rubbernecking",
         "looking at accident",
@@ -1224,25 +689,13 @@
         "watching",
         "billboard"
       ],
-      "valid_examples": [
-        "looking at accident scene",
-        "staring at billboard",
-        "watching pedestrian",
-        "rubbernecking"
-      ],
-      "invalid_examples": [
-        "checking mirrors",
-        "scanning intersection"
-      ],
-      "physical_law": "Rubbernecking reduces effective scanning and increases rear-end collision risk by 40%"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "distraction_combined",
-      "description": "Multiple simultaneous distractions (e.g., phone + conversation) compound reaction time deficits",
-      "conditions": {
-        "requires_multiple_distractions": true,
-        "compounding_effect": true
-      },
+      "pattern": "",
+      "category": "Unknown",
       "keywords": [
         "both",
         "while also",
@@ -1250,27 +703,13 @@
         "at the same time",
         "combined distraction"
       ],
-      "valid_examples": [
-        "texting while talking",
-        "reaching for phone while navigating",
-        "eating while on call"
-      ],
-      "invalid_examples": [
-        "single distraction only"
-      ],
-      "physical_law": "Combined distractions can increase reaction time by 3-5x compared to baseline"
+      "confidence": 0.7,
+      "source": "unknown"
     },
     {
       "name": "heavy_rain_to_chain_reaction",
       "pattern": "Heavy rain → standing water → tire loses contact → directional control loss → initial impact → chain reaction",
-      "steps": [
-        "Heavy rain",
-        "standing water",
-        "tire loses contact",
-        "directional control loss",
-        "initial impact",
-        "chain reaction"
-      ],
+      "category": "Weather",
       "keywords": [
         "water",
         "control",
@@ -1287,21 +726,13 @@
         "loses",
         "initial"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-01"
+      "source": "WD-01"
     },
     {
       "name": "heavy_rain_to_chain_reaction",
       "pattern": "Heavy rain → standing water → tire loses contact → directional control loss → initial impact → chain reaction",
-      "steps": [
-        "Heavy rain",
-        "standing water",
-        "tire loses contact",
-        "directional control loss",
-        "initial impact",
-        "chain reaction"
-      ],
+      "category": "Weather",
       "keywords": [
         "water",
         "control",
@@ -1318,21 +749,13 @@
         "loses",
         "initial"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-01a"
+      "source": "WD-01a"
     },
     {
       "name": "heavy_rain_to_chain_reaction",
       "pattern": "Heavy rain → standing water → tire loses contact → directional control loss → initial impact → chain reaction",
-      "steps": [
-        "Heavy rain",
-        "standing water",
-        "tire loses contact",
-        "directional control loss",
-        "initial impact",
-        "chain reaction"
-      ],
+      "category": "Weather",
       "keywords": [
         "water",
         "control",
@@ -1349,20 +772,13 @@
         "loses",
         "initial"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-01b"
+      "source": "WD-01b"
     },
     {
       "name": "crosswind_gusts_to_guardrail_impact",
       "pattern": "Crosswind gusts → lateral force on vehicle side → torque exceeds stability → rollover → guardrail impact",
-      "steps": [
-        "Crosswind gusts",
-        "lateral force on vehicle side",
-        "torque exceeds stability",
-        "rollover",
-        "guardrail impact"
-      ],
+      "category": "Weather",
       "keywords": [
         "side",
         "rollover",
@@ -1377,20 +793,13 @@
         "vehicle",
         "force"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-03"
+      "source": "WD-03"
     },
     {
       "name": "crosswind_gusts_to_guardrail_impact",
       "pattern": "Crosswind gusts → lateral force on vehicle side → torque exceeds stability → rollover → guardrail impact",
-      "steps": [
-        "Crosswind gusts",
-        "lateral force on vehicle side",
-        "torque exceeds stability",
-        "rollover",
-        "guardrail impact"
-      ],
+      "category": "Weather",
       "keywords": [
         "side",
         "rollover",
@@ -1405,20 +814,13 @@
         "vehicle",
         "force"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-03a"
+      "source": "WD-03a"
     },
     {
       "name": "crosswind_gusts_to_guardrail_impact",
       "pattern": "Crosswind gusts → lateral force on vehicle side → torque exceeds stability → rollover → guardrail impact",
-      "steps": [
-        "Crosswind gusts",
-        "lateral force on vehicle side",
-        "torque exceeds stability",
-        "rollover",
-        "guardrail impact"
-      ],
+      "category": "Weather",
       "keywords": [
         "side",
         "rollover",
@@ -1433,20 +835,13 @@
         "vehicle",
         "force"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-03b"
+      "source": "WD-03b"
     },
     {
       "name": "sub-freezing_temp_to_traction_loss",
       "pattern": "Sub-freezing temp → moisture freeze → transparent ice → drastically reduced friction → traction loss",
-      "steps": [
-        "Sub-freezing temp",
-        "moisture freeze",
-        "transparent ice",
-        "drastically reduced friction",
-        "traction loss"
-      ],
+      "category": "Weather",
       "keywords": [
         "transparent",
         "drastically",
@@ -1461,20 +856,13 @@
         "temp",
         "moisture"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-05"
+      "source": "WD-05"
     },
     {
       "name": "sub-freezing_temp_to_traction_loss",
       "pattern": "Sub-freezing temp → moisture freeze → transparent ice → drastically reduced friction → traction loss",
-      "steps": [
-        "Sub-freezing temp",
-        "moisture freeze",
-        "transparent ice",
-        "drastically reduced friction",
-        "traction loss"
-      ],
+      "category": "Weather",
       "keywords": [
         "transparent",
         "drastically",
@@ -1489,20 +877,13 @@
         "temp",
         "moisture"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-05a"
+      "source": "WD-05a"
     },
     {
       "name": "sub-freezing_temp_to_traction_loss",
       "pattern": "Sub-freezing temp → moisture freeze → transparent ice → drastically reduced friction → traction loss",
-      "steps": [
-        "Sub-freezing temp",
-        "moisture freeze",
-        "transparent ice",
-        "drastically reduced friction",
-        "traction loss"
-      ],
+      "category": "Weather",
       "keywords": [
         "transparent",
         "drastically",
@@ -1517,19 +898,13 @@
         "temp",
         "moisture"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-05b"
+      "source": "WD-05b"
     },
     {
       "name": "dense_fog_to_insufficient_time/di",
       "pattern": "Dense fog → reduced sight distance → delayed perception of braking → insufficient time/distance to stop given wet road friction",
-      "steps": [
-        "Dense fog",
-        "reduced sight distance",
-        "delayed perception of braking",
-        "insufficient time/distance to stop given wet road friction"
-      ],
+      "category": "Weather",
       "keywords": [
         "dense",
         "friction",
@@ -1547,19 +922,13 @@
         "delayed",
         "stop"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-06"
+      "source": "WD-06"
     },
     {
       "name": "dense_fog_to_insufficient_time/di",
       "pattern": "Dense fog → reduced sight distance → delayed perception of braking → insufficient time/distance to stop given wet road friction",
-      "steps": [
-        "Dense fog",
-        "reduced sight distance",
-        "delayed perception of braking",
-        "insufficient time/distance to stop given wet road friction"
-      ],
+      "category": "Weather",
       "keywords": [
         "dense",
         "friction",
@@ -1577,19 +946,13 @@
         "delayed",
         "stop"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-06a"
+      "source": "WD-06a"
     },
     {
       "name": "dense_fog_to_insufficient_time/di",
       "pattern": "Dense fog → reduced sight distance → delayed perception of braking → insufficient time/distance to stop given wet road friction",
-      "steps": [
-        "Dense fog",
-        "reduced sight distance",
-        "delayed perception of braking",
-        "insufficient time/distance to stop given wet road friction"
-      ],
+      "category": "Weather",
       "keywords": [
         "dense",
         "friction",
@@ -1607,21 +970,13 @@
         "delayed",
         "stop"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-06b"
+      "source": "WD-06b"
     },
     {
       "name": "strong_winds_to_loss_of_control/coll",
       "pattern": "Strong winds → detached banner → airborne debris → roadway obstruction → evasive maneuver → loss of control/collision",
-      "steps": [
-        "Strong winds",
-        "detached banner",
-        "airborne debris",
-        "roadway obstruction",
-        "evasive maneuver",
-        "loss of control/collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "detached",
         "collision",
@@ -1637,21 +992,13 @@
         "maneuver",
         "airborne"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-07"
+      "source": "WD-07"
     },
     {
       "name": "strong_winds_to_loss_of_control/coll",
       "pattern": "Strong winds → detached banner → airborne debris → roadway obstruction → evasive maneuver → loss of control/collision",
-      "steps": [
-        "Strong winds",
-        "detached banner",
-        "airborne debris",
-        "roadway obstruction",
-        "evasive maneuver",
-        "loss of control/collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "detached",
         "collision",
@@ -1667,21 +1014,13 @@
         "maneuver",
         "airborne"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-07a"
+      "source": "WD-07a"
     },
     {
       "name": "strong_winds_to_loss_of_control/coll",
       "pattern": "Strong winds → detached banner → airborne debris → roadway obstruction → evasive maneuver → loss of control/collision",
-      "steps": [
-        "Strong winds",
-        "detached banner",
-        "airborne debris",
-        "roadway obstruction",
-        "evasive maneuver",
-        "loss of control/collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "detached",
         "collision",
@@ -1697,19 +1036,13 @@
         "maneuver",
         "airborne"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-07b"
+      "source": "WD-07b"
     },
     {
       "name": "snow_accumulation_to_collision_with_roads",
       "pattern": "Snow accumulation → reduced friction on incline → lateral slide during curve negotiation → collision with roadside feature",
-      "steps": [
-        "Snow accumulation",
-        "reduced friction on incline",
-        "lateral slide during curve negotiation",
-        "collision with roadside feature"
-      ],
+      "category": "Weather",
       "keywords": [
         "incline",
         "collision",
@@ -1726,19 +1059,13 @@
         "with",
         "curve"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-08"
+      "source": "WD-08"
     },
     {
       "name": "snow_accumulation_to_collision_with_roads",
       "pattern": "Snow accumulation → reduced friction on incline → lateral slide during curve negotiation → collision with roadside feature",
-      "steps": [
-        "Snow accumulation",
-        "reduced friction on incline",
-        "lateral slide during curve negotiation",
-        "collision with roadside feature"
-      ],
+      "category": "Weather",
       "keywords": [
         "incline",
         "collision",
@@ -1755,19 +1082,13 @@
         "with",
         "curve"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-08a"
+      "source": "WD-08a"
     },
     {
       "name": "snow_accumulation_to_collision_with_roads",
       "pattern": "Snow accumulation → reduced friction on incline → lateral slide during curve negotiation → collision with roadside feature",
-      "steps": [
-        "Snow accumulation",
-        "reduced friction on incline",
-        "lateral slide during curve negotiation",
-        "collision with roadside feature"
-      ],
+      "category": "Weather",
       "keywords": [
         "incline",
         "collision",
@@ -1784,19 +1105,13 @@
         "with",
         "curve"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-08b"
+      "source": "WD-08b"
     },
     {
       "name": "dust_storm_to_collision_despite_lo",
       "pattern": "Dust storm → visibility reduction to <10 m → inability to see other vehicles → collision despite low speeds",
-      "steps": [
-        "Dust storm",
-        "visibility reduction to <10 m",
-        "inability to see other vehicles",
-        "collision despite low speeds"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "despite",
@@ -1811,19 +1126,13 @@
         "vehicles",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-10"
+      "source": "WD-10"
     },
     {
       "name": "dust_storm_to_collision_despite_lo",
       "pattern": "Dust storm → visibility reduction to <10 m → inability to see other vehicles → collision despite low speeds",
-      "steps": [
-        "Dust storm",
-        "visibility reduction to <10 m",
-        "inability to see other vehicles",
-        "collision despite low speeds"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "despite",
@@ -1838,19 +1147,13 @@
         "vehicles",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-10a"
+      "source": "WD-10a"
     },
     {
       "name": "dust_storm_to_collision_despite_lo",
       "pattern": "Dust storm → visibility reduction to <10 m → inability to see other vehicles → collision despite low speeds",
-      "steps": [
-        "Dust storm",
-        "visibility reduction to <10 m",
-        "inability to see other vehicles",
-        "collision despite low speeds"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "despite",
@@ -1865,21 +1168,13 @@
         "vehicles",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-10b"
+      "source": "WD-10b"
     },
     {
       "name": "reduced_visibility_to_fall",
       "pattern": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
-      "steps": [
-        "Reduced visibility",
-        "delayed curve perception",
-        "panic braking",
-        "tire traction exceeded on wet surface",
-        "lateral slide",
-        "fall"
-      ],
+      "category": "Weather",
       "keywords": [
         "exceeded",
         "wet",
@@ -1897,21 +1192,13 @@
         "delayed",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-14"
+      "source": "WD-14"
     },
     {
       "name": "reduced_visibility_to_fall",
       "pattern": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
-      "steps": [
-        "Reduced visibility",
-        "delayed curve perception",
-        "panic braking",
-        "tire traction exceeded on wet surface",
-        "lateral slide",
-        "fall"
-      ],
+      "category": "Weather",
       "keywords": [
         "exceeded",
         "wet",
@@ -1929,21 +1216,13 @@
         "delayed",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-14a"
+      "source": "WD-14a"
     },
     {
       "name": "reduced_visibility_to_fall",
       "pattern": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
-      "steps": [
-        "Reduced visibility",
-        "delayed curve perception",
-        "panic braking",
-        "tire traction exceeded on wet surface",
-        "lateral slide",
-        "fall"
-      ],
+      "category": "Weather",
       "keywords": [
         "exceeded",
         "wet",
@@ -1961,21 +1240,13 @@
         "delayed",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-14b"
+      "source": "WD-14b"
     },
     {
       "name": "reduced_visibility_to_fall",
       "pattern": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
-      "steps": [
-        "Reduced visibility",
-        "delayed curve perception",
-        "panic braking",
-        "tire traction exceeded on wet surface",
-        "lateral slide",
-        "fall"
-      ],
+      "category": "Weather",
       "keywords": [
         "exceeded",
         "wet",
@@ -1993,21 +1264,13 @@
         "delayed",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-14"
+      "source": "WD-14"
     },
     {
       "name": "reduced_visibility_to_fall",
       "pattern": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
-      "steps": [
-        "Reduced visibility",
-        "delayed curve perception",
-        "panic braking",
-        "tire traction exceeded on wet surface",
-        "lateral slide",
-        "fall"
-      ],
+      "category": "Weather",
       "keywords": [
         "exceeded",
         "wet",
@@ -2025,21 +1288,13 @@
         "delayed",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-14a"
+      "source": "WD-14a"
     },
     {
       "name": "reduced_visibility_to_fall",
       "pattern": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
-      "steps": [
-        "Reduced visibility",
-        "delayed curve perception",
-        "panic braking",
-        "tire traction exceeded on wet surface",
-        "lateral slide",
-        "fall"
-      ],
+      "category": "Weather",
       "keywords": [
         "exceeded",
         "wet",
@@ -2057,21 +1312,13 @@
         "delayed",
         "visibility"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-14b"
+      "source": "WD-14b"
     },
     {
       "name": "rapid_water_accumula_to_following_vehicle_co",
       "pattern": "Rapid water accumulation → vehicle attempts passage → water enters air intake → engine hydro-lock → sudden stall → following vehicle collision",
-      "steps": [
-        "Rapid water accumulation",
-        "vehicle attempts passage",
-        "water enters air intake",
-        "engine hydro-lock",
-        "sudden stall",
-        "following vehicle collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "engine",
@@ -2090,21 +1337,13 @@
         "intake",
         "attempts"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-16"
+      "source": "WD-16"
     },
     {
       "name": "rapid_water_accumula_to_following_vehicle_co",
       "pattern": "Rapid water accumulation → vehicle attempts passage → water enters air intake → engine hydro-lock → sudden stall → following vehicle collision",
-      "steps": [
-        "Rapid water accumulation",
-        "vehicle attempts passage",
-        "water enters air intake",
-        "engine hydro-lock",
-        "sudden stall",
-        "following vehicle collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "engine",
@@ -2123,21 +1362,13 @@
         "intake",
         "attempts"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-16a"
+      "source": "WD-16a"
     },
     {
       "name": "rapid_water_accumula_to_following_vehicle_co",
       "pattern": "Rapid water accumulation → vehicle attempts passage → water enters air intake → engine hydro-lock → sudden stall → following vehicle collision",
-      "steps": [
-        "Rapid water accumulation",
-        "vehicle attempts passage",
-        "water enters air intake",
-        "engine hydro-lock",
-        "sudden stall",
-        "following vehicle collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "engine",
@@ -2156,20 +1387,13 @@
         "intake",
         "attempts"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-16b"
+      "source": "WD-16b"
     },
     {
       "name": "speed_+_water_depth_to_collision",
       "pattern": "Speed + water depth → hydrodynamic lift exceeds tire load → complete loss of road contact → spin during curve negotiation → collision",
-      "steps": [
-        "Speed + water depth",
-        "hydrodynamic lift exceeds tire load",
-        "complete loss of road contact",
-        "spin during curve negotiation",
-        "collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "water",
@@ -2189,20 +1413,13 @@
         "depth",
         "curve"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-20"
+      "source": "WD-20"
     },
     {
       "name": "speed_+_water_depth_to_collision",
       "pattern": "Speed + water depth → hydrodynamic lift exceeds tire load → complete loss of road contact → spin during curve negotiation → collision",
-      "steps": [
-        "Speed + water depth",
-        "hydrodynamic lift exceeds tire load",
-        "complete loss of road contact",
-        "spin during curve negotiation",
-        "collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "water",
@@ -2222,20 +1439,13 @@
         "depth",
         "curve"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-20a"
+      "source": "WD-20a"
     },
     {
       "name": "speed_+_water_depth_to_collision",
       "pattern": "Speed + water depth → hydrodynamic lift exceeds tire load → complete loss of road contact → spin during curve negotiation → collision",
-      "steps": [
-        "Speed + water depth",
-        "hydrodynamic lift exceeds tire load",
-        "complete loss of road contact",
-        "spin during curve negotiation",
-        "collision"
-      ],
+      "category": "Weather",
       "keywords": [
         "collision",
         "water",
@@ -2255,19 +1465,13 @@
         "depth",
         "curve"
       ],
-      "category": "Weather",
       "confidence": 0.8,
-      "source_scenario": "WD-20b"
+      "source": "WD-20b"
     },
     {
       "name": "sedan_changed_lanes__to_rear-end_chain_react",
       "pattern": "Sedan changed lanes without checking blind spot/adjacent lane → SUV forced to emergency brake → following van insufficient stopping distance → rear-end chain reaction",
-      "steps": [
-        "Sedan changed lanes without checking blind spot/adjacent lane",
-        "SUV forced to emergency brake",
-        "following van insufficient stopping distance",
-        "rear-end chain reaction"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "checking",
         "suv",
@@ -2292,19 +1496,13 @@
         "forced",
         "emergency"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-01"
+      "source": "TA-01"
     },
     {
       "name": "sedan_changed_lanes__to_rear-end_chain_react",
       "pattern": "Sedan changed lanes without checking blind spot/adjacent lane → SUV forced to emergency brake → following van insufficient stopping distance → rear-end chain reaction",
-      "steps": [
-        "Sedan changed lanes without checking blind spot/adjacent lane",
-        "SUV forced to emergency brake",
-        "following van insufficient stopping distance",
-        "rear-end chain reaction"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "checking",
         "suv",
@@ -2329,19 +1527,13 @@
         "forced",
         "emergency"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-01a"
+      "source": "TA-01a"
     },
     {
       "name": "sedan_changed_lanes__to_rear-end_chain_react",
       "pattern": "Sedan changed lanes without checking blind spot/adjacent lane → SUV forced to emergency brake → following van insufficient stopping distance → rear-end chain reaction",
-      "steps": [
-        "Sedan changed lanes without checking blind spot/adjacent lane",
-        "SUV forced to emergency brake",
-        "following van insufficient stopping distance",
-        "rear-end chain reaction"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "checking",
         "suv",
@@ -2366,18 +1558,13 @@
         "forced",
         "emergency"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-01b"
+      "source": "TA-01b"
     },
     {
       "name": "driver_failed_to_sto_to_perpendicular_impact",
       "pattern": "Driver failed to stop at red signal → entered intersection at speed → perpendicular impact with crossing vehicle",
-      "steps": [
-        "Driver failed to stop at red signal",
-        "entered intersection at speed",
-        "perpendicular impact with crossing vehicle"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "intersection",
         "perpendicular",
@@ -2393,18 +1580,13 @@
         "red",
         "stop"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-02"
+      "source": "TA-02"
     },
     {
       "name": "driver_failed_to_sto_to_perpendicular_impact",
       "pattern": "Driver failed to stop at red signal → entered intersection at speed → perpendicular impact with crossing vehicle",
-      "steps": [
-        "Driver failed to stop at red signal",
-        "entered intersection at speed",
-        "perpendicular impact with crossing vehicle"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "intersection",
         "perpendicular",
@@ -2420,18 +1602,13 @@
         "red",
         "stop"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-02a"
+      "source": "TA-02a"
     },
     {
       "name": "driver_failed_to_sto_to_perpendicular_impact",
       "pattern": "Driver failed to stop at red signal → entered intersection at speed → perpendicular impact with crossing vehicle",
-      "steps": [
-        "Driver failed to stop at red signal",
-        "entered intersection at speed",
-        "perpendicular impact with crossing vehicle"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "intersection",
         "perpendicular",
@@ -2447,20 +1624,13 @@
         "red",
         "stop"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-02b"
+      "source": "TA-02b"
     },
     {
       "name": "micro-sleep/loss_of__to_head-on_collision",
       "pattern": "Micro-sleep/loss of vigilance → unintentional steering drift → center line crossing → opposite lane entry → head-on collision",
-      "steps": [
-        "Micro-sleep/loss of vigilance",
-        "unintentional steering drift",
-        "center line crossing",
-        "opposite lane entry",
-        "head-on collision"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "crossing",
@@ -2478,20 +1648,13 @@
         "micro",
         "center"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-04"
+      "source": "TA-04"
     },
     {
       "name": "micro-sleep/loss_of__to_head-on_collision",
       "pattern": "Micro-sleep/loss of vigilance → unintentional steering drift → center line crossing → opposite lane entry → head-on collision",
-      "steps": [
-        "Micro-sleep/loss of vigilance",
-        "unintentional steering drift",
-        "center line crossing",
-        "opposite lane entry",
-        "head-on collision"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "crossing",
@@ -2509,20 +1672,13 @@
         "micro",
         "center"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-04a"
+      "source": "TA-04a"
     },
     {
       "name": "micro-sleep/loss_of__to_head-on_collision",
       "pattern": "Micro-sleep/loss of vigilance → unintentional steering drift → center line crossing → opposite lane entry → head-on collision",
-      "steps": [
-        "Micro-sleep/loss of vigilance",
-        "unintentional steering drift",
-        "center line crossing",
-        "opposite lane entry",
-        "head-on collision"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "crossing",
@@ -2540,19 +1696,13 @@
         "micro",
         "center"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-04b"
+      "source": "TA-04b"
     },
     {
       "name": "speed_exceeded_criti_to_rollover",
       "pattern": "Speed exceeded critical velocity for curve radius → centrifugal force exceeded tire-road friction → loss of steering control → rollover",
-      "steps": [
-        "Speed exceeded critical velocity for curve radius",
-        "centrifugal force exceeded tire-road friction",
-        "loss of steering control",
-        "rollover"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "velocity",
         "control",
@@ -2571,19 +1721,13 @@
         "exceeded",
         "force"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-06"
+      "source": "TA-06"
     },
     {
       "name": "speed_exceeded_criti_to_rollover",
       "pattern": "Speed exceeded critical velocity for curve radius → centrifugal force exceeded tire-road friction → loss of steering control → rollover",
-      "steps": [
-        "Speed exceeded critical velocity for curve radius",
-        "centrifugal force exceeded tire-road friction",
-        "loss of steering control",
-        "rollover"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "velocity",
         "control",
@@ -2602,19 +1746,13 @@
         "exceeded",
         "force"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-06a"
+      "source": "TA-06a"
     },
     {
       "name": "speed_exceeded_criti_to_rollover",
       "pattern": "Speed exceeded critical velocity for curve radius → centrifugal force exceeded tire-road friction → loss of steering control → rollover",
-      "steps": [
-        "Speed exceeded critical velocity for curve radius",
-        "centrifugal force exceeded tire-road friction",
-        "loss of steering control",
-        "rollover"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "velocity",
         "control",
@@ -2633,18 +1771,13 @@
         "exceeded",
         "force"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-06b"
+      "source": "TA-06b"
     },
     {
       "name": "lead_driver_emergenc_to_rear-end_collisions",
       "pattern": "Lead driver emergency braking in response to unexpected animal crossing → following drivers had insufficient gap/detection time → rear-end collisions",
-      "steps": [
-        "Lead driver emergency braking in response to unexpected animal crossing",
-        "following drivers had insufficient gap/detection time",
-        "rear-end collisions"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "response",
         "time",
@@ -2665,18 +1798,13 @@
         "emergency",
         "animal"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-08"
+      "source": "TA-08"
     },
     {
       "name": "lead_driver_emergenc_to_rear-end_collisions",
       "pattern": "Lead driver emergency braking in response to unexpected animal crossing → following drivers had insufficient gap/detection time → rear-end collisions",
-      "steps": [
-        "Lead driver emergency braking in response to unexpected animal crossing",
-        "following drivers had insufficient gap/detection time",
-        "rear-end collisions"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "response",
         "time",
@@ -2697,18 +1825,13 @@
         "emergency",
         "animal"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-08a"
+      "source": "TA-08a"
     },
     {
       "name": "lead_driver_emergenc_to_rear-end_collisions",
       "pattern": "Lead driver emergency braking in response to unexpected animal crossing → following drivers had insufficient gap/detection time → rear-end collisions",
-      "steps": [
-        "Lead driver emergency braking in response to unexpected animal crossing",
-        "following drivers had insufficient gap/detection time",
-        "rear-end collisions"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "response",
         "time",
@@ -2729,19 +1852,13 @@
         "emergency",
         "animal"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-08b"
+      "source": "TA-08b"
     },
     {
       "name": "prolonged_brake_appl_to_failure_to_slow_for_",
       "pattern": "Prolonged brake application on downgrade → brake fade from overheating → reduced stopping ability → failure to slow for stationary vehicle",
-      "steps": [
-        "Prolonged brake application on downgrade",
-        "brake fade from overheating",
-        "reduced stopping ability",
-        "failure to slow for stationary vehicle"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "overheating",
         "fade",
@@ -2759,19 +1876,13 @@
         "for",
         "stopping"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-09"
+      "source": "TA-09"
     },
     {
       "name": "prolonged_brake_appl_to_failure_to_slow_for_",
       "pattern": "Prolonged brake application on downgrade → brake fade from overheating → reduced stopping ability → failure to slow for stationary vehicle",
-      "steps": [
-        "Prolonged brake application on downgrade",
-        "brake fade from overheating",
-        "reduced stopping ability",
-        "failure to slow for stationary vehicle"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "overheating",
         "fade",
@@ -2789,19 +1900,13 @@
         "for",
         "stopping"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-09a"
+      "source": "TA-09a"
     },
     {
       "name": "prolonged_brake_appl_to_failure_to_slow_for_",
       "pattern": "Prolonged brake application on downgrade → brake fade from overheating → reduced stopping ability → failure to slow for stationary vehicle",
-      "steps": [
-        "Prolonged brake application on downgrade",
-        "brake fade from overheating",
-        "reduced stopping ability",
-        "failure to slow for stationary vehicle"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "overheating",
         "fade",
@@ -2819,19 +1924,13 @@
         "for",
         "stopping"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-09b"
+      "source": "TA-09b"
     },
     {
       "name": "driver_attention_div_to_collision_at_speed",
       "pattern": "Driver attention diverted to phone → failure to scan roadway ahead → delayed detection of pedestrian in crossing → collision at speed",
-      "steps": [
-        "Driver attention diverted to phone",
-        "failure to scan roadway ahead",
-        "delayed detection of pedestrian in crossing",
-        "collision at speed"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "failure",
@@ -2848,19 +1947,13 @@
         "delayed",
         "scan"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-10"
+      "source": "TA-10"
     },
     {
       "name": "driver_attention_div_to_collision_at_speed",
       "pattern": "Driver attention diverted to phone → failure to scan roadway ahead → delayed detection of pedestrian in crossing → collision at speed",
-      "steps": [
-        "Driver attention diverted to phone",
-        "failure to scan roadway ahead",
-        "delayed detection of pedestrian in crossing",
-        "collision at speed"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "failure",
@@ -2877,19 +1970,13 @@
         "delayed",
         "scan"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-10a"
+      "source": "TA-10a"
     },
     {
       "name": "driver_attention_div_to_collision_at_speed",
       "pattern": "Driver attention diverted to phone → failure to scan roadway ahead → delayed detection of pedestrian in crossing → collision at speed",
-      "steps": [
-        "Driver attention diverted to phone",
-        "failure to scan roadway ahead",
-        "delayed detection of pedestrian in crossing",
-        "collision at speed"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "failure",
@@ -2906,18 +1993,13 @@
         "delayed",
         "scan"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-10b"
+      "source": "TA-10b"
     },
     {
       "name": "driver_maintained_dr_to_rear-end_collision",
       "pattern": "Driver maintained dry-road following distance on wet surface → inadequate stopping distance when lead vehicle slowed → rear-end collision",
-      "steps": [
-        "Driver maintained dry-road following distance on wet surface",
-        "inadequate stopping distance when lead vehicle slowed",
-        "rear-end collision"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "end",
@@ -2937,18 +2019,13 @@
         "inadequate",
         "slowed"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-14"
+      "source": "TA-14"
     },
     {
       "name": "driver_maintained_dr_to_rear-end_collision",
       "pattern": "Driver maintained dry-road following distance on wet surface → inadequate stopping distance when lead vehicle slowed → rear-end collision",
-      "steps": [
-        "Driver maintained dry-road following distance on wet surface",
-        "inadequate stopping distance when lead vehicle slowed",
-        "rear-end collision"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "end",
@@ -2968,18 +2045,13 @@
         "inadequate",
         "slowed"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-14a"
+      "source": "TA-14a"
     },
     {
       "name": "driver_maintained_dr_to_rear-end_collision",
       "pattern": "Driver maintained dry-road following distance on wet surface → inadequate stopping distance when lead vehicle slowed → rear-end collision",
-      "steps": [
-        "Driver maintained dry-road following distance on wet surface",
-        "inadequate stopping distance when lead vehicle slowed",
-        "rear-end collision"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "collision",
         "end",
@@ -2999,19 +2071,13 @@
         "inadequate",
         "slowed"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-14b"
+      "source": "TA-14b"
     },
     {
       "name": "vehicle_occupant_ope_to_collision_with_door_",
       "pattern": "Vehicle occupant opened door without checking for approaching cyclist → door occupied cyclist's path → cyclist unable to avoid → collision with door followed by fall",
-      "steps": [
-        "Vehicle occupant opened door without checking for approaching cyclist",
-        "door occupied cyclist's path",
-        "cyclist unable to avoid",
-        "collision with door followed by fall"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "occupant",
         "collision",
@@ -3031,19 +2097,13 @@
         "path",
         "cyclist"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-17"
+      "source": "TA-17"
     },
     {
       "name": "vehicle_occupant_ope_to_collision_with_door_",
       "pattern": "Vehicle occupant opened door without checking for approaching cyclist → door occupied cyclist's path → cyclist unable to avoid → collision with door followed by fall",
-      "steps": [
-        "Vehicle occupant opened door without checking for approaching cyclist",
-        "door occupied cyclist's path",
-        "cyclist unable to avoid",
-        "collision with door followed by fall"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "occupant",
         "collision",
@@ -3063,19 +2123,13 @@
         "path",
         "cyclist"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-17a"
+      "source": "TA-17a"
     },
     {
       "name": "vehicle_occupant_ope_to_collision_with_door_",
       "pattern": "Vehicle occupant opened door without checking for approaching cyclist → door occupied cyclist's path → cyclist unable to avoid → collision with door followed by fall",
-      "steps": [
-        "Vehicle occupant opened door without checking for approaching cyclist",
-        "door occupied cyclist's path",
-        "cyclist unable to avoid",
-        "collision with door followed by fall"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "occupant",
         "collision",
@@ -3095,20 +2149,13 @@
         "path",
         "cyclist"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-17b"
+      "source": "TA-17b"
     },
     {
       "name": "rapid_deflation_of_f_to_median_impact",
       "pattern": "Rapid deflation of front tire → asymmetric rolling resistance and steering force → sudden vehicle pull toward failed tire side → driver overcorrection → median impact",
-      "steps": [
-        "Rapid deflation of front tire",
-        "asymmetric rolling resistance and steering force",
-        "sudden vehicle pull toward failed tire side",
-        "driver overcorrection",
-        "median impact"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "tire",
         "impact",
@@ -3131,20 +2178,13 @@
         "asymmetric",
         "pull"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-19"
+      "source": "TA-19"
     },
     {
       "name": "rapid_deflation_of_f_to_median_impact",
       "pattern": "Rapid deflation of front tire → asymmetric rolling resistance and steering force → sudden vehicle pull toward failed tire side → driver overcorrection → median impact",
-      "steps": [
-        "Rapid deflation of front tire",
-        "asymmetric rolling resistance and steering force",
-        "sudden vehicle pull toward failed tire side",
-        "driver overcorrection",
-        "median impact"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "tire",
         "impact",
@@ -3167,20 +2207,13 @@
         "asymmetric",
         "pull"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-19a"
+      "source": "TA-19a"
     },
     {
       "name": "rapid_deflation_of_f_to_median_impact",
       "pattern": "Rapid deflation of front tire → asymmetric rolling resistance and steering force → sudden vehicle pull toward failed tire side → driver overcorrection → median impact",
-      "steps": [
-        "Rapid deflation of front tire",
-        "asymmetric rolling resistance and steering force",
-        "sudden vehicle pull toward failed tire side",
-        "driver overcorrection",
-        "median impact"
-      ],
+      "category": "Traffic Accident",
       "keywords": [
         "tire",
         "impact",
@@ -3203,20 +2236,13 @@
         "asymmetric",
         "pull"
       ],
-      "category": "Traffic Accident",
       "confidence": 0.8,
-      "source_scenario": "TA-19b"
+      "source": "TA-19b"
     },
     {
       "name": "maintenance_crews_cl_to_chain_rear-end_colli",
       "pattern": "Maintenance crews closed lane without required advance warning → lead driver encountered unexpected blockage → emergency braking → following vehicles unable to stop → chain rear-end collision",
-      "steps": [
-        "Maintenance crews closed lane without required advance warning",
-        "lead driver encountered unexpected blockage",
-        "emergency braking",
-        "following vehicles unable to stop",
-        "chain rear-end collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "crews",
@@ -3242,20 +2268,13 @@
         "unexpected",
         "emergency"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-01"
+      "source": "RM-01"
     },
     {
       "name": "maintenance_crews_cl_to_chain_rear-end_colli",
       "pattern": "Maintenance crews closed lane without required advance warning → lead driver encountered unexpected blockage → emergency braking → following vehicles unable to stop → chain rear-end collision",
-      "steps": [
-        "Maintenance crews closed lane without required advance warning",
-        "lead driver encountered unexpected blockage",
-        "emergency braking",
-        "following vehicles unable to stop",
-        "chain rear-end collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "crews",
@@ -3281,20 +2300,13 @@
         "unexpected",
         "emergency"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-01a"
+      "source": "RM-01a"
     },
     {
       "name": "maintenance_crews_cl_to_chain_rear-end_colli",
       "pattern": "Maintenance crews closed lane without required advance warning → lead driver encountered unexpected blockage → emergency braking → following vehicles unable to stop → chain rear-end collision",
-      "steps": [
-        "Maintenance crews closed lane without required advance warning",
-        "lead driver encountered unexpected blockage",
-        "emergency braking",
-        "following vehicles unable to stop",
-        "chain rear-end collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "crews",
@@ -3320,21 +2332,13 @@
         "unexpected",
         "emergency"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-01b"
+      "source": "RM-01b"
     },
     {
       "name": "emergency_patching_c_to_collision",
       "pattern": "Emergency patching completed but failed under load → pothole re-formed → not re-marked or re-closed → vehicle struck at speed → loss of control → collision",
-      "steps": [
-        "Emergency patching completed but failed under load",
-        "pothole re-formed",
-        "not re-marked or re-closed",
-        "vehicle struck at speed",
-        "loss of control",
-        "collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "under",
@@ -3355,21 +2359,13 @@
         "emergency",
         "closed"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-02"
+      "source": "RM-02"
     },
     {
       "name": "emergency_patching_c_to_collision",
       "pattern": "Emergency patching completed but failed under load → pothole re-formed → not re-marked or re-closed → vehicle struck at speed → loss of control → collision",
-      "steps": [
-        "Emergency patching completed but failed under load",
-        "pothole re-formed",
-        "not re-marked or re-closed",
-        "vehicle struck at speed",
-        "loss of control",
-        "collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "under",
@@ -3390,21 +2386,13 @@
         "emergency",
         "closed"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-02a"
+      "source": "RM-02a"
     },
     {
       "name": "emergency_patching_c_to_collision",
       "pattern": "Emergency patching completed but failed under load → pothole re-formed → not re-marked or re-closed → vehicle struck at speed → loss of control → collision",
-      "steps": [
-        "Emergency patching completed but failed under load",
-        "pothole re-formed",
-        "not re-marked or re-closed",
-        "vehicle struck at speed",
-        "loss of control",
-        "collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "under",
@@ -3425,19 +2413,13 @@
         "emergency",
         "closed"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-02b"
+      "source": "RM-02b"
     },
     {
       "name": "maintenance_crew_pos_to_sideswipe_collision",
       "pattern": "Maintenance crew positioned barrier with inadequate offset from travel lane → lane width insufficient for vehicle envelope → driver encroached into adjacent lane → sideswipe collision",
-      "steps": [
-        "Maintenance crew positioned barrier with inadequate offset from travel lane",
-        "lane width insufficient for vehicle envelope",
-        "driver encroached into adjacent lane",
-        "sideswipe collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "offset",
@@ -3461,19 +2443,13 @@
         "vehicle",
         "for"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-03"
+      "source": "RM-03"
     },
     {
       "name": "maintenance_crew_pos_to_sideswipe_collision",
       "pattern": "Maintenance crew positioned barrier with inadequate offset from travel lane → lane width insufficient for vehicle envelope → driver encroached into adjacent lane → sideswipe collision",
-      "steps": [
-        "Maintenance crew positioned barrier with inadequate offset from travel lane",
-        "lane width insufficient for vehicle envelope",
-        "driver encroached into adjacent lane",
-        "sideswipe collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "offset",
@@ -3497,19 +2473,13 @@
         "vehicle",
         "for"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-03a"
+      "source": "RM-03a"
     },
     {
       "name": "maintenance_crew_pos_to_sideswipe_collision",
       "pattern": "Maintenance crew positioned barrier with inadequate offset from travel lane → lane width insufficient for vehicle envelope → driver encroached into adjacent lane → sideswipe collision",
-      "steps": [
-        "Maintenance crew positioned barrier with inadequate offset from travel lane",
-        "lane width insufficient for vehicle envelope",
-        "driver encroached into adjacent lane",
-        "sideswipe collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "offset",
@@ -3533,20 +2503,13 @@
         "vehicle",
         "for"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-03b"
+      "source": "RM-03b"
     },
     {
       "name": "maintenance_lighting_to_rear-end_by_followin",
       "pattern": "Maintenance lighting system failure → taper zone invisible at night → driver detection distance severely reduced → emergency braking → rear-end by following vehicle",
-      "steps": [
-        "Maintenance lighting system failure",
-        "taper zone invisible at night",
-        "driver detection distance severely reduced",
-        "emergency braking",
-        "rear-end by following vehicle"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "system",
         "invisible",
@@ -3568,20 +2531,13 @@
         "vehicle",
         "emergency"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-06"
+      "source": "RM-06"
     },
     {
       "name": "maintenance_lighting_to_rear-end_by_followin",
       "pattern": "Maintenance lighting system failure → taper zone invisible at night → driver detection distance severely reduced → emergency braking → rear-end by following vehicle",
-      "steps": [
-        "Maintenance lighting system failure",
-        "taper zone invisible at night",
-        "driver detection distance severely reduced",
-        "emergency braking",
-        "rear-end by following vehicle"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "system",
         "invisible",
@@ -3603,20 +2559,13 @@
         "vehicle",
         "emergency"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-06a"
+      "source": "RM-06a"
     },
     {
       "name": "maintenance_lighting_to_rear-end_by_followin",
       "pattern": "Maintenance lighting system failure → taper zone invisible at night → driver detection distance severely reduced → emergency braking → rear-end by following vehicle",
-      "steps": [
-        "Maintenance lighting system failure",
-        "taper zone invisible at night",
-        "driver detection distance severely reduced",
-        "emergency braking",
-        "rear-end by following vehicle"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "system",
         "invisible",
@@ -3638,21 +2587,13 @@
         "vehicle",
         "emergency"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-06b"
+      "source": "RM-06b"
     },
     {
       "name": "improperly_compacted_to_rollover",
       "pattern": "Improperly compacted trench backfill → saturated by rain → structural failure under wheel load → sudden vertical drop → loss of steering control → rollover",
-      "steps": [
-        "Improperly compacted trench backfill",
-        "saturated by rain",
-        "structural failure under wheel load",
-        "sudden vertical drop",
-        "loss of steering control",
-        "rollover"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "drop",
         "failure",
@@ -3673,21 +2614,13 @@
         "saturated",
         "vertical"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-07"
+      "source": "RM-07"
     },
     {
       "name": "improperly_compacted_to_rollover",
       "pattern": "Improperly compacted trench backfill → saturated by rain → structural failure under wheel load → sudden vertical drop → loss of steering control → rollover",
-      "steps": [
-        "Improperly compacted trench backfill",
-        "saturated by rain",
-        "structural failure under wheel load",
-        "sudden vertical drop",
-        "loss of steering control",
-        "rollover"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "drop",
         "failure",
@@ -3708,21 +2641,13 @@
         "saturated",
         "vertical"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-07a"
+      "source": "RM-07a"
     },
     {
       "name": "improperly_compacted_to_rollover",
       "pattern": "Improperly compacted trench backfill → saturated by rain → structural failure under wheel load → sudden vertical drop → loss of steering control → rollover",
-      "steps": [
-        "Improperly compacted trench backfill",
-        "saturated by rain",
-        "structural failure under wheel load",
-        "sudden vertical drop",
-        "loss of steering control",
-        "rollover"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "drop",
         "failure",
@@ -3743,20 +2668,13 @@
         "saturated",
         "vertical"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-07b"
+      "source": "RM-07b"
     },
     {
       "name": "bridge_inspection_sc_to_secondary_collisions",
       "pattern": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles → high-sided truck impact → debris fall → hazard avoidance → secondary collisions",
-      "steps": [
-        "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles",
-        "high-sided truck impact",
-        "debris fall",
-        "hazard avoidance",
-        "secondary collisions"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "secondary",
         "impact",
@@ -3780,20 +2698,13 @@
         "fall",
         "hazard"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-10"
+      "source": "RM-10"
     },
     {
       "name": "bridge_inspection_sc_to_secondary_collisions",
       "pattern": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles → high-sided truck impact → debris fall → hazard avoidance → secondary collisions",
-      "steps": [
-        "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles",
-        "high-sided truck impact",
-        "debris fall",
-        "hazard avoidance",
-        "secondary collisions"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "secondary",
         "impact",
@@ -3817,20 +2728,13 @@
         "fall",
         "hazard"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-10a"
+      "source": "RM-10a"
     },
     {
       "name": "bridge_inspection_sc_to_secondary_collisions",
       "pattern": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles → high-sided truck impact → debris fall → hazard avoidance → secondary collisions",
-      "steps": [
-        "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles",
-        "high-sided truck impact",
-        "debris fall",
-        "hazard avoidance",
-        "secondary collisions"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "secondary",
         "impact",
@@ -3854,21 +2758,13 @@
         "fall",
         "hazard"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-10b"
+      "source": "RM-10b"
     },
     {
       "name": "thermoplastic_markin_to_off-road_rollover",
       "pattern": "Thermoplastic markings applied overnight → insufficient drying/cooling time → road reopened while paint still wet → vehicle on curve exceeded friction available from wet paint → loss of control → off-road rollover",
-      "steps": [
-        "Thermoplastic markings applied overnight",
-        "insufficient drying/cooling time",
-        "road reopened while paint still wet",
-        "vehicle on curve exceeded friction available from wet paint",
-        "loss of control",
-        "off-road rollover"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "still",
         "thermoplastic",
@@ -3895,21 +2791,13 @@
         "drying",
         "vehicle"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-11"
+      "source": "RM-11"
     },
     {
       "name": "thermoplastic_markin_to_off-road_rollover",
       "pattern": "Thermoplastic markings applied overnight → insufficient drying/cooling time → road reopened while paint still wet → vehicle on curve exceeded friction available from wet paint → loss of control → off-road rollover",
-      "steps": [
-        "Thermoplastic markings applied overnight",
-        "insufficient drying/cooling time",
-        "road reopened while paint still wet",
-        "vehicle on curve exceeded friction available from wet paint",
-        "loss of control",
-        "off-road rollover"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "still",
         "thermoplastic",
@@ -3936,21 +2824,13 @@
         "drying",
         "vehicle"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-11a"
+      "source": "RM-11a"
     },
     {
       "name": "thermoplastic_markin_to_off-road_rollover",
       "pattern": "Thermoplastic markings applied overnight → insufficient drying/cooling time → road reopened while paint still wet → vehicle on curve exceeded friction available from wet paint → loss of control → off-road rollover",
-      "steps": [
-        "Thermoplastic markings applied overnight",
-        "insufficient drying/cooling time",
-        "road reopened while paint still wet",
-        "vehicle on curve exceeded friction available from wet paint",
-        "loss of control",
-        "off-road rollover"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "still",
         "thermoplastic",
@@ -3977,20 +2857,13 @@
         "drying",
         "vehicle"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-11b"
+      "source": "RM-11b"
     },
     {
       "name": "utility_access_cover_to_rider_ejection",
       "pattern": "Utility access cover removed and not replaced → opening unprotected → two-wheeled vehicle encountered hazard → wheel entrapment → rider ejection",
-      "steps": [
-        "Utility access cover removed and not replaced",
-        "opening unprotected",
-        "two-wheeled vehicle encountered hazard",
-        "wheel entrapment",
-        "rider ejection"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "access",
         "cover",
@@ -4011,20 +2884,13 @@
         "ejection",
         "hazard"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-14"
+      "source": "RM-14"
     },
     {
       "name": "utility_access_cover_to_rider_ejection",
       "pattern": "Utility access cover removed and not replaced → opening unprotected → two-wheeled vehicle encountered hazard → wheel entrapment → rider ejection",
-      "steps": [
-        "Utility access cover removed and not replaced",
-        "opening unprotected",
-        "two-wheeled vehicle encountered hazard",
-        "wheel entrapment",
-        "rider ejection"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "access",
         "cover",
@@ -4045,20 +2911,13 @@
         "ejection",
         "hazard"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-14a"
+      "source": "RM-14a"
     },
     {
       "name": "utility_access_cover_to_rider_ejection",
       "pattern": "Utility access cover removed and not replaced → opening unprotected → two-wheeled vehicle encountered hazard → wheel entrapment → rider ejection",
-      "steps": [
-        "Utility access cover removed and not replaced",
-        "opening unprotected",
-        "two-wheeled vehicle encountered hazard",
-        "wheel entrapment",
-        "rider ejection"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "access",
         "cover",
@@ -4079,20 +2938,13 @@
         "ejection",
         "hazard"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-14b"
+      "source": "RM-14b"
     },
     {
       "name": "equipment_failure_du_to_multi-vehicle_skid_c",
       "pattern": "Equipment failure during hot bitumen transfer → material deposited on travel lane → extreme reduction in pavement friction → vehicles unable to brake/steer effectively → multi-vehicle skid collision",
-      "steps": [
-        "Equipment failure during hot bitumen transfer",
-        "material deposited on travel lane",
-        "extreme reduction in pavement friction",
-        "vehicles unable to brake/steer effectively",
-        "multi-vehicle skid collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "extreme",
@@ -4118,20 +2970,13 @@
         "bitumen",
         "skid"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-16"
+      "source": "RM-16"
     },
     {
       "name": "equipment_failure_du_to_multi-vehicle_skid_c",
       "pattern": "Equipment failure during hot bitumen transfer → material deposited on travel lane → extreme reduction in pavement friction → vehicles unable to brake/steer effectively → multi-vehicle skid collision",
-      "steps": [
-        "Equipment failure during hot bitumen transfer",
-        "material deposited on travel lane",
-        "extreme reduction in pavement friction",
-        "vehicles unable to brake/steer effectively",
-        "multi-vehicle skid collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "extreme",
@@ -4157,20 +3002,13 @@
         "bitumen",
         "skid"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-16a"
+      "source": "RM-16a"
     },
     {
       "name": "equipment_failure_du_to_multi-vehicle_skid_c",
       "pattern": "Equipment failure during hot bitumen transfer → material deposited on travel lane → extreme reduction in pavement friction → vehicles unable to brake/steer effectively → multi-vehicle skid collision",
-      "steps": [
-        "Equipment failure during hot bitumen transfer",
-        "material deposited on travel lane",
-        "extreme reduction in pavement friction",
-        "vehicles unable to brake/steer effectively",
-        "multi-vehicle skid collision"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "collision",
         "extreme",
@@ -4196,21 +3034,13 @@
         "bitumen",
         "skid"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-16b"
+      "source": "RM-16b"
     },
     {
       "name": "temperature_differen_to_rear-end_chain",
       "pattern": "Temperature differential between fresh asphalt and environment → water vapor condensation → dense steam cloud over roadway → severe visibility reduction → drivers unable to detect stopped/slowing vehicles → rear-end chain",
-      "steps": [
-        "Temperature differential between fresh asphalt and environment",
-        "water vapor condensation",
-        "dense steam cloud over roadway",
-        "severe visibility reduction",
-        "drivers unable to detect stopped/slowing vehicles",
-        "rear-end chain"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "cloud",
         "chain",
@@ -4240,21 +3070,13 @@
         "severe",
         "visibility"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-20"
+      "source": "RM-20"
     },
     {
       "name": "temperature_differen_to_rear-end_chain",
       "pattern": "Temperature differential between fresh asphalt and environment → water vapor condensation → dense steam cloud over roadway → severe visibility reduction → drivers unable to detect stopped/slowing vehicles → rear-end chain",
-      "steps": [
-        "Temperature differential between fresh asphalt and environment",
-        "water vapor condensation",
-        "dense steam cloud over roadway",
-        "severe visibility reduction",
-        "drivers unable to detect stopped/slowing vehicles",
-        "rear-end chain"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "cloud",
         "chain",
@@ -4284,21 +3106,13 @@
         "severe",
         "visibility"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-20a"
+      "source": "RM-20a"
     },
     {
       "name": "temperature_differen_to_rear-end_chain",
       "pattern": "Temperature differential between fresh asphalt and environment → water vapor condensation → dense steam cloud over roadway → severe visibility reduction → drivers unable to detect stopped/slowing vehicles → rear-end chain",
-      "steps": [
-        "Temperature differential between fresh asphalt and environment",
-        "water vapor condensation",
-        "dense steam cloud over roadway",
-        "severe visibility reduction",
-        "drivers unable to detect stopped/slowing vehicles",
-        "rear-end chain"
-      ],
+      "category": "Road Maintenance",
       "keywords": [
         "cloud",
         "chain",
@@ -4328,19 +3142,13 @@
         "severe",
         "visibility"
       ],
-      "category": "Road Maintenance",
       "confidence": 0.8,
-      "source_scenario": "RM-20b"
+      "source": "RM-20b"
     },
     {
       "name": "full_road_closure_fo_to_gridlock_propagation",
       "pattern": "Full road closure for fireworks safety zone → all traffic forced onto inadequate diversion routes → demand exceeded capacity of parallel streets → gridlock propagation",
-      "steps": [
-        "Full road closure for fireworks safety zone",
-        "all traffic forced onto inadequate diversion routes",
-        "demand exceeded capacity of parallel streets",
-        "gridlock propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "closure",
@@ -4364,19 +3172,13 @@
         "zone",
         "for"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-01"
+      "source": "PE-01"
     },
     {
       "name": "full_road_closure_fo_to_gridlock_propagation",
       "pattern": "Full road closure for fireworks safety zone → all traffic forced onto inadequate diversion routes → demand exceeded capacity of parallel streets → gridlock propagation",
-      "steps": [
-        "Full road closure for fireworks safety zone",
-        "all traffic forced onto inadequate diversion routes",
-        "demand exceeded capacity of parallel streets",
-        "gridlock propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "closure",
@@ -4400,19 +3202,13 @@
         "zone",
         "for"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-01a"
+      "source": "PE-01a"
     },
     {
       "name": "full_road_closure_fo_to_gridlock_propagation",
       "pattern": "Full road closure for fireworks safety zone → all traffic forced onto inadequate diversion routes → demand exceeded capacity of parallel streets → gridlock propagation",
-      "steps": [
-        "Full road closure for fireworks safety zone",
-        "all traffic forced onto inadequate diversion routes",
-        "demand exceeded capacity of parallel streets",
-        "gridlock propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "closure",
@@ -4436,20 +3232,13 @@
         "zone",
         "for"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-01b"
+      "source": "PE-01b"
     },
     {
       "name": "event_conclusion_to_queue_formation_and_",
       "pattern": "Event conclusion → concentrated departure demand → exit lane capacity saturated → discharge rate < arrival rate at exit → queue formation and upstream propagation",
-      "steps": [
-        "Event conclusion",
-        "concentrated departure demand",
-        "exit lane capacity saturated",
-        "discharge rate < arrival rate at exit",
-        "queue formation and upstream propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -4469,20 +3258,13 @@
         "lane",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-03"
+      "source": "PE-03"
     },
     {
       "name": "event_conclusion_to_queue_formation_and_",
       "pattern": "Event conclusion → concentrated departure demand → exit lane capacity saturated → discharge rate < arrival rate at exit → queue formation and upstream propagation",
-      "steps": [
-        "Event conclusion",
-        "concentrated departure demand",
-        "exit lane capacity saturated",
-        "discharge rate < arrival rate at exit",
-        "queue formation and upstream propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -4502,20 +3284,13 @@
         "lane",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-03a"
+      "source": "PE-03a"
     },
     {
       "name": "event_conclusion_to_queue_formation_and_",
       "pattern": "Event conclusion → concentrated departure demand → exit lane capacity saturated → discharge rate < arrival rate at exit → queue formation and upstream propagation",
-      "steps": [
-        "Event conclusion",
-        "concentrated departure demand",
-        "exit lane capacity saturated",
-        "discharge rate < arrival rate at exit",
-        "queue formation and upstream propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -4535,22 +3310,13 @@
         "lane",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-03b"
+      "source": "PE-03b"
     },
     {
       "name": "high-attendance_free_to_queue_formation",
       "pattern": "High-attendance free event → parking capacity saturated → vehicles circulating/queuing for spaces → double-parking on shoulders/shoulder encroachment → active lane reduction → capacity drop → queue formation",
-      "steps": [
-        "High-attendance free event",
-        "parking capacity saturated",
-        "vehicles circulating/queuing for spaces",
-        "double-parking on shoulders/shoulder encroachment",
-        "active lane reduction",
-        "capacity drop",
-        "queue formation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "active",
         "capacity",
@@ -4575,22 +3341,13 @@
         "double",
         "for"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-04"
+      "source": "PE-04"
     },
     {
       "name": "high-attendance_free_to_queue_formation",
       "pattern": "High-attendance free event → parking capacity saturated → vehicles circulating/queuing for spaces → double-parking on shoulders/shoulder encroachment → active lane reduction → capacity drop → queue formation",
-      "steps": [
-        "High-attendance free event",
-        "parking capacity saturated",
-        "vehicles circulating/queuing for spaces",
-        "double-parking on shoulders/shoulder encroachment",
-        "active lane reduction",
-        "capacity drop",
-        "queue formation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "active",
         "capacity",
@@ -4615,22 +3372,13 @@
         "double",
         "for"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-04a"
+      "source": "PE-04a"
     },
     {
       "name": "high-attendance_free_to_queue_formation",
       "pattern": "High-attendance free event → parking capacity saturated → vehicles circulating/queuing for spaces → double-parking on shoulders/shoulder encroachment → active lane reduction → capacity drop → queue formation",
-      "steps": [
-        "High-attendance free event",
-        "parking capacity saturated",
-        "vehicles circulating/queuing for spaces",
-        "double-parking on shoulders/shoulder encroachment",
-        "active lane reduction",
-        "capacity drop",
-        "queue formation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "active",
         "capacity",
@@ -4655,20 +3403,13 @@
         "double",
         "for"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-04b"
+      "source": "PE-04b"
     },
     {
       "name": "event_start_time_fix_to_queue_formation_and_",
       "pattern": "Event start time fixed → attendees arrive in narrow window → access point with security screening has fixed processing rate → arrival rate exceeds processing rate → queue formation and propagation",
-      "steps": [
-        "Event start time fixed",
-        "attendees arrive in narrow window",
-        "access point with security screening has fixed processing rate",
-        "arrival rate exceeds processing rate",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "access",
         "formation",
@@ -4693,20 +3434,13 @@
         "screening",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-06"
+      "source": "PE-06"
     },
     {
       "name": "event_start_time_fix_to_queue_formation_and_",
       "pattern": "Event start time fixed → attendees arrive in narrow window → access point with security screening has fixed processing rate → arrival rate exceeds processing rate → queue formation and propagation",
-      "steps": [
-        "Event start time fixed",
-        "attendees arrive in narrow window",
-        "access point with security screening has fixed processing rate",
-        "arrival rate exceeds processing rate",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "access",
         "formation",
@@ -4731,20 +3465,13 @@
         "screening",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-06a"
+      "source": "PE-06a"
     },
     {
       "name": "event_start_time_fix_to_queue_formation_and_",
       "pattern": "Event start time fixed → attendees arrive in narrow window → access point with security screening has fixed processing rate → arrival rate exceeds processing rate → queue formation and propagation",
-      "steps": [
-        "Event start time fixed",
-        "attendees arrive in narrow window",
-        "access point with security screening has fixed processing rate",
-        "arrival rate exceeds processing rate",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "access",
         "formation",
@@ -4769,21 +3496,13 @@
         "screening",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-06b"
+      "source": "PE-06b"
     },
     {
       "name": "religious_holiday_co_to_queue_spills_to_arte",
       "pattern": "Religious holiday congregation → fixed prayer time → concentrated arrival → parking supply exceeded → circulating vehicles block access → queue spills to arterial",
-      "steps": [
-        "Religious holiday congregation",
-        "fixed prayer time",
-        "concentrated arrival",
-        "parking supply exceeded",
-        "circulating vehicles block access",
-        "queue spills to arterial"
-      ],
+      "category": "Public Event",
       "keywords": [
         "access",
         "holiday",
@@ -4804,21 +3523,13 @@
         "exceeded",
         "supply"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-07"
+      "source": "PE-07"
     },
     {
       "name": "religious_holiday_co_to_queue_spills_to_arte",
       "pattern": "Religious holiday congregation → fixed prayer time → concentrated arrival → parking supply exceeded → circulating vehicles block access → queue spills to arterial",
-      "steps": [
-        "Religious holiday congregation",
-        "fixed prayer time",
-        "concentrated arrival",
-        "parking supply exceeded",
-        "circulating vehicles block access",
-        "queue spills to arterial"
-      ],
+      "category": "Public Event",
       "keywords": [
         "access",
         "holiday",
@@ -4839,21 +3550,13 @@
         "exceeded",
         "supply"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-07a"
+      "source": "PE-07a"
     },
     {
       "name": "religious_holiday_co_to_queue_spills_to_arte",
       "pattern": "Religious holiday congregation → fixed prayer time → concentrated arrival → parking supply exceeded → circulating vehicles block access → queue spills to arterial",
-      "steps": [
-        "Religious holiday congregation",
-        "fixed prayer time",
-        "concentrated arrival",
-        "parking supply exceeded",
-        "circulating vehicles block access",
-        "queue spills to arterial"
-      ],
+      "category": "Public Event",
       "keywords": [
         "access",
         "holiday",
@@ -4874,19 +3577,13 @@
         "exceeded",
         "supply"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-07b"
+      "source": "PE-07b"
     },
     {
       "name": "two_events_(concert__to_propagation_to_highw",
       "pattern": "Two events (concert + race) ending in close temporal proximity → combined departure demand > exit capacity → queue formation on internal roads → propagation to highway exit",
-      "steps": [
-        "Two events (concert + race) ending in close temporal proximity",
-        "combined departure demand > exit capacity",
-        "queue formation on internal roads",
-        "propagation to highway exit"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "concert",
@@ -4908,19 +3605,13 @@
         "race",
         "two"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-10"
+      "source": "PE-10"
     },
     {
       "name": "two_events_(concert__to_propagation_to_highw",
       "pattern": "Two events (concert + race) ending in close temporal proximity → combined departure demand > exit capacity → queue formation on internal roads → propagation to highway exit",
-      "steps": [
-        "Two events (concert + race) ending in close temporal proximity",
-        "combined departure demand > exit capacity",
-        "queue formation on internal roads",
-        "propagation to highway exit"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "concert",
@@ -4942,19 +3633,13 @@
         "race",
         "two"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-10a"
+      "source": "PE-10a"
     },
     {
       "name": "two_events_(concert__to_propagation_to_highw",
       "pattern": "Two events (concert + race) ending in close temporal proximity → combined departure demand > exit capacity → queue formation on internal roads → propagation to highway exit",
-      "steps": [
-        "Two events (concert + race) ending in close temporal proximity",
-        "combined departure demand > exit capacity",
-        "queue formation on internal roads",
-        "propagation to highway exit"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "concert",
@@ -4976,21 +3661,13 @@
         "race",
         "two"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-10b"
+      "source": "PE-10b"
     },
     {
       "name": "match_start_time_to_upstream_propagation",
       "pattern": "Match start time → concentrated fan arrival → multiple approach roads feeding same roundabout → roundabout circulating capacity saturated → approach queue growth → upstream propagation to highway",
-      "steps": [
-        "Match start time",
-        "concentrated fan arrival",
-        "multiple approach roads feeding same roundabout",
-        "roundabout circulating capacity saturated",
-        "approach queue growth",
-        "upstream propagation to highway"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "queue",
@@ -5013,21 +3690,13 @@
         "feeding",
         "concentrated"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-12"
+      "source": "PE-12"
     },
     {
       "name": "match_start_time_to_upstream_propagation",
       "pattern": "Match start time → concentrated fan arrival → multiple approach roads feeding same roundabout → roundabout circulating capacity saturated → approach queue growth → upstream propagation to highway",
-      "steps": [
-        "Match start time",
-        "concentrated fan arrival",
-        "multiple approach roads feeding same roundabout",
-        "roundabout circulating capacity saturated",
-        "approach queue growth",
-        "upstream propagation to highway"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "queue",
@@ -5050,21 +3719,13 @@
         "feeding",
         "concentrated"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-12a"
+      "source": "PE-12a"
     },
     {
       "name": "match_start_time_to_upstream_propagation",
       "pattern": "Match start time → concentrated fan arrival → multiple approach roads feeding same roundabout → roundabout circulating capacity saturated → approach queue growth → upstream propagation to highway",
-      "steps": [
-        "Match start time",
-        "concentrated fan arrival",
-        "multiple approach roads feeding same roundabout",
-        "roundabout circulating capacity saturated",
-        "approach queue growth",
-        "upstream propagation to highway"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "queue",
@@ -5087,20 +3748,13 @@
         "feeding",
         "concentrated"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-12b"
+      "source": "PE-12b"
     },
     {
       "name": "vip_event_with_heigh_to_queue_formation_and_",
       "pattern": "VIP event with heightened security → thorough vehicle checks → extended processing time per vehicle → capacity at screening point << approach flow → queue formation and propagation",
-      "steps": [
-        "VIP event with heightened security",
-        "thorough vehicle checks",
-        "extended processing time per vehicle",
-        "capacity at screening point << approach flow",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -5124,20 +3778,13 @@
         "vehicle",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-13"
+      "source": "PE-13"
     },
     {
       "name": "vip_event_with_heigh_to_queue_formation_and_",
       "pattern": "VIP event with heightened security → thorough vehicle checks → extended processing time per vehicle → capacity at screening point << approach flow → queue formation and propagation",
-      "steps": [
-        "VIP event with heightened security",
-        "thorough vehicle checks",
-        "extended processing time per vehicle",
-        "capacity at screening point << approach flow",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -5161,20 +3808,13 @@
         "vehicle",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-13a"
+      "source": "PE-13a"
     },
     {
       "name": "vip_event_with_heigh_to_queue_formation_and_",
       "pattern": "VIP event with heightened security → thorough vehicle checks → extended processing time per vehicle → capacity at screening point << approach flow → queue formation and propagation",
-      "steps": [
-        "VIP event with heightened security",
-        "thorough vehicle checks",
-        "extended processing time per vehicle",
-        "capacity at screening point << approach flow",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -5198,22 +3838,13 @@
         "vehicle",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-13b"
+      "source": "PE-13b"
     },
     {
       "name": "high_pedestrian_volu_to_queue_formation",
       "pattern": "High pedestrian volume event → concentrated drop-off activity → drop-off bay capacity exceeded → vehicles queue in travel lane awaiting bay access → through lane blocked → capacity reduction → queue formation",
-      "steps": [
-        "High pedestrian volume event",
-        "concentrated drop-off activity",
-        "drop-off bay capacity exceeded",
-        "vehicles queue in travel lane awaiting bay access",
-        "through lane blocked",
-        "capacity reduction",
-        "queue formation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "access",
@@ -5237,22 +3868,13 @@
         "concentrated",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-15"
+      "source": "PE-15"
     },
     {
       "name": "high_pedestrian_volu_to_queue_formation",
       "pattern": "High pedestrian volume event → concentrated drop-off activity → drop-off bay capacity exceeded → vehicles queue in travel lane awaiting bay access → through lane blocked → capacity reduction → queue formation",
-      "steps": [
-        "High pedestrian volume event",
-        "concentrated drop-off activity",
-        "drop-off bay capacity exceeded",
-        "vehicles queue in travel lane awaiting bay access",
-        "through lane blocked",
-        "capacity reduction",
-        "queue formation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "access",
@@ -5276,22 +3898,13 @@
         "concentrated",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-15a"
+      "source": "PE-15a"
     },
     {
       "name": "high_pedestrian_volu_to_queue_formation",
       "pattern": "High pedestrian volume event → concentrated drop-off activity → drop-off bay capacity exceeded → vehicles queue in travel lane awaiting bay access → through lane blocked → capacity reduction → queue formation",
-      "steps": [
-        "High pedestrian volume event",
-        "concentrated drop-off activity",
-        "drop-off bay capacity exceeded",
-        "vehicles queue in travel lane awaiting bay access",
-        "through lane blocked",
-        "capacity reduction",
-        "queue formation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "access",
@@ -5315,19 +3928,13 @@
         "concentrated",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-15b"
+      "source": "PE-15b"
     },
     {
       "name": "conference_start_tim_to_queue_formation_and_",
       "pattern": "Conference start time aligned with morning peak → event vehicles added to already near-capacity commute flow → bridge entry point capacity exceeded → queue formation and propagation",
-      "steps": [
-        "Conference start time aligned with morning peak",
-        "event vehicles added to already near-capacity commute flow",
-        "bridge entry point capacity exceeded",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -5353,19 +3960,13 @@
         "added",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-18"
+      "source": "PE-18"
     },
     {
       "name": "conference_start_tim_to_queue_formation_and_",
       "pattern": "Conference start time aligned with morning peak → event vehicles added to already near-capacity commute flow → bridge entry point capacity exceeded → queue formation and propagation",
-      "steps": [
-        "Conference start time aligned with morning peak",
-        "event vehicles added to already near-capacity commute flow",
-        "bridge entry point capacity exceeded",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -5391,19 +3992,13 @@
         "added",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-18a"
+      "source": "PE-18a"
     },
     {
       "name": "conference_start_tim_to_queue_formation_and_",
       "pattern": "Conference start time aligned with morning peak → event vehicles added to already near-capacity commute flow → bridge entry point capacity exceeded → queue formation and propagation",
-      "steps": [
-        "Conference start time aligned with morning peak",
-        "event vehicles added to already near-capacity commute flow",
-        "bridge entry point capacity exceeded",
-        "queue formation and propagation"
-      ],
+      "category": "Public Event",
       "keywords": [
         "capacity",
         "formation",
@@ -5429,16 +4024,13 @@
         "added",
         "event"
       ],
-      "category": "Public Event",
       "confidence": 0.8,
-      "source_scenario": "PE-18b"
+      "source": "PE-18b"
     },
     {
       "name": "medication_non-adher_to_medication_non-adher",
       "pattern": "Medication non-adherence post-discharge",
-      "steps": [
-        "Medication non-adherence post-discharge"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "adherence",
         "discharge",
@@ -5446,16 +4038,13 @@
         "post",
         "medication"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-01"
+      "source": "H-01"
     },
     {
       "name": "medication_non-adher_to_medication_non-adher",
       "pattern": "Medication non-adherence post-discharge",
-      "steps": [
-        "Medication non-adherence post-discharge"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "adherence",
         "discharge",
@@ -5463,16 +4052,13 @@
         "post",
         "medication"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-01a"
+      "source": "H-01a"
     },
     {
       "name": "medication_non-adher_to_medication_non-adher",
       "pattern": "Medication non-adherence post-discharge",
-      "steps": [
-        "Medication non-adherence post-discharge"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "adherence",
         "discharge",
@@ -5480,16 +4066,13 @@
         "post",
         "medication"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-01b"
+      "source": "H-01b"
     },
     {
       "name": "delayed_follow-up_on_to_delayed_follow-up_on",
       "pattern": "Delayed follow-up on abnormal lab results",
-      "steps": [
-        "Delayed follow-up on abnormal lab results"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "abnormal",
         "results",
@@ -5497,16 +4080,13 @@
         "delayed",
         "lab"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-02"
+      "source": "H-02"
     },
     {
       "name": "delayed_follow-up_on_to_delayed_follow-up_on",
       "pattern": "Delayed follow-up on abnormal lab results",
-      "steps": [
-        "Delayed follow-up on abnormal lab results"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "abnormal",
         "results",
@@ -5514,16 +4094,13 @@
         "delayed",
         "lab"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-02a"
+      "source": "H-02a"
     },
     {
       "name": "delayed_follow-up_on_to_delayed_follow-up_on",
       "pattern": "Delayed follow-up on abnormal lab results",
-      "steps": [
-        "Delayed follow-up on abnormal lab results"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "abnormal",
         "results",
@@ -5531,16 +4108,13 @@
         "delayed",
         "lab"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-02b"
+      "source": "H-02b"
     },
     {
       "name": "post-operative_infec_to_post-operative_infec",
       "pattern": "Post-operative infection from unrecognized colonization",
-      "steps": [
-        "Post-operative infection from unrecognized colonization"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "operative",
         "infection",
@@ -5549,16 +4123,13 @@
         "post",
         "colonization"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-03"
+      "source": "H-03"
     },
     {
       "name": "post-operative_infec_to_post-operative_infec",
       "pattern": "Post-operative infection from unrecognized colonization",
-      "steps": [
-        "Post-operative infection from unrecognized colonization"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "operative",
         "infection",
@@ -5567,16 +4138,13 @@
         "post",
         "colonization"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-03a"
+      "source": "H-03a"
     },
     {
       "name": "post-operative_infec_to_post-operative_infec",
       "pattern": "Post-operative infection from unrecognized colonization",
-      "steps": [
-        "Post-operative infection from unrecognized colonization"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "operative",
         "infection",
@@ -5585,155 +4153,124 @@
         "post",
         "colonization"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-03b"
+      "source": "H-03b"
     },
     {
       "name": "shift_change_communi_to_shift_change_communi",
       "pattern": "Shift change communication failure",
-      "steps": [
-        "Shift change communication failure"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "shift",
         "communication",
         "change"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-04"
+      "source": "H-04"
     },
     {
       "name": "shift_change_communi_to_shift_change_communi",
       "pattern": "Shift change communication failure",
-      "steps": [
-        "Shift change communication failure"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "shift",
         "communication",
         "change"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-04a"
+      "source": "H-04a"
     },
     {
       "name": "shift_change_communi_to_shift_change_communi",
       "pattern": "Shift change communication failure",
-      "steps": [
-        "Shift change communication failure"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "shift",
         "communication",
         "change"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-04b"
+      "source": "H-04b"
     },
     {
       "name": "delayed_sepsis_recog_to_delayed_sepsis_recog",
       "pattern": "Delayed sepsis recognition",
-      "steps": [
-        "Delayed sepsis recognition"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "sepsis",
         "delayed",
         "recognition"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-05"
+      "source": "H-05"
     },
     {
       "name": "delayed_sepsis_recog_to_delayed_sepsis_recog",
       "pattern": "Delayed sepsis recognition",
-      "steps": [
-        "Delayed sepsis recognition"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "sepsis",
         "delayed",
         "recognition"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-05a"
+      "source": "H-05a"
     },
     {
       "name": "delayed_sepsis_recog_to_delayed_sepsis_recog",
       "pattern": "Delayed sepsis recognition",
-      "steps": [
-        "Delayed sepsis recognition"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "sepsis",
         "delayed",
         "recognition"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-05b"
+      "source": "H-05b"
     },
     {
       "name": "incomplete_discharge_to_incomplete_discharge",
       "pattern": "Incomplete discharge communication",
-      "steps": [
-        "Incomplete discharge communication"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "discharge",
         "communication",
         "incomplete"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-06"
+      "source": "H-06"
     },
     {
       "name": "incomplete_discharge_to_incomplete_discharge",
       "pattern": "Incomplete discharge communication",
-      "steps": [
-        "Incomplete discharge communication"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "discharge",
         "communication",
         "incomplete"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-06a"
+      "source": "H-06a"
     },
     {
       "name": "incomplete_discharge_to_incomplete_discharge",
       "pattern": "Incomplete discharge communication",
-      "steps": [
-        "Incomplete discharge communication"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "discharge",
         "communication",
         "incomplete"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-06b"
+      "source": "H-06b"
     },
     {
       "name": "radiology_report_mis_to_delayed_follow-up",
       "pattern": "Radiology report misfiling → delayed follow-up",
-      "steps": [
-        "Radiology report misfiling",
-        "delayed follow-up"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "radiology",
         "misfiling",
@@ -5741,17 +4278,13 @@
         "delayed",
         "report"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-07"
+      "source": "H-07"
     },
     {
       "name": "radiology_report_mis_to_delayed_follow-up",
       "pattern": "Radiology report misfiling → delayed follow-up",
-      "steps": [
-        "Radiology report misfiling",
-        "delayed follow-up"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "radiology",
         "misfiling",
@@ -5759,17 +4292,13 @@
         "delayed",
         "report"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-07a"
+      "source": "H-07a"
     },
     {
       "name": "radiology_report_mis_to_delayed_follow-up",
       "pattern": "Radiology report misfiling → delayed follow-up",
-      "steps": [
-        "Radiology report misfiling",
-        "delayed follow-up"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "radiology",
         "misfiling",
@@ -5777,16 +4306,13 @@
         "delayed",
         "report"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-07b"
+      "source": "H-07b"
     },
     {
       "name": "poor_hand_hygiene_du_to_poor_hand_hygiene_du",
       "pattern": "Poor hand hygiene during central line care",
-      "steps": [
-        "Poor hand hygiene during central line care"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "poor",
         "during",
@@ -5796,16 +4322,13 @@
         "care",
         "central"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-08"
+      "source": "H-08"
     },
     {
       "name": "poor_hand_hygiene_du_to_poor_hand_hygiene_du",
       "pattern": "Poor hand hygiene during central line care",
-      "steps": [
-        "Poor hand hygiene during central line care"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "poor",
         "during",
@@ -5815,16 +4338,13 @@
         "care",
         "central"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-08a"
+      "source": "H-08a"
     },
     {
       "name": "poor_hand_hygiene_du_to_poor_hand_hygiene_du",
       "pattern": "Poor hand hygiene during central line care",
-      "steps": [
-        "Poor hand hygiene during central line care"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "poor",
         "during",
@@ -5834,109 +4354,88 @@
         "care",
         "central"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-08b"
+      "source": "H-08b"
     },
     {
       "name": "radiology_misinterpr_to_radiology_misinterpr",
       "pattern": "Radiology misinterpretation of CT scan",
-      "steps": [
-        "Radiology misinterpretation of CT scan"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "misinterpretation",
         "radiology",
         "scan"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-09"
+      "source": "H-09"
     },
     {
       "name": "radiology_misinterpr_to_radiology_misinterpr",
       "pattern": "Radiology misinterpretation of CT scan",
-      "steps": [
-        "Radiology misinterpretation of CT scan"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "misinterpretation",
         "radiology",
         "scan"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-09a"
+      "source": "H-09a"
     },
     {
       "name": "radiology_misinterpr_to_radiology_misinterpr",
       "pattern": "Radiology misinterpretation of CT scan",
-      "steps": [
-        "Radiology misinterpretation of CT scan"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "misinterpretation",
         "radiology",
         "scan"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-09b"
+      "source": "H-09b"
     },
     {
       "name": "failure_to_check_dru_to_failure_to_check_dru",
       "pattern": "Failure to check drug-drug interaction",
-      "steps": [
-        "Failure to check drug-drug interaction"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "drug",
         "failure",
         "interaction",
         "check"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-10"
+      "source": "H-10"
     },
     {
       "name": "failure_to_check_dru_to_failure_to_check_dru",
       "pattern": "Failure to check drug-drug interaction",
-      "steps": [
-        "Failure to check drug-drug interaction"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "drug",
         "failure",
         "interaction",
         "check"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-10a"
+      "source": "H-10a"
     },
     {
       "name": "failure_to_check_dru_to_failure_to_check_dru",
       "pattern": "Failure to check drug-drug interaction",
-      "steps": [
-        "Failure to check drug-drug interaction"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "drug",
         "failure",
         "interaction",
         "check"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-10b"
+      "source": "H-10b"
     },
     {
       "name": "nurse's_failure_to_a_to_nurse's_failure_to_a",
       "pattern": "Nurse's failure to administer ordered medication due to fear",
-      "steps": [
-        "Nurse's failure to administer ordered medication due to fear"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "fear",
@@ -5946,16 +4445,13 @@
         "administer",
         "medication"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-11"
+      "source": "H-11"
     },
     {
       "name": "nurse's_failure_to_a_to_nurse's_failure_to_a",
       "pattern": "Nurse's failure to administer ordered medication due to fear",
-      "steps": [
-        "Nurse's failure to administer ordered medication due to fear"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "fear",
@@ -5965,16 +4461,13 @@
         "administer",
         "medication"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-11a"
+      "source": "H-11a"
     },
     {
       "name": "nurse's_failure_to_a_to_nurse's_failure_to_a",
       "pattern": "Nurse's failure to administer ordered medication due to fear",
-      "steps": [
-        "Nurse's failure to administer ordered medication due to fear"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "fear",
@@ -5984,16 +4477,13 @@
         "administer",
         "medication"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-11b"
+      "source": "H-11b"
     },
     {
       "name": "failure_to_perform_p_to_failure_to_perform_p",
       "pattern": "Failure to perform pre-operative equipment check",
-      "steps": [
-        "Failure to perform pre-operative equipment check"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "operative",
@@ -6002,16 +4492,13 @@
         "pre",
         "equipment"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-12"
+      "source": "H-12"
     },
     {
       "name": "failure_to_perform_p_to_failure_to_perform_p",
       "pattern": "Failure to perform pre-operative equipment check",
-      "steps": [
-        "Failure to perform pre-operative equipment check"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "operative",
@@ -6020,16 +4507,13 @@
         "pre",
         "equipment"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-12a"
+      "source": "H-12a"
     },
     {
       "name": "failure_to_perform_p_to_failure_to_perform_p",
       "pattern": "Failure to perform pre-operative equipment check",
-      "steps": [
-        "Failure to perform pre-operative equipment check"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "failure",
         "operative",
@@ -6038,64 +4522,52 @@
         "pre",
         "equipment"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-12b"
+      "source": "H-12b"
     },
     {
       "name": "bedside_blood_sample_to_bedside_blood_sample",
       "pattern": "Bedside blood sample mislabeling",
-      "steps": [
-        "Bedside blood sample mislabeling"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "blood",
         "mislabeling",
         "bedside",
         "sample"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-13"
+      "source": "H-13"
     },
     {
       "name": "bedside_blood_sample_to_bedside_blood_sample",
       "pattern": "Bedside blood sample mislabeling",
-      "steps": [
-        "Bedside blood sample mislabeling"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "blood",
         "mislabeling",
         "bedside",
         "sample"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-13a"
+      "source": "H-13a"
     },
     {
       "name": "bedside_blood_sample_to_bedside_blood_sample",
       "pattern": "Bedside blood sample mislabeling",
-      "steps": [
-        "Bedside blood sample mislabeling"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "blood",
         "mislabeling",
         "bedside",
         "sample"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-13b"
+      "source": "H-13b"
     },
     {
       "name": "premature_discharge__to_premature_discharge_",
       "pattern": "Premature discharge due to bed pressure",
-      "steps": [
-        "Premature discharge due to bed pressure"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "pressure",
         "discharge",
@@ -6103,16 +4575,13 @@
         "bed",
         "premature"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-14"
+      "source": "H-14"
     },
     {
       "name": "premature_discharge__to_premature_discharge_",
       "pattern": "Premature discharge due to bed pressure",
-      "steps": [
-        "Premature discharge due to bed pressure"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "pressure",
         "discharge",
@@ -6120,16 +4589,13 @@
         "bed",
         "premature"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-14a"
+      "source": "H-14a"
     },
     {
       "name": "premature_discharge__to_premature_discharge_",
       "pattern": "Premature discharge due to bed pressure",
-      "steps": [
-        "Premature discharge due to bed pressure"
-      ],
+      "category": "Healthcare",
       "keywords": [
         "pressure",
         "discharge",
@@ -6137,64 +4603,52 @@
         "bed",
         "premature"
       ],
-      "category": "Healthcare",
       "confidence": 0.8,
-      "source_scenario": "H-14b"
+      "source": "H-14b"
     },
     {
       "name": "algorithmic_trading__to_algorithmic_trading_",
       "pattern": "Algorithmic trading feedback loop",
-      "steps": [
-        "Algorithmic trading feedback loop"
-      ],
+      "category": "Finance",
       "keywords": [
         "loop",
         "feedback",
         "algorithmic",
         "trading"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-01"
+      "source": "F-01"
     },
     {
       "name": "algorithmic_trading__to_algorithmic_trading_",
       "pattern": "Algorithmic trading feedback loop",
-      "steps": [
-        "Algorithmic trading feedback loop"
-      ],
+      "category": "Finance",
       "keywords": [
         "loop",
         "feedback",
         "algorithmic",
         "trading"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-01a"
+      "source": "F-01a"
     },
     {
       "name": "algorithmic_trading__to_algorithmic_trading_",
       "pattern": "Algorithmic trading feedback loop",
-      "steps": [
-        "Algorithmic trading feedback loop"
-      ],
+      "category": "Finance",
       "keywords": [
         "loop",
         "feedback",
         "algorithmic",
         "trading"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-01b"
+      "source": "F-01b"
     },
     {
       "name": "data_entry_error_in__to_data_entry_error_in_",
       "pattern": "Data entry error in credit rating model",
-      "steps": [
-        "Data entry error in credit rating model"
-      ],
+      "category": "Finance",
       "keywords": [
         "data",
         "entry",
@@ -6203,16 +4657,13 @@
         "model",
         "rating"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-02"
+      "source": "F-02"
     },
     {
       "name": "data_entry_error_in__to_data_entry_error_in_",
       "pattern": "Data entry error in credit rating model",
-      "steps": [
-        "Data entry error in credit rating model"
-      ],
+      "category": "Finance",
       "keywords": [
         "data",
         "entry",
@@ -6221,16 +4672,13 @@
         "model",
         "rating"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-02a"
+      "source": "F-02a"
     },
     {
       "name": "data_entry_error_in__to_data_entry_error_in_",
       "pattern": "Data entry error in credit rating model",
-      "steps": [
-        "Data entry error in credit rating model"
-      ],
+      "category": "Finance",
       "keywords": [
         "data",
         "entry",
@@ -6239,16 +4687,13 @@
         "model",
         "rating"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-02b"
+      "source": "F-02b"
     },
     {
       "name": "insider_trading_base_to_insider_trading_base",
       "pattern": "Insider trading based on confidential information",
-      "steps": [
-        "Insider trading based on confidential information"
-      ],
+      "category": "Finance",
       "keywords": [
         "based",
         "confidential",
@@ -6256,16 +4701,13 @@
         "insider",
         "trading"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-03"
+      "source": "F-03"
     },
     {
       "name": "insider_trading_base_to_insider_trading_base",
       "pattern": "Insider trading based on confidential information",
-      "steps": [
-        "Insider trading based on confidential information"
-      ],
+      "category": "Finance",
       "keywords": [
         "based",
         "confidential",
@@ -6273,16 +4715,13 @@
         "insider",
         "trading"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-03a"
+      "source": "F-03a"
     },
     {
       "name": "insider_trading_base_to_insider_trading_base",
       "pattern": "Insider trading based on confidential information",
-      "steps": [
-        "Insider trading based on confidential information"
-      ],
+      "category": "Finance",
       "keywords": [
         "based",
         "confidential",
@@ -6290,16 +4729,13 @@
         "insider",
         "trading"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-03b"
+      "source": "F-03b"
     },
     {
       "name": "excessive_leverage_w_to_excessive_leverage_w",
       "pattern": "Excessive leverage without risk limits",
-      "steps": [
-        "Excessive leverage without risk limits"
-      ],
+      "category": "Finance",
       "keywords": [
         "without",
         "leverage",
@@ -6307,16 +4743,13 @@
         "limits",
         "excessive"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-04"
+      "source": "F-04"
     },
     {
       "name": "excessive_leverage_w_to_excessive_leverage_w",
       "pattern": "Excessive leverage without risk limits",
-      "steps": [
-        "Excessive leverage without risk limits"
-      ],
+      "category": "Finance",
       "keywords": [
         "without",
         "leverage",
@@ -6324,16 +4757,13 @@
         "limits",
         "excessive"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-04a"
+      "source": "F-04a"
     },
     {
       "name": "excessive_leverage_w_to_excessive_leverage_w",
       "pattern": "Excessive leverage without risk limits",
-      "steps": [
-        "Excessive leverage without risk limits"
-      ],
+      "category": "Finance",
       "keywords": [
         "without",
         "leverage",
@@ -6341,16 +4771,13 @@
         "limits",
         "excessive"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-04b"
+      "source": "F-04b"
     },
     {
       "name": "batch_processing_err_to_batch_processing_err",
       "pattern": "Batch processing error causing payment delay",
-      "steps": [
-        "Batch processing error causing payment delay"
-      ],
+      "category": "Finance",
       "keywords": [
         "batch",
         "error",
@@ -6359,16 +4786,13 @@
         "payment",
         "causing"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-05"
+      "source": "F-05"
     },
     {
       "name": "batch_processing_err_to_batch_processing_err",
       "pattern": "Batch processing error causing payment delay",
-      "steps": [
-        "Batch processing error causing payment delay"
-      ],
+      "category": "Finance",
       "keywords": [
         "batch",
         "error",
@@ -6377,16 +4801,13 @@
         "payment",
         "causing"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-05a"
+      "source": "F-05a"
     },
     {
       "name": "batch_processing_err_to_batch_processing_err",
       "pattern": "Batch processing error causing payment delay",
-      "steps": [
-        "Batch processing error causing payment delay"
-      ],
+      "category": "Finance",
       "keywords": [
         "batch",
         "error",
@@ -6395,16 +4816,13 @@
         "payment",
         "causing"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-05b"
+      "source": "F-05b"
     },
     {
       "name": "automated_fraud_dete_to_automated_fraud_dete",
       "pattern": "Automated fraud detection with delayed notification",
-      "steps": [
-        "Automated fraud detection with delayed notification"
-      ],
+      "category": "Finance",
       "keywords": [
         "automated",
         "notification",
@@ -6413,16 +4831,13 @@
         "delayed",
         "fraud"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-06"
+      "source": "F-06"
     },
     {
       "name": "automated_fraud_dete_to_automated_fraud_dete",
       "pattern": "Automated fraud detection with delayed notification",
-      "steps": [
-        "Automated fraud detection with delayed notification"
-      ],
+      "category": "Finance",
       "keywords": [
         "automated",
         "notification",
@@ -6431,16 +4846,13 @@
         "delayed",
         "fraud"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-06a"
+      "source": "F-06a"
     },
     {
       "name": "automated_fraud_dete_to_automated_fraud_dete",
       "pattern": "Automated fraud detection with delayed notification",
-      "steps": [
-        "Automated fraud detection with delayed notification"
-      ],
+      "category": "Finance",
       "keywords": [
         "automated",
         "notification",
@@ -6449,16 +4861,13 @@
         "delayed",
         "fraud"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-06b"
+      "source": "F-06b"
     },
     {
       "name": "failure_to_read_and__to_failure_to_read_and_",
       "pattern": "Failure to read and disclose product risk",
-      "steps": [
-        "Failure to read and disclose product risk"
-      ],
+      "category": "Finance",
       "keywords": [
         "failure",
         "and",
@@ -6467,16 +4876,13 @@
         "disclose",
         "product"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-07"
+      "source": "F-07"
     },
     {
       "name": "failure_to_read_and__to_failure_to_read_and_",
       "pattern": "Failure to read and disclose product risk",
-      "steps": [
-        "Failure to read and disclose product risk"
-      ],
+      "category": "Finance",
       "keywords": [
         "failure",
         "and",
@@ -6485,16 +4891,13 @@
         "disclose",
         "product"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-07a"
+      "source": "F-07a"
     },
     {
       "name": "failure_to_read_and__to_failure_to_read_and_",
       "pattern": "Failure to read and disclose product risk",
-      "steps": [
-        "Failure to read and disclose product risk"
-      ],
+      "category": "Finance",
       "keywords": [
         "failure",
         "and",
@@ -6503,16 +4906,13 @@
         "disclose",
         "product"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-07b"
+      "source": "F-07b"
     },
     {
       "name": "clearing_house_failu_to_clearing_house_failu",
       "pattern": "Clearing house failure to enforce capital requirements",
-      "steps": [
-        "Clearing house failure to enforce capital requirements"
-      ],
+      "category": "Finance",
       "keywords": [
         "failure",
         "capital",
@@ -6521,16 +4921,13 @@
         "clearing",
         "enforce"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-08"
+      "source": "F-08"
     },
     {
       "name": "clearing_house_failu_to_clearing_house_failu",
       "pattern": "Clearing house failure to enforce capital requirements",
-      "steps": [
-        "Clearing house failure to enforce capital requirements"
-      ],
+      "category": "Finance",
       "keywords": [
         "failure",
         "capital",
@@ -6539,16 +4936,13 @@
         "clearing",
         "enforce"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-08a"
+      "source": "F-08a"
     },
     {
       "name": "clearing_house_failu_to_clearing_house_failu",
       "pattern": "Clearing house failure to enforce capital requirements",
-      "steps": [
-        "Clearing house failure to enforce capital requirements"
-      ],
+      "category": "Finance",
       "keywords": [
         "failure",
         "capital",
@@ -6557,16 +4951,13 @@
         "clearing",
         "enforce"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-08b"
+      "source": "F-08b"
     },
     {
       "name": "algorithmic_bias_fro_to_algorithmic_bias_fro",
       "pattern": "Algorithmic bias from historical discriminatory data",
-      "steps": [
-        "Algorithmic bias from historical discriminatory data"
-      ],
+      "category": "Finance",
       "keywords": [
         "data",
         "discriminatory",
@@ -6575,16 +4966,13 @@
         "bias",
         "historical"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-09"
+      "source": "F-09"
     },
     {
       "name": "algorithmic_bias_fro_to_algorithmic_bias_fro",
       "pattern": "Algorithmic bias from historical discriminatory data",
-      "steps": [
-        "Algorithmic bias from historical discriminatory data"
-      ],
+      "category": "Finance",
       "keywords": [
         "data",
         "discriminatory",
@@ -6593,16 +4981,13 @@
         "bias",
         "historical"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-09a"
+      "source": "F-09a"
     },
     {
       "name": "algorithmic_bias_fro_to_algorithmic_bias_fro",
       "pattern": "Algorithmic bias from historical discriminatory data",
-      "steps": [
-        "Algorithmic bias from historical discriminatory data"
-      ],
+      "category": "Finance",
       "keywords": [
         "data",
         "discriminatory",
@@ -6611,16 +4996,13 @@
         "bias",
         "historical"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-09b"
+      "source": "F-09b"
     },
     {
       "name": "spoofing_manipulatio_to_spoofing_manipulatio",
       "pattern": "Spoofing manipulation to create artificial prices",
-      "steps": [
-        "Spoofing manipulation to create artificial prices"
-      ],
+      "category": "Finance",
       "keywords": [
         "manipulation",
         "create",
@@ -6628,16 +5010,13 @@
         "spoofing",
         "prices"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-10"
+      "source": "F-10"
     },
     {
       "name": "spoofing_manipulatio_to_spoofing_manipulatio",
       "pattern": "Spoofing manipulation to create artificial prices",
-      "steps": [
-        "Spoofing manipulation to create artificial prices"
-      ],
+      "category": "Finance",
       "keywords": [
         "manipulation",
         "create",
@@ -6645,16 +5024,13 @@
         "spoofing",
         "prices"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-10a"
+      "source": "F-10a"
     },
     {
       "name": "spoofing_manipulatio_to_spoofing_manipulatio",
       "pattern": "Spoofing manipulation to create artificial prices",
-      "steps": [
-        "Spoofing manipulation to create artificial prices"
-      ],
+      "category": "Finance",
       "keywords": [
         "manipulation",
         "create",
@@ -6662,9 +5038,21 @@
         "spoofing",
         "prices"
       ],
-      "category": "Finance",
       "confidence": 0.8,
-      "source_scenario": "F-10b"
+      "source": "F-10b"
     }
-  ]
+  ],
+  "metadata": {
+    "total": 247,
+    "generated": "auto",
+    "categories": [
+      "Unknown",
+      "Finance",
+      "Weather",
+      "Traffic Accident",
+      "Road Maintenance",
+      "Healthcare",
+      "Public Event"
+    ]
+  }
 }

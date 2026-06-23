@@ -187,20 +187,17 @@ class C5CompletenessChecker:
         
         return core
     
-    def _get_template_factors(self, category):
-        """Get required factors from category template"""
-        for template in self.templates:
-            if template.get('category') == category:
-                return template.get('required', [])
-        
-        # Domain-specific fallbacks (more comprehensive)
-        domain_factors = {
-            'Weather': ['weather_event', 'road_condition', 'driver_action', 'outcome'],
-            'Traffic Accident': ['primary_cause', 'contributing_factor', 'vehicle_factor', 'outcome'],
-            'Road Maintenance': ['maintenance_activity', 'safety_failure', 'resulting_hazard', 'outcome'],
-            'Public Event': ['event_type', 'capacity_issue', 'traffic_impact', 'outcome'],
-            'Healthcare': ['primary_condition', 'intervention', 'contributing_factors', 'outcome'],
-            'Finance': ['trigger_event', 'market_condition', 'participants', 'result']
-        }
-        
-        return domain_factors.get(category, [])
+    # In c5_completeness.py - add domain-specific required factors
+
+def _get_template_factors(self, category):
+    """Get required factors from category template."""
+    domain_factors = {
+        'Weather': ['weather_event', 'road_condition', 'driver_action', 'outcome'],
+        'Traffic Accident': ['primary_cause', 'contributing_factor', 'vehicle_factor', 'outcome'],
+        'Road Maintenance': ['maintenance_activity', 'safety_failure', 'resulting_hazard', 'outcome'],
+        'Public Event': ['event_type', 'capacity_issue', 'traffic_impact', 'outcome'],
+        'Healthcare': ['primary_condition', 'intervention', 'contributing_factors', 'outcome'],
+        'Finance': ['trigger_event', 'market_condition', 'participants', 'result']
+    }
+    
+    return domain_factors.get(category, ['primary_cause', 'contributing_factor', 'outcome'])

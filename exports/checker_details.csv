@@ -644,3 +644,28 @@ WD-03a,C2,True,0.5,No locations in scenario to verify against
 WD-03a,C3,True,0.636,Mechanism plausibility: 63.6% similarity to ground truth
 WD-03a,C4,True,1.0,No spurious correlations detected
 WD-03a,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-01,C1,True,1.0,All temporal relationships valid
+WD-01,C2,True,0.5,No locations in scenario to verify against
+WD-01,C3,True,0.687,Mechanism plausibility: 68.7% similarity to ground truth
+WD-01,C4,True,1.0,No spurious correlations detected
+WD-01,C5,True,0.333,Coverage: 33.3% (2/6)
+WD-01a,C1,True,1.0,All temporal relationships valid
+WD-01a,C2,True,0.5,No locations in scenario to verify against
+WD-01a,C3,True,0.712,Mechanism plausibility: 71.2% similarity to ground truth
+WD-01a,C4,True,1.0,No spurious correlations detected
+WD-01a,C5,True,0.333,Coverage: 33.3% (2/6)
+WD-01b,C1,True,1.0,All temporal relationships valid
+WD-01b,C2,True,0.5,No locations in scenario to verify against
+WD-01b,C3,True,0.718,Mechanism plausibility: 71.8% similarity to ground truth
+WD-01b,C4,True,1.0,No spurious correlations detected
+WD-01b,C5,True,0.333,Coverage: 33.3% (2/6)
+WD-03,C1,True,1.0,All temporal relationships valid
+WD-03,C2,True,0.5,No locations in scenario to verify against
+WD-03,C3,True,0.636,Mechanism plausibility: 63.6% similarity to ground truth
+WD-03,C4,True,1.0,No spurious correlations detected
+WD-03,C5,True,0.0,Coverage: 0.0% (0/5)
+WD-03a,C1,True,1.0,All temporal relationships valid
+WD-03a,C2,True,0.5,No locations in scenario to verify against
+WD-03a,C3,True,0.636,Mechanism plausibility: 63.6% similarity to ground truth
+WD-03a,C4,True,1.0,No spurious correlations detected
+WD-03a,C5,True,0.0,Coverage: 0.0% (0/5)

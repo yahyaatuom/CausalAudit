@@ -15,7 +15,7 @@ class C3MechanismChecker:
         """
         self.name = "C₃ Mechanism Plausibility"
         self.model = shared_model
-        self.confidence_threshold = confidence_threshold  # Lowered for better recall
+        self.confidence_threshold = confidence_threshold
         
         # Default mechanism templates (fallback if no ground truth)
         self.default_mechanisms = {
@@ -55,11 +55,10 @@ class C3MechanismChecker:
         if not llm_mechanism and explanation_text:
             llm_mechanism = self._extract_mechanism_from_text(explanation_text)
         
-        # --- FIX: Compare LLM mechanism to GROUND TRUTH ---
+        # Compare LLM mechanism to GROUND TRUTH
         if gt_mechanism and llm_mechanism:
             # Calculate semantic similarity
             similarity = self._calculate_similarity(gt_mechanism, llm_mechanism)
-            confidence = similarity
             
             # Check if steps match (structural similarity)
             gt_steps = self._parse_steps(gt_mechanism)
@@ -116,7 +115,7 @@ class C3MechanismChecker:
     
     def _parse_steps(self, mechanism):
         """Parse mechanism into steps."""
-        # Split by arrows
+        # Split by arrows (handle both unicode and corrupted)
         steps = re.split(r' → | → |â†’ |â†’', mechanism)
         return [s.strip() for s in steps if s.strip()]
     
@@ -178,8 +177,12 @@ class C3MechanismChecker:
     def _check_physical_plausibility(self, text):
         """Fallback: check if mechanism is physically plausible."""
         # Simple physical plausibility rules
-        plausible_indicators = ['rain', 'snow', 'ice', 'collision', 'brake', 'speed', 'impact', 
-                               'hydroplane', 'skid', 'rollover', 'rear-end', 'T-bone', 'fire']
+        plausible_indicators = [
+            'rain', 'snow', 'ice', 'collision', 'brake', 'speed', 'impact', 
+            'hydroplane', 'skid', 'rollover', 'rear-end', 'T-bone', 'fire',
+            'diagnosis', 'treatment', 'medication', 'surgery', 'infection',
+            'market', 'trade', 'stock', 'bond', 'investment'
+        ]
         
         text_lower = text.lower()
         plausible = any(indicator in text_lower for indicator in plausible_indicators)
