@@ -1,299 +1,197 @@
 # checkers/c3_mechanism.py
-from ast import pattern
+
 import re
-import json
 import numpy as np
-from sentence_transformers import SentenceTransformer
-from pathlib import Path
+from sklearn.metrics.pairwise import cosine_similarity
 
 class C3MechanismChecker:
-    def __init__(self, kb_path='data/mechanism_kb.json', shared_model=None):
-        self.name = "C₃ Mechanistic Plausibility"
-        
-        kb_full_path = Path(__file__).parent.parent / kb_path
-        with open(kb_full_path, 'r', encoding='utf-8') as f:
-            self.kb = json.load(f)['mechanisms']
-        
-        if shared_model is not None:
-            self.model = shared_model
-        else:
-            self.model = SentenceTransformer('all-MiniLM-L6-v2')
-        
-        self.kb_embeddings = self.model.encode([m['description'] for m in self.kb])
-        self.similarity_threshold = 0.75  # Increased for better precision
-    
-    def check(self, scenario, explanation, context=None):
+    def __init__(self, shared_model=None, confidence_threshold=0.4):
         """
-        Check mechanistic plausibility.
-        Uses structured_output.mechanism if available.
+        Initialize C3 Mechanism Checker.
+        
+        Args:
+            shared_model: Sentence transformer model for embeddings
+            confidence_threshold: Minimum similarity to pass (lowered from 0.6 to 0.4)
+        """
+        self.name = "C₃ Mechanism Plausibility"
+        self.model = shared_model
+        self.confidence_threshold = confidence_threshold  # Lowered for better recall
+        
+        # Default mechanism templates (fallback if no ground truth)
+        self.default_mechanisms = {
+            'Weather': ['rain → wet road → reduced traction → collision'],
+            'Traffic Accident': ['driver error → vehicle movement → collision'],
+            'Road Maintenance': ['hazard → driver reaction → collision'],
+            'Public Event': ['crowd → congestion → delay'],
+            'Healthcare': ['condition → intervention → outcome'],
+            'Finance': ['market event → reaction → consequence']
+        }
+    
+    def check(self, scenario, explanation):
+        """
+        Check if the mechanism is physically plausible.
+        Compares LLM mechanism to ground truth using semantic similarity.
         """
         # Extract structured data
         if isinstance(explanation, dict):
             structured = explanation.get('structured_output', {})
-            mechanism_text = structured.get('mechanism', '')
-            primary_cause = structured.get('primary_cause', '')
-            llm_confidence = structured.get('confidence', 0.5)
+            llm_mechanism = structured.get('mechanism', '')
             explanation_text = explanation.get('explanation', '')
         else:
             structured = {}
-            mechanism_text = ''
-            primary_cause = ''
-            llm_confidence = 0.5
+            llm_mechanism = ''
             explanation_text = explanation
         
-        # Use structured mechanism if available and substantial
-        if mechanism_text and len(mechanism_text) > 10:
-            return self._check_with_mechanism(mechanism_text, primary_cause, llm_confidence, scenario, context)
+        # Get ground truth mechanism
+        gt_mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
         
-        # Fallback to semantic search on free text
-        return self._check_semantic(explanation_text, scenario, context)
-    
-    def _check_with_mechanism(self, mechanism_text, primary_cause, llm_confidence, scenario, context):
-        """Check using structured mechanism from LLM"""
-        category = scenario.get('category', '')
+        # If no ground truth, use category default
+        if not gt_mechanism:
+            category = scenario.get('category', 'default')
+            default_mechanisms = self.default_mechanisms.get(category, self.default_mechanisms.get('default', ['unknown']))
+            gt_mechanism = default_mechanisms[0] if default_mechanisms else ''
         
-        # Adjust threshold based on context
-        if context:
-            temporal_failed = context.has_violation('C1')
-            spatial_failed = context.has_violation('C2')
-            if temporal_failed or spatial_failed:
-                self.similarity_threshold = 0.55
-            else:
-                self.similarity_threshold = 0.65
+        # If no LLM mechanism, try to extract from explanation
+        if not llm_mechanism and explanation_text:
+            llm_mechanism = self._extract_mechanism_from_text(explanation_text)
         
-        # Domain-specific rule overrides (accept common mechanisms)
-        if category == 'Healthcare':
-            if any(term in mechanism_text.lower() for term in ['fatigue', 'tired', 'exhaustion']):
-                return {
-                    'checker': 'C3',
-                    'passed': True,
-                    'confidence': 0.85,
-                    'reason': "Fatigue is a recognized healthcare factor",
-                    'details': {'used_structured': True, 'domain_override': True}
+        # --- FIX: Compare LLM mechanism to GROUND TRUTH ---
+        if gt_mechanism and llm_mechanism:
+            # Calculate semantic similarity
+            similarity = self._calculate_similarity(gt_mechanism, llm_mechanism)
+            confidence = similarity
+            
+            # Check if steps match (structural similarity)
+            gt_steps = self._parse_steps(gt_mechanism)
+            llm_steps = self._parse_steps(llm_mechanism)
+            step_match = self._compare_steps(gt_steps, llm_steps)
+            
+            # Combine scores
+            combined_score = (similarity * 0.6) + (step_match * 0.4)
+            passed = combined_score >= self.confidence_threshold
+            
+            return {
+                'checker': 'C3',
+                'passed': passed,
+                'confidence': round(combined_score, 3),
+                'reason': f'Mechanism plausibility: {combined_score:.1%} similarity to ground truth',
+                'details': {
+                    'used_structured': bool(structured),
+                    'similarity': similarity,
+                    'step_match': step_match,
+                    'combined_score': combined_score,
+                    'gt_mechanism': gt_mechanism,
+                    'llm_mechanism': llm_mechanism,
+                    'threshold': self.confidence_threshold
                 }
-            if any(term in mechanism_text.lower() for term in ['training', 'skill', 'experience']):
-                return {
-                    'checker': 'C3',
-                    'passed': True,
-                    'confidence': 0.80,
-                    'reason': "Training-related factor is valid",
-                    'details': {'used_structured': True, 'domain_override': True}
-                }
+            }
         
-        if category == 'Traffic Accident':
-            if any(term in mechanism_text.lower() for term in ['speeding', 'excessive speed', 'speed']):
-                return {
-                    'checker': 'C3',
-                    'passed': True,
-                    'confidence': 0.80,
-                    'reason': "Speeding is a recognized traffic factor",
-                    'details': {'used_structured': True, 'domain_override': True}
-                }
-            if any(term in mechanism_text.lower() for term in ['distraction', 'distracted', 'phone']):
-                return {
-                    'checker': 'C3',
-                    'passed': True,
-                    'confidence': 0.85,
-                    'reason': "Distraction is a recognized traffic factor",
-                    'details': {'used_structured': True, 'domain_override': True}
-                }
-        
-        # Rule-based physical impossibility checks
-        if 'black ice' in mechanism_text.lower() or 'black ice' in primary_cause.lower():
-            temp = self._extract_temperature(mechanism_text)
-            if temp is not None and temp > 0:
-                return {
-                    'checker': 'C3',
-                    'passed': False,
-                    'confidence': 0.98,
-                    'reason': f"Black ice cannot form at {temp}°C (requires ≤0°C)",
-                    'details': {'used_structured': True, 'mechanism': mechanism_text[:200]}
-                }
-        
-        if 'hydroplaning' in mechanism_text.lower():
-            if 'standing water' not in mechanism_text.lower() and 'water film' not in mechanism_text.lower():
-                return {
-                    'checker': 'C3',
-                    'passed': False,
-                    'confidence': 0.85,
-                    'reason': "Hydroplaning requires standing water or water film",
-                    'details': {'used_structured': True}
-                }
-        
-        # Semantic verification of mechanism against KB
-        mechanism_embedding = self.model.encode([mechanism_text])
-        similarities = np.dot(self.kb_embeddings, mechanism_embedding.T).flatten()
-        best_idx = np.argmax(similarities)
-        best_similarity = similarities[best_idx]
-        best_mech = self.kb[best_idx]
-        
-        # Boost confidence based on keyword matches
-        keyword_matches = sum(1 for kw in best_mech.get('keywords', []) 
-                              if kw.lower() in mechanism_text.lower() or kw.lower() in primary_cause.lower())
-        
-        if keyword_matches >= 3:
-            confidence = min(0.95, best_similarity + 0.15)
-        elif keyword_matches >= 2:
-            confidence = min(0.95, best_similarity + 0.08)
+        # Fallback: Check physical plausibility
         else:
-            confidence = best_similarity * 0.85
-        
-        # Domain-specific boost
-        if category == 'Healthcare' and 'healthcare' in best_mech['name']:
-            confidence = min(0.95, confidence + 0.1)
-        elif category == 'Traffic Accident' and any(term in best_mech['name'] for term in ['traffic', 'accident', 'collision']):
-            confidence = min(0.95, confidence + 0.1)
-        
-        common_sense_patterns = [
-    'rain → wet road', 'fog → low visibility', 'ice → slippery',
-    'distraction → delayed reaction', 'speed → loss of control'
-]
-        for pattern in common_sense_patterns:
-            if pattern in mechanism_text.lower():
-                return {
-            'checker': 'C3',
-            'passed': True,
-            'confidence': 0.90,
-            'reason': f"Common sense mechanism: {pattern}",
-            'details': {'used_structured': True, 'common_sense': True}
-        }
-        if best_similarity < self.similarity_threshold:
-            return {
-                'checker': 'C3',
-                'passed': False,
-                'confidence': max(0.1, confidence),
-                'reason': f"Mechanism doesn't match known patterns (best match: {best_mech['name']})",
-                'details': {'used_structured': True, 'similarity': float(best_similarity)}
-            }
-        
-        return {
-            'checker': 'C3',
-            'passed': True,
-            'confidence': round(confidence, 3),
-            'reason': f"Validated via {best_mech['name']}",
-            'details': {'used_structured': True, 'similarity': float(best_similarity), 'keyword_matches': keyword_matches}
-        }
+            return self._check_physical_plausibility(gt_mechanism or llm_mechanism or explanation_text)
     
-    def _check_semantic(self, text, scenario, context):
-        """Fallback: semantic search on free text"""
-        mechanism_text = self._extract_mechanism(text)
+    def _calculate_similarity(self, text1, text2):
+        """Calculate semantic similarity between two texts."""
+        if not self.model:
+            # Fallback: word overlap
+            return self._word_overlap_similarity(text1, text2)
         
-        if not mechanism_text or len(mechanism_text.strip()) < 10:
-            return {
-                'checker': 'C3',
-                'passed': False,
-                'confidence': 0.1,
-                'reason': "Could not extract mechanism from explanation",
-                'details': {'used_structured': False}
-            }
-        
-        category = scenario.get('category', '')
-        
-        # Domain-specific overrides for fallback
-        if category == 'Healthcare':
-            if any(term in mechanism_text.lower() for term in ['fatigue', 'tired', 'training', 'skill']):
-                return {
-                    'checker': 'C3',
-                    'passed': True,
-                    'confidence': 0.80,
-                    'reason': "Recognized healthcare factor",
-                    'details': {'used_structured': False, 'domain_override': True}
-                }
-        
-        if category == 'Traffic Accident':
-            if any(term in mechanism_text.lower() for term in ['speeding', 'distraction', 'phone', 'fatigue']):
-                return {
-                    'checker': 'C3',
-                    'passed': True,
-                    'confidence': 0.80,
-                    'reason': "Recognized traffic factor",
-                    'details': {'used_structured': False, 'domain_override': True}
-                }
-        
-        # Adjust threshold based on context
-        if context:
-            temporal_failed = context.has_violation('C1')
-            spatial_failed = context.has_violation('C2')
-            if temporal_failed or spatial_failed:
-                self.similarity_threshold = 0.55
-            else:
-                self.similarity_threshold = 0.65
-        
-        # Semantic search
-        explanation_embedding = self.model.encode([mechanism_text])
-        similarities = np.dot(self.kb_embeddings, explanation_embedding.T).flatten()
-        best_idx = np.argmax(similarities)
-        best_similarity = similarities[best_idx]
-        best_mech = self.kb[best_idx]
-        
-        # Rule-based overrides
-        if 'black ice' in mechanism_text.lower():
-            temp = self._extract_temperature(mechanism_text)
-            if temp is not None and temp > 0:
-                return {
-                    'checker': 'C3',
-                    'passed': False,
-                    'confidence': 0.95,
-                    'reason': f"Black ice cannot form at {temp}°C",
-                    'details': {'used_structured': False}
-                }
-        
-        if best_similarity < self.similarity_threshold:
-            return {
-                'checker': 'C3',
-                'passed': False,
-                'confidence': max(0.1, 1.0 - best_similarity),
-                'reason': f"Unknown mechanism (best match: {best_mech['name']} at {best_similarity:.2f})",
-                'details': {'used_structured': False, 'similarity': float(best_similarity)}
-            }
-        
-        return {
-            'checker': 'C3',
-            'passed': True,
-            'confidence': round(float(best_similarity), 3),
-            'reason': f"Validated via {best_mech['name']}",
-            'details': {'used_structured': False, 'matched': best_mech['name'], 'similarity': float(best_similarity)}
-        }
+        try:
+            embeddings = self.model.encode([text1, text2])
+            similarity = cosine_similarity([embeddings[0]], [embeddings[1]])[0][0]
+            return float(similarity)
+        except Exception as e:
+            print(f"⚠️ Embedding error: {e}")
+            return self._word_overlap_similarity(text1, text2)
     
-    def _extract_mechanism(self, text):
-        """Extract the causal mechanism from explanation text"""
-        if not text:
-            return ""
-        
-        sentences = text.replace('\n', ' ').split('.')
-        mechanism_sentences = []
-        causal_markers = ['because', 'due to', 'caused by', 'resulting from', 'triggered by', 'led to', 'resulted in', '→', '->']
-        
-        for sent in sentences:
-            sent_lower = sent.lower()
-            if any(marker in sent_lower for marker in causal_markers):
-                mechanism_sentences.append(sent.strip())
-        
-        if mechanism_sentences:
-            return '. '.join(mechanism_sentences)
-        
-        for sent in sentences:
-            if ' → ' in sent or ' -> ' in sent:
-                mechanism_sentences.append(sent.strip())
-        
-        if mechanism_sentences:
-            return '. '.join(mechanism_sentences)
-        
-        return text[:300]
+    def _word_overlap_similarity(self, text1, text2):
+        """Simple word overlap fallback."""
+        words1 = set(text1.lower().split())
+        words2 = set(text2.lower().split())
+        if not words1 or not words2:
+            return 0.0
+        overlap = len(words1 & words2)
+        total = len(words1 | words2)
+        return overlap / total if total > 0 else 0.0
     
-    def _extract_temperature(self, text):
-        """Extract temperature from text"""
+    def _parse_steps(self, mechanism):
+        """Parse mechanism into steps."""
+        # Split by arrows
+        steps = re.split(r' → | → |â†’ |â†’', mechanism)
+        return [s.strip() for s in steps if s.strip()]
+    
+    def _compare_steps(self, gt_steps, llm_steps):
+        """Compare step structures."""
+        if not gt_steps or not llm_steps:
+            return 0.0
+        
+        # Check if similar number of steps
+        length_similarity = 1.0 - abs(len(gt_steps) - len(llm_steps)) / max(len(gt_steps), len(llm_steps))
+        
+        # Check key concept overlap
+        gt_concepts = set()
+        llm_concepts = set()
+        
+        for step in gt_steps:
+            gt_concepts.update(step.lower().split())
+        for step in llm_steps:
+            llm_concepts.update(step.lower().split())
+        
+        # Remove common words
+        stopwords = {'to', 'the', 'a', 'an', 'of', 'for', 'on', 'at', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during', 'including'}
+        gt_concepts = {w for w in gt_concepts if w not in stopwords and len(w) > 2}
+        llm_concepts = {w for w in llm_concepts if w not in stopwords and len(w) > 2}
+        
+        if not gt_concepts or not llm_concepts:
+            concept_similarity = 0.0
+        else:
+            intersection = len(gt_concepts & llm_concepts)
+            union = len(gt_concepts | llm_concepts)
+            concept_similarity = intersection / union if union > 0 else 0.0
+        
+        # Combined step similarity
+        return (length_similarity * 0.3) + (concept_similarity * 0.7)
+    
+    def _extract_mechanism_from_text(self, text):
+        """Extract mechanism from free text."""
+        # Look for mechanism patterns
         patterns = [
-            r'(-?\d+)\s*[°C]',
-            r'(-?\d+)\s*C\b',
-            r'temperature[s]?\s+of\s+(-?\d+)',
-            r'dropped to\s+(-?\d+)',
+            r'"mechanism":\s*"([^"]+)"',
+            r'mechanism["\s:]+([^"]+)',
+            r'causal\s+chain[:]?\s*([^.]+)',
+            r'process[:]?\s*([^.]+)',
         ]
+        
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                try:
-                    return int(match.group(1))
-                except ValueError:
-                    continue
-        return None
+                return match.group(1).strip()
+        
+        # If no mechanism found, try to extract from explanation
+        sentences = text.split('.')
+        for sent in sentences:
+            if any(word in sent.lower() for word in ['cause', 'lead', 'result', 'because']):
+                return sent.strip()
+        
+        return ''
+    
+    def _check_physical_plausibility(self, text):
+        """Fallback: check if mechanism is physically plausible."""
+        # Simple physical plausibility rules
+        plausible_indicators = ['rain', 'snow', 'ice', 'collision', 'brake', 'speed', 'impact', 
+                               'hydroplane', 'skid', 'rollover', 'rear-end', 'T-bone', 'fire']
+        
+        text_lower = text.lower()
+        plausible = any(indicator in text_lower for indicator in plausible_indicators)
+        
+        return {
+            'checker': 'C3',
+            'passed': plausible,
+            'confidence': 0.5 if plausible else 0.2,
+            'reason': 'Physical plausibility check (fallback)',
+            'details': {
+                'used_structured': False,
+                'fallback': True,
+                'plausible': plausible
+            }
+        }
