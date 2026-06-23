@@ -1,4 +1,4 @@
-# shared_context.py
+# shared_context.py file
 class CheckerContext:
     """
     Shared context object that passes results between checkers.
