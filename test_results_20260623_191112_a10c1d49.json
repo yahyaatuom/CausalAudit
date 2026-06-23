@@ -1,0 +1,600 @@
+[
+  {
+    "scenario_id": "WD-01",
+    "explanation": "{\n    \"primary_cause\": \"Hydroplaning due to standing water on wet road\",\n    \"mechanism\": \"heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts involving other vehicles\",\n    \"contributing_factors\": [\"reduced visibility\", \"standing water on the right lane\", \"high speed during rush hour\"],\n    \"temporal_sequence\": [\"6:42 PM: heavy rain reduces visibility to 150m\", \"6:42 PM: standing water forms on the right lane\", \"6:42 PM: delivery van hydroplanes\", \"6:42 PM: van strikes central barrier and triggers chain-reaction collision\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "wet road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.687,
+        "reason": "Mechanism plausibility: 68.7% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.8094572424888611,
+          "step_match": 0.5041666666666667,
+          "combined_score": 0.6873410121599832,
+          "gt_mechanism": "Heavy rain \u2192 standing water \u2192 tire loses contact \u2192 directional control loss \u2192 initial impact \u2192 chain reaction",
+          "llm_mechanism": "heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts involving other vehicles",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.333,
+        "reason": "Coverage: 33.3% (2/6)",
+        "details": {
+          "required": [
+            "Heavy rain",
+            "standing water",
+            "tire loses contact",
+            "directional control loss",
+            "initial impact",
+            "chain reaction"
+          ],
+          "mentioned": [
+            "Heavy rain",
+            "standing water"
+          ],
+          "missing": [
+            "tire loses contact",
+            "directional control loss",
+            "initial impact",
+            "chain reaction"
+          ],
+          "core_factors": [
+            "Heavy rain"
+          ],
+          "core_missing": [],
+          "coverage": 0.3333333333333333,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Hydroplaning due to standing water on wet road",
+        "mechanism": "heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts involving other vehicles",
+        "contributing_factors": [
+          "reduced visibility",
+          "standing water on the right lane",
+          "high speed during rush hour"
+        ],
+        "temporal_sequence": [
+          "6:42 PM: heavy rain reduces visibility to 150m",
+          "6:42 PM: standing water forms on the right lane",
+          "6:42 PM: delivery van hydroplanes",
+          "6:42 PM: van strikes central barrier and triggers chain-reaction collision"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Hydroplaning due to standing water on wet road\",\n    \"mechanism\": \"heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts involving other vehicles\",\n    \"contributing_factors\": [\"reduced visibility\", \"standing water on the right lane\", \"high speed during rush hour\"],\n    \"temporal_sequence\": [\"6:42 PM: heavy rain reduces visibility to 150m\", \"6:42 PM: standing water forms on the right lane\", \"6:42 PM: delivery van hydroplanes\", \"6:42 PM: van strikes central barrier and triggers chain-reaction collision\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.3-70b-versatile",
+      "tokens": {
+        "prompt": 564,
+        "completion": 175,
+        "total": 739
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-01a",
+    "explanation": "{\n    \"primary_cause\": \"Hydroplaning due to standing water on the wet road\",\n    \"mechanism\": \"heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with central barrier \u2192 rear-end impacts\",\n    \"contributing_factors\": [\"reduced visibility\", \"standing water on the right lane\", \"rush hour traffic\"],\n    \"temporal_sequence\": [\"11:15 AM: heavy rain reduces visibility\", \"11:15 AM: delivery van hydroplanes\", \"11:15 AM: van strikes central barrier\", \"11:15 AM: chain-reaction collision occurs\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "the wet road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.712,
+        "reason": "Mechanism plausibility: 71.2% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.8379709720611572,
+          "step_match": 0.5227272727272727,
+          "combined_score": 0.7118734923276034,
+          "gt_mechanism": "Heavy rain \u2192 standing water \u2192 tire loses contact \u2192 directional control loss \u2192 initial impact \u2192 chain reaction",
+          "llm_mechanism": "heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with central barrier \u2192 rear-end impacts",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.333,
+        "reason": "Coverage: 33.3% (2/6)",
+        "details": {
+          "required": [
+            "Heavy rain",
+            "standing water",
+            "tire loses contact",
+            "directional control loss",
+            "initial impact",
+            "chain reaction"
+          ],
+          "mentioned": [
+            "Heavy rain",
+            "standing water"
+          ],
+          "missing": [
+            "tire loses contact",
+            "directional control loss",
+            "initial impact",
+            "chain reaction"
+          ],
+          "core_factors": [
+            "Heavy rain"
+          ],
+          "core_missing": [],
+          "coverage": 0.3333333333333333,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Hydroplaning due to standing water on the wet road",
+        "mechanism": "heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with central barrier \u2192 rear-end impacts",
+        "contributing_factors": [
+          "reduced visibility",
+          "standing water on the right lane",
+          "rush hour traffic"
+        ],
+        "temporal_sequence": [
+          "11:15 AM: heavy rain reduces visibility",
+          "11:15 AM: delivery van hydroplanes",
+          "11:15 AM: van strikes central barrier",
+          "11:15 AM: chain-reaction collision occurs"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Hydroplaning due to standing water on the wet road\",\n    \"mechanism\": \"heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with central barrier \u2192 rear-end impacts\",\n    \"contributing_factors\": [\"reduced visibility\", \"standing water on the right lane\", \"rush hour traffic\"],\n    \"temporal_sequence\": [\"11:15 AM: heavy rain reduces visibility\", \"11:15 AM: delivery van hydroplanes\", \"11:15 AM: van strikes central barrier\", \"11:15 AM: chain-reaction collision occurs\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.3-70b-versatile",
+      "tokens": {
+        "prompt": 566,
+        "completion": 160,
+        "total": 726
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-01b",
+    "explanation": "{\n    \"primary_cause\": \"Hydroplaning due to standing water on wet road\",\n    \"mechanism\": \"heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts\",\n    \"contributing_factors\": [\"reduced visibility\", \"standing water on the right lane\", \"high speed\"],\n    \"temporal_sequence\": [\"6:42 PM: heavy rain reduces visibility to 150m\", \"6:42 PM: standing water forms on the right lane\", \"6:42 PM: luxury SUV hydroplanes\", \"6:42 PM: chain-reaction collision occurs\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "wet road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.718,
+        "reason": "Mechanism plausibility: 71.8% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.8410157561302185,
+          "step_match": 0.5333333333333333,
+          "combined_score": 0.7179427870114644,
+          "gt_mechanism": "Heavy rain \u2192 standing water \u2192 tire loses contact \u2192 directional control loss \u2192 initial impact \u2192 chain reaction",
+          "llm_mechanism": "heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.333,
+        "reason": "Coverage: 33.3% (2/6)",
+        "details": {
+          "required": [
+            "Heavy rain",
+            "standing water",
+            "tire loses contact",
+            "directional control loss",
+            "initial impact",
+            "chain reaction"
+          ],
+          "mentioned": [
+            "Heavy rain",
+            "standing water"
+          ],
+          "missing": [
+            "tire loses contact",
+            "directional control loss",
+            "initial impact",
+            "chain reaction"
+          ],
+          "core_factors": [
+            "Heavy rain"
+          ],
+          "core_missing": [],
+          "coverage": 0.3333333333333333,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Hydroplaning due to standing water on wet road",
+        "mechanism": "heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts",
+        "contributing_factors": [
+          "reduced visibility",
+          "standing water on the right lane",
+          "high speed"
+        ],
+        "temporal_sequence": [
+          "6:42 PM: heavy rain reduces visibility to 150m",
+          "6:42 PM: standing water forms on the right lane",
+          "6:42 PM: luxury SUV hydroplanes",
+          "6:42 PM: chain-reaction collision occurs"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Hydroplaning due to standing water on wet road\",\n    \"mechanism\": \"heavy rain \u2192 standing water accumulation \u2192 tire hydroplaning \u2192 loss of steering control \u2192 collision with barrier \u2192 rear-end impacts\",\n    \"contributing_factors\": [\"reduced visibility\", \"standing water on the right lane\", \"high speed\"],\n    \"temporal_sequence\": [\"6:42 PM: heavy rain reduces visibility to 150m\", \"6:42 PM: standing water forms on the right lane\", \"6:42 PM: luxury SUV hydroplanes\", \"6:42 PM: chain-reaction collision occurs\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.3-70b-versatile",
+      "tokens": {
+        "prompt": 566,
+        "completion": 164,
+        "total": 730
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-03",
+    "explanation": "{\n    \"primary_cause\": \"The high-sided empty flatbed truck overturned due to strong gusts exceeding 65 km/h\",\n    \"mechanism\": \"strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils\",\n    \"contributing_factors\": [\"dry but dusty conditions\", \"high-sided vehicle profile\", \"weekend shopping traffic\"],\n    \"temporal_sequence\": [\"3:18 PM: strong gusts hit the truck\", \"3:18 PM: truck overturns\", \"3:18 PM: truck strikes guardrail\", \"7:05 PM: recovery and cleanup completed\"],\n    \"spatial_location\": \"Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "Al Shahama exit",
+              "type": "area"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.636,
+        "reason": "Mechanism plausibility: 63.6% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7717199325561523,
+          "step_match": 0.4333333333333333,
+          "combined_score": 0.6363652928670247,
+          "gt_mechanism": "Crosswind gusts \u2192 lateral force on vehicle side \u2192 torque exceeds stability \u2192 rollover \u2192 guardrail impact",
+          "llm_mechanism": "strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Crosswind gusts",
+            "lateral force on vehicle side",
+            "torque exceeds stability",
+            "rollover",
+            "guardrail impact"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Crosswind gusts",
+            "lateral force on vehicle side",
+            "torque exceeds stability",
+            "rollover",
+            "guardrail impact"
+          ],
+          "core_factors": [
+            "Crosswind gusts"
+          ],
+          "core_missing": [
+            "Crosswind gusts"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "The high-sided empty flatbed truck overturned due to strong gusts exceeding 65 km/h",
+        "mechanism": "strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils",
+        "contributing_factors": [
+          "dry but dusty conditions",
+          "high-sided vehicle profile",
+          "weekend shopping traffic"
+        ],
+        "temporal_sequence": [
+          "3:18 PM: strong gusts hit the truck",
+          "3:18 PM: truck overturns",
+          "3:18 PM: truck strikes guardrail",
+          "7:05 PM: recovery and cleanup completed"
+        ],
+        "spatial_location": "Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"The high-sided empty flatbed truck overturned due to strong gusts exceeding 65 km/h\",\n    \"mechanism\": \"strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils\",\n    \"contributing_factors\": [\"dry but dusty conditions\", \"high-sided vehicle profile\", \"weekend shopping traffic\"],\n    \"temporal_sequence\": [\"3:18 PM: strong gusts hit the truck\", \"3:18 PM: truck overturns\", \"3:18 PM: truck strikes guardrail\", \"7:05 PM: recovery and cleanup completed\"],\n    \"spatial_location\": \"Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.3-70b-versatile",
+      "tokens": {
+        "prompt": 550,
+        "completion": 172,
+        "total": 722
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-03a",
+    "explanation": "{\n    \"primary_cause\": \"The high-sided empty flatbed truck overturned due to strong gusts exceeding 65 km/h\",\n    \"mechanism\": \"strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils\",\n    \"contributing_factors\": [\"dry but dusty conditions\", \"high-sided vehicle profile\", \"weekend shopping traffic\"],\n    \"temporal_sequence\": [\"3:18 PM: strong gusts hit the truck\", \"3:18 PM: truck overturns\", \"3:18 PM: truck strikes guardrail\", \"7:05 PM: recovery and cleanup completed\"],\n    \"spatial_location\": \"Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "Al Shahama exit",
+              "type": "area"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.636,
+        "reason": "Mechanism plausibility: 63.6% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7717199325561523,
+          "step_match": 0.4333333333333333,
+          "combined_score": 0.6363652928670247,
+          "gt_mechanism": "Crosswind gusts \u2192 lateral force on vehicle side \u2192 torque exceeds stability \u2192 rollover \u2192 guardrail impact",
+          "llm_mechanism": "strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Crosswind gusts",
+            "lateral force on vehicle side",
+            "torque exceeds stability",
+            "rollover",
+            "guardrail impact"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Crosswind gusts",
+            "lateral force on vehicle side",
+            "torque exceeds stability",
+            "rollover",
+            "guardrail impact"
+          ],
+          "core_factors": [
+            "Crosswind gusts"
+          ],
+          "core_missing": [
+            "Crosswind gusts"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "The high-sided empty flatbed truck overturned due to strong gusts exceeding 65 km/h",
+        "mechanism": "strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils",
+        "contributing_factors": [
+          "dry but dusty conditions",
+          "high-sided vehicle profile",
+          "weekend shopping traffic"
+        ],
+        "temporal_sequence": [
+          "3:18 PM: strong gusts hit the truck",
+          "3:18 PM: truck overturns",
+          "3:18 PM: truck strikes guardrail",
+          "7:05 PM: recovery and cleanup completed"
+        ],
+        "spatial_location": "Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"The high-sided empty flatbed truck overturned due to strong gusts exceeding 65 km/h\",\n    \"mechanism\": \"strong westerly crosswind \u2192 loss of vehicle stability \u2192 overturning of truck \u2192 collision with guardrail \u2192 spilling of steel coils\",\n    \"contributing_factors\": [\"dry but dusty conditions\", \"high-sided vehicle profile\", \"weekend shopping traffic\"],\n    \"temporal_sequence\": [\"3:18 PM: strong gusts hit the truck\", \"3:18 PM: truck overturns\", \"3:18 PM: truck strikes guardrail\", \"7:05 PM: recovery and cleanup completed\"],\n    \"spatial_location\": \"Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.3-70b-versatile",
+      "tokens": {
+        "prompt": 557,
+        "completion": 172,
+        "total": 729
+      },
+      "structured": true,
+      "error": null
+    }
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "domain": "Finance",
+    "total": 17,
+    "passed": 0,
+    "pass_rate": 0.0
+  },
+  {
+    "domain": "Healthcare",
+    "total": 30,
+    "passed": 16,
+    "pass_rate": 53.33
+  },
+  {
+    "domain": "Public Event",
+    "total": 18,
+    "passed": 0,
+    "pass_rate": 0.0
+  },
+  {
+    "domain": "Road Maintenance",
+    "total": 9,
+    "passed": 0,
+    "pass_rate": 0.0
+  },
+  {
+    "domain": "Traffic Accident",
+    "total": 21,
+    "passed": 0,
+    "pass_rate": 0.0
+  },
+  {
+    "domain": "Weather",
+    "total": 34,
+    "passed": 5,
+    "pass_rate": 14.71
+  }
+]

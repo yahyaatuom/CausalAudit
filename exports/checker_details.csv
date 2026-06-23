@@ -1,0 +1,646 @@
+scenario_id,checker,passed,confidence,reason
+TA-06,C1,True,1.0,All temporal relationships valid
+TA-06,C2,True,0.5,No locations in scenario to verify against
+TA-06,C3,False,0.5845258235931396,Unknown mechanism (best match: gravel_windrow_instability at 0.42)
+TA-06,C4,True,1.0,No spurious correlations detected
+TA-06,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-06a,C1,True,1.0,All temporal relationships valid
+TA-06a,C2,True,0.5,No locations in scenario to verify against
+TA-06a,C3,False,0.5864551067352295,Unknown mechanism (best match: gravel_windrow_instability at 0.41)
+TA-06a,C4,True,1.0,No spurious correlations detected
+TA-06a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-06b,C1,True,1.0,All temporal relationships valid
+TA-06b,C2,True,0.5,No locations in scenario to verify against
+TA-06b,C3,False,0.5996232032775879,Unknown mechanism (best match: wildlife_collision_braking_chain at 0.40)
+TA-06b,C4,True,1.0,No spurious correlations detected
+TA-06b,C5,True,0.667,Coverage: 66.7% (2/3)
+PE-07,C1,True,1.0,All temporal relationships valid
+PE-07,C2,True,0.5,No locations in scenario to verify against
+PE-07,C3,False,0.6721777617931366,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.33)
+PE-07,C4,True,1.0,No spurious correlations detected
+PE-07,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-07a,C1,True,1.0,All temporal relationships valid
+PE-07a,C2,True,0.5,No locations in scenario to verify against
+PE-07a,C3,False,0.6421783566474915,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.36)
+PE-07a,C4,True,1.0,No spurious correlations detected
+PE-07a,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-07b,C1,True,1.0,All temporal relationships valid
+PE-07b,C2,True,0.5,No locations in scenario to verify against
+PE-07b,C3,False,0.6709782481193542,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.33)
+PE-07b,C4,True,1.0,No spurious correlations detected
+PE-07b,C5,True,0.533,Coverage: 66.7% (2/3)
+H-11,C1,True,1.0,All temporal relationships valid
+H-11,C2,True,0.5,No locations in scenario to verify against
+H-11,C3,True,0.8,Recognized healthcare factor
+H-11,C4,True,1.0,No spurious correlations detected
+H-11,C5,True,0.4,Coverage: 50.0% (2/4)
+H-11a,C1,True,1.0,All temporal relationships valid
+H-11a,C2,True,0.5,No locations in scenario to verify against
+H-11a,C3,True,0.8,Recognized healthcare factor
+H-11a,C4,True,1.0,No spurious correlations detected
+H-11a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-11b,C1,True,1.0,All temporal relationships valid
+H-11b,C2,True,0.5,No locations in scenario to verify against
+H-11b,C3,True,0.8,Recognized healthcare factor
+H-11b,C4,True,1.0,No spurious correlations detected
+H-11b,C5,True,0.4,Coverage: 50.0% (2/4)
+WD-06,C1,True,1.0,All temporal relationships valid
+WD-06,C2,True,0.5,No locations in scenario to verify against
+WD-06,C3,False,0.5165832936763763,Unknown mechanism (best match: mirage_depth_distortion at 0.48)
+WD-06,C4,True,1.0,No spurious correlations detected
+WD-06,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-06a,C1,True,1.0,All temporal relationships valid
+WD-06a,C2,True,0.5,No locations in scenario to verify against
+WD-06a,C3,False,0.5309706926345825,Unknown mechanism (best match: mirage_depth_distortion at 0.47)
+WD-06a,C4,True,1.0,No spurious correlations detected
+WD-06a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-06b,C1,True,1.0,All temporal relationships valid
+WD-06b,C2,True,0.5,No locations in scenario to verify against
+WD-06b,C3,False,0.5036051869392395,Unknown mechanism (best match: mirage_depth_distortion at 0.50)
+WD-06b,C4,True,1.0,No spurious correlations detected
+WD-06b,C5,True,0.533,Coverage: 66.7% (2/3)
+TA-14,C1,True,1.0,All temporal relationships valid
+TA-14,C2,True,0.5,No locations in scenario to verify against
+TA-14,C3,False,0.5879794955253601,Unknown mechanism (best match: double_parking_congestion_trigger at 0.41)
+TA-14,C4,True,1.0,No spurious correlations detected
+TA-14,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-14a,C1,True,1.0,All temporal relationships valid
+TA-14a,C2,True,0.5,No locations in scenario to verify against
+TA-14a,C3,False,0.5141561627388,Unknown mechanism (best match: double_parking_congestion_trigger at 0.49)
+TA-14a,C4,True,1.0,No spurious correlations detected
+TA-14a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-14b,C1,True,1.0,All temporal relationships valid
+TA-14b,C2,True,0.5,No locations in scenario to verify against
+TA-14b,C3,False,0.5797092914581299,Unknown mechanism (best match: double_parking_congestion_trigger at 0.42)
+TA-14b,C4,True,1.0,No spurious correlations detected
+TA-14b,C5,True,0.667,Coverage: 66.7% (2/3)
+H-10,C1,True,1.0,All temporal relationships valid
+H-10,C2,True,0.5,No locations in scenario to verify against
+H-10,C3,True,0.8,Recognized healthcare factor
+H-10,C4,True,1.0,No spurious correlations detected
+H-10,C5,True,0.4,Coverage: 50.0% (2/4)
+H-10a,C1,True,1.0,All temporal relationships valid
+H-10a,C2,True,0.5,No locations in scenario to verify against
+H-10a,C3,False,0.7743954956531525,Unknown mechanism (best match: distraction_combined at 0.23)
+H-10a,C4,True,1.0,No spurious correlations detected
+H-10a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-10b,C1,True,1.0,All temporal relationships valid
+H-10b,C2,True,0.5,No locations in scenario to verify against
+H-10b,C3,False,0.6448349058628082,Unknown mechanism (best match: visual_distraction_external at 0.36)
+H-10b,C4,True,1.0,No spurious correlations detected
+H-10b,C5,True,0.4,Coverage: 50.0% (2/4)
+WD-16,C1,True,1.0,All temporal relationships valid
+WD-16,C2,True,0.5,No locations in scenario to verify against
+WD-16,C3,False,0.6294103264808655,Unknown mechanism (best match: wet_road_reduced_friction at 0.37)
+WD-16,C4,True,1.0,No spurious correlations detected
+WD-16,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-16a,C1,True,1.0,All temporal relationships valid
+WD-16a,C2,True,0.5,No locations in scenario to verify against
+WD-16a,C3,False,0.6495231986045837,Unknown mechanism (best match: wet_road_reduced_friction at 0.35)
+WD-16a,C4,True,1.0,No spurious correlations detected
+WD-16a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-16b,C1,True,1.0,All temporal relationships valid
+WD-16b,C2,True,0.5,No locations in scenario to verify against
+WD-16b,C3,False,0.624167263507843,Unknown mechanism (best match: wet_road_reduced_friction at 0.38)
+WD-16b,C4,True,1.0,No spurious correlations detected
+WD-16b,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-10,C1,True,1.0,All temporal relationships valid
+WD-10,C2,True,0.5,No locations in scenario to verify against
+WD-10,C3,False,0.5777779817581177,Unknown mechanism (best match: mirage_depth_distortion at 0.42)
+WD-10,C4,True,1.0,No spurious correlations detected
+WD-10,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-10a,C1,True,1.0,All temporal relationships valid
+WD-10a,C2,True,0.5,No locations in scenario to verify against
+WD-10a,C3,False,0.5939428210258484,Unknown mechanism (best match: blind_spot_encroachment at 0.41)
+WD-10a,C4,True,1.0,No spurious correlations detected
+WD-10a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-10b,C1,True,1.0,All temporal relationships valid
+WD-10b,C2,True,0.5,No locations in scenario to verify against
+WD-10b,C3,False,0.5912650525569916,Unknown mechanism (best match: mirage_depth_distortion at 0.41)
+WD-10b,C4,True,1.0,No spurious correlations detected
+WD-10b,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-06,C1,True,1.0,All temporal relationships valid
+PE-06,C2,True,0.5,No locations in scenario to verify against
+PE-06,C3,False,0.6318188309669495,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.37)
+PE-06,C4,True,1.0,No spurious correlations detected
+PE-06,C5,True,1.0,Coverage: 100.0% (3/3)
+PE-06a,C1,True,1.0,All temporal relationships valid
+PE-06a,C2,True,0.5,No locations in scenario to verify against
+PE-06a,C3,False,0.6191295981407166,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.38)
+PE-06a,C4,True,1.0,No spurious correlations detected
+PE-06a,C5,True,1.0,Coverage: 100.0% (3/3)
+PE-06b,C1,True,1.0,All temporal relationships valid
+PE-06b,C2,True,0.5,No locations in scenario to verify against
+PE-06b,C3,False,0.6630055904388428,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.34)
+PE-06b,C4,True,1.0,No spurious correlations detected
+PE-06b,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-07,C1,True,1.0,All temporal relationships valid
+WD-07,C2,True,0.5,No locations in scenario to verify against
+WD-07,C3,False,0.7035718560218811,Unknown mechanism (best match: crosswind_rollover at 0.30)
+WD-07,C4,True,1.0,No spurious correlations detected
+WD-07,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-07a,C1,True,1.0,All temporal relationships valid
+WD-07a,C2,True,0.5,No locations in scenario to verify against
+WD-07a,C3,False,0.7035647332668304,Unknown mechanism (best match: crosswind_rollover at 0.30)
+WD-07a,C4,True,1.0,No spurious correlations detected
+WD-07a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-07b,C1,True,1.0,All temporal relationships valid
+WD-07b,C2,True,0.5,No locations in scenario to verify against
+WD-07b,C3,False,0.673332929611206,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.33)
+WD-07b,C4,True,1.0,No spurious correlations detected
+WD-07b,C5,True,0.533,Coverage: 66.7% (2/3)
+H-08,C1,True,1.0,All temporal relationships valid
+H-08,C2,True,0.5,No locations in scenario to verify against
+H-08,C3,False,0.545495331287384,Unknown mechanism (best match: thermal_expansion_buckling at 0.45)
+H-08,C4,True,1.0,No spurious correlations detected
+H-08,C5,True,0.4,Coverage: 50.0% (2/4)
+H-08a,C1,True,1.0,All temporal relationships valid
+H-08a,C2,True,0.5,No locations in scenario to verify against
+H-08a,C3,True,0.8,Recognized healthcare factor
+H-08a,C4,True,1.0,No spurious correlations detected
+H-08a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-08b,C1,True,1.0,All temporal relationships valid
+H-08b,C2,True,0.5,No locations in scenario to verify against
+H-08b,C3,False,0.5968767404556274,Unknown mechanism (best match: double_parking_congestion_trigger at 0.40)
+H-08b,C4,True,1.0,No spurious correlations detected
+H-08b,C5,True,0.4,Coverage: 50.0% (2/4)
+TA-19,C1,True,1.0,All temporal relationships valid
+TA-19,C2,True,0.5,No locations in scenario to verify against
+TA-19,C3,False,0.5407277345657349,Unknown mechanism (best match: tire_bead_unseating at 0.46)
+TA-19,C4,True,1.0,No spurious correlations detected
+TA-19,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-19a,C1,True,1.0,All temporal relationships valid
+TA-19a,C2,True,0.5,No locations in scenario to verify against
+TA-19a,C3,False,0.5377622246742249,Unknown mechanism (best match: tire_bead_unseating at 0.46)
+TA-19a,C4,True,1.0,No spurious correlations detected
+TA-19a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-19b,C1,True,1.0,All temporal relationships valid
+TA-19b,C2,True,0.5,No locations in scenario to verify against
+TA-19b,C3,False,0.5512698292732239,Unknown mechanism (best match: tire_bead_unseating at 0.45)
+TA-19b,C4,True,1.0,No spurious correlations detected
+TA-19b,C5,True,0.667,Coverage: 66.7% (2/3)
+F-01,C1,True,1.0,All temporal relationships valid
+F-01,C2,True,0.5,No locations in scenario to verify against
+F-01,C3,False,0.7623496651649475,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.24)
+F-01,C4,True,1.0,No spurious correlations detected
+F-01,C5,True,0.2,Coverage: 25.0% (1/4)
+F-01a,C1,True,1.0,All temporal relationships valid
+F-01a,C2,True,0.5,No locations in scenario to verify against
+F-01a,C3,False,0.779396191239357,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.22)
+F-01a,C4,True,1.0,No spurious correlations detected
+F-01a,C5,True,0.5,Coverage: 50.0% (2/4)
+F-01b,C1,True,1.0,All temporal relationships valid
+F-01b,C2,True,0.5,No locations in scenario to verify against
+F-01b,C3,False,0.7147251963615417,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.29)
+F-01b,C4,True,1.0,No spurious correlations detected
+F-01b,C5,True,0.2,Coverage: 25.0% (1/4)
+H-02,C1,True,1.0,All temporal relationships valid
+H-02,C2,True,0.5,No locations in scenario to verify against
+H-02,C3,False,0.5960090160369873,Unknown mechanism (best match: visual_distraction_external at 0.40)
+H-02,C4,True,1.0,No spurious correlations detected
+H-02,C5,True,0.4,Coverage: 50.0% (2/4)
+H-02a,C1,True,1.0,All temporal relationships valid
+H-02a,C2,True,0.5,No locations in scenario to verify against
+H-02a,C3,True,0.8,Recognized healthcare factor
+H-02a,C4,True,1.0,No spurious correlations detected
+H-02a,C5,True,0.6,Coverage: 75.0% (3/4)
+H-02b,C1,True,1.0,All temporal relationships valid
+H-02b,C2,True,0.5,No locations in scenario to verify against
+H-02b,C3,False,0.5777314305305481,Unknown mechanism (best match: double_parking_congestion_trigger at 0.42)
+H-02b,C4,True,1.0,No spurious correlations detected
+H-02b,C5,True,0.4,Coverage: 50.0% (2/4)
+F-02,C1,True,1.0,All temporal relationships valid
+F-02,C2,True,0.5,No locations in scenario to verify against
+F-02,C3,False,0.8441002070903778,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.16)
+F-02,C4,True,1.0,No spurious correlations detected
+F-02,C5,False,0.0,Coverage: 0.0% (0/4)
+F-02a,C1,True,1.0,All temporal relationships valid
+F-02a,C2,True,0.5,No locations in scenario to verify against
+F-02a,C3,False,0.8516763746738434,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.15)
+F-02a,C4,True,1.0,No spurious correlations detected
+F-02a,C5,False,0.0,Coverage: 0.0% (0/4)
+F-02b,C1,True,1.0,All temporal relationships valid
+F-02b,C2,True,0.5,No locations in scenario to verify against
+F-02b,C3,False,0.5725234746932983,Unknown mechanism (best match: double_parking_congestion_trigger at 0.43)
+F-02b,C4,True,1.0,No spurious correlations detected
+F-02b,C5,False,0.0,Coverage: 0.0% (0/4)
+PE-03,C1,True,1.0,All temporal relationships valid
+PE-03,C2,True,0.5,No locations in scenario to verify against
+PE-03,C3,False,0.672813355922699,Unknown mechanism (best match: driver_fatigue_reaction_delay at 0.33)
+PE-03,C4,True,1.0,No spurious correlations detected
+PE-03,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-03a,C1,True,1.0,All temporal relationships valid
+PE-03a,C2,True,0.5,No locations in scenario to verify against
+PE-03a,C3,False,0.6552522778511047,Unknown mechanism (best match: driver_fatigue_reaction_delay at 0.34)
+PE-03a,C4,True,1.0,No spurious correlations detected
+PE-03a,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-03b,C1,True,1.0,All temporal relationships valid
+PE-03b,C2,True,0.5,No locations in scenario to verify against
+PE-03b,C3,False,0.6611894965171814,Unknown mechanism (best match: driver_fatigue_reaction_delay at 0.34)
+PE-03b,C4,True,1.0,No spurious correlations detected
+PE-03b,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-01,C1,True,1.0,All temporal relationships valid
+PE-01,C2,True,0.5,No locations in scenario to verify against
+PE-01,C3,False,0.6787711083889008,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.32)
+PE-01,C4,True,1.0,No spurious correlations detected
+PE-01,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-01a,C1,True,1.0,All temporal relationships valid
+PE-01a,C2,True,0.5,No locations in scenario to verify against
+PE-01a,C3,False,0.6952361464500427,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.30)
+PE-01a,C4,True,1.0,No spurious correlations detected
+PE-01a,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-01b,C1,True,1.0,All temporal relationships valid
+PE-01b,C2,True,0.5,No locations in scenario to verify against
+PE-01b,C3,False,0.7627096772193909,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.24)
+PE-01b,C4,True,1.0,No spurious correlations detected
+PE-01b,C5,True,0.533,Coverage: 66.7% (2/3)
+F-06,C1,True,1.0,All temporal relationships valid
+F-06,C2,True,0.5,No locations in scenario to verify against
+F-06,C3,False,0.7873933613300323,Unknown mechanism (best match: dooring at 0.21)
+F-06,C4,True,1.0,No spurious correlations detected
+F-06,C5,False,0.0,Coverage: 0.0% (0/4)
+F-06a,C1,True,1.0,All temporal relationships valid
+F-06a,C2,True,0.5,No locations in scenario to verify against
+F-06a,C3,False,0.868522971868515,Unknown mechanism (best match: cargo_shift_destabilization at 0.13)
+F-06a,C4,True,1.0,No spurious correlations detected
+F-06a,C5,False,0.0,Coverage: 0.0% (0/4)
+F-06b,C1,True,1.0,All temporal relationships valid
+F-06b,C2,True,0.5,No locations in scenario to verify against
+F-06b,C3,False,0.5608685910701752,Unknown mechanism (best match: double_parking_congestion_trigger at 0.44)
+F-06b,C4,True,1.0,No spurious correlations detected
+F-06b,C5,False,0.0,Coverage: 0.0% (0/4)
+F-07,C1,True,1.0,All temporal relationships valid
+F-07,C2,True,0.5,No locations in scenario to verify against
+F-07,C3,False,0.8374269604682922,Unknown mechanism (best match: crosswind_rollover at 0.16)
+F-07,C4,True,1.0,No spurious correlations detected
+F-07,C5,True,0.2,Coverage: 25.0% (1/4)
+F-07a,C1,True,1.0,All temporal relationships valid
+F-07a,C2,True,0.5,No locations in scenario to verify against
+F-07a,C3,False,0.7841731309890747,Unknown mechanism (best match: visual_distraction_external at 0.22)
+F-07a,C4,True,1.0,No spurious correlations detected
+F-07a,C5,False,0.0,Coverage: 0.0% (0/4)
+F-07b,C1,True,1.0,All temporal relationships valid
+F-07b,C2,True,0.5,No locations in scenario to verify against
+F-07b,C3,False,0.5849578678607941,Unknown mechanism (best match: visual_distraction_external at 0.42)
+F-07b,C4,True,1.0,No spurious correlations detected
+F-07b,C5,True,0.2,Coverage: 25.0% (1/4)
+TA-09,C1,True,1.0,All temporal relationships valid
+TA-09,C2,True,0.5,No locations in scenario to verify against
+TA-09,C3,False,0.48043620586395264,Unknown mechanism (best match: brake_fade at 0.52)
+TA-09,C4,True,1.0,No spurious correlations detected
+TA-09,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-09a,C1,True,1.0,All temporal relationships valid
+TA-09a,C2,True,0.5,No locations in scenario to verify against
+TA-09a,C3,False,0.5620773136615753,Unknown mechanism (best match: brake_fade at 0.44)
+TA-09a,C4,True,1.0,No spurious correlations detected
+TA-09a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-09b,C1,True,1.0,All temporal relationships valid
+TA-09b,C2,True,0.5,No locations in scenario to verify against
+TA-09b,C3,False,0.5689371228218079,Unknown mechanism (best match: brake_fade at 0.43)
+TA-09b,C4,True,1.0,No spurious correlations detected
+TA-09b,C5,True,0.667,Coverage: 66.7% (2/3)
+RM-14,C1,True,1.0,All temporal relationships valid
+RM-14,C2,True,0.5,No locations in scenario to verify against
+RM-14,C3,False,0.654084324836731,Unknown mechanism (best match: visual_distraction_external at 0.35)
+RM-14,C4,True,1.0,No spurious correlations detected
+RM-14,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-14a,C1,True,1.0,All temporal relationships valid
+RM-14a,C2,True,0.5,No locations in scenario to verify against
+RM-14a,C3,False,0.6464074552059174,Unknown mechanism (best match: mirage_depth_distortion at 0.35)
+RM-14a,C4,True,1.0,No spurious correlations detected
+RM-14a,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-14b,C1,True,1.0,All temporal relationships valid
+RM-14b,C2,True,0.5,No locations in scenario to verify against
+RM-14b,C3,False,0.654084324836731,Unknown mechanism (best match: visual_distraction_external at 0.35)
+RM-14b,C4,True,1.0,No spurious correlations detected
+RM-14b,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-11,C1,True,1.0,All temporal relationships valid
+RM-11,C2,True,0.5,No locations in scenario to verify against
+RM-11,C3,False,0.5657902657985687,Unknown mechanism (best match: gravel_windrow_instability at 0.43)
+RM-11,C4,True,1.0,No spurious correlations detected
+RM-11,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-11a,C1,True,1.0,All temporal relationships valid
+RM-11a,C2,True,0.5,No locations in scenario to verify against
+RM-11a,C3,False,0.5663316249847412,Unknown mechanism (best match: gravel_windrow_instability at 0.43)
+RM-11a,C4,True,1.0,No spurious correlations detected
+RM-11a,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-11b,C1,True,1.0,All temporal relationships valid
+RM-11b,C2,True,0.5,No locations in scenario to verify against
+RM-11b,C3,False,0.552503764629364,Unknown mechanism (best match: gravel_windrow_instability at 0.45)
+RM-11b,C4,True,1.0,No spurious correlations detected
+RM-11b,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-07,C1,True,1.0,All temporal relationships valid
+RM-07,C2,True,0.5,No locations in scenario to verify against
+RM-07,C3,False,0.628677248954773,Unknown mechanism (best match: coning_and_cratering_pothole at 0.37)
+RM-07,C4,True,1.0,No spurious correlations detected
+RM-07,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-07a,C1,True,1.0,All temporal relationships valid
+RM-07a,C2,True,0.5,No locations in scenario to verify against
+RM-07a,C3,False,0.6153079867362976,Unknown mechanism (best match: unmarked_construction_excavation at 0.38)
+RM-07a,C4,True,1.0,No spurious correlations detected
+RM-07a,C5,False,0.0,Coverage: 0.0% (0/3)
+RM-07b,C1,True,1.0,All temporal relationships valid
+RM-07b,C2,True,0.5,No locations in scenario to verify against
+RM-07b,C3,False,0.6030992269515991,Unknown mechanism (best match: unmarked_construction_excavation at 0.40)
+RM-07b,C4,True,1.0,No spurious correlations detected
+RM-07b,C5,False,0.0,Coverage: 0.0% (0/3)
+H-07,C1,True,1.0,All temporal relationships valid
+H-07,C2,True,0.5,No locations in scenario to verify against
+H-07,C3,False,0.6491466164588928,Unknown mechanism (best match: visual_distraction_external at 0.35)
+H-07,C4,True,1.0,No spurious correlations detected
+H-07,C5,True,0.4,Coverage: 50.0% (2/4)
+H-07a,C1,True,1.0,All temporal relationships valid
+H-07a,C2,True,0.5,No locations in scenario to verify against
+H-07a,C3,True,0.8,Recognized healthcare factor
+H-07a,C4,True,1.0,No spurious correlations detected
+H-07a,C5,True,0.6,Coverage: 75.0% (3/4)
+H-07b,C1,True,1.0,All temporal relationships valid
+H-07b,C2,True,0.5,No locations in scenario to verify against
+H-07b,C3,False,0.5466310381889343,Unknown mechanism (best match: visual_distraction_external at 0.45)
+H-07b,C4,True,1.0,No spurious correlations detected
+H-07b,C5,True,0.4,Coverage: 50.0% (2/4)
+H-11,C1,True,1.0,All temporal relationships valid
+H-11,C2,True,0.5,No locations in scenario to verify against
+H-11,C3,True,0.8,Recognized healthcare factor
+H-11,C4,True,1.0,No spurious correlations detected
+H-11,C5,True,0.4,Coverage: 50.0% (2/4)
+H-11a,C1,True,1.0,All temporal relationships valid
+H-11a,C2,True,0.5,No locations in scenario to verify against
+H-11a,C3,True,0.8,Recognized healthcare factor
+H-11a,C4,True,1.0,No spurious correlations detected
+H-11a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-10,C1,True,1.0,All temporal relationships valid
+H-10,C2,True,0.5,No locations in scenario to verify against
+H-10,C3,True,0.8,Recognized healthcare factor
+H-10,C4,True,1.0,No spurious correlations detected
+H-10,C5,True,0.4,Coverage: 50.0% (2/4)
+TA-06,C1,True,1.0,All temporal relationships valid
+TA-06,C2,True,0.5,No locations in scenario to verify against
+TA-06,C3,False,0.5845258235931396,Unknown mechanism (best match: gravel_windrow_instability at 0.42)
+TA-06,C4,True,1.0,No spurious correlations detected
+TA-06,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-06a,C1,True,1.0,All temporal relationships valid
+TA-06a,C2,True,0.5,No locations in scenario to verify against
+TA-06a,C3,False,0.5759373903274536,Unknown mechanism (best match: gravel_windrow_instability at 0.42)
+TA-06a,C4,True,1.0,No spurious correlations detected
+TA-06a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-06b,C1,True,1.0,All temporal relationships valid
+TA-06b,C2,True,0.5,No locations in scenario to verify against
+TA-06b,C3,False,0.611564040184021,Unknown mechanism (best match: pork_chop_maneuver_swing at 0.39)
+TA-06b,C4,True,1.0,No spurious correlations detected
+TA-06b,C5,True,0.667,Coverage: 66.7% (2/3)
+PE-07,C1,True,1.0,All temporal relationships valid
+PE-07,C2,True,0.5,No locations in scenario to verify against
+PE-07,C3,False,0.670978307723999,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.33)
+PE-07,C4,True,1.0,No spurious correlations detected
+PE-07,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-07a,C1,True,1.0,All temporal relationships valid
+PE-07a,C2,True,0.5,No locations in scenario to verify against
+PE-07a,C3,False,0.6517104506492615,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.35)
+PE-07a,C4,True,1.0,No spurious correlations detected
+PE-07a,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-07b,C1,True,1.0,All temporal relationships valid
+PE-07b,C2,True,0.5,No locations in scenario to verify against
+PE-07b,C3,False,0.670978307723999,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.33)
+PE-07b,C4,True,1.0,No spurious correlations detected
+PE-07b,C5,True,0.533,Coverage: 66.7% (2/3)
+H-11,C1,True,1.0,All temporal relationships valid
+H-11,C2,True,0.5,No locations in scenario to verify against
+H-11,C3,True,0.8,Recognized healthcare factor
+H-11,C4,True,1.0,No spurious correlations detected
+H-11,C5,True,0.4,Coverage: 50.0% (2/4)
+H-11a,C1,True,1.0,All temporal relationships valid
+H-11a,C2,True,0.5,No locations in scenario to verify against
+H-11a,C3,True,0.8,Recognized healthcare factor
+H-11a,C4,True,1.0,No spurious correlations detected
+H-11a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-11b,C1,True,1.0,All temporal relationships valid
+H-11b,C2,True,0.5,No locations in scenario to verify against
+H-11b,C3,True,0.8,Recognized healthcare factor
+H-11b,C4,True,1.0,No spurious correlations detected
+H-11b,C5,True,0.4,Coverage: 50.0% (2/4)
+WD-06,C1,True,1.0,All temporal relationships valid
+WD-06,C2,True,0.5,No locations in scenario to verify against
+WD-06,C3,False,0.5426070690155029,Unknown mechanism (best match: mirage_depth_distortion at 0.46)
+WD-06,C4,True,1.0,No spurious correlations detected
+WD-06,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-06a,C1,True,1.0,All temporal relationships valid
+WD-06a,C2,True,0.5,No locations in scenario to verify against
+WD-06a,C3,False,0.5309706926345825,Unknown mechanism (best match: mirage_depth_distortion at 0.47)
+WD-06a,C4,True,1.0,No spurious correlations detected
+WD-06a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-06b,C1,True,1.0,All temporal relationships valid
+WD-06b,C2,True,0.5,No locations in scenario to verify against
+WD-06b,C3,False,0.5044924020767212,Unknown mechanism (best match: mirage_depth_distortion at 0.50)
+WD-06b,C4,True,1.0,No spurious correlations detected
+WD-06b,C5,True,0.533,Coverage: 66.7% (2/3)
+TA-14,C1,True,1.0,All temporal relationships valid
+TA-14,C2,True,0.5,No locations in scenario to verify against
+TA-14,C3,False,0.5797092914581299,Unknown mechanism (best match: double_parking_congestion_trigger at 0.42)
+TA-14,C4,True,1.0,No spurious correlations detected
+TA-14,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-14a,C1,True,1.0,All temporal relationships valid
+TA-14a,C2,True,0.5,No locations in scenario to verify against
+TA-14a,C3,False,0.5195527076721191,Unknown mechanism (best match: double_parking_congestion_trigger at 0.48)
+TA-14a,C4,True,1.0,No spurious correlations detected
+TA-14a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-14b,C1,True,1.0,All temporal relationships valid
+TA-14b,C2,True,0.5,No locations in scenario to verify against
+TA-14b,C3,False,0.5797092914581299,Unknown mechanism (best match: double_parking_congestion_trigger at 0.42)
+TA-14b,C4,True,1.0,No spurious correlations detected
+TA-14b,C5,True,0.667,Coverage: 66.7% (2/3)
+H-10,C1,True,1.0,All temporal relationships valid
+H-10,C2,True,0.5,No locations in scenario to verify against
+H-10,C3,True,0.8,Recognized healthcare factor
+H-10,C4,True,1.0,No spurious correlations detected
+H-10,C5,True,0.4,Coverage: 50.0% (2/4)
+H-10a,C1,True,1.0,All temporal relationships valid
+H-10a,C2,True,0.5,No locations in scenario to verify against
+H-10a,C3,False,0.773720383644104,Unknown mechanism (best match: distraction_combined at 0.23)
+H-10a,C4,True,1.0,No spurious correlations detected
+H-10a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-10b,C1,True,1.0,All temporal relationships valid
+H-10b,C2,True,0.5,No locations in scenario to verify against
+H-10b,C3,False,0.6454408764839172,Unknown mechanism (best match: visual_distraction_external at 0.35)
+H-10b,C4,True,1.0,No spurious correlations detected
+H-10b,C5,True,0.4,Coverage: 50.0% (2/4)
+WD-16,C1,True,1.0,All temporal relationships valid
+WD-16,C2,True,0.5,No locations in scenario to verify against
+WD-16,C3,False,0.6294102668762207,Unknown mechanism (best match: wet_road_reduced_friction at 0.37)
+WD-16,C4,True,1.0,No spurious correlations detected
+WD-16,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-16a,C1,True,1.0,All temporal relationships valid
+WD-16a,C2,True,0.5,No locations in scenario to verify against
+WD-16a,C3,False,0.6495231986045837,Unknown mechanism (best match: wet_road_reduced_friction at 0.35)
+WD-16a,C4,True,1.0,No spurious correlations detected
+WD-16a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-16b,C1,True,1.0,All temporal relationships valid
+WD-16b,C2,True,0.5,No locations in scenario to verify against
+WD-16b,C3,False,0.6495231986045837,Unknown mechanism (best match: wet_road_reduced_friction at 0.35)
+WD-16b,C4,True,1.0,No spurious correlations detected
+WD-16b,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-10,C1,True,1.0,All temporal relationships valid
+WD-10,C2,True,0.5,No locations in scenario to verify against
+WD-10,C3,False,0.592867374420166,Unknown mechanism (best match: mirage_depth_distortion at 0.41)
+WD-10,C4,True,1.0,No spurious correlations detected
+WD-10,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-10a,C1,True,1.0,All temporal relationships valid
+WD-10a,C2,True,0.5,No locations in scenario to verify against
+WD-10a,C3,False,0.5939428210258484,Unknown mechanism (best match: blind_spot_encroachment at 0.41)
+WD-10a,C4,True,1.0,No spurious correlations detected
+WD-10a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-10b,C1,True,1.0,All temporal relationships valid
+WD-10b,C2,True,0.5,No locations in scenario to verify against
+WD-10b,C3,False,0.6073189973831177,Unknown mechanism (best match: mirage_depth_distortion at 0.39)
+WD-10b,C4,True,1.0,No spurious correlations detected
+WD-10b,C5,True,0.533,Coverage: 66.7% (2/3)
+PE-06,C1,True,1.0,All temporal relationships valid
+PE-06,C2,True,0.5,No locations in scenario to verify against
+PE-06,C3,False,0.6599429249763489,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.34)
+PE-06,C4,True,1.0,No spurious correlations detected
+PE-06,C5,True,1.0,Coverage: 100.0% (3/3)
+PE-06a,C1,True,1.0,All temporal relationships valid
+PE-06a,C2,True,0.5,No locations in scenario to verify against
+PE-06a,C3,False,0.6191295981407166,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.38)
+PE-06a,C4,True,1.0,No spurious correlations detected
+PE-06a,C5,True,1.0,Coverage: 100.0% (3/3)
+PE-06b,C1,True,1.0,All temporal relationships valid
+PE-06b,C2,True,0.5,No locations in scenario to verify against
+PE-06b,C3,False,0.6630055904388428,Unknown mechanism (best match: crowd_turbulence_bottleneck at 0.34)
+PE-06b,C4,True,1.0,No spurious correlations detected
+PE-06b,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-07,C1,True,1.0,All temporal relationships valid
+WD-07,C2,True,0.5,No locations in scenario to verify against
+WD-07,C3,False,0.6909787058830261,Unknown mechanism (best match: crosswind_rollover at 0.31)
+WD-07,C4,True,1.0,No spurious correlations detected
+WD-07,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-07a,C1,True,1.0,All temporal relationships valid
+WD-07a,C2,True,0.5,No locations in scenario to verify against
+WD-07a,C3,False,0.7040517926216125,Unknown mechanism (best match: crosswind_rollover at 0.30)
+WD-07a,C4,True,1.0,No spurious correlations detected
+WD-07a,C5,True,0.533,Coverage: 66.7% (2/3)
+WD-07b,C1,True,1.0,All temporal relationships valid
+WD-07b,C2,True,0.5,No locations in scenario to verify against
+WD-07b,C3,False,0.6898468136787415,Unknown mechanism (best match: crosswind_rollover at 0.31)
+WD-07b,C4,True,1.0,No spurious correlations detected
+WD-07b,C5,True,0.533,Coverage: 66.7% (2/3)
+H-08,C1,True,1.0,All temporal relationships valid
+H-08,C2,True,0.5,No locations in scenario to verify against
+H-08,C3,False,0.5994552969932556,Unknown mechanism (best match: double_parking_congestion_trigger at 0.40)
+H-08,C4,True,1.0,No spurious correlations detected
+H-08,C5,True,0.4,Coverage: 50.0% (2/4)
+H-08a,C1,True,1.0,All temporal relationships valid
+H-08a,C2,True,0.5,No locations in scenario to verify against
+H-08a,C3,True,0.8,Recognized healthcare factor
+H-08a,C4,True,1.0,No spurious correlations detected
+H-08a,C5,True,0.4,Coverage: 50.0% (2/4)
+H-08b,C1,True,1.0,All temporal relationships valid
+H-08b,C2,True,0.5,No locations in scenario to verify against
+H-08b,C3,False,0.5968767404556274,Unknown mechanism (best match: double_parking_congestion_trigger at 0.40)
+H-08b,C4,True,1.0,No spurious correlations detected
+H-08b,C5,True,0.4,Coverage: 50.0% (2/4)
+TA-19,C1,True,1.0,All temporal relationships valid
+TA-19,C2,True,0.5,No locations in scenario to verify against
+TA-19,C3,False,0.5407277345657349,Unknown mechanism (best match: tire_bead_unseating at 0.46)
+TA-19,C4,True,1.0,No spurious correlations detected
+TA-19,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-19a,C1,True,1.0,All temporal relationships valid
+TA-19a,C2,True,0.5,No locations in scenario to verify against
+TA-19a,C3,False,0.5407277345657349,Unknown mechanism (best match: tire_bead_unseating at 0.46)
+TA-19a,C4,True,1.0,No spurious correlations detected
+TA-19a,C5,True,0.667,Coverage: 66.7% (2/3)
+TA-19b,C1,True,1.0,All temporal relationships valid
+TA-19b,C2,True,0.5,No locations in scenario to verify against
+TA-19b,C3,False,0.5407277345657349,Unknown mechanism (best match: tire_bead_unseating at 0.46)
+TA-19b,C4,True,1.0,No spurious correlations detected
+TA-19b,C5,True,0.667,Coverage: 66.7% (2/3)
+F-01,C1,True,1.0,All temporal relationships valid
+F-01,C2,True,0.5,No locations in scenario to verify against
+F-01,C3,False,0.7161300182342529,Unknown mechanism (best match: infrastructure_overload_strike at 0.28)
+F-01,C4,True,1.0,No spurious correlations detected
+F-01,C5,False,0.0,Coverage: 0.0% (0/4)
+F-01a,C1,True,1.0,All temporal relationships valid
+F-01a,C2,True,0.5,No locations in scenario to verify against
+F-01a,C3,False,0.7753894329071045,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.22)
+F-01a,C4,True,1.0,No spurious correlations detected
+F-01a,C5,True,0.5,Coverage: 50.0% (2/4)
+F-01b,C1,True,1.0,All temporal relationships valid
+F-01b,C2,True,0.5,No locations in scenario to verify against
+F-01b,C3,False,0.7286844253540039,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.27)
+F-01b,C4,True,1.0,No spurious correlations detected
+F-01b,C5,True,0.2,Coverage: 25.0% (1/4)
+H-02,C1,True,1.0,All temporal relationships valid
+H-02,C2,True,0.5,No locations in scenario to verify against
+H-02,C3,False,0.5773260593414307,Unknown mechanism (best match: double_parking_congestion_trigger at 0.42)
+H-02,C4,True,1.0,No spurious correlations detected
+H-02,C5,True,0.4,Coverage: 50.0% (2/4)
+H-02a,C1,True,1.0,All temporal relationships valid
+H-02a,C2,True,0.5,No locations in scenario to verify against
+H-02a,C3,True,0.8,Recognized healthcare factor
+H-02a,C4,True,1.0,No spurious correlations detected
+H-02a,C5,True,0.6,Coverage: 75.0% (3/4)
+H-02b,C1,True,1.0,All temporal relationships valid
+H-02b,C2,True,0.5,No locations in scenario to verify against
+H-02b,C3,False,0.6060255169868469,Unknown mechanism (best match: mirage_depth_distortion at 0.39)
+H-02b,C4,True,1.0,No spurious correlations detected
+H-02b,C5,True,0.4,Coverage: 50.0% (2/4)
+F-02,C1,True,1.0,All temporal relationships valid
+F-02,C2,True,0.5,No locations in scenario to verify against
+F-02,C3,False,0.8438416123390198,Unknown mechanism (best match: gravel_windrow_instability at 0.16)
+F-02,C4,True,1.0,No spurious correlations detected
+F-02,C5,False,0.0,Coverage: 0.0% (0/4)
+F-02a,C1,True,1.0,All temporal relationships valid
+F-02a,C2,True,0.5,No locations in scenario to verify against
+F-02a,C3,False,0.8542002439498901,Unknown mechanism (best match: vapor_lock_fuel_starvation at 0.15)
+F-02a,C4,True,1.0,No spurious correlations detected
+F-02a,C5,False,0.0,Coverage: 0.0% (0/4)
+WD-01,C1,True,1.0,All temporal relationships valid
+WD-01,C2,True,0.5,No locations in scenario to verify against
+WD-01,C3,False,0.5298289060592651,Unknown mechanism (best match: mirage_depth_distortion at 0.47)
+WD-01,C4,True,1.0,No spurious correlations detected
+WD-01,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-01a,C1,True,1.0,All temporal relationships valid
+WD-01a,C2,True,0.5,No locations in scenario to verify against
+WD-01a,C3,False,0.517981231212616,Unknown mechanism (best match: mirage_depth_distortion at 0.48)
+WD-01a,C4,True,1.0,No spurious correlations detected
+WD-01a,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-01b,C1,True,1.0,All temporal relationships valid
+WD-01b,C2,True,0.5,No locations in scenario to verify against
+WD-01b,C3,False,0.5082685649394989,Unknown mechanism (best match: wet_road_reduced_friction at 0.49)
+WD-01b,C4,True,1.0,No spurious correlations detected
+WD-01b,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-03,C1,True,1.0,All temporal relationships valid
+WD-03,C2,True,0.5,No locations in scenario to verify against
+WD-03,C3,False,0.602031409740448,Unknown mechanism (best match: crosswind_rollover at 0.40)
+WD-03,C4,True,1.0,No spurious correlations detected
+WD-03,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-03a,C1,True,1.0,All temporal relationships valid
+WD-03a,C2,True,0.5,No locations in scenario to verify against
+WD-03a,C3,False,0.6073438823223114,Unknown mechanism (best match: crosswind_rollover at 0.39)
+WD-03a,C4,True,1.0,No spurious correlations detected
+WD-03a,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-01,C1,True,1.0,All temporal relationships valid
+WD-01,C2,True,0.5,No locations in scenario to verify against
+WD-01,C3,True,0.687,Mechanism plausibility: 68.7% similarity to ground truth
+WD-01,C4,True,1.0,No spurious correlations detected
+WD-01,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-01a,C1,True,1.0,All temporal relationships valid
+WD-01a,C2,True,0.5,No locations in scenario to verify against
+WD-01a,C3,True,0.687,Mechanism plausibility: 68.7% similarity to ground truth
+WD-01a,C4,True,1.0,No spurious correlations detected
+WD-01a,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-01b,C1,True,1.0,All temporal relationships valid
+WD-01b,C2,True,0.5,No locations in scenario to verify against
+WD-01b,C3,True,0.718,Mechanism plausibility: 71.8% similarity to ground truth
+WD-01b,C4,True,1.0,No spurious correlations detected
+WD-01b,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-03,C1,True,1.0,All temporal relationships valid
+WD-03,C2,True,0.5,No locations in scenario to verify against
+WD-03,C3,True,0.636,Mechanism plausibility: 63.6% similarity to ground truth
+WD-03,C4,True,1.0,No spurious correlations detected
+WD-03,C5,True,1.0,Coverage: 100.0% (3/3)
+WD-03a,C1,True,1.0,All temporal relationships valid
+WD-03a,C2,True,0.5,No locations in scenario to verify against
+WD-03a,C3,True,0.636,Mechanism plausibility: 63.6% similarity to ground truth
+WD-03a,C4,True,1.0,No spurious correlations detected
+WD-03a,C5,True,1.0,Coverage: 100.0% (3/3)
