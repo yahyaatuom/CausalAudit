@@ -1,0 +1,38 @@
+{
+  "run_id": "aeb6ca18",
+  "timestamp": "20260624_122618",
+  "model": "llama-3.1-8b-instant",
+  "train_scenarios": 156,
+  "test_scenarios": 39,
+  "train_summary": {
+    "set_name": "training",
+    "total": 156,
+    "pass_rates": {
+      "C1": 100.0,
+      "C2": 100.0,
+      "C3": 67.3076923076923,
+      "C4": 92.3076923076923,
+      "C5": 100.0
+    },
+    "accuracy": {
+      "C1": 21.153846153846153,
+      "C4": 0.0
+    }
+  },
+  "test_summary": {
+    "set_name": "test",
+    "total": 39,
+    "pass_rates": {
+      "C1": 100.0,
+      "C2": 100.0,
+      "C3": 69.23076923076923,
+      "C4": 92.3076923076923,
+      "C5": 100.0
+    },
+    "accuracy": {
+      "C1": 15.384615384615385,
+      "C4": 0.0
+    }
+  },
+  "resume_enabled": true
+}

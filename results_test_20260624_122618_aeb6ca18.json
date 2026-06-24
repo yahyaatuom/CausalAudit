@@ -1,0 +1,4477 @@
+[
+  {
+    "scenario_id": "H-01b",
+    "explanation": "{\n    \"primary_cause\": \"Patient's cardiac arrest due to undiagnosed heart condition\",\n    \"mechanism\": \"undiagnosed heart condition \u2192 cardiac arrhythmia \u2192 cardiac arrest \u2192 patient's death\",\n    \"contributing_factors\": [\"delayed diagnosis\", \"inadequate medical training\", \"patient's failure to disclose medical history\"],\n    \"temporal_sequence\": [\"8:00 AM: patient admitted to hospital\", \"8:30 AM: initial diagnosis made\", \"9:00 AM: cardiac arrest occurs\", \"9:30 AM: patient pronounced dead\"],\n    \"spatial_location\": \"Cardiology Ward, Hospital\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.16,
+        "reason": "Mechanism plausibility: 16.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.21668390929698944,
+          "step_match": 0.075,
+          "combined_score": 0.16001034557819366,
+          "gt_mechanism": "Medication non-adherence post-discharge",
+          "llm_mechanism": "undiagnosed heart condition \u2192 cardiac arrhythmia \u2192 cardiac arrest \u2192 patient's death",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Medication non-adherence post-discharge"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Medication non-adherence post-discharge"
+          ],
+          "core_factors": [
+            "Medication non-adherence post-discharge"
+          ],
+          "core_missing": [
+            "Medication non-adherence post-discharge"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Patient's cardiac arrest due to undiagnosed heart condition",
+        "mechanism": "undiagnosed heart condition \u2192 cardiac arrhythmia \u2192 cardiac arrest \u2192 patient's death",
+        "contributing_factors": [
+          "delayed diagnosis",
+          "inadequate medical training",
+          "patient's failure to disclose medical history"
+        ],
+        "temporal_sequence": [
+          "8:00 AM: patient admitted to hospital",
+          "8:30 AM: initial diagnosis made",
+          "9:00 AM: cardiac arrest occurs",
+          "9:30 AM: patient pronounced dead"
+        ],
+        "spatial_location": "Cardiology Ward, Hospital",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Patient's cardiac arrest due to undiagnosed heart condition\",\n    \"mechanism\": \"undiagnosed heart condition \u2192 cardiac arrhythmia \u2192 cardiac arrest \u2192 patient's death\",\n    \"contributing_factors\": [\"delayed diagnosis\", \"inadequate medical training\", \"patient's failure to disclose medical history\"],\n    \"temporal_sequence\": [\"8:00 AM: patient admitted to hospital\", \"8:30 AM: initial diagnosis made\", \"9:00 AM: cardiac arrest occurs\", \"9:30 AM: patient pronounced dead\"],\n    \"spatial_location\": \"Cardiology Ward, Hospital\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 447,
+        "completion": 144,
+        "total": 591
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "RM-16b",
+    "explanation": "{\n    \"primary_cause\": \"Valve failure during transfer operation led to hot bitumen spill\",\n    \"mechanism\": \"valve failure during transfer operation \u2192 liquid bitumen discharge \u2192 extremely low friction coefficient \u2192 multiple drivers lost traction \u2192 collision\",\n    \"contributing_factors\": [\"afternoon traffic\", \"dry otherwise\", \"extremely low friction coefficient\"],\n    \"temporal_sequence\": [\"4:10 PM: valve failure during transfer operation\", \"4:10 PM: hot bitumen spills onto pavement\", \"4:10 PM: four vehicles skid and collide\"],\n    \"spatial_location\": \"E10 near Saadiyat\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.566,
+        "reason": "Mechanism plausibility: 56.6% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6684064865112305,
+          "step_match": 0.41290322580645156,
+          "combined_score": 0.5662051822293189,
+          "gt_mechanism": "Equipment failure during hot bitumen transfer \u2192 material deposited on travel lane \u2192 extreme reduction in pavement friction \u2192 vehicles unable to brake/steer effectively \u2192 multi-vehicle skid collision",
+          "llm_mechanism": "valve failure during transfer operation \u2192 liquid bitumen discharge \u2192 extremely low friction coefficient \u2192 multiple drivers lost traction \u2192 collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Equipment failure during hot bitumen transfer",
+            "material deposited on travel lane",
+            "extreme reduction in pavement friction",
+            "vehicles unable to brake/steer effectively",
+            "multi-vehicle skid collision"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Equipment failure during hot bitumen transfer",
+            "material deposited on travel lane",
+            "extreme reduction in pavement friction",
+            "vehicles unable to brake/steer effectively",
+            "multi-vehicle skid collision"
+          ],
+          "core_factors": [
+            "Equipment failure during hot bitumen transfer"
+          ],
+          "core_missing": [
+            "Equipment failure during hot bitumen transfer"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Valve failure during transfer operation led to hot bitumen spill",
+        "mechanism": "valve failure during transfer operation \u2192 liquid bitumen discharge \u2192 extremely low friction coefficient \u2192 multiple drivers lost traction \u2192 collision",
+        "contributing_factors": [
+          "afternoon traffic",
+          "dry otherwise",
+          "extremely low friction coefficient"
+        ],
+        "temporal_sequence": [
+          "4:10 PM: valve failure during transfer operation",
+          "4:10 PM: hot bitumen spills onto pavement",
+          "4:10 PM: four vehicles skid and collide"
+        ],
+        "spatial_location": "E10 near Saadiyat",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Valve failure during transfer operation led to hot bitumen spill\",\n    \"mechanism\": \"valve failure during transfer operation \u2192 liquid bitumen discharge \u2192 extremely low friction coefficient \u2192 multiple drivers lost traction \u2192 collision\",\n    \"contributing_factors\": [\"afternoon traffic\", \"dry otherwise\", \"extremely low friction coefficient\"],\n    \"temporal_sequence\": [\"4:10 PM: valve failure during transfer operation\", \"4:10 PM: hot bitumen spills onto pavement\", \"4:10 PM: four vehicles skid and collide\"],\n    \"spatial_location\": \"E10 near Saadiyat\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 535,
+        "completion": 143,
+        "total": 678
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-10a",
+    "explanation": "{\n    \"primary_cause\": \"Sudden shamal dust storm reduced visibility to near zero\",\n    \"mechanism\": \"shamal dust storm \u2192 reduced visibility \u2192 low speed \u2192 tractor-trailer collision \u2192 secondary rear-ends\",\n    \"contributing_factors\": [\"low speed\", \"reduced visibility\", \"dust storm\"],\n    \"temporal_sequence\": [\"2:55 PM: shamal dust storm hits\", \"2:55 PM: visibility reduced to near zero\", \"2:55 PM: tractor-trailer collision\", \"2:55 PM: secondary rear-ends\"],\n    \"spatial_location\": \"Al Ain \u2013 Abu Dhabi highway (E95) near Al Muwaiji\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.55,
+        "reason": "Mechanism plausibility: 55.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6335985064506531,
+          "step_match": 0.4242105263157895,
+          "combined_score": 0.5498433143967076,
+          "gt_mechanism": "Dust storm \u2192 visibility reduction to <10 m \u2192 inability to see other vehicles \u2192 collision despite low speeds",
+          "llm_mechanism": "shamal dust storm \u2192 reduced visibility \u2192 low speed \u2192 tractor-trailer collision \u2192 secondary rear-ends",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.25,
+        "reason": "Coverage: 25.0% (1/4)",
+        "details": {
+          "required": [
+            "Dust storm",
+            "visibility reduction to <10 m",
+            "inability to see other vehicles",
+            "collision despite low speeds"
+          ],
+          "mentioned": [
+            "Dust storm"
+          ],
+          "missing": [
+            "visibility reduction to <10 m",
+            "inability to see other vehicles",
+            "collision despite low speeds"
+          ],
+          "core_factors": [
+            "Dust storm"
+          ],
+          "core_missing": [],
+          "coverage": 0.25,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Sudden shamal dust storm reduced visibility to near zero",
+        "mechanism": "shamal dust storm \u2192 reduced visibility \u2192 low speed \u2192 tractor-trailer collision \u2192 secondary rear-ends",
+        "contributing_factors": [
+          "low speed",
+          "reduced visibility",
+          "dust storm"
+        ],
+        "temporal_sequence": [
+          "2:55 PM: shamal dust storm hits",
+          "2:55 PM: visibility reduced to near zero",
+          "2:55 PM: tractor-trailer collision",
+          "2:55 PM: secondary rear-ends"
+        ],
+        "spatial_location": "Al Ain \u2013 Abu Dhabi highway (E95) near Al Muwaiji",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Sudden shamal dust storm reduced visibility to near zero\",\n    \"mechanism\": \"shamal dust storm \u2192 reduced visibility \u2192 low speed \u2192 tractor-trailer collision \u2192 secondary rear-ends\",\n    \"contributing_factors\": [\"low speed\", \"reduced visibility\", \"dust storm\"],\n    \"temporal_sequence\": [\"2:55 PM: shamal dust storm hits\", \"2:55 PM: visibility reduced to near zero\", \"2:55 PM: tractor-trailer collision\", \"2:55 PM: secondary rear-ends\"],\n    \"spatial_location\": \"Al Ain \u2013 Abu Dhabi highway (E95) near Al Muwaiji\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 529,
+        "completion": 155,
+        "total": 684
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-16b",
+    "explanation": "{\n    \"primary_cause\": \"Flooding due to rapid ponding in depression caused by short but torrential rain\",\n    \"mechanism\": \"short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end\",\n    \"contributing_factors\": [\"heavy rain\", \"insufficient drainage capacity\", \"vehicles stalled in water\"],\n    \"temporal_sequence\": [\"5:55 PM: short but torrential rain overwhelms drainage at Al Quoz underpass\", \"5:55 PM: flooding to 20 cm\", \"5:55 PM: multiple vehicles stalled in water\", \"5:55 PM: following pickup failed to stop \u2192 rear-ended sedan SUV + sedan\"],\n    \"spatial_location\": \"Al Quoz underpass\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.454,
+        "reason": "Mechanism plausibility: 45.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.5548744797706604,
+          "step_match": 0.3038461538461539,
+          "combined_score": 0.45446314940085775,
+          "gt_mechanism": "Rapid water accumulation \u2192 vehicle attempts passage \u2192 water enters air intake \u2192 engine hydro-lock \u2192 sudden stall \u2192 following vehicle collision",
+          "llm_mechanism": "short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.133,
+        "reason": "Coverage: 16.7% (1/6)",
+        "details": {
+          "required": [
+            "Rapid water accumulation",
+            "vehicle attempts passage",
+            "water enters air intake",
+            "engine hydro-lock",
+            "sudden stall",
+            "following vehicle collision"
+          ],
+          "mentioned": [
+            "engine hydro-lock"
+          ],
+          "missing": [
+            "Rapid water accumulation",
+            "vehicle attempts passage",
+            "water enters air intake",
+            "sudden stall",
+            "following vehicle collision"
+          ],
+          "core_factors": [
+            "Rapid water accumulation"
+          ],
+          "core_missing": [
+            "Rapid water accumulation"
+          ],
+          "coverage": 0.16666666666666666,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Flooding due to rapid ponding in depression caused by short but torrential rain",
+        "mechanism": "short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end",
+        "contributing_factors": [
+          "heavy rain",
+          "insufficient drainage capacity",
+          "vehicles stalled in water"
+        ],
+        "temporal_sequence": [
+          "5:55 PM: short but torrential rain overwhelms drainage at Al Quoz underpass",
+          "5:55 PM: flooding to 20 cm",
+          "5:55 PM: multiple vehicles stalled in water",
+          "5:55 PM: following pickup failed to stop \u2192 rear-ended sedan SUV + sedan"
+        ],
+        "spatial_location": "Al Quoz underpass",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Flooding due to rapid ponding in depression caused by short but torrential rain\",\n    \"mechanism\": \"short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end\",\n    \"contributing_factors\": [\"heavy rain\", \"insufficient drainage capacity\", \"vehicles stalled in water\"],\n    \"temporal_sequence\": [\"5:55 PM: short but torrential rain overwhelms drainage at Al Quoz underpass\", \"5:55 PM: flooding to 20 cm\", \"5:55 PM: multiple vehicles stalled in water\", \"5:55 PM: following pickup failed to stop \u2192 rear-ended sedan SUV + sedan\"],\n    \"spatial_location\": \"Al Quoz underpass\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 539,
+        "completion": 173,
+        "total": 712
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "F-07a",
+    "explanation": "{\n    \"primary_cause\": \"Insufficient due diligence by Wealth Management\",\n    \"mechanism\": \"inadequate risk assessment \u2192 unsuitable investment recommendations \u2192 client financial loss \u2192 regulatory scrutiny\",\n    \"contributing_factors\": [\"lack of expertise\", \"inadequate prospectus review\", \"conflict of interest\"],\n    \"temporal_sequence\": [\"January 2022: Wealth Management begins operations\", \"February 2022: first client investments made\", \"March 2022: client financial losses reported\", \"April 2022: regulatory investigation initiated\"],\n    \"spatial_location\": \"Global, affecting multiple clients\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.399,
+        "reason": "Mechanism plausibility: 39.9% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.5852853655815125,
+          "step_match": 0.11875,
+          "combined_score": 0.3986712193489074,
+          "gt_mechanism": "Failure to read and disclose product risk",
+          "llm_mechanism": "inadequate risk assessment \u2192 unsuitable investment recommendations \u2192 client financial loss \u2192 regulatory scrutiny",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Failure to read and disclose product risk"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Failure to read and disclose product risk"
+          ],
+          "core_factors": [
+            "Failure to read and disclose product risk"
+          ],
+          "core_missing": [
+            "Failure to read and disclose product risk"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Insufficient due diligence by Wealth Management",
+        "mechanism": "inadequate risk assessment \u2192 unsuitable investment recommendations \u2192 client financial loss \u2192 regulatory scrutiny",
+        "contributing_factors": [
+          "lack of expertise",
+          "inadequate prospectus review",
+          "conflict of interest"
+        ],
+        "temporal_sequence": [
+          "January 2022: Wealth Management begins operations",
+          "February 2022: first client investments made",
+          "March 2022: client financial losses reported",
+          "April 2022: regulatory investigation initiated"
+        ],
+        "spatial_location": "Global, affecting multiple clients",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Insufficient due diligence by Wealth Management\",\n    \"mechanism\": \"inadequate risk assessment \u2192 unsuitable investment recommendations \u2192 client financial loss \u2192 regulatory scrutiny\",\n    \"contributing_factors\": [\"lack of expertise\", \"inadequate prospectus review\", \"conflict of interest\"],\n    \"temporal_sequence\": [\"January 2022: Wealth Management begins operations\", \"February 2022: first client investments made\", \"March 2022: client financial losses reported\", \"April 2022: regulatory investigation initiated\"],\n    \"spatial_location\": \"Global, affecting multiple clients\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 457,
+        "completion": 139,
+        "total": 596
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-05b",
+    "explanation": "{\n    \"primary_cause\": \"Emergency vehicle driver lost control due to excessive speed\",\n    \"mechanism\": \"excessive speed \u2192 loss of control \u2192 collision with other vehicle\",\n    \"contributing_factors\": [\"excessive speed\", \"inadequate training\", \"reckless driving\"],\n    \"temporal_sequence\": [\"8:10 AM: emergency vehicle deploys\", \"8:10 AM: driver accelerates\", \"8:10 AM: loss of control\", \"8:10 AM: collision with other vehicle\"],\n    \"spatial_location\": \"Emergency Department\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.04,
+        "reason": "Mechanism plausibility: 4.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": -0.0006780792027711868,
+          "step_match": 0.1,
+          "combined_score": 0.03959315247833729,
+          "gt_mechanism": "Delayed sepsis recognition",
+          "llm_mechanism": "excessive speed \u2192 loss of control \u2192 collision with other vehicle",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Delayed sepsis recognition"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Delayed sepsis recognition"
+          ],
+          "core_factors": [
+            "Delayed sepsis recognition"
+          ],
+          "core_missing": [
+            "Delayed sepsis recognition"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Emergency vehicle driver lost control due to excessive speed",
+        "mechanism": "excessive speed \u2192 loss of control \u2192 collision with other vehicle",
+        "contributing_factors": [
+          "excessive speed",
+          "inadequate training",
+          "reckless driving"
+        ],
+        "temporal_sequence": [
+          "8:10 AM: emergency vehicle deploys",
+          "8:10 AM: driver accelerates",
+          "8:10 AM: loss of control",
+          "8:10 AM: collision with other vehicle"
+        ],
+        "spatial_location": "Emergency Department",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Emergency vehicle driver lost control due to excessive speed\",\n    \"mechanism\": \"excessive speed \u2192 loss of control \u2192 collision with other vehicle\",\n    \"contributing_factors\": [\"excessive speed\", \"inadequate training\", \"reckless driving\"],\n    \"temporal_sequence\": [\"8:10 AM: emergency vehicle deploys\", \"8:10 AM: driver accelerates\", \"8:10 AM: loss of control\", \"8:10 AM: collision with other vehicle\"],\n    \"spatial_location\": \"Emergency Department\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 446,
+        "completion": 129,
+        "total": 575
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "RM-01",
+    "explanation": "{\n    \"primary_cause\": \"Road maintenance crews failed to provide advance warning signs for lane closure\",\n    \"mechanism\": \"road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision\",\n    \"contributing_factors\": [\"tailgating\", \"insufficient stopping distance\", \"morning rush traffic\"],\n    \"temporal_sequence\": [\"6:00 AM: overnight resurfacing work begins\", \"6:55 AM: lane closure occurs without warning signs\", \"6:55 AM: lead driver brakes hard, following vehicles collide\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.651,
+        "reason": "Mechanism plausibility: 65.1% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7744385600090027,
+          "step_match": 0.46499999999999997,
+          "combined_score": 0.6506631360054016,
+          "gt_mechanism": "Maintenance crews closed lane without required advance warning \u2192 lead driver encountered unexpected blockage \u2192 emergency braking \u2192 following vehicles unable to stop \u2192 chain rear-end collision",
+          "llm_mechanism": "road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Maintenance crews closed lane without required advance warning",
+            "lead driver encountered unexpected blockage",
+            "emergency braking",
+            "following vehicles unable to stop",
+            "chain rear-end collision"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Maintenance crews closed lane without required advance warning",
+            "lead driver encountered unexpected blockage",
+            "emergency braking",
+            "following vehicles unable to stop",
+            "chain rear-end collision"
+          ],
+          "core_factors": [
+            "Maintenance crews closed lane without required advance warning"
+          ],
+          "core_missing": [
+            "Maintenance crews closed lane without required advance warning"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Road maintenance crews failed to provide advance warning signs for lane closure",
+        "mechanism": "road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision",
+        "contributing_factors": [
+          "tailgating",
+          "insufficient stopping distance",
+          "morning rush traffic"
+        ],
+        "temporal_sequence": [
+          "6:00 AM: overnight resurfacing work begins",
+          "6:55 AM: lane closure occurs without warning signs",
+          "6:55 AM: lead driver brakes hard, following vehicles collide"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Road maintenance crews failed to provide advance warning signs for lane closure\",\n    \"mechanism\": \"road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision\",\n    \"contributing_factors\": [\"tailgating\", \"insufficient stopping distance\", \"morning rush traffic\"],\n    \"temporal_sequence\": [\"6:00 AM: overnight resurfacing work begins\", \"6:55 AM: lane closure occurs without warning signs\", \"6:55 AM: lead driver brakes hard, following vehicles collide\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 567,
+        "completion": 150,
+        "total": 717
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "PE-10",
+    "explanation": "{\n    \"primary_cause\": \"Post-concert exit congestion due to simultaneous departure of multiple groups\",\n    \"mechanism\": \"concert finish \u2192 simultaneous departure of multiple groups \u2192 narrow exit points and multiple merge points \u2192 slow dispersal and tailback formation\",\n    \"contributing_factors\": [\"narrow exit points\", \"multiple merge points\", \"simultaneous departure of multiple groups\"],\n    \"temporal_sequence\": [\"11:15 PM: concert finish\", \"11:15 PM: simultaneous departure of multiple groups\", \"11:15 PM: slow dispersal and tailback formation\"],\n    \"spatial_location\": \"Yas Marina Circuit internal roads and exit to Sheikh Zayed bin Sultan Street\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.529,
+        "reason": "Mechanism plausibility: 52.9% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6364259719848633,
+          "step_match": 0.36774193548387096,
+          "combined_score": 0.5289523573844663,
+          "gt_mechanism": "Two events (concert + race) ending in close temporal proximity \u2192 combined departure demand > exit capacity \u2192 queue formation on internal roads \u2192 propagation to highway exit",
+          "llm_mechanism": "concert finish \u2192 simultaneous departure of multiple groups \u2192 narrow exit points and multiple merge points \u2192 slow dispersal and tailback formation",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/4)",
+        "details": {
+          "required": [
+            "Two events (concert + race) ending in close temporal proximity",
+            "combined departure demand > exit capacity",
+            "queue formation on internal roads",
+            "propagation to highway exit"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Two events (concert + race) ending in close temporal proximity",
+            "combined departure demand > exit capacity",
+            "queue formation on internal roads",
+            "propagation to highway exit"
+          ],
+          "core_factors": [
+            "Two events (concert + race) ending in close temporal proximity"
+          ],
+          "core_missing": [
+            "Two events (concert + race) ending in close temporal proximity"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Post-concert exit congestion due to simultaneous departure of multiple groups",
+        "mechanism": "concert finish \u2192 simultaneous departure of multiple groups \u2192 narrow exit points and multiple merge points \u2192 slow dispersal and tailback formation",
+        "contributing_factors": [
+          "narrow exit points",
+          "multiple merge points",
+          "simultaneous departure of multiple groups"
+        ],
+        "temporal_sequence": [
+          "11:15 PM: concert finish",
+          "11:15 PM: simultaneous departure of multiple groups",
+          "11:15 PM: slow dispersal and tailback formation"
+        ],
+        "spatial_location": "Yas Marina Circuit internal roads and exit to Sheikh Zayed bin Sultan Street",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Post-concert exit congestion due to simultaneous departure of multiple groups\",\n    \"mechanism\": \"concert finish \u2192 simultaneous departure of multiple groups \u2192 narrow exit points and multiple merge points \u2192 slow dispersal and tailback formation\",\n    \"contributing_factors\": [\"narrow exit points\", \"multiple merge points\", \"simultaneous departure of multiple groups\"],\n    \"temporal_sequence\": [\"11:15 PM: concert finish\", \"11:15 PM: simultaneous departure of multiple groups\", \"11:15 PM: slow dispersal and tailback formation\"],\n    \"spatial_location\": \"Yas Marina Circuit internal roads and exit to Sheikh Zayed bin Sultan Street\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 520,
+        "completion": 154,
+        "total": 674
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "F-03",
+    "explanation": "{\n    \"primary_cause\": \"Investment Bank employee's reckless driving due to inattention\",\n    \"mechanism\": \"employee distraction \u2192 loss of situational awareness \u2192 speeding \u2192 failure to yield \u2192 collision with pedestrian\",\n    \"contributing_factors\": [\"inadequate training\", \"insufficient supervision\", \"rush hour traffic\"],\n    \"temporal_sequence\": [\"8:10 AM: employee begins work shift\", \"8:15 AM: employee becomes distracted\", \"8:20 AM: employee speeds through intersection\", \"8:20 AM: collision with pedestrian\"],\n    \"spatial_location\": \"Wall Street and Broad Street intersection\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.064,
+        "reason": "Mechanism plausibility: 6.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.06703037768602371,
+          "step_match": 0.059999999999999984,
+          "combined_score": 0.06421822661161422,
+          "gt_mechanism": "Insider trading based on confidential information",
+          "llm_mechanism": "employee distraction \u2192 loss of situational awareness \u2192 speeding \u2192 failure to yield \u2192 collision with pedestrian",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Insider trading based on confidential information"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Insider trading based on confidential information"
+          ],
+          "core_factors": [
+            "Insider trading based on confidential information"
+          ],
+          "core_missing": [
+            "Insider trading based on confidential information"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Investment Bank employee's reckless driving due to inattention",
+        "mechanism": "employee distraction \u2192 loss of situational awareness \u2192 speeding \u2192 failure to yield \u2192 collision with pedestrian",
+        "contributing_factors": [
+          "inadequate training",
+          "insufficient supervision",
+          "rush hour traffic"
+        ],
+        "temporal_sequence": [
+          "8:10 AM: employee begins work shift",
+          "8:15 AM: employee becomes distracted",
+          "8:20 AM: employee speeds through intersection",
+          "8:20 AM: collision with pedestrian"
+        ],
+        "spatial_location": "Wall Street and Broad Street intersection",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Investment Bank employee's reckless driving due to inattention\",\n    \"mechanism\": \"employee distraction \u2192 loss of situational awareness \u2192 speeding \u2192 failure to yield \u2192 collision with pedestrian\",\n    \"contributing_factors\": [\"inadequate training\", \"insufficient supervision\", \"rush hour traffic\"],\n    \"temporal_sequence\": [\"8:10 AM: employee begins work shift\", \"8:15 AM: employee becomes distracted\", \"8:20 AM: employee speeds through intersection\", \"8:20 AM: collision with pedestrian\"],\n    \"spatial_location\": \"Wall Street and Broad Street intersection\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 444,
+        "completion": 141,
+        "total": 585
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-20a",
+    "explanation": "{\n    \"primary_cause\": \"Aquaplaning due to sudden heavy rain on wet road\",\n    \"mechanism\": \"rain \u2192 water layer buildup \u2192 tire lift-off \u2192 loss of directional control\",\n    \"contributing_factors\": [\"evening resident traffic\", \"wet road conditions\", \"high speed\"],\n    \"temporal_sequence\": [\"8:35 PM: sudden heavy rain\", \"8:35 PM: water layer buildup on Sheikh Rashid Bin Saeed Street curve\", \"8:35 PM: SUV aquaplanes\", \"8:35 PM: vehicle strikes guardrail\"],\n    \"spatial_location\": \"Sheikh Rashid Bin Saeed Street curve\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "wet road",
+              "type": "road"
+            },
+            {
+              "text": "Sheikh Rashid Bin Saeed Street",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.487,
+        "reason": "Mechanism plausibility: 48.7% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.5872248411178589,
+          "step_match": 0.33545454545454545,
+          "combined_score": 0.4865167228525335,
+          "gt_mechanism": "Speed + water depth \u2192 hydrodynamic lift exceeds tire load \u2192 complete loss of road contact \u2192 spin during curve negotiation \u2192 collision",
+          "llm_mechanism": "rain \u2192 water layer buildup \u2192 tire lift-off \u2192 loss of directional control",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Speed + water depth",
+            "hydrodynamic lift exceeds tire load",
+            "complete loss of road contact",
+            "spin during curve negotiation",
+            "collision"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Speed + water depth",
+            "hydrodynamic lift exceeds tire load",
+            "complete loss of road contact",
+            "spin during curve negotiation",
+            "collision"
+          ],
+          "core_factors": [
+            "Speed + water depth"
+          ],
+          "core_missing": [
+            "Speed + water depth"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Aquaplaning due to sudden heavy rain on wet road",
+        "mechanism": "rain \u2192 water layer buildup \u2192 tire lift-off \u2192 loss of directional control",
+        "contributing_factors": [
+          "evening resident traffic",
+          "wet road conditions",
+          "high speed"
+        ],
+        "temporal_sequence": [
+          "8:35 PM: sudden heavy rain",
+          "8:35 PM: water layer buildup on Sheikh Rashid Bin Saeed Street curve",
+          "8:35 PM: SUV aquaplanes",
+          "8:35 PM: vehicle strikes guardrail"
+        ],
+        "spatial_location": "Sheikh Rashid Bin Saeed Street curve",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Aquaplaning due to sudden heavy rain on wet road\",\n    \"mechanism\": \"rain \u2192 water layer buildup \u2192 tire lift-off \u2192 loss of directional control\",\n    \"contributing_factors\": [\"evening resident traffic\", \"wet road conditions\", \"high speed\"],\n    \"temporal_sequence\": [\"8:35 PM: sudden heavy rain\", \"8:35 PM: water layer buildup on Sheikh Rashid Bin Saeed Street curve\", \"8:35 PM: SUV aquaplanes\", \"8:35 PM: vehicle strikes guardrail\"],\n    \"spatial_location\": \"Sheikh Rashid Bin Saeed Street curve\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 520,
+        "completion": 153,
+        "total": 673
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "RM-01b",
+    "explanation": "{\n    \"primary_cause\": \"Road maintenance crews failed to provide advance warning signs for lane closure\",\n    \"mechanism\": \"road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision\",\n    \"contributing_factors\": [\"tailgating\", \"insufficient stopping distance\", \"morning rush traffic\"],\n    \"temporal_sequence\": [\"6:55 AM: lane closure occurs\", \"6:55 AM: lead driver brakes hard\", \"6:55 AM: three following vehicles collide\", \"7:00 AM: right lane remains closed\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.651,
+        "reason": "Mechanism plausibility: 65.1% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7744385600090027,
+          "step_match": 0.46499999999999997,
+          "combined_score": 0.6506631360054016,
+          "gt_mechanism": "Maintenance crews closed lane without required advance warning \u2192 lead driver encountered unexpected blockage \u2192 emergency braking \u2192 following vehicles unable to stop \u2192 chain rear-end collision",
+          "llm_mechanism": "road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Maintenance crews closed lane without required advance warning",
+            "lead driver encountered unexpected blockage",
+            "emergency braking",
+            "following vehicles unable to stop",
+            "chain rear-end collision"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Maintenance crews closed lane without required advance warning",
+            "lead driver encountered unexpected blockage",
+            "emergency braking",
+            "following vehicles unable to stop",
+            "chain rear-end collision"
+          ],
+          "core_factors": [
+            "Maintenance crews closed lane without required advance warning"
+          ],
+          "core_missing": [
+            "Maintenance crews closed lane without required advance warning"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Road maintenance crews failed to provide advance warning signs for lane closure",
+        "mechanism": "road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision",
+        "contributing_factors": [
+          "tailgating",
+          "insufficient stopping distance",
+          "morning rush traffic"
+        ],
+        "temporal_sequence": [
+          "6:55 AM: lane closure occurs",
+          "6:55 AM: lead driver brakes hard",
+          "6:55 AM: three following vehicles collide",
+          "7:00 AM: right lane remains closed"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Road maintenance crews failed to provide advance warning signs for lane closure\",\n    \"mechanism\": \"road maintenance crews \u2192 lane closure without warning signs \u2192 insufficient stopping distance for following vehicles \u2192 rear-end collision\",\n    \"contributing_factors\": [\"tailgating\", \"insufficient stopping distance\", \"morning rush traffic\"],\n    \"temporal_sequence\": [\"6:55 AM: lane closure occurs\", \"6:55 AM: lead driver brakes hard\", \"6:55 AM: three following vehicles collide\", \"7:00 AM: right lane remains closed\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 567,
+        "completion": 152,
+        "total": 719
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-03b",
+    "explanation": "{\n    \"primary_cause\": \"Strong westerly crosswind combined with dry but dusty conditions caused the truck to overturn.\",\n    \"mechanism\": \"gusts exceeding 65 km/h \u2192 strong westerly crosswind \u2192 dry but dusty conditions \u2192 loss of vehicle stability \u2192 truck overturning \u2192 collision with guardrail\",\n    \"contributing_factors\": [\"gusts exceeding 65 km/h\", \"dry but dusty conditions\", \"high-sided empty flatbed truck\"],\n    \"temporal_sequence\": [\"3:18 PM: gusts exceeding 65 km/h\", \"3:18 PM: truck overturns\", \"3:18 PM: collision with guardrail\", \"3:18 PM: steel coils spill across lanes\"],\n    \"spatial_location\": \"Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "Al Shahama exit",
+              "type": "area"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.644,
+        "reason": "Mechanism plausibility: 64.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.8097175359725952,
+          "step_match": 0.39583333333333337,
+          "combined_score": 0.6441638549168904,
+          "gt_mechanism": "Crosswind gusts \u2192 lateral force on vehicle side \u2192 torque exceeds stability \u2192 rollover \u2192 guardrail impact",
+          "llm_mechanism": "gusts exceeding 65 km/h \u2192 strong westerly crosswind \u2192 dry but dusty conditions \u2192 loss of vehicle stability \u2192 truck overturning \u2192 collision with guardrail",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Crosswind gusts",
+            "lateral force on vehicle side",
+            "torque exceeds stability",
+            "rollover",
+            "guardrail impact"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Crosswind gusts",
+            "lateral force on vehicle side",
+            "torque exceeds stability",
+            "rollover",
+            "guardrail impact"
+          ],
+          "core_factors": [
+            "Crosswind gusts"
+          ],
+          "core_missing": [
+            "Crosswind gusts"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Strong westerly crosswind combined with dry but dusty conditions caused the truck to overturn.",
+        "mechanism": "gusts exceeding 65 km/h \u2192 strong westerly crosswind \u2192 dry but dusty conditions \u2192 loss of vehicle stability \u2192 truck overturning \u2192 collision with guardrail",
+        "contributing_factors": [
+          "gusts exceeding 65 km/h",
+          "dry but dusty conditions",
+          "high-sided empty flatbed truck"
+        ],
+        "temporal_sequence": [
+          "3:18 PM: gusts exceeding 65 km/h",
+          "3:18 PM: truck overturns",
+          "3:18 PM: collision with guardrail",
+          "3:18 PM: steel coils spill across lanes"
+        ],
+        "spatial_location": "Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Strong westerly crosswind combined with dry but dusty conditions caused the truck to overturn.\",\n    \"mechanism\": \"gusts exceeding 65 km/h \u2192 strong westerly crosswind \u2192 dry but dusty conditions \u2192 loss of vehicle stability \u2192 truck overturning \u2192 collision with guardrail\",\n    \"contributing_factors\": [\"gusts exceeding 65 km/h\", \"dry but dusty conditions\", \"high-sided empty flatbed truck\"],\n    \"temporal_sequence\": [\"3:18 PM: gusts exceeding 65 km/h\", \"3:18 PM: truck overturns\", \"3:18 PM: collision with guardrail\", \"3:18 PM: steel coils spill across lanes\"],\n    \"spatial_location\": \"Sheikh Mohammed bin Zayed Road (E311) near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 558,
+        "completion": 186,
+        "total": 744
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "TA-01b",
+    "explanation": "{\n    \"primary_cause\": \"White sedan changed lanes without signaling into the path of a black SUV\",\n    \"mechanism\": \"White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV\",\n    \"contributing_factors\": [\"driver distraction\", \"failure to check blind spots\", \"excessive speed\"],\n    \"temporal_sequence\": [\"7:38 AM: white sedan changed lanes\", \"7:38 AM: black SUV braked hard\", \"7:38 AM: delivery van rear-ended black SUV\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.545,
+        "reason": "Mechanism plausibility: 54.5% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6479486227035522,
+          "step_match": 0.39,
+          "combined_score": 0.5447691736221314,
+          "gt_mechanism": "Sedan changed lanes without checking blind spot/adjacent lane \u2192 SUV forced to emergency brake \u2192 following van insufficient stopping distance \u2192 rear-end chain reaction",
+          "llm_mechanism": "White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": false,
+        "confidence": 0.04,
+        "reason": "9 spurious factor(s)",
+        "details": {
+          "violations": [
+            {
+              "factor": "White sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "White sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "white sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            }
+          ],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/4)",
+        "details": {
+          "required": [
+            "Sedan changed lanes without checking blind spot/adjacent lane",
+            "SUV forced to emergency brake",
+            "following van insufficient stopping distance",
+            "rear-end chain reaction"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Sedan changed lanes without checking blind spot/adjacent lane",
+            "SUV forced to emergency brake",
+            "following van insufficient stopping distance",
+            "rear-end chain reaction"
+          ],
+          "core_factors": [
+            "Sedan changed lanes without checking blind spot/adjacent lane"
+          ],
+          "core_missing": [
+            "Sedan changed lanes without checking blind spot/adjacent lane"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "White sedan changed lanes without signaling into the path of a black SUV",
+        "mechanism": "White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV",
+        "contributing_factors": [
+          "driver distraction",
+          "failure to check blind spots",
+          "excessive speed"
+        ],
+        "temporal_sequence": [
+          "7:38 AM: white sedan changed lanes",
+          "7:38 AM: black SUV braked hard",
+          "7:38 AM: delivery van rear-ended black SUV"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"White sedan changed lanes without signaling into the path of a black SUV\",\n    \"mechanism\": \"White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV\",\n    \"contributing_factors\": [\"driver distraction\", \"failure to check blind spots\", \"excessive speed\"],\n    \"temporal_sequence\": [\"7:38 AM: white sedan changed lanes\", \"7:38 AM: black SUV braked hard\", \"7:38 AM: delivery van rear-ended black SUV\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 529,
+        "completion": 153,
+        "total": 682
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "TA-14a",
+    "explanation": "{\n    \"primary_cause\": \"Following too closely on a wet road surface\",\n    \"mechanism\": \"heavy rain \u2192 wet road surface \u2192 reduced stopping distance \u2192 following too closely \u2192 collision with slowing sedan\",\n    \"contributing_factors\": [\"wet road surface\", \"evening commute\", \"following too closely\"],\n    \"temporal_sequence\": [\"6:30 PM: heavy rain ends, road remains wet\", \"6:30 PM: sedan slows down\", \"6:30 PM: van follows too closely\", \"6:30 PM: van rear-ends sedan\"],\n    \"spatial_location\": \"Airport Road\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "a wet road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.553,
+        "reason": "Mechanism plausibility: 55.3% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6803170442581177,
+          "step_match": 0.3626086956521739,
+          "combined_score": 0.5532337048157402,
+          "gt_mechanism": "Driver maintained dry-road following distance on wet surface \u2192 inadequate stopping distance when lead vehicle slowed \u2192 rear-end collision",
+          "llm_mechanism": "heavy rain \u2192 wet road surface \u2192 reduced stopping distance \u2192 following too closely \u2192 collision with slowing sedan",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/3)",
+        "details": {
+          "required": [
+            "Driver maintained dry-road following distance on wet surface",
+            "inadequate stopping distance when lead vehicle slowed",
+            "rear-end collision"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Driver maintained dry-road following distance on wet surface",
+            "inadequate stopping distance when lead vehicle slowed",
+            "rear-end collision"
+          ],
+          "core_factors": [
+            "Driver maintained dry-road following distance on wet surface"
+          ],
+          "core_missing": [
+            "Driver maintained dry-road following distance on wet surface"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Following too closely on a wet road surface",
+        "mechanism": "heavy rain \u2192 wet road surface \u2192 reduced stopping distance \u2192 following too closely \u2192 collision with slowing sedan",
+        "contributing_factors": [
+          "wet road surface",
+          "evening commute",
+          "following too closely"
+        ],
+        "temporal_sequence": [
+          "6:30 PM: heavy rain ends, road remains wet",
+          "6:30 PM: sedan slows down",
+          "6:30 PM: van follows too closely",
+          "6:30 PM: van rear-ends sedan"
+        ],
+        "spatial_location": "Airport Road",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Following too closely on a wet road surface\",\n    \"mechanism\": \"heavy rain \u2192 wet road surface \u2192 reduced stopping distance \u2192 following too closely \u2192 collision with slowing sedan\",\n    \"contributing_factors\": [\"wet road surface\", \"evening commute\", \"following too closely\"],\n    \"temporal_sequence\": [\"6:30 PM: heavy rain ends, road remains wet\", \"6:30 PM: sedan slows down\", \"6:30 PM: van follows too closely\", \"6:30 PM: van rear-ends sedan\"],\n    \"spatial_location\": \"Airport Road\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 486,
+        "completion": 140,
+        "total": 626
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "TA-08a",
+    "explanation": "{\n    \"primary_cause\": \"Lead vehicle braked suddenly for a stray goat crossing the road\",\n    \"mechanism\": \"stray goat \u2192 lead vehicle braking \u2192 sudden deceleration \u2192 insufficient stopping distance for following vehicles \u2192 chain collision\",\n    \"contributing_factors\": [\"dawn lighting\", \"dry road\", \"sudden braking\"],\n    \"temporal_sequence\": [\"6:45 AM: stray goat crosses road\", \"6:45 AM: lead vehicle brakes suddenly\", \"6:45 AM: chain collision occurs\"],\n    \"spatial_location\": \"Al Khaleej Al Arabi Street\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.516,
+        "reason": "Mechanism plausibility: 51.6% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6689762473106384,
+          "step_match": 0.2876923076923077,
+          "combined_score": 0.516462671463306,
+          "gt_mechanism": "Lead driver emergency braking in response to unexpected animal crossing \u2192 following drivers had insufficient gap/detection time \u2192 rear-end collisions",
+          "llm_mechanism": "stray goat \u2192 lead vehicle braking \u2192 sudden deceleration \u2192 insufficient stopping distance for following vehicles \u2192 chain collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/3)",
+        "details": {
+          "required": [
+            "Lead driver emergency braking in response to unexpected animal crossing",
+            "following drivers had insufficient gap/detection time",
+            "rear-end collisions"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Lead driver emergency braking in response to unexpected animal crossing",
+            "following drivers had insufficient gap/detection time",
+            "rear-end collisions"
+          ],
+          "core_factors": [
+            "Lead driver emergency braking in response to unexpected animal crossing"
+          ],
+          "core_missing": [
+            "Lead driver emergency braking in response to unexpected animal crossing"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Lead vehicle braked suddenly for a stray goat crossing the road",
+        "mechanism": "stray goat \u2192 lead vehicle braking \u2192 sudden deceleration \u2192 insufficient stopping distance for following vehicles \u2192 chain collision",
+        "contributing_factors": [
+          "dawn lighting",
+          "dry road",
+          "sudden braking"
+        ],
+        "temporal_sequence": [
+          "6:45 AM: stray goat crosses road",
+          "6:45 AM: lead vehicle brakes suddenly",
+          "6:45 AM: chain collision occurs"
+        ],
+        "spatial_location": "Al Khaleej Al Arabi Street",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Lead vehicle braked suddenly for a stray goat crossing the road\",\n    \"mechanism\": \"stray goat \u2192 lead vehicle braking \u2192 sudden deceleration \u2192 insufficient stopping distance for following vehicles \u2192 chain collision\",\n    \"contributing_factors\": [\"dawn lighting\", \"dry road\", \"sudden braking\"],\n    \"temporal_sequence\": [\"6:45 AM: stray goat crosses road\", \"6:45 AM: lead vehicle brakes suddenly\", \"6:45 AM: chain collision occurs\"],\n    \"spatial_location\": \"Al Khaleej Al Arabi Street\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 508,
+        "completion": 136,
+        "total": 644
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-06",
+    "explanation": "{\n    \"primary_cause\": \"Patient fell due to uneven floor in orthopedic ward\",\n    \"mechanism\": \"uneven floor \u2192 patient slips \u2192 fall \u2192 injury\",\n    \"contributing_factors\": [\"poor maintenance\", \"inadequate lighting\", \"patient's footwear\"],\n    \"temporal_sequence\": [\"8:00 AM: patient enters ward\", \"8:00 AM: patient notices uneven floor\", \"8:05 AM: patient slips and falls\", \"8:10 AM: patient reports injury\"],\n    \"spatial_location\": \"Orthopedic Ward, 3rd floor, Hospital Building\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.02,
+        "reason": "Mechanism plausibility: 2.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": -0.016641004011034966,
+          "step_match": 0.075,
+          "combined_score": 0.02001539759337902,
+          "gt_mechanism": "Incomplete discharge communication",
+          "llm_mechanism": "uneven floor \u2192 patient slips \u2192 fall \u2192 injury",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Incomplete discharge communication"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Incomplete discharge communication"
+          ],
+          "core_factors": [
+            "Incomplete discharge communication"
+          ],
+          "core_missing": [
+            "Incomplete discharge communication"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Patient fell due to uneven floor in orthopedic ward",
+        "mechanism": "uneven floor \u2192 patient slips \u2192 fall \u2192 injury",
+        "contributing_factors": [
+          "poor maintenance",
+          "inadequate lighting",
+          "patient's footwear"
+        ],
+        "temporal_sequence": [
+          "8:00 AM: patient enters ward",
+          "8:00 AM: patient notices uneven floor",
+          "8:05 AM: patient slips and falls",
+          "8:10 AM: patient reports injury"
+        ],
+        "spatial_location": "Orthopedic Ward, 3rd floor, Hospital Building",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Patient fell due to uneven floor in orthopedic ward\",\n    \"mechanism\": \"uneven floor \u2192 patient slips \u2192 fall \u2192 injury\",\n    \"contributing_factors\": [\"poor maintenance\", \"inadequate lighting\", \"patient's footwear\"],\n    \"temporal_sequence\": [\"8:00 AM: patient enters ward\", \"8:00 AM: patient notices uneven floor\", \"8:05 AM: patient slips and falls\", \"8:10 AM: patient reports injury\"],\n    \"spatial_location\": \"Orthopedic Ward, 3rd floor, Hospital Building\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 446,
+        "completion": 139,
+        "total": 585
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "PE-01a",
+    "explanation": "{\n    \"primary_cause\": \"Full road closure for New Year's Eve fireworks viewing zone setup\",\n    \"mechanism\": \"holiday anticipation traffic \u2192 rapid saturation of alternative routes \u2192 gridlock along Corniche Road\",\n    \"contributing_factors\": [\"holiday anticipation traffic\", \"rapid saturation of alternative routes\", \"designated fireworks safety perimeter\"],\n    \"temporal_sequence\": [\"9:45 PM: severe congestion develops\", \"9:45 PM: traffic diverted to parallel internal streets\", \"9:45 PM: rapid saturation of alternative routes occurs\"],\n    \"spatial_location\": \"Corniche Road both directions approaching Al Khalidiyah\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "Corniche Road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.448,
+        "reason": "Mechanism plausibility: 44.8% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.5276644229888916,
+          "step_match": 0.32870370370370366,
+          "combined_score": 0.44808013527481644,
+          "gt_mechanism": "Full road closure for fireworks safety zone \u2192 all traffic forced onto inadequate diversion routes \u2192 demand exceeded capacity of parallel streets \u2192 gridlock propagation",
+          "llm_mechanism": "holiday anticipation traffic \u2192 rapid saturation of alternative routes \u2192 gridlock along Corniche Road",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/4)",
+        "details": {
+          "required": [
+            "Full road closure for fireworks safety zone",
+            "all traffic forced onto inadequate diversion routes",
+            "demand exceeded capacity of parallel streets",
+            "gridlock propagation"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Full road closure for fireworks safety zone",
+            "all traffic forced onto inadequate diversion routes",
+            "demand exceeded capacity of parallel streets",
+            "gridlock propagation"
+          ],
+          "core_factors": [
+            "Full road closure for fireworks safety zone"
+          ],
+          "core_missing": [
+            "Full road closure for fireworks safety zone"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Full road closure for New Year's Eve fireworks viewing zone setup",
+        "mechanism": "holiday anticipation traffic \u2192 rapid saturation of alternative routes \u2192 gridlock along Corniche Road",
+        "contributing_factors": [
+          "holiday anticipation traffic",
+          "rapid saturation of alternative routes",
+          "designated fireworks safety perimeter"
+        ],
+        "temporal_sequence": [
+          "9:45 PM: severe congestion develops",
+          "9:45 PM: traffic diverted to parallel internal streets",
+          "9:45 PM: rapid saturation of alternative routes occurs"
+        ],
+        "spatial_location": "Corniche Road both directions approaching Al Khalidiyah",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Full road closure for New Year's Eve fireworks viewing zone setup\",\n    \"mechanism\": \"holiday anticipation traffic \u2192 rapid saturation of alternative routes \u2192 gridlock along Corniche Road\",\n    \"contributing_factors\": [\"holiday anticipation traffic\", \"rapid saturation of alternative routes\", \"designated fireworks safety perimeter\"],\n    \"temporal_sequence\": [\"9:45 PM: severe congestion develops\", \"9:45 PM: traffic diverted to parallel internal streets\", \"9:45 PM: rapid saturation of alternative routes occurs\"],\n    \"spatial_location\": \"Corniche Road both directions approaching Al Khalidiyah\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 567,
+        "completion": 141,
+        "total": 708
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "PE-07a",
+    "explanation": "{\n    \"primary_cause\": \"Large number of private vehicles arriving simultaneously for congregational prayer\",\n    \"mechanism\": \"thousands of worshippers arriving by private vehicle \u2192 limited parking and drop-off zones \u2192 congestion and queuing \u2192 spillover onto Al Khaleej Al Arabi Street\",\n    \"contributing_factors\": [\"limited parking and drop-off zones\", \"simultaneous arrival of thousands of vehicles\", \"private vehicle usage\"],\n    \"temporal_sequence\": [\"6:10 AM: worshippers arrive by private vehicle\", \"6:10 AM: congestion and queuing begin\", \"6:10 AM: spillover onto Al Khaleej Al Arabi Street\", \"9:00 AM: congestion resolves after prayer conclusion\"],\n    \"spatial_location\": \"Sheikh Zayed Grand Mosque access roads\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.455,
+        "reason": "Mechanism plausibility: 45.5% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6118811368942261,
+          "step_match": 0.22058823529411767,
+          "combined_score": 0.45536397625418273,
+          "gt_mechanism": "Religious holiday congregation \u2192 fixed prayer time \u2192 concentrated arrival \u2192 parking supply exceeded \u2192 circulating vehicles block access \u2192 queue spills to arterial",
+          "llm_mechanism": "thousands of worshippers arriving by private vehicle \u2192 limited parking and drop-off zones \u2192 congestion and queuing \u2192 spillover onto Al Khaleej Al Arabi Street",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/6)",
+        "details": {
+          "required": [
+            "Religious holiday congregation",
+            "fixed prayer time",
+            "concentrated arrival",
+            "parking supply exceeded",
+            "circulating vehicles block access",
+            "queue spills to arterial"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Religious holiday congregation",
+            "fixed prayer time",
+            "concentrated arrival",
+            "parking supply exceeded",
+            "circulating vehicles block access",
+            "queue spills to arterial"
+          ],
+          "core_factors": [
+            "Religious holiday congregation"
+          ],
+          "core_missing": [
+            "Religious holiday congregation"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Large number of private vehicles arriving simultaneously for congregational prayer",
+        "mechanism": "thousands of worshippers arriving by private vehicle \u2192 limited parking and drop-off zones \u2192 congestion and queuing \u2192 spillover onto Al Khaleej Al Arabi Street",
+        "contributing_factors": [
+          "limited parking and drop-off zones",
+          "simultaneous arrival of thousands of vehicles",
+          "private vehicle usage"
+        ],
+        "temporal_sequence": [
+          "6:10 AM: worshippers arrive by private vehicle",
+          "6:10 AM: congestion and queuing begin",
+          "6:10 AM: spillover onto Al Khaleej Al Arabi Street",
+          "9:00 AM: congestion resolves after prayer conclusion"
+        ],
+        "spatial_location": "Sheikh Zayed Grand Mosque access roads",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Large number of private vehicles arriving simultaneously for congregational prayer\",\n    \"mechanism\": \"thousands of worshippers arriving by private vehicle \u2192 limited parking and drop-off zones \u2192 congestion and queuing \u2192 spillover onto Al Khaleej Al Arabi Street\",\n    \"contributing_factors\": [\"limited parking and drop-off zones\", \"simultaneous arrival of thousands of vehicles\", \"private vehicle usage\"],\n    \"temporal_sequence\": [\"6:10 AM: worshippers arrive by private vehicle\", \"6:10 AM: congestion and queuing begin\", \"6:10 AM: spillover onto Al Khaleej Al Arabi Street\", \"9:00 AM: congestion resolves after prayer conclusion\"],\n    \"spatial_location\": \"Sheikh Zayed Grand Mosque access roads\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 550,
+        "completion": 180,
+        "total": 730
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-14b",
+    "explanation": "{\n    \"primary_cause\": \"Vehicle rear-ended due to driver distraction\",\n    \"mechanism\": \"driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision\",\n    \"contributing_factors\": [\"driver fatigue\", \"inadequate road lighting\", \"excessive speed\"],\n    \"temporal_sequence\": [\"9:10 PM: driver becomes distracted\", \"9:10 PM: driver fails to maintain safe following distance\", \"9:10 PM: rear-end collision occurs\", \"9:10 PM: multiple vehicles involved\"],\n    \"spatial_location\": \"I-405 Northbound near Sepulveda Boulevard\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.05,
+        "reason": "Mechanism plausibility: 5.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.016420962288975716,
+          "step_match": 0.1,
+          "combined_score": 0.049852577373385436,
+          "gt_mechanism": "Premature discharge due to bed pressure",
+          "llm_mechanism": "driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Premature discharge due to bed pressure"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Premature discharge due to bed pressure"
+          ],
+          "core_factors": [
+            "Premature discharge due to bed pressure"
+          ],
+          "core_missing": [
+            "Premature discharge due to bed pressure"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Vehicle rear-ended due to driver distraction",
+        "mechanism": "driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision",
+        "contributing_factors": [
+          "driver fatigue",
+          "inadequate road lighting",
+          "excessive speed"
+        ],
+        "temporal_sequence": [
+          "9:10 PM: driver becomes distracted",
+          "9:10 PM: driver fails to maintain safe following distance",
+          "9:10 PM: rear-end collision occurs",
+          "9:10 PM: multiple vehicles involved"
+        ],
+        "spatial_location": "I-405 Northbound near Sepulveda Boulevard",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Vehicle rear-ended due to driver distraction\",\n    \"mechanism\": \"driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision\",\n    \"contributing_factors\": [\"driver fatigue\", \"inadequate road lighting\", \"excessive speed\"],\n    \"temporal_sequence\": [\"9:10 PM: driver becomes distracted\", \"9:10 PM: driver fails to maintain safe following distance\", \"9:10 PM: rear-end collision occurs\", \"9:10 PM: multiple vehicles involved\"],\n    \"spatial_location\": \"I-405 Northbound near Sepulveda Boulevard\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 446,
+        "completion": 140,
+        "total": 586
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-03",
+    "explanation": "{\n    \"primary_cause\": \"Operating room equipment malfunction due to improper maintenance\",\n    \"mechanism\": \"improper maintenance \u2192 equipment failure \u2192 loss of critical life support \u2192 patient injury\",\n    \"contributing_factors\": [\"inadequate training\", \"insufficient resources\", \"human error\"],\n    \"temporal_sequence\": [\"8:00 AM: equipment inspection\", \"8:00 AM: maintenance personnel depart\", \"9:00 AM: equipment failure\", \"9:00 AM: patient injury\"],\n    \"spatial_location\": \"Operating Room 3, Hospital Wing A\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.151,
+        "reason": "Mechanism plausibility: 15.1% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.2019304782152176,
+          "step_match": 0.075,
+          "combined_score": 0.15115828692913055,
+          "gt_mechanism": "Post-operative infection from unrecognized colonization",
+          "llm_mechanism": "improper maintenance \u2192 equipment failure \u2192 loss of critical life support \u2192 patient injury",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Post-operative infection from unrecognized colonization"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Post-operative infection from unrecognized colonization"
+          ],
+          "core_factors": [
+            "Post-operative infection from unrecognized colonization"
+          ],
+          "core_missing": [
+            "Post-operative infection from unrecognized colonization"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Operating room equipment malfunction due to improper maintenance",
+        "mechanism": "improper maintenance \u2192 equipment failure \u2192 loss of critical life support \u2192 patient injury",
+        "contributing_factors": [
+          "inadequate training",
+          "insufficient resources",
+          "human error"
+        ],
+        "temporal_sequence": [
+          "8:00 AM: equipment inspection",
+          "8:00 AM: maintenance personnel depart",
+          "9:00 AM: equipment failure",
+          "9:00 AM: patient injury"
+        ],
+        "spatial_location": "Operating Room 3, Hospital Wing A",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Operating room equipment malfunction due to improper maintenance\",\n    \"mechanism\": \"improper maintenance \u2192 equipment failure \u2192 loss of critical life support \u2192 patient injury\",\n    \"contributing_factors\": [\"inadequate training\", \"insufficient resources\", \"human error\"],\n    \"temporal_sequence\": [\"8:00 AM: equipment inspection\", \"8:00 AM: maintenance personnel depart\", \"9:00 AM: equipment failure\", \"9:00 AM: patient injury\"],\n    \"spatial_location\": \"Operating Room 3, Hospital Wing A\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 444,
+        "completion": 131,
+        "total": 575
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "F-07b",
+    "explanation": "{\n    \"primary_cause\": \"Vehicle collision due to driver distraction\",\n    \"mechanism\": \"driver distraction \u2192 inattention \u2192 failure to yield \u2192 collision with oncoming vehicle\",\n    \"contributing_factors\": [\"driver fatigue\", \"inadequate road signage\", \"excessive speed\"],\n    \"temporal_sequence\": [\"8:10 AM: driver starts driving\", \"8:10 AM: driver receives phone call\", \"8:10 AM: driver becomes distracted\", \"8:10 AM: collision occurs\"],\n    \"spatial_location\": \"Highway 401 eastbound near exit 378\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.157,
+        "reason": "Mechanism plausibility: 15.7% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.1765129715204239,
+          "step_match": 0.12884615384615383,
+          "combined_score": 0.15744624445071587,
+          "gt_mechanism": "Failure to read and disclose product risk",
+          "llm_mechanism": "driver distraction \u2192 inattention \u2192 failure to yield \u2192 collision with oncoming vehicle",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Failure to read and disclose product risk"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Failure to read and disclose product risk"
+          ],
+          "core_factors": [
+            "Failure to read and disclose product risk"
+          ],
+          "core_missing": [
+            "Failure to read and disclose product risk"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Vehicle collision due to driver distraction",
+        "mechanism": "driver distraction \u2192 inattention \u2192 failure to yield \u2192 collision with oncoming vehicle",
+        "contributing_factors": [
+          "driver fatigue",
+          "inadequate road signage",
+          "excessive speed"
+        ],
+        "temporal_sequence": [
+          "8:10 AM: driver starts driving",
+          "8:10 AM: driver receives phone call",
+          "8:10 AM: driver becomes distracted",
+          "8:10 AM: collision occurs"
+        ],
+        "spatial_location": "Highway 401 eastbound near exit 378",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Vehicle collision due to driver distraction\",\n    \"mechanism\": \"driver distraction \u2192 inattention \u2192 failure to yield \u2192 collision with oncoming vehicle\",\n    \"contributing_factors\": [\"driver fatigue\", \"inadequate road signage\", \"excessive speed\"],\n    \"temporal_sequence\": [\"8:10 AM: driver starts driving\", \"8:10 AM: driver receives phone call\", \"8:10 AM: driver becomes distracted\", \"8:10 AM: collision occurs\"],\n    \"spatial_location\": \"Highway 401 eastbound near exit 378\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 446,
+        "completion": 135,
+        "total": 581
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "PE-06b",
+    "explanation": "{\n    \"primary_cause\": \"Concentrated arrival of 25,000 attendees caused a bottleneck at the single main access point with security screening.\",\n    \"mechanism\": \"large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation\",\n    \"contributing_factors\": [\"single main access point\", \"security screening\", \"weekday after-work traffic overlap\"],\n    \"temporal_sequence\": [\"5:55 PM: ingress queue forms\", \"5:55 PM: attendees arrive in concentrated window\", \"6:00 PM: queue begins to form\", \"8:30 PM: queue clears\"],\n    \"spatial_location\": \"Yas Leisure Drive approaching du Arena\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.674,
+        "reason": "Mechanism plausibility: 67.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7736592888832092,
+          "step_match": 0.525,
+          "combined_score": 0.6741955733299255,
+          "gt_mechanism": "Event start time fixed \u2192 attendees arrive in narrow window \u2192 access point with security screening has fixed processing rate \u2192 arrival rate exceeds processing rate \u2192 queue formation and propagation",
+          "llm_mechanism": "large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Event start time fixed",
+            "attendees arrive in narrow window",
+            "access point with security screening has fixed processing rate",
+            "arrival rate exceeds processing rate",
+            "queue formation and propagation"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Event start time fixed",
+            "attendees arrive in narrow window",
+            "access point with security screening has fixed processing rate",
+            "arrival rate exceeds processing rate",
+            "queue formation and propagation"
+          ],
+          "core_factors": [
+            "Event start time fixed"
+          ],
+          "core_missing": [
+            "Event start time fixed"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Concentrated arrival of 25,000 attendees caused a bottleneck at the single main access point with security screening.",
+        "mechanism": "large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation",
+        "contributing_factors": [
+          "single main access point",
+          "security screening",
+          "weekday after-work traffic overlap"
+        ],
+        "temporal_sequence": [
+          "5:55 PM: ingress queue forms",
+          "5:55 PM: attendees arrive in concentrated window",
+          "6:00 PM: queue begins to form",
+          "8:30 PM: queue clears"
+        ],
+        "spatial_location": "Yas Leisure Drive approaching du Arena",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Concentrated arrival of 25,000 attendees caused a bottleneck at the single main access point with security screening.\",\n    \"mechanism\": \"large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation\",\n    \"contributing_factors\": [\"single main access point\", \"security screening\", \"weekday after-work traffic overlap\"],\n    \"temporal_sequence\": [\"5:55 PM: ingress queue forms\", \"5:55 PM: attendees arrive in concentrated window\", \"6:00 PM: queue begins to form\", \"8:30 PM: queue clears\"],\n    \"spatial_location\": \"Yas Leisure Drive approaching du Arena\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 535,
+        "completion": 157,
+        "total": 692
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "TA-17a",
+    "explanation": "{\n    \"primary_cause\": \"Driver failed to secure parked car door\",\n    \"mechanism\": \"driver \u2192 parked car door left open \u2192 cyclist struck door \u2192 cyclist fell\",\n    \"contributing_factors\": [\"dedicated cycling lane marked\", \"cyclist not paying attention\", \"driver distraction\"],\n    \"temporal_sequence\": [\"7:55 AM: cyclist approaches parked car\", \"7:55 AM: driver fails to secure door\", \"7:55 AM: cyclist struck door\"],\n    \"spatial_location\": \"Corniche Road\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.624,
+        "reason": "Mechanism plausibility: 62.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7986916303634644,
+          "step_match": 0.3608695652173913,
+          "combined_score": 0.6235628043050351,
+          "gt_mechanism": "Vehicle occupant opened door without checking for approaching cyclist \u2192 door occupied cyclist's path \u2192 cyclist unable to avoid \u2192 collision with door followed by fall",
+          "llm_mechanism": "driver \u2192 parked car door left open \u2192 cyclist struck door \u2192 cyclist fell",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/4)",
+        "details": {
+          "required": [
+            "Vehicle occupant opened door without checking for approaching cyclist",
+            "door occupied cyclist's path",
+            "cyclist unable to avoid",
+            "collision with door followed by fall"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Vehicle occupant opened door without checking for approaching cyclist",
+            "door occupied cyclist's path",
+            "cyclist unable to avoid",
+            "collision with door followed by fall"
+          ],
+          "core_factors": [
+            "Vehicle occupant opened door without checking for approaching cyclist"
+          ],
+          "core_missing": [
+            "Vehicle occupant opened door without checking for approaching cyclist"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Driver failed to secure parked car door",
+        "mechanism": "driver \u2192 parked car door left open \u2192 cyclist struck door \u2192 cyclist fell",
+        "contributing_factors": [
+          "dedicated cycling lane marked",
+          "cyclist not paying attention",
+          "driver distraction"
+        ],
+        "temporal_sequence": [
+          "7:55 AM: cyclist approaches parked car",
+          "7:55 AM: driver fails to secure door",
+          "7:55 AM: cyclist struck door"
+        ],
+        "spatial_location": "Corniche Road",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Driver failed to secure parked car door\",\n    \"mechanism\": \"driver \u2192 parked car door left open \u2192 cyclist struck door \u2192 cyclist fell\",\n    \"contributing_factors\": [\"dedicated cycling lane marked\", \"cyclist not paying attention\", \"driver distraction\"],\n    \"temporal_sequence\": [\"7:55 AM: cyclist approaches parked car\", \"7:55 AM: driver fails to secure door\", \"7:55 AM: cyclist struck door\"],\n    \"spatial_location\": \"Corniche Road\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 491,
+        "completion": 123,
+        "total": 614
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "F-05b",
+    "explanation": "{\n    \"primary_cause\": \"Vehicle rear-ended due to driver distraction\",\n    \"mechanism\": \"driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision\",\n    \"contributing_factors\": [\"driver fatigue\", \"inadequate road signage\", \"excessive speed\"],\n    \"temporal_sequence\": [\"2:15 PM: driver becomes distracted\", \"2:15 PM: driver fails to maintain safe following distance\", \"2:15 PM: rear-end collision occurs\"],\n    \"spatial_location\": \"Bank Street and Elgin Street intersection\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.05,
+        "reason": "Mechanism plausibility: 5.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.01731138676404953,
+          "step_match": 0.1,
+          "combined_score": 0.050386832058429726,
+          "gt_mechanism": "Batch processing error causing payment delay",
+          "llm_mechanism": "driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Batch processing error causing payment delay"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Batch processing error causing payment delay"
+          ],
+          "core_factors": [
+            "Batch processing error causing payment delay"
+          ],
+          "core_missing": [
+            "Batch processing error causing payment delay"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Vehicle rear-ended due to driver distraction",
+        "mechanism": "driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision",
+        "contributing_factors": [
+          "driver fatigue",
+          "inadequate road signage",
+          "excessive speed"
+        ],
+        "temporal_sequence": [
+          "2:15 PM: driver becomes distracted",
+          "2:15 PM: driver fails to maintain safe following distance",
+          "2:15 PM: rear-end collision occurs"
+        ],
+        "spatial_location": "Bank Street and Elgin Street intersection",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Vehicle rear-ended due to driver distraction\",\n    \"mechanism\": \"driver distraction \u2192 failure to maintain safe following distance \u2192 rear-end collision\",\n    \"contributing_factors\": [\"driver fatigue\", \"inadequate road signage\", \"excessive speed\"],\n    \"temporal_sequence\": [\"2:15 PM: driver becomes distracted\", \"2:15 PM: driver fails to maintain safe following distance\", \"2:15 PM: rear-end collision occurs\"],\n    \"spatial_location\": \"Bank Street and Elgin Street intersection\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 445,
+        "completion": 126,
+        "total": 571
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "TA-01",
+    "explanation": "{\n    \"primary_cause\": \"White sedan changed lanes without signaling into the path of a black SUV\",\n    \"mechanism\": \"White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV\",\n    \"contributing_factors\": [\"driver distraction\", \"failure to check blind spots\", \"excessive speed\"],\n    \"temporal_sequence\": [\"7:38 AM: white sedan changed lanes\", \"7:38 AM: black SUV braked hard\", \"7:38 AM: delivery van rear-ended black SUV\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.545,
+        "reason": "Mechanism plausibility: 54.5% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6479486227035522,
+          "step_match": 0.39,
+          "combined_score": 0.5447691736221314,
+          "gt_mechanism": "Sedan changed lanes without checking blind spot/adjacent lane \u2192 SUV forced to emergency brake \u2192 following van insufficient stopping distance \u2192 rear-end chain reaction",
+          "llm_mechanism": "White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": false,
+        "confidence": 0.04,
+        "reason": "9 spurious factor(s)",
+        "details": {
+          "violations": [
+            {
+              "factor": "White sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "White sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "white sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "black SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            }
+          ],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/4)",
+        "details": {
+          "required": [
+            "Sedan changed lanes without checking blind spot/adjacent lane",
+            "SUV forced to emergency brake",
+            "following van insufficient stopping distance",
+            "rear-end chain reaction"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Sedan changed lanes without checking blind spot/adjacent lane",
+            "SUV forced to emergency brake",
+            "following van insufficient stopping distance",
+            "rear-end chain reaction"
+          ],
+          "core_factors": [
+            "Sedan changed lanes without checking blind spot/adjacent lane"
+          ],
+          "core_missing": [
+            "Sedan changed lanes without checking blind spot/adjacent lane"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "White sedan changed lanes without signaling into the path of a black SUV",
+        "mechanism": "White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV",
+        "contributing_factors": [
+          "driver distraction",
+          "failure to check blind spots",
+          "excessive speed"
+        ],
+        "temporal_sequence": [
+          "7:38 AM: white sedan changed lanes",
+          "7:38 AM: black SUV braked hard",
+          "7:38 AM: delivery van rear-ended black SUV"
+        ],
+        "spatial_location": "Sheikh Zayed Road southbound near Al Khail interchange",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"White sedan changed lanes without signaling into the path of a black SUV\",\n    \"mechanism\": \"White sedan \u2192 changed lanes without signaling \u2192 into the path of a black SUV \u2192 black SUV braked hard \u2192 delivery van rear-ended black SUV\",\n    \"contributing_factors\": [\"driver distraction\", \"failure to check blind spots\", \"excessive speed\"],\n    \"temporal_sequence\": [\"7:38 AM: white sedan changed lanes\", \"7:38 AM: black SUV braked hard\", \"7:38 AM: delivery van rear-ended black SUV\"],\n    \"spatial_location\": \"Sheikh Zayed Road southbound near Al Khail interchange\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 529,
+        "completion": 153,
+        "total": 682
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-07b",
+    "explanation": "{\n    \"primary_cause\": \"Pedestrian collision with vehicle due to failure to follow traffic signals\",\n    \"mechanism\": \"pedestrian failure to follow traffic signals \u2192 pedestrian enters intersection against red light \u2192 vehicle collision with pedestrian\",\n    \"contributing_factors\": [\"pedestrian distraction\", \"driver inattention\", \"inadequate pedestrian infrastructure\"],\n    \"temporal_sequence\": [\"8:10 AM: pedestrian enters intersection\", \"8:10 AM: pedestrian collides with vehicle\", \"8:10 AM: emergency services arrive\"],\n    \"spatial_location\": \"Oncology Clinic intersection\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.18,
+        "reason": "Mechanism plausibility: 18.0% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.16672655940055847,
+          "step_match": 0.2,
+          "combined_score": 0.1800359356403351,
+          "gt_mechanism": "Radiology report misfiling \u2192 delayed follow-up",
+          "llm_mechanism": "pedestrian failure to follow traffic signals \u2192 pedestrian enters intersection against red light \u2192 vehicle collision with pedestrian",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/2)",
+        "details": {
+          "required": [
+            "Radiology report misfiling",
+            "delayed follow-up"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Radiology report misfiling",
+            "delayed follow-up"
+          ],
+          "core_factors": [
+            "Radiology report misfiling"
+          ],
+          "core_missing": [
+            "Radiology report misfiling"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Pedestrian collision with vehicle due to failure to follow traffic signals",
+        "mechanism": "pedestrian failure to follow traffic signals \u2192 pedestrian enters intersection against red light \u2192 vehicle collision with pedestrian",
+        "contributing_factors": [
+          "pedestrian distraction",
+          "driver inattention",
+          "inadequate pedestrian infrastructure"
+        ],
+        "temporal_sequence": [
+          "8:10 AM: pedestrian enters intersection",
+          "8:10 AM: pedestrian collides with vehicle",
+          "8:10 AM: emergency services arrive"
+        ],
+        "spatial_location": "Oncology Clinic intersection",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Pedestrian collision with vehicle due to failure to follow traffic signals\",\n    \"mechanism\": \"pedestrian failure to follow traffic signals \u2192 pedestrian enters intersection against red light \u2192 vehicle collision with pedestrian\",\n    \"contributing_factors\": [\"pedestrian distraction\", \"driver inattention\", \"inadequate pedestrian infrastructure\"],\n    \"temporal_sequence\": [\"8:10 AM: pedestrian enters intersection\", \"8:10 AM: pedestrian collides with vehicle\", \"8:10 AM: emergency services arrive\"],\n    \"spatial_location\": \"Oncology Clinic intersection\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 447,
+        "completion": 136,
+        "total": 583
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-06b",
+    "explanation": "{\n    \"primary_cause\": \"Dense fog reduced visibility, leading to a rear-end collision.\",\n    \"mechanism\": \"dense fog \u2192 reduced visibility \u2192 tailgating \u2192 lead vehicle braking \u2192 rear-end collision\",\n    \"contributing_factors\": [\"wet roads\", \"morning mist\", \"barely visible pedestrian crossing\"],\n    \"temporal_sequence\": [\"7:03 AM: dense fog and wet roads\", \"7:03 AM: lead minibus brakes for pedestrian crossing\", \"7:03 AM: tailgating taxi, SUV, and sedan collide\"],\n    \"spatial_location\": \"Corniche intersection approaching Al Wahda Mall\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.601,
+        "reason": "Mechanism plausibility: 60.1% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7521519660949707,
+          "step_match": 0.3733333333333333,
+          "combined_score": 0.6006245129903157,
+          "gt_mechanism": "Dense fog \u2192 reduced sight distance \u2192 delayed perception of braking \u2192 insufficient time/distance to stop given wet road friction",
+          "llm_mechanism": "dense fog \u2192 reduced visibility \u2192 tailgating \u2192 lead vehicle braking \u2192 rear-end collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.25,
+        "reason": "Coverage: 25.0% (1/4)",
+        "details": {
+          "required": [
+            "Dense fog",
+            "reduced sight distance",
+            "delayed perception of braking",
+            "insufficient time/distance to stop given wet road friction"
+          ],
+          "mentioned": [
+            "Dense fog"
+          ],
+          "missing": [
+            "reduced sight distance",
+            "delayed perception of braking",
+            "insufficient time/distance to stop given wet road friction"
+          ],
+          "core_factors": [
+            "Dense fog"
+          ],
+          "core_missing": [],
+          "coverage": 0.25,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Dense fog reduced visibility, leading to a rear-end collision.",
+        "mechanism": "dense fog \u2192 reduced visibility \u2192 tailgating \u2192 lead vehicle braking \u2192 rear-end collision",
+        "contributing_factors": [
+          "wet roads",
+          "morning mist",
+          "barely visible pedestrian crossing"
+        ],
+        "temporal_sequence": [
+          "7:03 AM: dense fog and wet roads",
+          "7:03 AM: lead minibus brakes for pedestrian crossing",
+          "7:03 AM: tailgating taxi, SUV, and sedan collide"
+        ],
+        "spatial_location": "Corniche intersection approaching Al Wahda Mall",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Dense fog reduced visibility, leading to a rear-end collision.\",\n    \"mechanism\": \"dense fog \u2192 reduced visibility \u2192 tailgating \u2192 lead vehicle braking \u2192 rear-end collision\",\n    \"contributing_factors\": [\"wet roads\", \"morning mist\", \"barely visible pedestrian crossing\"],\n    \"temporal_sequence\": [\"7:03 AM: dense fog and wet roads\", \"7:03 AM: lead minibus brakes for pedestrian crossing\", \"7:03 AM: tailgating taxi, SUV, and sedan collide\"],\n    \"spatial_location\": \"Corniche intersection approaching Al Wahda Mall\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 537,
+        "completion": 145,
+        "total": 682
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-10",
+    "explanation": "{\n    \"primary_cause\": \"Driver error due to distraction while operating vehicle\",\n    \"mechanism\": \"driver distraction \u2192 inattention to road \u2192 failure to yield to pedestrian \u2192 collision with pedestrian\",\n    \"contributing_factors\": [\"inadequate driver training\", \"excessive use of mobile phone\", \"fatigued driving\"],\n    \"temporal_sequence\": [\"9:10 AM: driver starts driving\", \"9:10 AM: driver receives phone call\", \"9:10 AM: driver fails to yield to pedestrian\", \"9:10 AM: collision with pedestrian\"],\n    \"spatial_location\": \"Main Street near City Hall\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "to road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.142,
+        "reason": "Mechanism plausibility: 14.2% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.14439493417739868,
+          "step_match": 0.1386363636363636,
+          "combined_score": 0.14209150596098466,
+          "gt_mechanism": "Failure to check drug-drug interaction",
+          "llm_mechanism": "driver distraction \u2192 inattention to road \u2192 failure to yield to pedestrian \u2192 collision with pedestrian",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Failure to check drug-drug interaction"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Failure to check drug-drug interaction"
+          ],
+          "core_factors": [
+            "Failure to check drug-drug interaction"
+          ],
+          "core_missing": [
+            "Failure to check drug-drug interaction"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Driver error due to distraction while operating vehicle",
+        "mechanism": "driver distraction \u2192 inattention to road \u2192 failure to yield to pedestrian \u2192 collision with pedestrian",
+        "contributing_factors": [
+          "inadequate driver training",
+          "excessive use of mobile phone",
+          "fatigued driving"
+        ],
+        "temporal_sequence": [
+          "9:10 AM: driver starts driving",
+          "9:10 AM: driver receives phone call",
+          "9:10 AM: driver fails to yield to pedestrian",
+          "9:10 AM: collision with pedestrian"
+        ],
+        "spatial_location": "Main Street near City Hall",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Driver error due to distraction while operating vehicle\",\n    \"mechanism\": \"driver distraction \u2192 inattention to road \u2192 failure to yield to pedestrian \u2192 collision with pedestrian\",\n    \"contributing_factors\": [\"inadequate driver training\", \"excessive use of mobile phone\", \"fatigued driving\"],\n    \"temporal_sequence\": [\"9:10 AM: driver starts driving\", \"9:10 AM: driver receives phone call\", \"9:10 AM: driver fails to yield to pedestrian\", \"9:10 AM: collision with pedestrian\"],\n    \"spatial_location\": \"Main Street near City Hall\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 445,
+        "completion": 143,
+        "total": 588
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "RM-03a",
+    "explanation": "{\n    \"primary_cause\": \"Temporary concrete barrier placed 30 cm too far into travel lane\",\n    \"mechanism\": \"median repair \u2192 barrier placement error \u2192 lane width reduction \u2192 driver swerve \u2192 collision with adjacent vehicle\",\n    \"contributing_factors\": [\"mid-week commercial traffic\", \"clear visibility\", \"dry road\"],\n    \"temporal_sequence\": [\"2:40 PM: median repair begins\", \"2:40 PM: barrier placement error\", \"2:40 PM: lane width reduction\", \"2:40 PM: driver swerve and collision\"],\n    \"spatial_location\": \"E311 Sheikh Mohammed bin Zayed Road near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "Al Shahama exit",
+              "type": "area"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.548,
+        "reason": "Mechanism plausibility: 54.8% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6116701364517212,
+          "step_match": 0.45304347826086955,
+          "combined_score": 0.5482194731753806,
+          "gt_mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane \u2192 lane width insufficient for vehicle envelope \u2192 driver encroached into adjacent lane \u2192 sideswipe collision",
+          "llm_mechanism": "median repair \u2192 barrier placement error \u2192 lane width reduction \u2192 driver swerve \u2192 collision with adjacent vehicle",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/4)",
+        "details": {
+          "required": [
+            "Maintenance crew positioned barrier with inadequate offset from travel lane",
+            "lane width insufficient for vehicle envelope",
+            "driver encroached into adjacent lane",
+            "sideswipe collision"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Maintenance crew positioned barrier with inadequate offset from travel lane",
+            "lane width insufficient for vehicle envelope",
+            "driver encroached into adjacent lane",
+            "sideswipe collision"
+          ],
+          "core_factors": [
+            "Maintenance crew positioned barrier with inadequate offset from travel lane"
+          ],
+          "core_missing": [
+            "Maintenance crew positioned barrier with inadequate offset from travel lane"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Temporary concrete barrier placed 30 cm too far into travel lane",
+        "mechanism": "median repair \u2192 barrier placement error \u2192 lane width reduction \u2192 driver swerve \u2192 collision with adjacent vehicle",
+        "contributing_factors": [
+          "mid-week commercial traffic",
+          "clear visibility",
+          "dry road"
+        ],
+        "temporal_sequence": [
+          "2:40 PM: median repair begins",
+          "2:40 PM: barrier placement error",
+          "2:40 PM: lane width reduction",
+          "2:40 PM: driver swerve and collision"
+        ],
+        "spatial_location": "E311 Sheikh Mohammed bin Zayed Road near Al Shahama exit",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Temporary concrete barrier placed 30 cm too far into travel lane\",\n    \"mechanism\": \"median repair \u2192 barrier placement error \u2192 lane width reduction \u2192 driver swerve \u2192 collision with adjacent vehicle\",\n    \"contributing_factors\": [\"mid-week commercial traffic\", \"clear visibility\", \"dry road\"],\n    \"temporal_sequence\": [\"2:40 PM: median repair begins\", \"2:40 PM: barrier placement error\", \"2:40 PM: lane width reduction\", \"2:40 PM: driver swerve and collision\"],\n    \"spatial_location\": \"E311 Sheikh Mohammed bin Zayed Road near Al Shahama exit\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 549,
+        "completion": 148,
+        "total": 697
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "RM-10a",
+    "explanation": "{\n    \"primary_cause\": \"Scaffolding was positioned below minimum clearance height\",\n    \"mechanism\": \"scaffolding below minimum clearance height \u2192 impact with high-sided truck \u2192 debris dislodged \u2192 debris falls \u2192 three-car chain collision\",\n    \"contributing_factors\": [\"high-sided truck\", \"overhanging scaffolding\", \"following drivers' hard braking\"],\n    \"temporal_sequence\": [\"10:40 AM: scaffolding positioned below minimum clearance height\", \"10:40 AM: high-sided truck strikes scaffolding\", \"10:40 AM: debris falls and chain collision ensues\", \"10:40 AM: road closed for debris clearance\"],\n    \"spatial_location\": \"Al Bateen Street\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.661,
+        "reason": "Mechanism plausibility: 66.1% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.752922534942627,
+          "step_match": 0.524,
+          "combined_score": 0.6613535209655761,
+          "gt_mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles \u2192 high-sided truck impact \u2192 debris fall \u2192 hazard avoidance \u2192 secondary collisions",
+          "llm_mechanism": "scaffolding below minimum clearance height \u2192 impact with high-sided truck \u2192 debris dislodged \u2192 debris falls \u2192 three-car chain collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.16,
+        "reason": "Coverage: 20.0% (1/5)",
+        "details": {
+          "required": [
+            "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles",
+            "high-sided truck impact",
+            "debris fall",
+            "hazard avoidance",
+            "secondary collisions"
+          ],
+          "mentioned": [
+            "debris fall"
+          ],
+          "missing": [
+            "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles",
+            "high-sided truck impact",
+            "hazard avoidance",
+            "secondary collisions"
+          ],
+          "core_factors": [
+            "hazard avoidance"
+          ],
+          "core_missing": [
+            "hazard avoidance"
+          ],
+          "coverage": 0.2,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Scaffolding was positioned below minimum clearance height",
+        "mechanism": "scaffolding below minimum clearance height \u2192 impact with high-sided truck \u2192 debris dislodged \u2192 debris falls \u2192 three-car chain collision",
+        "contributing_factors": [
+          "high-sided truck",
+          "overhanging scaffolding",
+          "following drivers' hard braking"
+        ],
+        "temporal_sequence": [
+          "10:40 AM: scaffolding positioned below minimum clearance height",
+          "10:40 AM: high-sided truck strikes scaffolding",
+          "10:40 AM: debris falls and chain collision ensues",
+          "10:40 AM: road closed for debris clearance"
+        ],
+        "spatial_location": "Al Bateen Street",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Scaffolding was positioned below minimum clearance height\",\n    \"mechanism\": \"scaffolding below minimum clearance height \u2192 impact with high-sided truck \u2192 debris dislodged \u2192 debris falls \u2192 three-car chain collision\",\n    \"contributing_factors\": [\"high-sided truck\", \"overhanging scaffolding\", \"following drivers' hard braking\"],\n    \"temporal_sequence\": [\"10:40 AM: scaffolding positioned below minimum clearance height\", \"10:40 AM: high-sided truck strikes scaffolding\", \"10:40 AM: debris falls and chain collision ensues\", \"10:40 AM: road closed for debris clearance\"],\n    \"spatial_location\": \"Al Bateen Street\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 548,
+        "completion": 160,
+        "total": 708
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "PE-06",
+    "explanation": "{\n    \"primary_cause\": \"Concentrated arrival of 25,000 attendees caused a bottleneck at the single main access point with security screening.\",\n    \"mechanism\": \"large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation\",\n    \"contributing_factors\": [\"single main access point\", \"security screening\", \"weekday after-work traffic overlap\"],\n    \"temporal_sequence\": [\"5:55 PM: ingress queue forms\", \"5:55 PM: attendees arrive in concentrated window\", \"6:55 PM: queue reaches 2.9 km back to E10\", \"8:30 PM: queue clears\"],\n    \"spatial_location\": \"Yas Leisure Drive approaching du Arena\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.674,
+        "reason": "Mechanism plausibility: 67.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7736592888832092,
+          "step_match": 0.525,
+          "combined_score": 0.6741955733299255,
+          "gt_mechanism": "Event start time fixed \u2192 attendees arrive in narrow window \u2192 access point with security screening has fixed processing rate \u2192 arrival rate exceeds processing rate \u2192 queue formation and propagation",
+          "llm_mechanism": "large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Event start time fixed",
+            "attendees arrive in narrow window",
+            "access point with security screening has fixed processing rate",
+            "arrival rate exceeds processing rate",
+            "queue formation and propagation"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Event start time fixed",
+            "attendees arrive in narrow window",
+            "access point with security screening has fixed processing rate",
+            "arrival rate exceeds processing rate",
+            "queue formation and propagation"
+          ],
+          "core_factors": [
+            "Event start time fixed"
+          ],
+          "core_missing": [
+            "Event start time fixed"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Concentrated arrival of 25,000 attendees caused a bottleneck at the single main access point with security screening.",
+        "mechanism": "large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation",
+        "contributing_factors": [
+          "single main access point",
+          "security screening",
+          "weekday after-work traffic overlap"
+        ],
+        "temporal_sequence": [
+          "5:55 PM: ingress queue forms",
+          "5:55 PM: attendees arrive in concentrated window",
+          "6:55 PM: queue reaches 2.9 km back to E10",
+          "8:30 PM: queue clears"
+        ],
+        "spatial_location": "Yas Leisure Drive approaching du Arena",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Concentrated arrival of 25,000 attendees caused a bottleneck at the single main access point with security screening.\",\n    \"mechanism\": \"large number of attendees \u2192 concentrated arrival window \u2192 single main access point \u2192 security screening bottleneck \u2192 vehicle queue formation\",\n    \"contributing_factors\": [\"single main access point\", \"security screening\", \"weekday after-work traffic overlap\"],\n    \"temporal_sequence\": [\"5:55 PM: ingress queue forms\", \"5:55 PM: attendees arrive in concentrated window\", \"6:55 PM: queue reaches 2.9 km back to E10\", \"8:30 PM: queue clears\"],\n    \"spatial_location\": \"Yas Leisure Drive approaching du Arena\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 525,
+        "completion": 164,
+        "total": 689
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "F-04a",
+    "explanation": "{\n    \"primary_cause\": \"Risk management failure due to excessive leverage\",\n    \"mechanism\": \"excessive leverage \u2192 increased collateral requirements \u2192 inability to meet margin calls \u2192 forced liquidation of positions \u2192 market losses\",\n    \"contributing_factors\": [\"aggressive investment strategy\", \"inadequate risk assessment\", \"market volatility\"],\n    \"temporal_sequence\": [\"2022-01-01: excessive leverage taken\", \"2022-01-15: market downturn begins\", \"2022-01-20: margin calls issued\", \"2022-01-25: forced liquidation\"],\n    \"spatial_location\": \"Global financial markets\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.473,
+        "reason": "Mechanism plausibility: 47.3% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.69272381067276,
+          "step_match": 0.14235294117647057,
+          "combined_score": 0.47257546287424423,
+          "gt_mechanism": "Excessive leverage without risk limits",
+          "llm_mechanism": "excessive leverage \u2192 increased collateral requirements \u2192 inability to meet margin calls \u2192 forced liquidation of positions \u2192 market losses",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Excessive leverage without risk limits"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Excessive leverage without risk limits"
+          ],
+          "core_factors": [
+            "Excessive leverage without risk limits"
+          ],
+          "core_missing": [
+            "Excessive leverage without risk limits"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Risk management failure due to excessive leverage",
+        "mechanism": "excessive leverage \u2192 increased collateral requirements \u2192 inability to meet margin calls \u2192 forced liquidation of positions \u2192 market losses",
+        "contributing_factors": [
+          "aggressive investment strategy",
+          "inadequate risk assessment",
+          "market volatility"
+        ],
+        "temporal_sequence": [
+          "2022-01-01: excessive leverage taken",
+          "2022-01-15: market downturn begins",
+          "2022-01-20: margin calls issued",
+          "2022-01-25: forced liquidation"
+        ],
+        "spatial_location": "Global financial markets",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Risk management failure due to excessive leverage\",\n    \"mechanism\": \"excessive leverage \u2192 increased collateral requirements \u2192 inability to meet margin calls \u2192 forced liquidation of positions \u2192 market losses\",\n    \"contributing_factors\": [\"aggressive investment strategy\", \"inadequate risk assessment\", \"market volatility\"],\n    \"temporal_sequence\": [\"2022-01-01: excessive leverage taken\", \"2022-01-15: market downturn begins\", \"2022-01-20: margin calls issued\", \"2022-01-25: forced liquidation\"],\n    \"spatial_location\": \"Global financial markets\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 457,
+        "completion": 145,
+        "total": 602
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-16",
+    "explanation": "{\n    \"primary_cause\": \"Flooding due to rapid ponding in depression caused by short but torrential rain\",\n    \"mechanism\": \"short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end\",\n    \"contributing_factors\": [\"heavy rain\", \"insufficient drainage capacity\", \"multiple vehicles stalled in water\"],\n    \"temporal_sequence\": [\"5:55 PM: short but torrential rain overwhelms drainage at Al Quoz underpass\", \"5:55 PM: flooding to 20 cm\", \"5:55 PM: multiple vehicles stalled in water\", \"5:55 PM: following pickup failed to stop \u2192 rear-ended sedan\"],\n    \"spatial_location\": \"Al Quoz underpass\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.454,
+        "reason": "Mechanism plausibility: 45.4% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.5548744797706604,
+          "step_match": 0.3038461538461539,
+          "combined_score": 0.45446314940085775,
+          "gt_mechanism": "Rapid water accumulation \u2192 vehicle attempts passage \u2192 water enters air intake \u2192 engine hydro-lock \u2192 sudden stall \u2192 following vehicle collision",
+          "llm_mechanism": "short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.133,
+        "reason": "Coverage: 16.7% (1/6)",
+        "details": {
+          "required": [
+            "Rapid water accumulation",
+            "vehicle attempts passage",
+            "water enters air intake",
+            "engine hydro-lock",
+            "sudden stall",
+            "following vehicle collision"
+          ],
+          "mentioned": [
+            "engine hydro-lock"
+          ],
+          "missing": [
+            "Rapid water accumulation",
+            "vehicle attempts passage",
+            "water enters air intake",
+            "sudden stall",
+            "following vehicle collision"
+          ],
+          "core_factors": [
+            "Rapid water accumulation"
+          ],
+          "core_missing": [
+            "Rapid water accumulation"
+          ],
+          "coverage": 0.16666666666666666,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Flooding due to rapid ponding in depression caused by short but torrential rain",
+        "mechanism": "short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end",
+        "contributing_factors": [
+          "heavy rain",
+          "insufficient drainage capacity",
+          "multiple vehicles stalled in water"
+        ],
+        "temporal_sequence": [
+          "5:55 PM: short but torrential rain overwhelms drainage at Al Quoz underpass",
+          "5:55 PM: flooding to 20 cm",
+          "5:55 PM: multiple vehicles stalled in water",
+          "5:55 PM: following pickup failed to stop \u2192 rear-ended sedan"
+        ],
+        "spatial_location": "Al Quoz underpass",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Flooding due to rapid ponding in depression caused by short but torrential rain\",\n    \"mechanism\": \"short but torrential rain \u2192 rapid ponding in depression \u2192 flooding \u2192 engine hydro-lock/stalled vehicles \u2192 chain rear-end\",\n    \"contributing_factors\": [\"heavy rain\", \"insufficient drainage capacity\", \"multiple vehicles stalled in water\"],\n    \"temporal_sequence\": [\"5:55 PM: short but torrential rain overwhelms drainage at Al Quoz underpass\", \"5:55 PM: flooding to 20 cm\", \"5:55 PM: multiple vehicles stalled in water\", \"5:55 PM: following pickup failed to stop \u2192 rear-ended sedan\"],\n    \"spatial_location\": \"Al Quoz underpass\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 536,
+        "completion": 171,
+        "total": 707
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "TA-02a",
+    "explanation": "{\n    \"primary_cause\": \"Grey SUV ran a red light\",\n    \"mechanism\": \"Driver of grey SUV failed to obey traffic signal \u2192 grey SUV ran red light \u2192 collision with blue sedan\",\n    \"contributing_factors\": [\"Driver distraction\", \"Driver error\", \"Traffic signal timing normal\"],\n    \"temporal_sequence\": [\"2:15 PM: grey SUV runs red light\", \"2:15 PM: collision with blue sedan\", \"2:15-4:05 PM: intersection blocked for investigation\"],\n    \"spatial_location\": \"Intersection of Al Maryah Street and Corniche Road\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "of Al Maryah Street and Corniche Road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.559,
+        "reason": "Mechanism plausibility: 55.9% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.6421829462051392,
+          "step_match": 0.4333333333333333,
+          "combined_score": 0.5586431010564168,
+          "gt_mechanism": "Driver failed to stop at red signal \u2192 entered intersection at speed \u2192 perpendicular impact with crossing vehicle",
+          "llm_mechanism": "Driver of grey SUV failed to obey traffic signal \u2192 grey SUV ran red light \u2192 collision with blue sedan",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": false,
+        "confidence": 0.118,
+        "reason": "6 spurious factor(s)",
+        "details": {
+          "violations": [
+            {
+              "factor": "Grey SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "grey SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "grey SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "blue sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "grey SUV",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            },
+            {
+              "factor": "blue sedan",
+              "pattern": "vehicle_color",
+              "reason": "Vehicle color is not causally related"
+            }
+          ],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/3)",
+        "details": {
+          "required": [
+            "Driver failed to stop at red signal",
+            "entered intersection at speed",
+            "perpendicular impact with crossing vehicle"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Driver failed to stop at red signal",
+            "entered intersection at speed",
+            "perpendicular impact with crossing vehicle"
+          ],
+          "core_factors": [
+            "Driver failed to stop at red signal"
+          ],
+          "core_missing": [
+            "Driver failed to stop at red signal"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Grey SUV ran a red light",
+        "mechanism": "Driver of grey SUV failed to obey traffic signal \u2192 grey SUV ran red light \u2192 collision with blue sedan",
+        "contributing_factors": [
+          "Driver distraction",
+          "Driver error",
+          "Traffic signal timing normal"
+        ],
+        "temporal_sequence": [
+          "2:15 PM: grey SUV runs red light",
+          "2:15 PM: collision with blue sedan",
+          "2:15-4:05 PM: intersection blocked for investigation"
+        ],
+        "spatial_location": "Intersection of Al Maryah Street and Corniche Road",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Grey SUV ran a red light\",\n    \"mechanism\": \"Driver of grey SUV failed to obey traffic signal \u2192 grey SUV ran red light \u2192 collision with blue sedan\",\n    \"contributing_factors\": [\"Driver distraction\", \"Driver error\", \"Traffic signal timing normal\"],\n    \"temporal_sequence\": [\"2:15 PM: grey SUV runs red light\", \"2:15 PM: collision with blue sedan\", \"2:15-4:05 PM: intersection blocked for investigation\"],\n    \"spatial_location\": \"Intersection of Al Maryah Street and Corniche Road\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 529,
+        "completion": 136,
+        "total": 665
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "H-13",
+    "explanation": "{\n    \"primary_cause\": \"Blood bank vehicle collision due to reckless driving\",\n    \"mechanism\": \"reckless driving \u2192 loss of control \u2192 collision with other vehicle \u2192 damage to blood bank vehicle\",\n    \"contributing_factors\": [\"excessive speed\", \"failure to yield\", \"distracted driving\"],\n    \"temporal_sequence\": [\"8:10 AM: blood bank vehicle begins delivery\", \"8:10 AM: reckless driver approaches intersection\", \"8:10 AM: collision occurs\", \"8:10 AM: blood bank vehicle sustains damage\"],\n    \"spatial_location\": \"intersection of Main Street and Oak Avenue\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "of Main Street",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": false,
+        "confidence": 0.172,
+        "reason": "Mechanism plausibility: 17.2% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.20129962265491486,
+          "step_match": 0.12884615384615383,
+          "combined_score": 0.17231823513141042,
+          "gt_mechanism": "Bedside blood sample mislabeling",
+          "llm_mechanism": "reckless driving \u2192 loss of control \u2192 collision with other vehicle \u2192 damage to blood bank vehicle",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Bedside blood sample mislabeling"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Bedside blood sample mislabeling"
+          ],
+          "core_factors": [
+            "Bedside blood sample mislabeling"
+          ],
+          "core_missing": [
+            "Bedside blood sample mislabeling"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Blood bank vehicle collision due to reckless driving",
+        "mechanism": "reckless driving \u2192 loss of control \u2192 collision with other vehicle \u2192 damage to blood bank vehicle",
+        "contributing_factors": [
+          "excessive speed",
+          "failure to yield",
+          "distracted driving"
+        ],
+        "temporal_sequence": [
+          "8:10 AM: blood bank vehicle begins delivery",
+          "8:10 AM: reckless driver approaches intersection",
+          "8:10 AM: collision occurs",
+          "8:10 AM: blood bank vehicle sustains damage"
+        ],
+        "spatial_location": "intersection of Main Street and Oak Avenue",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Blood bank vehicle collision due to reckless driving\",\n    \"mechanism\": \"reckless driving \u2192 loss of control \u2192 collision with other vehicle \u2192 damage to blood bank vehicle\",\n    \"contributing_factors\": [\"excessive speed\", \"failure to yield\", \"distracted driving\"],\n    \"temporal_sequence\": [\"8:10 AM: blood bank vehicle begins delivery\", \"8:10 AM: reckless driver approaches intersection\", \"8:10 AM: collision occurs\", \"8:10 AM: blood bank vehicle sustains damage\"],\n    \"spatial_location\": \"intersection of Main Street and Oak Avenue\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 444,
+        "completion": 142,
+        "total": 586
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "WD-06a",
+    "explanation": "{\n    \"primary_cause\": \"Dense fog reduced visibility, causing the lead minibus to brake suddenly.\",\n    \"mechanism\": \"dense fog \u2192 reduced visibility \u2192 lead minibus braking \u2192 tailgating taxi, SUV, and sedan collision\",\n    \"contributing_factors\": [\"wet roads\", \"tailgating\", \"barely visible pedestrian crossing\"],\n    \"temporal_sequence\": [\"7:03 AM: dense fog reduces visibility\", \"7:03 AM: lead minibus brakes for pedestrian crossing\", \"7:03 AM: tailgating taxi, SUV, and sedan collide\"],\n    \"spatial_location\": \"Khalifa Street approaching Al Wahda Mall\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.597,
+        "reason": "Mechanism plausibility: 59.7% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7167240977287292,
+          "step_match": 0.41666666666666663,
+          "combined_score": 0.5967011253039042,
+          "gt_mechanism": "Dense fog \u2192 reduced sight distance \u2192 delayed perception of braking \u2192 insufficient time/distance to stop given wet road friction",
+          "llm_mechanism": "dense fog \u2192 reduced visibility \u2192 lead minibus braking \u2192 tailgating taxi, SUV, and sedan collision",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.25,
+        "reason": "Coverage: 25.0% (1/4)",
+        "details": {
+          "required": [
+            "Dense fog",
+            "reduced sight distance",
+            "delayed perception of braking",
+            "insufficient time/distance to stop given wet road friction"
+          ],
+          "mentioned": [
+            "Dense fog"
+          ],
+          "missing": [
+            "reduced sight distance",
+            "delayed perception of braking",
+            "insufficient time/distance to stop given wet road friction"
+          ],
+          "core_factors": [
+            "Dense fog"
+          ],
+          "core_missing": [],
+          "coverage": 0.25,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Dense fog reduced visibility, causing the lead minibus to brake suddenly.",
+        "mechanism": "dense fog \u2192 reduced visibility \u2192 lead minibus braking \u2192 tailgating taxi, SUV, and sedan collision",
+        "contributing_factors": [
+          "wet roads",
+          "tailgating",
+          "barely visible pedestrian crossing"
+        ],
+        "temporal_sequence": [
+          "7:03 AM: dense fog reduces visibility",
+          "7:03 AM: lead minibus brakes for pedestrian crossing",
+          "7:03 AM: tailgating taxi, SUV, and sedan collide"
+        ],
+        "spatial_location": "Khalifa Street approaching Al Wahda Mall",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Dense fog reduced visibility, causing the lead minibus to brake suddenly.\",\n    \"mechanism\": \"dense fog \u2192 reduced visibility \u2192 lead minibus braking \u2192 tailgating taxi, SUV, and sedan collision\",\n    \"contributing_factors\": [\"wet roads\", \"tailgating\", \"barely visible pedestrian crossing\"],\n    \"temporal_sequence\": [\"7:03 AM: dense fog reduces visibility\", \"7:03 AM: lead minibus brakes for pedestrian crossing\", \"7:03 AM: tailgating taxi, SUV, and sedan collide\"],\n    \"spatial_location\": \"Khalifa Street approaching Al Wahda Mall\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 539,
+        "completion": 151,
+        "total": 690
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "PE-03",
+    "explanation": "{\n    \"primary_cause\": \"Simultaneous departure of 120,000+ spectators from Formula 1 Grand Prix event\",\n    \"mechanism\": \"large number of spectators departing simultaneously \u2192 limited exit capacity (three lanes) \u2192 slow discharge rate \u2192 queue extension onto main highway\",\n    \"contributing_factors\": [\"limited exit capacity\", \"weekend leisure traffic\", \"minor fender-bender collision\"],\n    \"temporal_sequence\": [\"6:40 PM: spectators depart\", \"6:40 PM: queue begins to form\", \"10:20 PM: queue clears\"],\n    \"spatial_location\": \"Yas Island exit ramp of Sheikh Zayed bin Sultan Street\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "onto main highway",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.579,
+        "reason": "Mechanism plausibility: 57.9% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7269700765609741,
+          "step_match": 0.35666666666666663,
+          "combined_score": 0.5788487126032511,
+          "gt_mechanism": "Event conclusion \u2192 concentrated departure demand \u2192 exit lane capacity saturated \u2192 discharge rate < arrival rate at exit \u2192 queue formation and upstream propagation",
+          "llm_mechanism": "large number of spectators departing simultaneously \u2192 limited exit capacity (three lanes) \u2192 slow discharge rate \u2192 queue extension onto main highway",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/5)",
+        "details": {
+          "required": [
+            "Event conclusion",
+            "concentrated departure demand",
+            "exit lane capacity saturated",
+            "discharge rate < arrival rate at exit",
+            "queue formation and upstream propagation"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Event conclusion",
+            "concentrated departure demand",
+            "exit lane capacity saturated",
+            "discharge rate < arrival rate at exit",
+            "queue formation and upstream propagation"
+          ],
+          "core_factors": [
+            "Event conclusion"
+          ],
+          "core_missing": [
+            "Event conclusion"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Simultaneous departure of 120,000+ spectators from Formula 1 Grand Prix event",
+        "mechanism": "large number of spectators departing simultaneously \u2192 limited exit capacity (three lanes) \u2192 slow discharge rate \u2192 queue extension onto main highway",
+        "contributing_factors": [
+          "limited exit capacity",
+          "weekend leisure traffic",
+          "minor fender-bender collision"
+        ],
+        "temporal_sequence": [
+          "6:40 PM: spectators depart",
+          "6:40 PM: queue begins to form",
+          "10:20 PM: queue clears"
+        ],
+        "spatial_location": "Yas Island exit ramp of Sheikh Zayed bin Sultan Street",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Simultaneous departure of 120,000+ spectators from Formula 1 Grand Prix event\",\n    \"mechanism\": \"large number of spectators departing simultaneously \u2192 limited exit capacity (three lanes) \u2192 slow discharge rate \u2192 queue extension onto main highway\",\n    \"contributing_factors\": [\"limited exit capacity\", \"weekend leisure traffic\", \"minor fender-bender collision\"],\n    \"temporal_sequence\": [\"6:40 PM: spectators depart\", \"6:40 PM: queue begins to form\", \"10:20 PM: queue clears\"],\n    \"spatial_location\": \"Yas Island exit ramp of Sheikh Zayed bin Sultan Street\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 549,
+        "completion": 150,
+        "total": 699
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "RM-11",
+    "explanation": "{\n    \"primary_cause\": \"Vehicle skidded on freshly painted road markings that had not dried\",\n    \"mechanism\": \"night marking works \u2192 wet thermoplastic paint \u2192 loss of lateral grip \u2192 vehicle understeered off road and rolled\",\n    \"contributing_factors\": [\"morning traffic\", \"freshly painted road markings\", \"wet road\"],\n    \"temporal_sequence\": [\"7:00 AM: road reopened\", \"7:25 AM: vehicle encountered wet paint\", \"7:25 AM: vehicle skidded and rolled\"],\n    \"spatial_location\": \"Saadiyat Island link road\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [
+            {
+              "text": "freshly painted road",
+              "type": "road"
+            }
+          ],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.583,
+        "reason": "Mechanism plausibility: 58.3% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7477738857269287,
+          "step_match": 0.3354838709677419,
+          "combined_score": 0.582857879823254,
+          "gt_mechanism": "Thermoplastic markings applied overnight \u2192 insufficient drying/cooling time \u2192 road reopened while paint still wet \u2192 vehicle on curve exceeded friction available from wet paint \u2192 loss of control \u2192 off-road rollover",
+          "llm_mechanism": "night marking works \u2192 wet thermoplastic paint \u2192 loss of lateral grip \u2192 vehicle understeered off road and rolled",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/6)",
+        "details": {
+          "required": [
+            "Thermoplastic markings applied overnight",
+            "insufficient drying/cooling time",
+            "road reopened while paint still wet",
+            "vehicle on curve exceeded friction available from wet paint",
+            "loss of control",
+            "off-road rollover"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Thermoplastic markings applied overnight",
+            "insufficient drying/cooling time",
+            "road reopened while paint still wet",
+            "vehicle on curve exceeded friction available from wet paint",
+            "loss of control",
+            "off-road rollover"
+          ],
+          "core_factors": [
+            "Thermoplastic markings applied overnight"
+          ],
+          "core_missing": [
+            "Thermoplastic markings applied overnight"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Vehicle skidded on freshly painted road markings that had not dried",
+        "mechanism": "night marking works \u2192 wet thermoplastic paint \u2192 loss of lateral grip \u2192 vehicle understeered off road and rolled",
+        "contributing_factors": [
+          "morning traffic",
+          "freshly painted road markings",
+          "wet road"
+        ],
+        "temporal_sequence": [
+          "7:00 AM: road reopened",
+          "7:25 AM: vehicle encountered wet paint",
+          "7:25 AM: vehicle skidded and rolled"
+        ],
+        "spatial_location": "Saadiyat Island link road",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Vehicle skidded on freshly painted road markings that had not dried\",\n    \"mechanism\": \"night marking works \u2192 wet thermoplastic paint \u2192 loss of lateral grip \u2192 vehicle understeered off road and rolled\",\n    \"contributing_factors\": [\"morning traffic\", \"freshly painted road markings\", \"wet road\"],\n    \"temporal_sequence\": [\"7:00 AM: road reopened\", \"7:25 AM: vehicle encountered wet paint\", \"7:25 AM: vehicle skidded and rolled\"],\n    \"spatial_location\": \"Saadiyat Island link road\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 546,
+        "completion": 140,
+        "total": 686
+      },
+      "structured": true,
+      "error": null
+    }
+  },
+  {
+    "scenario_id": "F-03a",
+    "explanation": "{\n    \"primary_cause\": \"Insider trading due to information barriers and non-compliance with policies\",\n    \"mechanism\": \"insider access to confidential information \u2192 information barriers failure \u2192 non-compliance with insider trading policies \u2192 unauthorized trading \u2192 financial losses\",\n    \"contributing_factors\": [\"lack of effective compliance monitoring\", \"insider's intent to profit\", \"poor risk management\"],\n    \"temporal_sequence\": [\"January 2022: insider gains access to confidential information\", \"February 2022: insider begins unauthorized trading\", \"March 2022: financial losses detected\"],\n    \"spatial_location\": \"Investment Bank headquarters\",\n    \"confidence\": 0.95\n}",
+    "checks": {
+      "C1": {
+        "checker": "C1",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "All temporal relationships valid",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "claims_found": 0
+        }
+      },
+      "C2": {
+        "checker": "C2",
+        "passed": true,
+        "confidence": 0.5,
+        "reason": "No locations in scenario to verify against",
+        "details": {
+          "mentioned_locations": [],
+          "used_structured": false
+        }
+      },
+      "C3": {
+        "checker": "C3",
+        "passed": true,
+        "confidence": 0.566,
+        "reason": "Mechanism plausibility: 56.6% similarity to ground truth",
+        "details": {
+          "used_structured": false,
+          "similarity": 0.7593339681625366,
+          "step_match": 0.2753846153846154,
+          "combined_score": 0.5657542270513681,
+          "gt_mechanism": "Insider trading based on confidential information",
+          "llm_mechanism": "insider access to confidential information \u2192 information barriers failure \u2192 non-compliance with insider trading policies \u2192 unauthorized trading \u2192 financial losses",
+          "threshold": 0.4
+        }
+      },
+      "C4": {
+        "checker": "C4",
+        "passed": true,
+        "confidence": 1.0,
+        "reason": "No spurious correlations detected",
+        "details": {
+          "violations": [],
+          "used_structured": false,
+          "structured_factors_checked": []
+        }
+      },
+      "C5": {
+        "checker": "C5",
+        "passed": true,
+        "confidence": 0.0,
+        "reason": "Coverage: 0.0% (0/1)",
+        "details": {
+          "required": [
+            "Insider trading based on confidential information"
+          ],
+          "mentioned": [],
+          "missing": [
+            "Insider trading based on confidential information"
+          ],
+          "core_factors": [
+            "Insider trading based on confidential information"
+          ],
+          "core_missing": [
+            "Insider trading based on confidential information"
+          ],
+          "coverage": 0.0,
+          "threshold": 0.5,
+          "used_structured": false,
+          "partial_matches": []
+        }
+      }
+    },
+    "llm_result": {
+      "structured_output": {
+        "primary_cause": "Insider trading due to information barriers and non-compliance with policies",
+        "mechanism": "insider access to confidential information \u2192 information barriers failure \u2192 non-compliance with insider trading policies \u2192 unauthorized trading \u2192 financial losses",
+        "contributing_factors": [
+          "lack of effective compliance monitoring",
+          "insider's intent to profit",
+          "poor risk management"
+        ],
+        "temporal_sequence": [
+          "January 2022: insider gains access to confidential information",
+          "February 2022: insider begins unauthorized trading",
+          "March 2022: financial losses detected"
+        ],
+        "spatial_location": "Investment Bank headquarters",
+        "confidence": 0.95
+      },
+      "explanation": "{\n    \"primary_cause\": \"Insider trading due to information barriers and non-compliance with policies\",\n    \"mechanism\": \"insider access to confidential information \u2192 information barriers failure \u2192 non-compliance with insider trading policies \u2192 unauthorized trading \u2192 financial losses\",\n    \"contributing_factors\": [\"lack of effective compliance monitoring\", \"insider's intent to profit\", \"poor risk management\"],\n    \"temporal_sequence\": [\"January 2022: insider gains access to confidential information\", \"February 2022: insider begins unauthorized trading\", \"March 2022: financial losses detected\"],\n    \"spatial_location\": \"Investment Bank headquarters\",\n    \"confidence\": 0.95\n}",
+      "model": "llama-3.1-8b-instant",
+      "tokens": {
+        "prompt": 454,
+        "completion": 144,
+        "total": 598
+      },
+      "structured": true,
+      "error": null
+    }
+  }
+]

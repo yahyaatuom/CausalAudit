@@ -15,7 +15,7 @@ load_dotenv(env_path)
 
 
 class GroqLLM:
-    def __init__(self, model="llama-3.1-8b-versatile"):
+    def __init__(self, model="llama-3.1-8b-instant"):
         """
         Initialize Groq LLM client with structured output support.
         
