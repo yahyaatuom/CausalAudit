@@ -1,0 +1,23 @@
+{
+  "run_id": "a111e115",
+  "timestamp": "20260623_194648",
+  "model": "llama-3.3-70b-versatile",
+  "train_scenarios": 129,
+  "test_scenarios": 0,
+  "train_summary": {
+    "set_name": "training",
+    "total": 129,
+    "pass_rates": {
+      "C1": 100.0,
+      "C2": 100.0,
+      "C3": 65.89147286821705,
+      "C4": 96.12403100775194,
+      "C5": 100.0
+    },
+    "accuracy": {
+      "C1": 26.356589147286826,
+      "C4": 0.0
+    }
+  },
+  "test_summary": null
+}

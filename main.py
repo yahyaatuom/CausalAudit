@@ -40,7 +40,7 @@ class Config:
     # Model settings
     EMBEDDING_MODEL = "all-MiniLM-L6-v2"
     FALLBACK_EMBEDDING = "paraphrase-MiniLM-L3-v2"
-    LLM_MODEL = "llama-3.3-70b-versatile"
+    LLM_MODEL = "qwen/qwen3-32b"
     
     # Data settings
     SCENARIOS_PATH = Path(__file__).parent / "data" / "json" / "scenarios.json"
@@ -125,6 +125,7 @@ class Database:
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
         
+        # Main results table
         cur.execute("""
             CREATE TABLE IF NOT EXISTS causal_audit_logs (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -139,8 +140,23 @@ class Database:
             )
         """)
         
-        # Create index for faster queries
+        # Checkpoint table for resuming
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS evaluation_checkpoints (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                run_id TEXT,
+                set_name TEXT,
+                last_scenario_index INTEGER,
+                processed_count INTEGER,
+                total_count INTEGER,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(run_id, set_name)
+            )
+        """)
+        
+        # Create indexes
         cur.execute("CREATE INDEX IF NOT EXISTS idx_scenario_run ON causal_audit_logs(scenario_id, run_id)")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_checkpoint_run ON evaluation_checkpoints(run_id, set_name)")
         
         conn.commit()
         conn.close()
@@ -193,6 +209,58 @@ class Database:
         except Exception as e:
             Logger.error(f"Database error: {e}")
             return False
+    
+    def save_checkpoint(self, run_id: str, set_name: str, last_index: int, processed: int, total: int):
+        """Save checkpoint for resuming."""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            
+            cur.execute("""
+                INSERT OR REPLACE INTO evaluation_checkpoints 
+                (run_id, set_name, last_scenario_index, processed_count, total_count, timestamp)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                run_id,
+                set_name,
+                last_index,
+                processed,
+                total,
+                datetime.now().isoformat()
+            ))
+            
+            conn.commit()
+            conn.close()
+            
+        except Exception as e:
+            Logger.warning(f"Could not save checkpoint: {e}")
+    
+    def get_checkpoint(self, run_id: str, set_name: str) -> Optional[Dict]:
+        """Get checkpoint for a run and set."""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            
+            cur.execute("""
+                SELECT last_scenario_index, processed_count, total_count
+                FROM evaluation_checkpoints
+                WHERE run_id = ? AND set_name = ?
+            """, (run_id, set_name))
+            
+            row = cur.fetchone()
+            conn.close()
+            
+            if row:
+                return {
+                    'last_index': row[0],
+                    'processed_count': row[1],
+                    'total_count': row[2]
+                }
+            return None
+            
+        except Exception as e:
+            Logger.warning(f"Could not get checkpoint: {e}")
+            return None
 
 
 # ============================================================
@@ -392,25 +460,68 @@ class ScenarioProcessor:
 # ============================================================
 
 class Evaluator:
-    """Evaluate Causal-Guard performance."""
+    """Evaluate Causal-Guard performance with resume capability."""
     
     def __init__(self, processor: ScenarioProcessor, db: Database):
         self.processor = processor
         self.db = db
     
-    def evaluate(self, scenarios: List[Dict], set_name: str) -> List[Dict]:
-        """Run evaluation on a set of scenarios."""
-        Logger.section(f"EVALUATING ON {set_name.upper()} SET ({len(scenarios)} scenarios)")
+    def evaluate(self, scenarios: List[Dict], set_name: str, 
+                 resume: bool = True, run_id: str = None) -> Tuple[List[Dict], int]:
+        """
+        Run evaluation on a set of scenarios with resume capability.
         
+        Returns:
+            Tuple of (results, processed_count)
+        """
+        if run_id is None:
+            run_id = Config.RUN_ID
+        
+        total = len(scenarios)
+        start_index = 0
         results = []
-        for i, scenario in enumerate(scenarios):
-            result = self.processor.process(scenario, i, len(scenarios))
+        processed_count = 0
+        
+        # Check for existing checkpoint
+        if resume:
+            checkpoint = self.db.get_checkpoint(run_id, set_name)
+            if checkpoint:
+                start_index = checkpoint['last_index'] + 1
+                processed_count = checkpoint['processed_count']
+                Logger.info(f"🔄 Resuming from scenario {start_index+1}/{total} (already processed {processed_count})")
+                
+                # Load previously processed results from database
+                # (We'll skip re-processing them)
+            else:
+                Logger.info(f"🆕 Starting fresh evaluation on {set_name} set")
+        
+        if start_index >= total:
+            Logger.info(f"✅ All {total} scenarios already processed for {set_name}")
+            return [], total
+        
+        Logger.section(f"EVALUATING ON {set_name.upper()} SET ({total - start_index} remaining of {total})")
+        
+        for i in range(start_index, total):
+            scenario = scenarios[i]
+            result = self.processor.process(scenario, i, total)
+            
             if result:
                 results.append(result)
                 self.db.save_result(scenario, result['llm_result'], result['checks'])
+                processed_count += 1
+                
+                # Save checkpoint after every 5 scenarios
+                if processed_count % 5 == 0:
+                    self.db.save_checkpoint(run_id, set_name, i, processed_count, total)
+                    Logger.info(f"💾 Checkpoint saved: {processed_count}/{total} scenarios processed")
+            
             print("-" * 40)
         
-        return results
+        # Save final checkpoint
+        self.db.save_checkpoint(run_id, set_name, total - 1, processed_count, total)
+        Logger.success(f"✅ Completed {processed_count} scenarios for {set_name} set")
+        
+        return results, processed_count
     
     @staticmethod
     def print_summary(results: List[Dict], scenarios: List[Dict], set_name: str) -> Optional[Dict]:
@@ -489,8 +600,15 @@ class Evaluator:
 # ============================================================
 
 def main():
-    """Main execution entry point."""
+    """Main execution entry point with resume capability."""
     Logger.section("🚀 Initializing Causal-Guard Validation Layer")
+    
+    # Parse command line arguments for resume control
+    import argparse
+    parser = argparse.ArgumentParser(description="Causal-Guard Validation")
+    parser.add_argument('--no-resume', action='store_true', help='Disable resume functionality')
+    parser.add_argument('--run-id', type=str, help='Specific run ID to resume')
+    args = parser.parse_args()
     
     # Load embedding model
     shared_model = load_embedding_model()
@@ -529,58 +647,92 @@ def main():
         scenarios, 
         test_size=Config.TEST_SIZE,
         random_state=Config.RANDOM_STATE,
-        stratify=[s.get('category', 'Unknown') for s in scenarios]  # Better stratification
+        stratify=[s.get('category', 'Unknown') for s in scenarios]
     )
     
     print(f"📚 Training set: {len(train_scenarios)} scenarios ({(1-Config.TEST_SIZE)*100:.0f}%)")
     print(f"🧪 Test set: {len(test_scenarios)} scenarios ({Config.TEST_SIZE*100:.0f}%)")
-    print(f"🔑 Run ID: {Config.RUN_ID}")
-    print(f"⏰ Timestamp: {Config.TIMESTAMP}\n")
+    
+    # Use provided run_id or generate new one
+    run_id = args.run_id if args.run_id else Config.RUN_ID
+    print(f"🔑 Run ID: {run_id}")
+    print(f"⏰ Timestamp: {Config.TIMESTAMP}")
+    print(f"🔄 Resume: {'Disabled' if args.no_resume else 'Enabled'}\n")
     
     # Initialize processor and evaluator
     processor = ScenarioProcessor(llm, checkers)
     evaluator = Evaluator(processor, db)
     
-    # Process training set
-    Logger.section("🎯 PROCESSING TRAINING SET", char="█")
-    train_results = evaluator.evaluate(train_scenarios, "training")
-    train_summary = evaluator.print_summary(train_results, train_scenarios, "training")
+    # Check if training set is already complete
+    train_checkpoint = db.get_checkpoint(run_id, "training")
+    if train_checkpoint and train_checkpoint['processed_count'] >= len(train_scenarios):
+        Logger.success(f"✅ Training set already complete ({train_checkpoint['processed_count']} scenarios)")
+        train_results = []
+        train_summary = None
+    else:
+        # Process training set with resume
+        Logger.section("🎯 PROCESSING TRAINING SET", char="█")
+        train_results, train_processed = evaluator.evaluate(
+            train_scenarios, "training", 
+            resume=not args.no_resume,
+            run_id=run_id
+        )
+        train_summary = evaluator.print_summary(train_results, train_scenarios, "training")
     
-    # Process test set
-    Logger.section("🎯 PROCESSING TEST SET — THIS IS YOUR VALIDATION RESULT", char="█")
-    test_results = evaluator.evaluate(test_scenarios, "test")
-    test_summary = evaluator.print_summary(test_results, test_scenarios, "test")
+    # Check if test set is already complete
+    test_checkpoint = db.get_checkpoint(run_id, "test")
+    if test_checkpoint and test_checkpoint['processed_count'] >= len(test_scenarios):
+        Logger.success(f"✅ Test set already complete ({test_checkpoint['processed_count']} scenarios)")
+        test_results = []
+        test_summary = None
+    else:
+        # Process test set with resume
+        Logger.section("🎯 PROCESSING TEST SET — THIS IS YOUR VALIDATION RESULT", char="█")
+        test_results, test_processed = evaluator.evaluate(
+            test_scenarios, "test",
+            resume=not args.no_resume,
+            run_id=run_id
+        )
+        test_summary = evaluator.print_summary(test_results, test_scenarios, "test")
     
-    # Save results
-    train_filename = f"results_train_{Config.TIMESTAMP}_{Config.RUN_ID}.json"
-    test_filename = f"results_test_{Config.TIMESTAMP}_{Config.RUN_ID}.json"
+    # Save results (only if we have new results)
+    if train_results:
+        train_filename = f"results_train_{Config.TIMESTAMP}_{run_id}.json"
+        with open(train_filename, 'w') as f:
+            json.dump(train_results, f, indent=2, cls=NumpyEncoder)
+        Logger.success(f"Training results saved to {train_filename}")
     
-    with open(train_filename, 'w') as f:
-        json.dump(train_results, f, indent=2, cls=NumpyEncoder)
-    
-    with open(test_filename, 'w') as f:
-        json.dump(test_results, f, indent=2, cls=NumpyEncoder)
+    if test_results:
+        test_filename = f"results_test_{Config.TIMESTAMP}_{run_id}.json"
+        with open(test_filename, 'w') as f:
+            json.dump(test_results, f, indent=2, cls=NumpyEncoder)
+        Logger.success(f"Test results saved to {test_filename}")
     
     # Save metadata
     metadata = {
-        "run_id": Config.RUN_ID,
+        "run_id": run_id,
         "timestamp": Config.TIMESTAMP,
         "model": llm.model,
-        "train_scenarios": len(train_results),
-        "test_scenarios": len(test_results),
+        "train_scenarios": len(train_scenarios),
+        "test_scenarios": len(test_scenarios),
         "train_summary": train_summary,
-        "test_summary": test_summary
+        "test_summary": test_summary,
+        "resume_enabled": not args.no_resume
     }
-    with open(f"metadata_{Config.TIMESTAMP}_{Config.RUN_ID}.json", 'w') as f:
+    with open(f"metadata_{Config.TIMESTAMP}_{run_id}.json", 'w') as f:
         json.dump(metadata, f, indent=2)
     
-    Logger.success(f"Results saved to {train_filename} and {test_filename}")
+    Logger.success(f"Metadata saved to metadata_{Config.TIMESTAMP}_{run_id}.json")
     
     # Final validation result
     if test_summary:
         Logger.section("🏆 FINAL VALIDATION RESULT (Test Set)", char="█")
         print("This is your actual model performance. Report these numbers.")
         print("Training set numbers are for reference only.")
+    
+    # Print resume info
+    print(f"\n💡 To resume this run later: python main.py --run-id {run_id}")
+    print(f"💡 To start fresh: python main.py --no-resume")
 
 
 if __name__ == "__main__":
