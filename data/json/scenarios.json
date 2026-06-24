@@ -20,10 +20,9 @@
         "primary_cause": "Hydroplaning due to standing water",
         "mechanism": "Heavy rain → standing water → tire loses contact → directional control loss → initial impact → chain reaction",
         "non_causal_correlates": [
-          "thursday",
-          "evening",
-          "rush hour",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -44,10 +43,9 @@
         "primary_cause": "Hydroplaning due to standing water",
         "mechanism": "Heavy rain → standing water → tire loses contact → directional control loss → initial impact → chain reaction",
         "non_causal_correlates": [
-          "thursday",
-          "evening",
-          "rush hour",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -68,10 +66,9 @@
         "primary_cause": "Hydroplaning due to standing water",
         "mechanism": "Heavy rain → standing water → tire loses contact → directional control loss → initial impact → chain reaction",
         "non_causal_correlates": [
-          "thursday",
-          "evening",
-          "rush hour",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -91,9 +88,9 @@
         "primary_cause": "Aerodynamic instability in crosswind",
         "mechanism": "Crosswind gusts → lateral force on vehicle side → torque exceeds stability → rollover → guardrail impact",
         "non_causal_correlates": [
-          "friday",
-          "weekend",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -113,9 +110,9 @@
         "primary_cause": "Aerodynamic instability in crosswind",
         "mechanism": "Crosswind gusts → lateral force on vehicle side → torque exceeds stability → rollover → guardrail impact",
         "non_causal_correlates": [
-          "friday",
-          "weekend",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -135,9 +132,9 @@
         "primary_cause": "Aerodynamic instability in crosswind",
         "mechanism": "Crosswind gusts → lateral force on vehicle side → torque exceeds stability → rollover → guardrail impact",
         "non_causal_correlates": [
-          "friday",
-          "weekend",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -157,11 +154,10 @@
         "primary_cause": "Traction loss on invisible ice",
         "mechanism": "Sub-freezing temp → moisture freeze → transparent ice → drastically reduced friction → traction loss",
         "non_causal_correlates": [
-          "saturday",
-          "night",
-          "weekend",
-          "red",
-          "black"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -181,11 +177,10 @@
         "primary_cause": "Traction loss on invisible ice",
         "mechanism": "Sub-freezing temp → moisture freeze → transparent ice → drastically reduced friction → traction loss",
         "non_causal_correlates": [
-          "sunday",
-          "night",
-          "weekend",
-          "red",
-          "black"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -205,11 +200,10 @@
         "primary_cause": "Traction loss on invisible ice",
         "mechanism": "Sub-freezing temp → moisture freeze → transparent ice → drastically reduced friction → traction loss",
         "non_causal_correlates": [
-          "saturday",
-          "night",
-          "weekend",
-          "red",
-          "black"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -228,9 +222,9 @@
         "primary_cause": "Insufficient stopping distance in reduced visibility",
         "mechanism": "Dense fog → reduced sight distance → delayed perception of braking → insufficient time/distance to stop given wet road friction",
         "non_causal_correlates": [
-          "monday",
-          "morning",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -249,9 +243,9 @@
         "primary_cause": "Insufficient stopping distance in reduced visibility",
         "mechanism": "Dense fog → reduced sight distance → delayed perception of braking → insufficient time/distance to stop given wet road friction",
         "non_causal_correlates": [
-          "monday",
-          "morning",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -270,9 +264,9 @@
         "primary_cause": "Insufficient stopping distance in reduced visibility",
         "mechanism": "Dense fog → reduced sight distance → delayed perception of braking → insufficient time/distance to stop given wet road friction",
         "non_causal_correlates": [
-          "monday",
-          "morning",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -293,8 +287,8 @@
         "primary_cause": "Wind-blown debris creating roadway obstruction",
         "mechanism": "Strong winds → detached banner → airborne debris → roadway obstruction → evasive maneuver → loss of control/collision",
         "non_causal_correlates": [
-          "sunday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -315,8 +309,8 @@
         "primary_cause": "Wind-blown debris creating roadway obstruction",
         "mechanism": "Strong winds → detached banner → airborne debris → roadway obstruction → evasive maneuver → loss of control/collision",
         "non_causal_correlates": [
-          "sunday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -337,9 +331,8 @@
         "primary_cause": "Wind-blown debris creating roadway obstruction",
         "mechanism": "Strong winds → detached banner → airborne debris → roadway obstruction → evasive maneuver → loss of control/collision",
         "non_causal_correlates": [
-          "monday",
-          "sunday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -358,7 +351,7 @@
         "primary_cause": "Loss of traction on snow-covered mountain road",
         "mechanism": "Snow accumulation → reduced friction on incline → lateral slide during curve negotiation → collision with roadside feature",
         "non_causal_correlates": [
-          "wednesday"
+          "day_of_week"
         ]
       }
     },
@@ -377,7 +370,7 @@
         "primary_cause": "Loss of traction on snow-covered mountain road",
         "mechanism": "Snow accumulation → reduced friction on incline → lateral slide during curve negotiation → collision with roadside feature",
         "non_causal_correlates": [
-          "wednesday"
+          "day_of_week"
         ]
       }
     },
@@ -396,7 +389,7 @@
         "primary_cause": "Loss of traction on snow-covered mountain road",
         "mechanism": "Snow accumulation → reduced friction on incline → lateral slide during curve negotiation → collision with roadside feature",
         "non_causal_correlates": [
-          "wednesday"
+          "day_of_week"
         ]
       }
     },
@@ -415,8 +408,8 @@
         "primary_cause": "Near-zero visibility preventing hazard perception and avoidance",
         "mechanism": "Dust storm → visibility reduction to <10 m → inability to see other vehicles → collision despite low speeds",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -435,8 +428,8 @@
         "primary_cause": "Near-zero visibility preventing hazard perception and avoidance",
         "mechanism": "Dust storm → visibility reduction to <10 m → inability to see other vehicles → collision despite low speeds",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -455,8 +448,8 @@
         "primary_cause": "Near-zero visibility preventing hazard perception and avoidance",
         "mechanism": "Dust storm → visibility reduction to <10 m → inability to see other vehicles → collision despite low speeds",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -477,10 +470,10 @@
         "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
         "mechanism": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
         "non_causal_correlates": [
-          "wednesday",
-          "morning",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -501,10 +494,10 @@
         "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
         "mechanism": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
         "non_causal_correlates": [
-          "wednesday",
-          "morning",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -525,10 +518,10 @@
         "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
         "mechanism": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
         "non_causal_correlates": [
-          "thursday",
-          "morning",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -549,10 +542,10 @@
         "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
         "mechanism": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
         "non_causal_correlates": [
-          "wednesday",
-          "morning",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -573,10 +566,10 @@
         "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
         "mechanism": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
         "non_causal_correlates": [
-          "wednesday",
-          "morning",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -597,10 +590,10 @@
         "primary_cause": "Inappropriate braking on wet curve combined with reduced visibility",
         "mechanism": "Reduced visibility → delayed curve perception → panic braking → tire traction exceeded on wet surface → lateral slide → fall",
         "non_causal_correlates": [
-          "thursday",
-          "morning",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -621,7 +614,7 @@
         "primary_cause": "Vehicle stalling due to engine ingestion of water in flooded underpass",
         "mechanism": "Rapid water accumulation → vehicle attempts passage → water enters air intake → engine hydro-lock → sudden stall → following vehicle collision",
         "non_causal_correlates": [
-          "sunday"
+          "day_of_week"
         ]
       }
     },
@@ -642,7 +635,7 @@
         "primary_cause": "Vehicle stalling due to engine ingestion of water in flooded underpass",
         "mechanism": "Rapid water accumulation → vehicle attempts passage → water enters air intake → engine hydro-lock → sudden stall → following vehicle collision",
         "non_causal_correlates": [
-          "sunday"
+          "day_of_week"
         ]
       }
     },
@@ -663,7 +656,7 @@
         "primary_cause": "Vehicle stalling due to engine ingestion of water in flooded underpass",
         "mechanism": "Rapid water accumulation → vehicle attempts passage → water enters air intake → engine hydro-lock → sudden stall → following vehicle collision",
         "non_causal_correlates": [
-          "sunday"
+          "day_of_week"
         ]
       }
     },
@@ -683,9 +676,9 @@
         "primary_cause": "Dynamic hydroplaning on curved section during heavy rain",
         "mechanism": "Speed + water depth → hydrodynamic lift exceeds tire load → complete loss of road contact → spin during curve negotiation → collision",
         "non_causal_correlates": [
-          "monday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -705,9 +698,9 @@
         "primary_cause": "Dynamic hydroplaning on curved section during heavy rain",
         "mechanism": "Speed + water depth → hydrodynamic lift exceeds tire load → complete loss of road contact → spin during curve negotiation → collision",
         "non_causal_correlates": [
-          "monday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -727,9 +720,9 @@
         "primary_cause": "Dynamic hydroplaning on curved section during heavy rain",
         "mechanism": "Speed + water depth → hydrodynamic lift exceeds tire load → complete loss of road contact → spin during curve negotiation → collision",
         "non_causal_correlates": [
-          "monday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -748,11 +741,9 @@
         "primary_cause": "Unsafe lane change without signal",
         "mechanism": "Sedan changed lanes without checking blind spot/adjacent lane → SUV forced to emergency brake → following van insufficient stopping distance → rear-end chain reaction",
         "non_causal_correlates": [
-          "tuesday",
-          "morning",
-          "red",
-          "white",
-          "black"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -771,11 +762,9 @@
         "primary_cause": "Unsafe lane change without signal",
         "mechanism": "Sedan changed lanes without checking blind spot/adjacent lane → SUV forced to emergency brake → following van insufficient stopping distance → rear-end chain reaction",
         "non_causal_correlates": [
-          "tuesday",
-          "morning",
-          "red",
-          "white",
-          "black"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -794,11 +783,9 @@
         "primary_cause": "Unsafe lane change without signal",
         "mechanism": "Sedan changed lanes without checking blind spot/adjacent lane → SUV forced to emergency brake → following van insufficient stopping distance → rear-end chain reaction",
         "non_causal_correlates": [
-          "thursday",
-          "morning",
-          "red",
-          "white",
-          "black"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -816,10 +803,8 @@
         "primary_cause": "Red-light violation",
         "mechanism": "Driver failed to stop at red signal → entered intersection at speed → perpendicular impact with crossing vehicle",
         "non_causal_correlates": [
-          "wednesday",
-          "red",
-          "blue",
-          "grey"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -837,10 +822,8 @@
         "primary_cause": "Red-light violation",
         "mechanism": "Driver failed to stop at red signal → entered intersection at speed → perpendicular impact with crossing vehicle",
         "non_causal_correlates": [
-          "wednesday",
-          "red",
-          "blue",
-          "grey"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -858,10 +841,8 @@
         "primary_cause": "Red-light violation",
         "mechanism": "Driver failed to stop at red signal → entered intersection at speed → perpendicular impact with crossing vehicle",
         "non_causal_correlates": [
-          "wednesday",
-          "red",
-          "blue",
-          "grey"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -881,8 +862,8 @@
         "primary_cause": "Driver fatigue causing lane departure",
         "mechanism": "Micro-sleep/loss of vigilance → unintentional steering drift → center line crossing → opposite lane entry → head-on collision",
         "non_causal_correlates": [
-          "saturday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -902,8 +883,8 @@
         "primary_cause": "Driver fatigue causing lane departure",
         "mechanism": "Micro-sleep/loss of vigilance → unintentional steering drift → center line crossing → opposite lane entry → head-on collision",
         "non_causal_correlates": [
-          "saturday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -923,8 +904,8 @@
         "primary_cause": "Driver fatigue causing lane departure",
         "mechanism": "Micro-sleep/loss of vigilance → unintentional steering drift → center line crossing → opposite lane entry → head-on collision",
         "non_causal_correlates": [
-          "saturday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -943,8 +924,8 @@
         "primary_cause": "Excessive speed on curve",
         "mechanism": "Speed exceeded critical velocity for curve radius → centrifugal force exceeded tire-road friction → loss of steering control → rollover",
         "non_causal_correlates": [
-          "friday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -963,8 +944,8 @@
         "primary_cause": "Excessive speed on curve",
         "mechanism": "Speed exceeded critical velocity for curve radius → centrifugal force exceeded tire-road friction → loss of steering control → rollover",
         "non_causal_correlates": [
-          "friday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -983,8 +964,8 @@
         "primary_cause": "Excessive speed on curve",
         "mechanism": "Speed exceeded critical velocity for curve radius → centrifugal force exceeded tire-road friction → loss of steering control → rollover",
         "non_causal_correlates": [
-          "friday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1002,8 +983,8 @@
         "primary_cause": "Sudden braking for animal hazard",
         "mechanism": "Lead driver emergency braking in response to unexpected animal crossing → following drivers had insufficient gap/detection time → rear-end collisions",
         "non_causal_correlates": [
-          "tuesday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1021,8 +1002,8 @@
         "primary_cause": "Sudden braking for animal hazard",
         "mechanism": "Lead driver emergency braking in response to unexpected animal crossing → following drivers had insufficient gap/detection time → rear-end collisions",
         "non_causal_correlates": [
-          "tuesday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1040,8 +1021,8 @@
         "primary_cause": "Sudden braking for animal hazard",
         "mechanism": "Lead driver emergency braking in response to unexpected animal crossing → following drivers had insufficient gap/detection time → rear-end collisions",
         "non_causal_correlates": [
-          "wednesday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1060,7 +1041,7 @@
         "primary_cause": "Brake system failure (overheating) on descent",
         "mechanism": "Prolonged brake application on downgrade → brake fade from overheating → reduced stopping ability → failure to slow for stationary vehicle",
         "non_causal_correlates": [
-          "thursday"
+          "day_of_week"
         ]
       }
     },
@@ -1079,7 +1060,7 @@
         "primary_cause": "Brake system failure (overheating) on descent",
         "mechanism": "Prolonged brake application on downgrade → brake fade from overheating → reduced stopping ability → failure to slow for stationary vehicle",
         "non_causal_correlates": [
-          "thursday"
+          "day_of_week"
         ]
       }
     },
@@ -1098,7 +1079,7 @@
         "primary_cause": "Brake system failure (overheating) on descent",
         "mechanism": "Prolonged brake application on downgrade → brake fade from overheating → reduced stopping ability → failure to slow for stationary vehicle",
         "non_causal_correlates": [
-          "thursday"
+          "day_of_week"
         ]
       }
     },
@@ -1117,8 +1098,8 @@
         "primary_cause": "Visual distraction (mobile phone)",
         "mechanism": "Driver attention diverted to phone → failure to scan roadway ahead → delayed detection of pedestrian in crossing → collision at speed",
         "non_causal_correlates": [
-          "wednesday",
-          "evening"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1137,8 +1118,8 @@
         "primary_cause": "Visual distraction (mobile phone)",
         "mechanism": "Driver attention diverted to phone → failure to scan roadway ahead → delayed detection of pedestrian in crossing → collision at speed",
         "non_causal_correlates": [
-          "wednesday",
-          "evening"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1157,8 +1138,8 @@
         "primary_cause": "Visual distraction (mobile phone)",
         "mechanism": "Driver attention diverted to phone → failure to scan roadway ahead → delayed detection of pedestrian in crossing → collision at speed",
         "non_causal_correlates": [
-          "thursday",
-          "evening"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1176,8 +1157,8 @@
         "primary_cause": "Following too closely on wet road",
         "mechanism": "Driver maintained dry-road following distance on wet surface → inadequate stopping distance when lead vehicle slowed → rear-end collision",
         "non_causal_correlates": [
-          "wednesday",
-          "evening"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1195,8 +1176,8 @@
         "primary_cause": "Following too closely on wet road",
         "mechanism": "Driver maintained dry-road following distance on wet surface → inadequate stopping distance when lead vehicle slowed → rear-end collision",
         "non_causal_correlates": [
-          "wednesday",
-          "evening"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1214,8 +1195,8 @@
         "primary_cause": "Following too closely on wet road",
         "mechanism": "Driver maintained dry-road following distance on wet surface → inadequate stopping distance when lead vehicle slowed → rear-end collision",
         "non_causal_correlates": [
-          "thursday",
-          "evening"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1234,7 +1215,7 @@
         "primary_cause": "Dooring – opening door into traffic path",
         "mechanism": "Vehicle occupant opened door without checking for approaching cyclist → door occupied cyclist's path → cyclist unable to avoid → collision with door followed by fall",
         "non_causal_correlates": [
-          "monday"
+          "day_of_week"
         ]
       }
     },
@@ -1253,7 +1234,7 @@
         "primary_cause": "Dooring – opening door into traffic path",
         "mechanism": "Vehicle occupant opened door without checking for approaching cyclist → door occupied cyclist's path → cyclist unable to avoid → collision with door followed by fall",
         "non_causal_correlates": [
-          "monday"
+          "day_of_week"
         ]
       }
     },
@@ -1272,7 +1253,7 @@
         "primary_cause": "Dooring – opening door into traffic path",
         "mechanism": "Vehicle occupant opened door without checking for approaching cyclist → door occupied cyclist's path → cyclist unable to avoid → collision with door followed by fall",
         "non_causal_correlates": [
-          "tuesday"
+          "day_of_week"
         ]
       }
     },
@@ -1292,7 +1273,7 @@
         "primary_cause": "Sudden tire failure (blowout)",
         "mechanism": "Rapid deflation of front tire → asymmetric rolling resistance and steering force → sudden vehicle pull toward failed tire side → driver overcorrection → median impact",
         "non_causal_correlates": [
-          "sunday"
+          "day_of_week"
         ]
       }
     },
@@ -1312,7 +1293,7 @@
         "primary_cause": "Sudden tire failure (blowout)",
         "mechanism": "Rapid deflation of front tire → asymmetric rolling resistance and steering force → sudden vehicle pull toward failed tire side → driver overcorrection → median impact",
         "non_causal_correlates": [
-          "sunday"
+          "day_of_week"
         ]
       }
     },
@@ -1332,7 +1313,7 @@
         "primary_cause": "Sudden tire failure (blowout)",
         "mechanism": "Rapid deflation of front tire → asymmetric rolling resistance and steering force → sudden vehicle pull toward failed tire side → driver overcorrection → median impact",
         "non_causal_correlates": [
-          "monday"
+          "day_of_week"
         ]
       }
     },
@@ -1352,11 +1333,10 @@
         "primary_cause": "Sudden unmarked lane closure",
         "mechanism": "Maintenance crews closed lane without required advance warning → lead driver encountered unexpected blockage → emergency braking → following vehicles unable to stop → chain rear-end collision",
         "non_causal_correlates": [
-          "monday",
-          "morning",
-          "night",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -1376,11 +1356,10 @@
         "primary_cause": "Sudden unmarked lane closure",
         "mechanism": "Maintenance crews closed lane without required advance warning → lead driver encountered unexpected blockage → emergency braking → following vehicles unable to stop → chain rear-end collision",
         "non_causal_correlates": [
-          "monday",
-          "morning",
-          "night",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -1400,12 +1379,10 @@
         "primary_cause": "Sudden unmarked lane closure",
         "mechanism": "Maintenance crews closed lane without required advance warning → lead driver encountered unexpected blockage → emergency braking → following vehicles unable to stop → chain rear-end collision",
         "non_causal_correlates": [
-          "monday",
-          "wednesday",
-          "morning",
-          "night",
-          "commuter",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -1426,9 +1403,9 @@
         "primary_cause": "Unmarked pavement failure after maintenance",
         "mechanism": "Emergency patching completed but failed under load → pothole re-formed → not re-marked or re-closed → vehicle struck at speed → loss of control → collision",
         "non_causal_correlates": [
-          "tuesday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1449,10 +1426,9 @@
         "primary_cause": "Unmarked pavement failure after maintenance",
         "mechanism": "Emergency patching completed but failed under load → pothole re-formed → not re-marked or re-closed → vehicle struck at speed → loss of control → collision",
         "non_causal_correlates": [
-          "tuesday",
-          "evening",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1473,9 +1449,9 @@
         "primary_cause": "Unmarked pavement failure after maintenance",
         "mechanism": "Emergency patching completed but failed under load → pothole re-formed → not re-marked or re-closed → vehicle struck at speed → loss of control → collision",
         "non_causal_correlates": [
-          "thursday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1494,8 +1470,8 @@
         "primary_cause": "Improper temporary barrier placement",
         "mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane → lane width insufficient for vehicle envelope → driver encroached into adjacent lane → sideswipe collision",
         "non_causal_correlates": [
-          "wednesday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1514,8 +1490,8 @@
         "primary_cause": "Improper temporary barrier placement",
         "mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane → lane width insufficient for vehicle envelope → driver encroached into adjacent lane → sideswipe collision",
         "non_causal_correlates": [
-          "wednesday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1534,8 +1510,8 @@
         "primary_cause": "Improper temporary barrier placement",
         "mechanism": "Maintenance crew positioned barrier with inadequate offset from travel lane → lane width insufficient for vehicle envelope → driver encroached into adjacent lane → sideswipe collision",
         "non_causal_correlates": [
-          "friday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -1555,9 +1531,9 @@
         "primary_cause": "Failed temporary lighting at roadworks",
         "mechanism": "Maintenance lighting system failure → taper zone invisible at night → driver detection distance severely reduced → emergency braking → rear-end by following vehicle",
         "non_causal_correlates": [
-          "saturday",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1577,9 +1553,9 @@
         "primary_cause": "Failed temporary lighting at roadworks",
         "mechanism": "Maintenance lighting system failure → taper zone invisible at night → driver detection distance severely reduced → emergency braking → rear-end by following vehicle",
         "non_causal_correlates": [
-          "saturday",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1599,9 +1575,9 @@
         "primary_cause": "Failed temporary lighting at roadworks",
         "mechanism": "Maintenance lighting system failure → taper zone invisible at night → driver detection distance severely reduced → emergency braking → rear-end by following vehicle",
         "non_causal_correlates": [
-          "monday",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1622,9 +1598,9 @@
         "primary_cause": "Collapsed drainage trench from inadequate backfill",
         "mechanism": "Improperly compacted trench backfill → saturated by rain → structural failure under wheel load → sudden vertical drop → loss of steering control → rollover",
         "non_causal_correlates": [
-          "monday",
-          "evening",
-          "commuter"
+          "day_of_week",
+          "time_of_day",
+          "traffic_context"
         ]
       }
     },
@@ -1645,9 +1621,9 @@
         "primary_cause": "Collapsed drainage trench from inadequate backfill",
         "mechanism": "Improperly compacted trench backfill → saturated by rain → structural failure under wheel load → sudden vertical drop → loss of steering control → rollover",
         "non_causal_correlates": [
-          "monday",
-          "evening",
-          "commuter"
+          "day_of_week",
+          "time_of_day",
+          "traffic_context"
         ]
       }
     },
@@ -1668,9 +1644,9 @@
         "primary_cause": "Collapsed drainage trench from inadequate backfill",
         "mechanism": "Improperly compacted trench backfill → saturated by rain → structural failure under wheel load → sudden vertical drop → loss of steering control → rollover",
         "non_causal_correlates": [
-          "wednesday",
-          "evening",
-          "commuter"
+          "day_of_week",
+          "time_of_day",
+          "traffic_context"
         ]
       }
     },
@@ -1690,7 +1666,7 @@
         "primary_cause": "Inadequate vertical clearance for work zone",
         "mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles → high-sided truck impact → debris fall → hazard avoidance → secondary collisions",
         "non_causal_correlates": [
-          "thursday"
+          "day_of_week"
         ]
       }
     },
@@ -1710,7 +1686,7 @@
         "primary_cause": "Inadequate vertical clearance for work zone",
         "mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles → high-sided truck impact → debris fall → hazard avoidance → secondary collisions",
         "non_causal_correlates": [
-          "thursday"
+          "day_of_week"
         ]
       }
     },
@@ -1730,7 +1706,7 @@
         "primary_cause": "Inadequate vertical clearance for work zone",
         "mechanism": "Bridge inspection scaffolding installed below legal minimum height for commercial vehicles → high-sided truck impact → debris fall → hazard avoidance → secondary collisions",
         "non_causal_correlates": [
-          "saturday"
+          "day_of_week"
         ]
       }
     },
@@ -1751,10 +1727,9 @@
         "primary_cause": "Wet pavement markings opened to traffic prematurely",
         "mechanism": "Thermoplastic markings applied overnight → insufficient drying/cooling time → road reopened while paint still wet → vehicle on curve exceeded friction available from wet paint → loss of control → off-road rollover",
         "non_causal_correlates": [
-          "friday",
-          "morning",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1775,10 +1750,9 @@
         "primary_cause": "Wet pavement markings opened to traffic prematurely",
         "mechanism": "Thermoplastic markings applied overnight → insufficient drying/cooling time → road reopened while paint still wet → vehicle on curve exceeded friction available from wet paint → loss of control → off-road rollover",
         "non_causal_correlates": [
-          "friday",
-          "morning",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1799,10 +1773,9 @@
         "primary_cause": "Wet pavement markings opened to traffic prematurely",
         "mechanism": "Thermoplastic markings applied overnight → insufficient drying/cooling time → road reopened while paint still wet → vehicle on curve exceeded friction available from wet paint → loss of control → off-road rollover",
         "non_causal_correlates": [
-          "monday",
-          "morning",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1822,9 +1795,9 @@
         "primary_cause": "Uncovered manhole without warning",
         "mechanism": "Utility access cover removed and not replaced → opening unprotected → two-wheeled vehicle encountered hazard → wheel entrapment → rider ejection",
         "non_causal_correlates": [
-          "tuesday",
-          "afternoon",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1844,9 +1817,9 @@
         "primary_cause": "Uncovered manhole without warning",
         "mechanism": "Utility access cover removed and not replaced → opening unprotected → two-wheeled vehicle encountered hazard → wheel entrapment → rider ejection",
         "non_causal_correlates": [
-          "tuesday",
-          "afternoon",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1866,9 +1839,9 @@
         "primary_cause": "Uncovered manhole without warning",
         "mechanism": "Utility access cover removed and not replaced → opening unprotected → two-wheeled vehicle encountered hazard → wheel entrapment → rider ejection",
         "non_causal_correlates": [
-          "wednesday",
-          "afternoon",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1888,8 +1861,8 @@
         "primary_cause": "Spilled bitumen from maintenance vehicle",
         "mechanism": "Equipment failure during hot bitumen transfer → material deposited on travel lane → extreme reduction in pavement friction → vehicles unable to brake/steer effectively → multi-vehicle skid collision",
         "non_causal_correlates": [
-          "thursday",
-          "afternoon"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1909,8 +1882,8 @@
         "primary_cause": "Spilled bitumen from maintenance vehicle",
         "mechanism": "Equipment failure during hot bitumen transfer → material deposited on travel lane → extreme reduction in pavement friction → vehicles unable to brake/steer effectively → multi-vehicle skid collision",
         "non_causal_correlates": [
-          "thursday",
-          "afternoon"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1930,8 +1903,8 @@
         "primary_cause": "Spilled bitumen from maintenance vehicle",
         "mechanism": "Equipment failure during hot bitumen transfer → material deposited on travel lane → extreme reduction in pavement friction → vehicles unable to brake/steer effectively → multi-vehicle skid collision",
         "non_causal_correlates": [
-          "friday",
-          "afternoon"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -1952,9 +1925,9 @@
         "primary_cause": "Steam obscuration from asphalt paving",
         "mechanism": "Temperature differential between fresh asphalt and environment → water vapor condensation → dense steam cloud over roadway → severe visibility reduction → drivers unable to detect stopped/slowing vehicles → rear-end chain",
         "non_causal_correlates": [
-          "tuesday",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1975,9 +1948,9 @@
         "primary_cause": "Steam obscuration from asphalt paving",
         "mechanism": "Temperature differential between fresh asphalt and environment → water vapor condensation → dense steam cloud over roadway → severe visibility reduction → drivers unable to detect stopped/slowing vehicles → rear-end chain",
         "non_causal_correlates": [
-          "tuesday",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -1998,9 +1971,9 @@
         "primary_cause": "Steam obscuration from asphalt paving",
         "mechanism": "Temperature differential between fresh asphalt and environment → water vapor condensation → dense steam cloud over roadway → severe visibility reduction → drivers unable to detect stopped/slowing vehicles → rear-end chain",
         "non_causal_correlates": [
-          "wednesday",
-          "night",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -2019,9 +1992,9 @@
         "primary_cause": "Road closure for event setup",
         "mechanism": "Full road closure for fireworks safety zone → all traffic forced onto inadequate diversion routes → demand exceeded capacity of parallel streets → gridlock propagation",
         "non_causal_correlates": [
-          "wednesday",
-          "holiday",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -2040,9 +2013,9 @@
         "primary_cause": "Road closure for event setup",
         "mechanism": "Full road closure for fireworks safety zone → all traffic forced onto inadequate diversion routes → demand exceeded capacity of parallel streets → gridlock propagation",
         "non_causal_correlates": [
-          "wednesday",
-          "holiday",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -2061,9 +2034,9 @@
         "primary_cause": "Road closure for event setup",
         "mechanism": "Full road closure for fireworks safety zone → all traffic forced onto inadequate diversion routes → demand exceeded capacity of parallel streets → gridlock propagation",
         "non_causal_correlates": [
-          "wednesday",
-          "holiday",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -2083,8 +2056,8 @@
         "primary_cause": "Simultaneous mass departure exceeding exit capacity",
         "mechanism": "Event conclusion → concentrated departure demand → exit lane capacity saturated → discharge rate < arrival rate at exit → queue formation and upstream propagation",
         "non_causal_correlates": [
-          "saturday",
-          "weekend"
+          "day_of_week",
+          "traffic_context"
         ]
       }
     },
@@ -2104,8 +2077,8 @@
         "primary_cause": "Simultaneous mass departure exceeding exit capacity",
         "mechanism": "Event conclusion → concentrated departure demand → exit lane capacity saturated → discharge rate < arrival rate at exit → queue formation and upstream propagation",
         "non_causal_correlates": [
-          "saturday",
-          "weekend"
+          "day_of_week",
+          "traffic_context"
         ]
       }
     },
@@ -2125,8 +2098,8 @@
         "primary_cause": "Simultaneous mass departure exceeding exit capacity",
         "mechanism": "Event conclusion → concentrated departure demand → exit lane capacity saturated → discharge rate < arrival rate at exit → queue formation and upstream propagation",
         "non_causal_correlates": [
-          "saturday",
-          "weekend"
+          "day_of_week",
+          "traffic_context"
         ]
       }
     },
@@ -2148,9 +2121,9 @@
         "primary_cause": "Parking demand exceeding supply with spillover into travel lanes",
         "mechanism": "High-attendance free event → parking capacity saturated → vehicles circulating/queuing for spaces → double-parking on shoulders/shoulder encroachment → active lane reduction → capacity drop → queue formation",
         "non_causal_correlates": [
-          "friday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -2172,10 +2145,9 @@
         "primary_cause": "Parking demand exceeding supply with spillover into travel lanes",
         "mechanism": "High-attendance free event → parking capacity saturated → vehicles circulating/queuing for spaces → double-parking on shoulders/shoulder encroachment → active lane reduction → capacity drop → queue formation",
         "non_causal_correlates": [
-          "thursday",
-          "friday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -2197,9 +2169,9 @@
         "primary_cause": "Parking demand exceeding supply with spillover into travel lanes",
         "mechanism": "High-attendance free event → parking capacity saturated → vehicles circulating/queuing for spaces → double-parking on shoulders/shoulder encroachment → active lane reduction → capacity drop → queue formation",
         "non_causal_correlates": [
-          "friday",
-          "evening",
-          "red"
+          "day_of_week",
+          "time_of_day",
+          "vehicle_color"
         ]
       }
     },
@@ -2219,8 +2191,8 @@
         "primary_cause": "Concentrated arrival surge through security bottleneck",
         "mechanism": "Event start time fixed → attendees arrive in narrow window → access point with security screening has fixed processing rate → arrival rate exceeds processing rate → queue formation and propagation",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2240,8 +2212,8 @@
         "primary_cause": "Concentrated arrival surge through security bottleneck",
         "mechanism": "Event start time fixed → attendees arrive in narrow window → access point with security screening has fixed processing rate → arrival rate exceeds processing rate → queue formation and propagation",
         "non_causal_correlates": [
-          "friday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2261,8 +2233,8 @@
         "primary_cause": "Concentrated arrival surge through security bottleneck",
         "mechanism": "Event start time fixed → attendees arrive in narrow window → access point with security screening has fixed processing rate → arrival rate exceeds processing rate → queue formation and propagation",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2283,9 +2255,9 @@
         "primary_cause": "Simultaneous high-volume arrival with inadequate parking/drop-off capacity",
         "mechanism": "Religious holiday congregation → fixed prayer time → concentrated arrival → parking supply exceeded → circulating vehicles block access → queue spills to arterial",
         "non_causal_correlates": [
-          "sunday",
-          "weekend",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -2306,9 +2278,9 @@
         "primary_cause": "Simultaneous high-volume arrival with inadequate parking/drop-off capacity",
         "mechanism": "Religious holiday congregation → fixed prayer time → concentrated arrival → parking supply exceeded → circulating vehicles block access → queue spills to arterial",
         "non_causal_correlates": [
-          "monday",
-          "weekend",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -2329,9 +2301,9 @@
         "primary_cause": "Simultaneous high-volume arrival with inadequate parking/drop-off capacity",
         "mechanism": "Religious holiday congregation → fixed prayer time → concentrated arrival → parking supply exceeded → circulating vehicles block access → queue spills to arterial",
         "non_causal_correlates": [
-          "sunday",
-          "weekend",
-          "red"
+          "day_of_week",
+          "vehicle_color",
+          "traffic_context"
         ]
       }
     },
@@ -2350,8 +2322,8 @@
         "primary_cause": "Concurrent event finishes overwhelming exit capacity",
         "mechanism": "Two events (concert + race) ending in close temporal proximity → combined departure demand > exit capacity → queue formation on internal roads → propagation to highway exit",
         "non_causal_correlates": [
-          "saturday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2370,8 +2342,8 @@
         "primary_cause": "Concurrent event finishes overwhelming exit capacity",
         "mechanism": "Two events (concert + race) ending in close temporal proximity → combined departure demand > exit capacity → queue formation on internal roads → propagation to highway exit",
         "non_causal_correlates": [
-          "saturday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2390,8 +2362,8 @@
         "primary_cause": "Concurrent event finishes overwhelming exit capacity",
         "mechanism": "Two events (concert + race) ending in close temporal proximity → combined departure demand > exit capacity → queue formation on internal roads → propagation to highway exit",
         "non_causal_correlates": [
-          "saturday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2412,8 +2384,8 @@
         "primary_cause": "Roundabout capacity exceeded by event traffic surge",
         "mechanism": "Match start time → concentrated fan arrival → multiple approach roads feeding same roundabout → roundabout circulating capacity saturated → approach queue growth → upstream propagation to highway",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2434,8 +2406,8 @@
         "primary_cause": "Roundabout capacity exceeded by event traffic surge",
         "mechanism": "Match start time → concentrated fan arrival → multiple approach roads feeding same roundabout → roundabout circulating capacity saturated → approach queue growth → upstream propagation to highway",
         "non_causal_correlates": [
-          "friday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2456,8 +2428,8 @@
         "primary_cause": "Roundabout capacity exceeded by event traffic surge",
         "mechanism": "Match start time → concentrated fan arrival → multiple approach roads feeding same roundabout → roundabout circulating capacity saturated → approach queue growth → upstream propagation to highway",
         "non_causal_correlates": [
-          "thursday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2477,8 +2449,8 @@
         "primary_cause": "Security screening bottleneck at event access",
         "mechanism": "VIP event with heightened security → thorough vehicle checks → extended processing time per vehicle → capacity at screening point << approach flow → queue formation and propagation",
         "non_causal_correlates": [
-          "monday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2498,8 +2470,8 @@
         "primary_cause": "Security screening bottleneck at event access",
         "mechanism": "VIP event with heightened security → thorough vehicle checks → extended processing time per vehicle → capacity at screening point << approach flow → queue formation and propagation",
         "non_causal_correlates": [
-          "tuesday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2519,8 +2491,8 @@
         "primary_cause": "Security screening bottleneck at event access",
         "mechanism": "VIP event with heightened security → thorough vehicle checks → extended processing time per vehicle → capacity at screening point << approach flow → queue formation and propagation",
         "non_causal_correlates": [
-          "monday",
-          "red"
+          "day_of_week",
+          "vehicle_color"
         ]
       }
     },
@@ -2542,8 +2514,9 @@
         "primary_cause": "Drop-off zone capacity exceeded with lane blockage",
         "mechanism": "High pedestrian volume event → concentrated drop-off activity → drop-off bay capacity exceeded → vehicles queue in travel lane awaiting bay access → through lane blocked → capacity reduction → queue formation",
         "non_causal_correlates": [
-          "saturday",
-          "night"
+          "day_of_week",
+          "time_of_day",
+          "traffic_context"
         ]
       }
     },
@@ -2565,8 +2538,9 @@
         "primary_cause": "Drop-off zone capacity exceeded with lane blockage",
         "mechanism": "High pedestrian volume event → concentrated drop-off activity → drop-off bay capacity exceeded → vehicles queue in travel lane awaiting bay access → through lane blocked → capacity reduction → queue formation",
         "non_causal_correlates": [
-          "friday",
-          "night"
+          "day_of_week",
+          "time_of_day",
+          "traffic_context"
         ]
       }
     },
@@ -2588,8 +2562,9 @@
         "primary_cause": "Drop-off zone capacity exceeded with lane blockage",
         "mechanism": "High pedestrian volume event → concentrated drop-off activity → drop-off bay capacity exceeded → vehicles queue in travel lane awaiting bay access → through lane blocked → capacity reduction → queue formation",
         "non_causal_correlates": [
-          "saturday",
-          "night"
+          "day_of_week",
+          "time_of_day",
+          "traffic_context"
         ]
       }
     },
@@ -2608,8 +2583,8 @@
         "primary_cause": "Event trafficå åŠ  on peak background demand",
         "mechanism": "Conference start time aligned with morning peak → event vehicles added to already near-capacity commute flow → bridge entry point capacity exceeded → queue formation and propagation",
         "non_causal_correlates": [
-          "monday",
-          "morning"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -2628,8 +2603,8 @@
         "primary_cause": "Event trafficå åŠ  on peak background demand",
         "mechanism": "Conference start time aligned with morning peak → event vehicles added to already near-capacity commute flow → bridge entry point capacity exceeded → queue formation and propagation",
         "non_causal_correlates": [
-          "tuesday",
-          "morning"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -2648,8 +2623,8 @@
         "primary_cause": "Event trafficå åŠ  on peak background demand",
         "mechanism": "Conference start time aligned with morning peak → event vehicles added to already near-capacity commute flow → bridge entry point capacity exceeded → queue formation and propagation",
         "non_causal_correlates": [
-          "monday",
-          "morning"
+          "day_of_week",
+          "time_of_day"
         ]
       }
     },
@@ -3549,9 +3524,7 @@
       "causal_ground_truth": {
         "primary_cause": "At 3:30 PM on Tuesday, a major clearing member failed to deliver securities for a trade settlement, causing a cascading settlement failure across multiple counterparties. The clearing house had not enforced its capital requirements on the member, which was undercapitalized.",
         "mechanism": "Clearing house failure to enforce capital requirements",
-        "non_causal_correlates": [
-          "weather_context"
-        ]
+        "non_causal_correlates": []
       }
     },
     {
@@ -3565,9 +3538,7 @@
       "causal_ground_truth": {
         "primary_cause": "At 3:30 PM on Tuesday, a major clearing member failed to deliver securities for a trade settlement, causing a cascading settlement failure across multiple counterparties. The clearing house had not enforced its capital requirements on the member, which was undercapitalized.",
         "mechanism": "Clearing house failure to enforce capital requirements",
-        "non_causal_correlates": [
-          "weather_context"
-        ]
+        "non_causal_correlates": []
       }
     },
     {
@@ -3581,9 +3552,7 @@
       "causal_ground_truth": {
         "primary_cause": "At 3:30 PM on Tuesday, a major clearing member failed to deliver securities for a trade settlement, causing a cascading settlement failure across multiple counterparties. The clearing house had not enforced its capital requirements on the member, which was undercapitalized.",
         "mechanism": "Clearing house failure to enforce capital requirements",
-        "non_causal_correlates": [
-          "weather_context"
-        ]
+        "non_causal_correlates": []
       }
     },
     {

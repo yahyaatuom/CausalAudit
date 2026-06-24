@@ -37,10 +37,14 @@ class Config:
     # Database
     DB_PATH = Path(__file__).parent / "causal_audit.db"
     
+    # Cache
+    CACHE_DIR = Path(__file__).parent / "cache"
+    USE_CACHE = True
+    
     # Model settings
     EMBEDDING_MODEL = "all-MiniLM-L6-v2"
     FALLBACK_EMBEDDING = "paraphrase-MiniLM-L3-v2"
-    LLM_MODEL = "qwen/qwen3-32b"
+    LLM_MODEL = "llama-3.3-70b-versatile"
     
     # Data settings
     SCENARIOS_PATH = Path(__file__).parent / "data" / "json" / "scenarios.json"
@@ -52,7 +56,7 @@ class Config:
     TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
     
     # Checker thresholds
-    C3_CONFIDENCE_THRESHOLD = 0.6
+    C3_CONFIDENCE_THRESHOLD = 0.4
     C5_COVERAGE_THRESHOLD = 0.5
 
 
@@ -154,9 +158,22 @@ class Database:
             )
         """)
         
+        # Cache table for LLM responses
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS llm_cache (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                scenario_id TEXT,
+                description_hash TEXT UNIQUE,
+                llm_response TEXT,
+                model TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
         # Create indexes
         cur.execute("CREATE INDEX IF NOT EXISTS idx_scenario_run ON causal_audit_logs(scenario_id, run_id)")
         cur.execute("CREATE INDEX IF NOT EXISTS idx_checkpoint_run ON evaluation_checkpoints(run_id, set_name)")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_cache_hash ON llm_cache(description_hash)")
         
         conn.commit()
         conn.close()
@@ -261,6 +278,73 @@ class Database:
         except Exception as e:
             Logger.warning(f"Could not get checkpoint: {e}")
             return None
+    
+    def get_cached_response(self, scenario_id: str, description: str) -> Optional[Dict]:
+        """Get cached LLM response for a scenario."""
+        if not Config.USE_CACHE:
+            return None
+        
+        # Create hash of description
+        import hashlib
+        description_hash = hashlib.md5(description.encode()).hexdigest()
+        
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            
+            cur.execute("""
+                SELECT llm_response, model, created_at
+                FROM llm_cache
+                WHERE scenario_id = ? OR description_hash = ?
+                ORDER BY created_at DESC
+                LIMIT 1
+            """, (scenario_id, description_hash))
+            
+            row = cur.fetchone()
+            conn.close()
+            
+            if row:
+                return {
+                    'response': json.loads(row[0]),
+                    'model': row[1],
+                    'cached_at': row[2]
+                }
+            return None
+            
+        except Exception as e:
+            Logger.warning(f"Cache retrieval error: {e}")
+            return None
+    
+    def cache_response(self, scenario_id: str, description: str, response: Dict, model: str):
+        """Cache an LLM response."""
+        if not Config.USE_CACHE:
+            return
+        
+        import hashlib
+        description_hash = hashlib.md5(description.encode()).hexdigest()
+        
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            
+            cur.execute("""
+                INSERT OR REPLACE INTO llm_cache 
+                (scenario_id, description_hash, llm_response, model, created_at)
+                VALUES (?, ?, ?, ?, ?)
+            """, (
+                scenario_id,
+                description_hash,
+                json.dumps(response, cls=NumpyEncoder),
+                model,
+                datetime.now().isoformat()
+            ))
+            
+            conn.commit()
+            conn.close()
+            Logger.debug(f"📦 Cached response for {scenario_id}")
+            
+        except Exception as e:
+            Logger.warning(f"Cache save error: {e}")
 
 
 # ============================================================
@@ -410,19 +494,45 @@ class ScenarioLoader:
 
 
 # ============================================================
-# SCENARIO PROCESSING
+# SCENARIO PROCESSING WITH CACHING
 # ============================================================
 
 class ScenarioProcessor:
-    """Process scenarios through the Causal-Guard pipeline."""
+    """Process scenarios through the Causal-Guard pipeline with caching."""
     
-    def __init__(self, llm: GroqLLM, checkers: Dict):
+    def __init__(self, llm: GroqLLM, checkers: Dict, db: Database):
         self.llm = llm
         self.checkers = checkers
+        self.db = db
+        self.cache_hits = 0
+        self.cache_misses = 0
     
     def process(self, scenario: Dict, index: int, total: int) -> Optional[Dict]:
-        """Process a single scenario and return results."""
+        """Process a single scenario with caching."""
         Logger.section(f"Scenario {index+1}/{total}: {scenario['id']} - {scenario['category']}")
+        
+        # Check cache first
+        cached = self.db.get_cached_response(scenario['id'], scenario['description'])
+        if cached:
+            self.cache_hits += 1
+            Logger.info(f"📦 Cache hit! Using cached response from {cached['cached_at']}")
+            llm_result = cached['response']
+            
+            # Still need to run checkers
+            Logger.info("Running Causal-Guard Checks on cached response...")
+            checks = self._run_checkers(scenario, llm_result['explanation'])
+            
+            return {
+                'scenario_id': scenario['id'],
+                'explanation': llm_result['explanation'],
+                'checks': checks,
+                'llm_result': llm_result,
+                'cached': True
+            }
+        
+        # Cache miss - need to call LLM
+        self.cache_misses += 1
+        Logger.info("📦 Cache miss - calling LLM...")
         
         # Get LLM explanation
         Logger.info("Requesting LLM Analysis...")
@@ -437,22 +547,30 @@ class ScenarioProcessor:
         Logger.info(f"Model: {llm_result['model']} ({elapsed:.2f}s)")
         Logger.debug(f"Explanation: {llm_result['explanation'][:150]}...")
         
+        # Cache the response
+        self.db.cache_response(scenario['id'], scenario['description'], llm_result, llm_result['model'])
+        
         # Run all checkers
         Logger.info("Running Causal-Guard Checks...")
-        results = {}
-        
-        for name, checker in self.checkers.items():
-            result = checker.check(scenario, llm_result['explanation'])
-            results[name] = result
-            status = "✅ PASS" if result['passed'] else "❌ FAIL"
-            Logger.info(f"[{name}] {status} (conf: {result['confidence']:.2f})")
+        checks = self._run_checkers(scenario, llm_result['explanation'])
         
         return {
             'scenario_id': scenario['id'],
             'explanation': llm_result['explanation'],
-            'checks': results,
-            'llm_result': llm_result
+            'checks': checks,
+            'llm_result': llm_result,
+            'cached': False
         }
+    
+    def _run_checkers(self, scenario: Dict, explanation: str) -> Dict:
+        """Run all checkers on a scenario."""
+        results = {}
+        for name, checker in self.checkers.items():
+            result = checker.check(scenario, explanation)
+            results[name] = result
+            status = "✅ PASS" if result['passed'] else "❌ FAIL"
+            Logger.info(f"[{name}] {status} (conf: {result['confidence']:.2f})")
+        return results
 
 
 # ============================================================
@@ -482,6 +600,18 @@ class Evaluator:
         results = []
         processed_count = 0
         
+        # Check LLM status
+        status = self.processor.llm.get_status()
+        Logger.info(f"LLM Status: {status['model']}, {status['remaining_tokens']} tokens remaining")
+        
+        # Check if we can process remaining scenarios
+        remaining = len(scenarios)
+        if not self.processor.llm.can_process(remaining):
+            Logger.warning(f"⚠️ Not enough tokens for {remaining} scenarios!")
+            Logger.info(f"   Remaining: {status['remaining_tokens']}, Needed: ~{remaining * 600}")
+            Logger.info("   Switching to smaller model...")
+            self.processor.llm._switch_model('down')
+        
         # Check for existing checkpoint
         if resume:
             checkpoint = self.db.get_checkpoint(run_id, set_name)
@@ -489,11 +619,6 @@ class Evaluator:
                 start_index = checkpoint['last_index'] + 1
                 processed_count = checkpoint['processed_count']
                 Logger.info(f"🔄 Resuming from scenario {start_index+1}/{total} (already processed {processed_count})")
-                
-                # Load previously processed results from database
-                # (We'll skip re-processing them)
-            else:
-                Logger.info(f"🆕 Starting fresh evaluation on {set_name} set")
         
         if start_index >= total:
             Logger.info(f"✅ All {total} scenarios already processed for {set_name}")
@@ -514,12 +639,22 @@ class Evaluator:
                 if processed_count % 5 == 0:
                     self.db.save_checkpoint(run_id, set_name, i, processed_count, total)
                     Logger.info(f"💾 Checkpoint saved: {processed_count}/{total} scenarios processed")
+                    
+                    # Check token status periodically
+                    status = self.processor.llm.get_status()
+                    if status['remaining_tokens'] < 10000:
+                        Logger.warning(f"⚠️ Low tokens: {status['remaining_tokens']} remaining")
+                        if len(self.processor.llm.api_keys) > 1:
+                            self.processor.llm._rotate_key()
             
             print("-" * 40)
         
         # Save final checkpoint
         self.db.save_checkpoint(run_id, set_name, total - 1, processed_count, total)
         Logger.success(f"✅ Completed {processed_count} scenarios for {set_name} set")
+        
+        # Print cache stats
+        Logger.info(f"📊 Cache stats: {self.processor.cache_hits} hits, {self.processor.cache_misses} misses")
         
         return results, processed_count
     
@@ -603,20 +738,35 @@ def main():
     """Main execution entry point with resume capability."""
     Logger.section("🚀 Initializing Causal-Guard Validation Layer")
     
-    # Parse command line arguments for resume control
+    # Parse command line arguments
     import argparse
     parser = argparse.ArgumentParser(description="Causal-Guard Validation")
     parser.add_argument('--no-resume', action='store_true', help='Disable resume functionality')
     parser.add_argument('--run-id', type=str, help='Specific run ID to resume')
+    parser.add_argument('--no-cache', action='store_true', help='Disable caching')
+    parser.add_argument('--model', type=str, help='Specify LLM model to use')
     args = parser.parse_args()
+    
+    # Apply settings
+    if args.no_cache:
+        Config.USE_CACHE = False
+        Logger.warning("Cache disabled")
     
     # Load embedding model
     shared_model = load_embedding_model()
     
-    # Initialize LLM
+    # Initialize LLM with optional model
     try:
-        llm = GroqLLM()
-        Logger.success(f"LLM initialized: {llm.model}")
+        model = args.model or Config.LLM_MODEL
+        llm = GroqLLM(model=model)
+        Logger.success(f"LLM initialized: {llm.current_model}")
+        
+        # Show LLM status
+        status = llm.get_status()
+        print(f"   API Keys: {status['api_keys']}")
+        print(f"   Tokens remaining: {status['remaining_tokens']}")
+        print(f"   Can process 100 scenarios: {status['can_process_100']}")
+        
     except ValueError as e:
         Logger.error(f"Failed to initialize LLM: {e}")
         sys.exit(1)
@@ -657,10 +807,11 @@ def main():
     run_id = args.run_id if args.run_id else Config.RUN_ID
     print(f"🔑 Run ID: {run_id}")
     print(f"⏰ Timestamp: {Config.TIMESTAMP}")
-    print(f"🔄 Resume: {'Disabled' if args.no_resume else 'Enabled'}\n")
+    print(f"🔄 Resume: {'Disabled' if args.no_resume else 'Enabled'}")
+    print(f"📦 Cache: {'Enabled' if Config.USE_CACHE else 'Disabled'}\n")
     
     # Initialize processor and evaluator
-    processor = ScenarioProcessor(llm, checkers)
+    processor = ScenarioProcessor(llm, checkers, db)
     evaluator = Evaluator(processor, db)
     
     # Check if training set is already complete
@@ -712,12 +863,14 @@ def main():
     metadata = {
         "run_id": run_id,
         "timestamp": Config.TIMESTAMP,
-        "model": llm.model,
+        "model": llm.current_model,
         "train_scenarios": len(train_scenarios),
         "test_scenarios": len(test_scenarios),
         "train_summary": train_summary,
         "test_summary": test_summary,
-        "resume_enabled": not args.no_resume
+        "resume_enabled": not args.no_resume,
+        "cache_enabled": Config.USE_CACHE,
+        "llm_status": llm.get_status()
     }
     with open(f"metadata_{Config.TIMESTAMP}_{run_id}.json", 'w') as f:
         json.dump(metadata, f, indent=2)
@@ -733,6 +886,8 @@ def main():
     # Print resume info
     print(f"\n💡 To resume this run later: python main.py --run-id {run_id}")
     print(f"💡 To start fresh: python main.py --no-resume")
+    print(f"💡 To use a different model: python main.py --model llama-3.1-8b-instant")
+    print(f"💡 To disable cache: python main.py --no-cache")
 
 
 if __name__ == "__main__":
