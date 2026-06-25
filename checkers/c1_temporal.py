@@ -1,113 +1,198 @@
-# checkers/c1_temporal.py - Enhanced version
+# checkers/c1_temporal.py
+
+import re
+from datetime import datetime
 
 class C1TemporalChecker:
+    def __init__(self):
+        self.name = "C₁ Temporal Precedence"
+    
     def check(self, scenario, explanation):
         """
-        Check if causes precede effects in time with ground truth comparison.
+        Check if causes precede effects in time.
+        Uses structured_output.temporal_sequence if available.
         """
-        # Get ground truth mechanism
-        gt_mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
-        
-        # Extract temporal sequence from explanation
-        llm_sequence = self._extract_temporal_sequence(explanation)
-        gt_sequence = self._extract_temporal_sequence_from_mechanism(gt_mechanism)
-        
-        if gt_sequence and llm_sequence:
-            # Check if LLM sequence matches ground truth order
-            match_score = self._compare_sequences(gt_sequence, llm_sequence)
-            accuracy = match_score
-            
-            # Also check temporal precedence within LLM's own sequence
-            violations = self._check_temporal_precedence(llm_sequence)
-            
-            passed = len(violations) == 0
-            confidence = 1.0 - (len(violations) * 0.3)
-            
-            return {
-                'checker': 'C1',
-                'passed': passed,
-                'confidence': round(confidence, 3),
-                'reason': f'No temporal violations (sequence match: {accuracy:.1%})' if passed else f'{len(violations)} violation(s)',
-                'details': {
-                    'violations': violations,
-                    'accuracy_vs_gt': accuracy,
-                    'gt_sequence': gt_sequence,
-                    'llm_sequence': llm_sequence,
-                    'match_score': accuracy
-                }
-            }
-        
-        # Fallback to original logic
-        return self._check_causal_claims(explanation_text, scenario)
-    
-    def _extract_temporal_sequence(self, explanation):
-        """Extract temporal sequence from structured output."""
+        # Extract structured data if available
         if isinstance(explanation, dict):
             structured = explanation.get('structured_output', {})
-            sequence = structured.get('temporal_sequence', [])
-            if sequence:
-                return sequence
+            temporal_sequence = structured.get('temporal_sequence', [])
+            explanation_text = explanation.get('explanation', '')
+        else:
+            structured = {}
+            temporal_sequence = []
+            explanation_text = explanation  # <-- FIX: explanation_text is now defined here
         
-        # Fallback: parse from text
-        return self._parse_temporal_events(str(explanation))
+        # Use structured temporal_sequence if available
+        if temporal_sequence:
+            violations = self._check_temporal_sequence(temporal_sequence)
+            used_structured = True
+        else:
+            # Fallback to parsing free text
+            violations = self._check_causal_claims(explanation_text, scenario)
+            used_structured = False
+        
+        confidence = 1.0 - (len(violations) * 0.3)
+        passed = len(violations) == 0
+        
+        # Also check accuracy vs ground truth if available
+        gt_mechanism = scenario.get('causal_ground_truth', {}).get('mechanism', '')
+        accuracy = None
+        if gt_mechanism:
+            gt_steps = self._extract_steps(gt_mechanism)
+            llm_steps = temporal_sequence if temporal_sequence else self._extract_steps(explanation_text)
+            if gt_steps and llm_steps:
+                accuracy = self._compare_sequences(gt_steps, llm_steps)
+        
+        return {
+            'checker': 'C1',
+            'passed': passed,
+            'confidence': round(max(0.0, confidence), 3),
+            'reason': 'All temporal relationships valid' if passed else f'{len(violations)} temporal violation(s)',
+            'details': {
+                'violations': violations,
+                'used_structured': used_structured,
+                'claims_found': len(violations) if not used_structured else len(temporal_sequence),
+                'accuracy_vs_gt': accuracy
+            }
+        }
     
-    def _extract_temporal_sequence_from_mechanism(self, mechanism):
-        """Extract events from mechanism string."""
-        if not mechanism:
-            return []
+    def _check_temporal_sequence(self, sequence):
+        """Validate structured temporal sequence"""
+        violations = []
+        if len(sequence) < 2:
+            return violations
         
-        steps = re.split(r' → | → |â†’ |â†’', mechanism)
+        for i in range(len(sequence) - 1):
+            event_a = sequence[i]
+            event_b = sequence[i + 1]
+            
+            # Extract times if present
+            time_a = self._extract_time(event_a)
+            time_b = self._extract_time(event_b)
+            
+            if time_a and time_b and time_a > time_b:
+                violations.append({
+                    'claim': f"{event_a} → {event_b}",
+                    'cause_time': time_a,
+                    'effect_time': time_b,
+                    'reason': f"Event order reversed"
+                })
+        return violations
+    
+    def _extract_time(self, text):
+        """Extract time from string like '6:42 PM: event'"""
+        match = re.search(r'(\d{1,2}):(\d{2})\s*(AM|PM)?', text)
+        if match:
+            hour = int(match.group(1))
+            minute = int(match.group(2))
+            meridian = match.group(3)
+            if meridian and meridian.upper() == 'PM' and hour < 12:
+                hour += 12
+            return hour * 60 + minute
+        return None
+    
+    def _check_causal_claims(self, text, scenario):
+        """Fallback: extract claims from free text"""
+        claims = self._extract_causal_claims(text)
+        timeline = self._build_timeline(scenario)
+        
+        violations = []
+        
+        for claim in claims:
+            cause_time = self._find_event_time(claim['cause'], timeline)
+            effect_time = self._find_event_time(claim['effect'], timeline)
+            
+            if cause_time and effect_time:
+                if cause_time >= effect_time:
+                    violations.append({
+                        'claim': f"{claim['cause']} → {claim['effect']}",
+                        'cause_time': cause_time,
+                        'effect_time': effect_time,
+                        'reason': f"Cause occurs after effect"
+                    })
+        
+        return violations
+    
+    def _extract_causal_claims(self, text):
+        """Extract cause-effect pairs using patterns"""
+        patterns = [
+            (r'(.+?)\s+caused\s+(.+)', 'caused'),
+            (r'(.+?)\s+led to\s+(.+)', 'led to'),
+            (r'(.+?)\s+resulted in\s+(.+)', 'resulted in'),
+            (r'due to\s+(.+?),\s+(.+)', 'due to'),
+        ]
+        
+        claims = []
+        for pattern, rel in patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            for match in matches:
+                claims.append({
+                    'cause': match[0].strip(),
+                    'effect': match[1].strip(),
+                    'relation': rel
+                })
+        return claims
+    
+    def _build_timeline(self, scenario):
+        """Build timeline of events from scenario context"""
+        timeline = {}
+        
+        # Get timeline from scenario if available
+        if 'context' in scenario and 'timeline' in scenario['context']:
+            for event in scenario['context']['timeline']:
+                timeline[event['event']] = event['time']
+        
+        # Also extract from description
+        desc = scenario.get('description', '')
+        time_pattern = r'(\d{1,2}):(\d{2})\s*(AM|PM)?'
+        matches = re.findall(time_pattern, desc)
+        
+        for i, match in enumerate(matches):
+            hour = int(match[0])
+            minute = int(match[1])
+            meridian = match[2] if len(match) > 2 else ''
+            
+            if meridian.upper() == 'PM' and hour < 12:
+                hour += 12
+            
+            time_str = f"{hour:02d}:{minute:02d}"
+            timeline[f'time_{i}'] = time_str
+        
+        return timeline
+    
+    def _find_event_time(self, text, timeline):
+        """Find if any timeline event is mentioned in text"""
+        text_lower = text.lower()
+        for event, time in timeline.items():
+            if event.lower() in text_lower:
+                return time
+        return None
+    
+    def _extract_steps(self, text):
+        """Extract steps from text for comparison"""
+        if not text:
+            return []
+        # Split by arrows or common separators
+        steps = re.split(r' → | → |â†’ |â†’|,', text)
         return [s.strip() for s in steps if s.strip()]
     
     def _compare_sequences(self, gt_seq, llm_seq):
-        """Compare two temporal sequences for order similarity."""
+        """Compare two sequences for order similarity"""
         if not gt_seq or not llm_seq:
             return 0.0
         
-        # Check if key events appear in the same order
+        # Check if key events appear in order
         matches = 0
-        for i, gt_event in enumerate(gt_seq):
-            # Find if this event appears in LLM sequence
-            for llm_event in llm_seq:
-                if self._semantic_match(gt_event, llm_event):
-                    matches += 1
-                    break
+        total = min(len(gt_seq), len(llm_seq))
         
-        # Also check order
-        order_score = self._check_order(gt_seq, llm_seq)
+        for i in range(total):
+            gt_event = gt_seq[i].lower()
+            llm_event = llm_seq[i].lower()
+            # Check if they share key words
+            gt_words = set(gt_event.split())
+            llm_words = set(llm_event.split())
+            common = gt_words & llm_words
+            if common:
+                matches += 1
         
-        # Combined score
-        return (matches / len(gt_seq) * 0.7) + (order_score * 0.3)
-    
-    def _semantic_match(self, text1, text2):
-        """Check semantic similarity between two texts."""
-        # Simple keyword overlap
-        words1 = set(text1.lower().split())
-        words2 = set(text2.lower().split())
-        overlap = len(words1 & words2)
-        total = len(words1 | words2)
-        return overlap / total > 0.3 if total > 0 else False
-    
-    def _check_order(self, gt_seq, llm_seq):
-        """Check if LLM sequence preserves ground truth order."""
-        gt_indices = {}
-        for i, event in enumerate(gt_seq):
-            gt_indices[event] = i
-        
-        llm_order = []
-        for event in llm_seq:
-            for gt_event in gt_indices:
-                if self._semantic_match(event, gt_event):
-                    llm_order.append(gt_indices[gt_event])
-                    break
-        
-        # Check if order is preserved
-        if len(llm_order) < 2:
-            return 0.0
-        
-        correct_order = 0
-        for i in range(len(llm_order) - 1):
-            if llm_order[i] < llm_order[i+1]:
-                correct_order += 1
-        
-        return correct_order / (len(llm_order) - 1)
+        return matches / total if total > 0 else 0.0
