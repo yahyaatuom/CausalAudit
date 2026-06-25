@@ -21,13 +21,13 @@ load_dotenv(env_path)
 class GroqLLM:
     """Groq LLM client with multi-key rotation and model switching."""
     
-    # Available models with their characteristics
+    
     MODELS = {
-        'high_quality': 'llama-3.3-70b-versatile',
-        'balanced': 'mixtral-8x7b-32768',
-        'fast': 'llama-3.1-8b-instant',
-        'gemma': 'gemma2-9b-it'
-    }
+    'high_quality': 'llama-3.3-70b-versatile',  # Still active
+    'balanced': 'llama-3.1-8b-instant',         # Active, fast
+    'fast': 'gemma2-9b-it',                      # Active, efficient
+    # 'mixtral-8x7b-32768' has been REMOVED - decommissioned
+}
     
     # Token estimates per scenario
     TOKEN_ESTIMATES = {
@@ -37,7 +37,7 @@ class GroqLLM:
         'gemma2-9b-it': 800
     }
     
-    def __init__(self, model="llama-3.3-70b-versatile", max_retries=3):
+    def __init__(self, model="llama-3.1-8b-versatile", max_retries=3):
         """
         Initialize Groq LLM client with multiple API keys.
         
