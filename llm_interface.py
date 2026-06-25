@@ -37,7 +37,7 @@ class GroqLLM:
         'gemma2-9b-it': 800
     }
     
-    def __init__(self, model="llama-3.1-8b-versatile", max_retries=3):
+    def __init__(self, model="llama-3.1-8b-instant", max_retries=3):
         """
         Initialize Groq LLM client with multiple API keys.
         
