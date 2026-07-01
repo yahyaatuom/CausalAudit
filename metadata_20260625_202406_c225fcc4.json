@@ -1,0 +1,48 @@
+{
+  "run_id": "c225fcc4",
+  "timestamp": "20260625_202406",
+  "model": "llama-3.1-8b-instant",
+  "train_scenarios": 156,
+  "test_scenarios": 39,
+  "train_summary": {
+    "set_name": "training",
+    "total": 154,
+    "pass_rates": {
+      "C1": 100.0,
+      "C2": 100.0,
+      "C3": 68.18181818181817,
+      "C4": 94.8051948051948,
+      "C5": 100.0
+    },
+    "accuracy": {
+      "C1": 20.12987012987013,
+      "C4": 0.0
+    }
+  },
+  "test_summary": {
+    "set_name": "test",
+    "total": 39,
+    "pass_rates": {
+      "C1": 100.0,
+      "C2": 100.0,
+      "C3": 69.23076923076923,
+      "C4": 92.3076923076923,
+      "C5": 100.0
+    },
+    "accuracy": {
+      "C1": 17.94871794871795,
+      "C4": 0.0
+    }
+  },
+  "resume_enabled": true,
+  "cache_enabled": true,
+  "llm_status": {
+    "model": "llama-3.1-8b-instant",
+    "api_keys": 1,
+    "current_key": 1,
+    "token_usage": 92026,
+    "daily_limit": 100000,
+    "remaining_tokens": 7974,
+    "can_process_100": false
+  }
+}
